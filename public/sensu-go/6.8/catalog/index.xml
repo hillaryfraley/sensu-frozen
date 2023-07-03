@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensu Catalog on Sensu Docs</title>
+    <link>/sensu-go/6.8/catalog/</link>
+    <description>Recent content in Sensu Catalog on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.8/catalog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure integrations in the Sensu Catalog</title>
+      <link>/sensu-go/6.8/catalog/sensu-catalog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/catalog/sensu-catalog/</guid>
+      <description>COMMERCIAL FEATURE: Access the web UI and the Sensu Catalog in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: The Sensu Catalog is in public preview and is subject to change.
+The Sensu Catalog is an online marketplace for monitoring and observability integrations, from standard system checks and metrics collection to pipelines for sending Sensu data to third-party logging, remediation, and incident management services.</description>
+    </item>
+    
+    <item>
+      <title>Build a private catalog of Sensu integrations</title>
+      <link>/sensu-go/6.8/catalog/build-private-catalog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/catalog/build-private-catalog/</guid>
+      <description>COMMERCIAL FEATURE: Access the Sensu Catalog and integrations in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: The Sensu Catalog is in public preview and is subject to change.
+The Sensu Catalog is a collection of Sensu integrations that provide reference implementations for effective monitoring and observability. The official Sensu Catalog is available in the web UI, but you can also create a private catalog of custom integrations and make it available to users in place of the official Sensu Catalog.</description>
+    </item>
+    
+    <item>
+      <title>Catalog integrations reference</title>
+      <link>/sensu-go/6.8/catalog/catalog-reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/catalog/catalog-reference/</guid>
+      <description>COMMERCIAL FEATURE: Access the Sensu Catalog and integrations in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: The Sensu Catalog is in public preview and is subject to change.
+The Sensu Catalog is a collection of Sensu integrations that provide reference implementations for effective observability. The contents of the official Sensu Catalog are periodically published with the Sensu Catalog API, which is hosted at https://catalog.</description>
+    </item>
+    
+    <item>
+      <title>Catalog API</title>
+      <link>/sensu-go/6.8/catalog/catalog-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/catalog/catalog-api/</guid>
+      <description>COMMERCIAL FEATURE: Access the Catalog API in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: The Sensu Catalog is in public preview and is subject to change.
+The Catalog API is a static API that the catalog-api command line tool generates from a repository of integrations, such as https://github.com/sensu/catalog. The Sensu web UI uses the generated API files to determine which integrations to display in the Sensu Catalog.</description>
+    </item>
+    
+  </channel>
+</rss>

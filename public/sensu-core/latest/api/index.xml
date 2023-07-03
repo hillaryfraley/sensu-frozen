@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on Sensu Docs</title>
+    <link>/sensu-core/latest/api/</link>
+    <description>Recent content in API on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-core/latest/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RESTful API Overview</title>
+      <link>/sensu-core/latest/api/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/overview/</guid>
+      <description>Sensu API The Sensu API provides access to monitoring data collected by Sensu, such as a client registry, check results, and event data. The API can be used to request adhoc check executions, and resolve events, among other things.
+RESTful JSON API The Sensu API is JSON-based RESTful API. Familiarity with (or willingness to Google) industry standard RESTful API behaviors – including HTTP response codes – are strongly recommended.
+Reference documentation Clients API Checks API Results API Aggregates API Events API Stashes API Health &amp;amp; Info API Settings API API configuration Response Content Filtering Sensu API endpoints that support the GET HTTP method support HTTP response content filtering on one or more Sensu attributes.</description>
+    </item>
+    
+    <item>
+      <title>Clients API</title>
+      <link>/sensu-core/latest/api/clients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/clients/</guid>
+      <description>Reference documentation The /clients API endpoint /clients (GET) /clients (POST) The /clients/:client API endpoint(s) /clients/:client (GET) /clients/:client (DELETE) The /clients/:client/history API endpoint(s) The /clients API Endpoint The /clients API endpoint provides HTTP GET and POST access to the Sensu client registry.
+/clients (GET) The /clients endpoint provides HTTP GET access to client registry data as published via client keepalives, generated for a proxy client, or created via HTTP POST to the /clients API.</description>
+    </item>
+    
+    <item>
+      <title>Checks API</title>
+      <link>/sensu-core/latest/api/checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/checks/</guid>
+      <description>Reference documentation The /checks API endpoint /checks (GET) The /checks/:check API endpoint(s) /checks/:check (GET) /checks/:check (DELETE) The /request API endpoint /request (POST) The /checks API endpoint /checks (GET) The /checks API endpoint provides HTTP GET access to subscription check data.
+NOTE: GET /checks responses do not include checks that are configured as standalone checks.
+EXAMPLE The following example demonstrates a request to the /checks API, resulting in a JSON Array of JSON Hashes containing subscription check definitions.</description>
+    </item>
+    
+    <item>
+      <title>Results API</title>
+      <link>/sensu-core/latest/api/results/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/results/</guid>
+      <description>Reference documentation The /results API endpoint /results (GET) /results (POST) The /results/:client API endpoint /results/:client (GET) The /results/:client/:check API endpoints /results/:client/:check (GET) /results/:client/:check (DELETE) The /results API endpoint The /results API endpoint provides HTTP GET and HTTP POST access to current check result data.
+/results (GET) The /results API endpoint provides HTTP GET access to fetch current check result data.
+EXAMPLES The following example demonstrates a /results API query which returns a JSON Array of JSON Hashes containing check results.</description>
+    </item>
+    
+    <item>
+      <title>Aggregates API</title>
+      <link>/sensu-core/latest/api/aggregates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/aggregates/</guid>
+      <description>Reference documentation The /aggregates API endpoint /aggregates (GET) The /aggregates/:name API endpoints /aggregates/:name (GET) /aggregates/:name (DELETE) The /aggregates/:name/clients API endpoint /aggregates/:name/clients (GET) The /aggregates/:name/checks API endpoint /aggregates/:name/checks (GET) The /aggregates/:name/results/:severity API endpoint /aggregates/:name/results/:severity (GET) The /aggregates API endpoint The /aggregates API endpoint provides HTTP GET access to named aggregate data.
+/aggregates (GET) EXAMPLES The following example demonstrates a /aggregates API query which results in a JSON Array of JSON Hashes containing named check aggregates.</description>
+    </item>
+    
+    <item>
+      <title>Events API</title>
+      <link>/sensu-core/latest/api/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/events/</guid>
+      <description>Reference documentation The /events API endpoint /events (GET) The /events/:client API endpoint /events/:client (GET) The /events/:client/:check API endpoints /events/:client/:check (GET) /events/:client/:check (DELETE) The /resolve API endpoint /resolve (POST) The /events API endpoint /events (GET) The /events API endpoint provide HTTP GET access to the Sensu event registry.
+EXAMPLES The following example demonstrates a /events API query which returns a JSON Array of JSON Hashes containing event data.
+$ curl -s http://localhost:4567/events | jq .</description>
+    </item>
+    
+    <item>
+      <title>Silenced API</title>
+      <link>/sensu-core/latest/api/silenced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/silenced/</guid>
+      <description>Reference documentation The /silenced API endpoints /silenced (GET) /silenced (POST) /silenced/ids/:id (GET) /silenced/clear (POST) /silenced/subscriptions/:subscription (GET) /silenced/checks/:check (GET) The /silenced API endpoints The Silence API provides endpoint HTTP POST and GET access to create, query and clear (delete) a silence entry via the Sensu API.
+/silenced (GET) Example: Querying for all silence entries $ curl -s -X GET http://localhost:4567/silenced |jq . [ { &amp;#34;expire&amp;#34;: 3530, &amp;#34;expire_on_resolve&amp;#34;: false, &amp;#34;begin&amp;#34;: null, &amp;#34;creator&amp;#34;: null, &amp;#34;reason&amp;#34;: null, &amp;#34;check&amp;#34;: &amp;#34;check_haproxy&amp;#34;, &amp;#34;subscription&amp;#34;: &amp;#34;load-balancer&amp;#34;, &amp;#34;id&amp;#34;: &amp;#34;load-balancer:check_haproxy&amp;#34; }, { &amp;#34;expire&amp;#34;: -1, &amp;#34;expire_on_resolve&amp;#34;: true, &amp;#34;begin&amp;#34;: null, &amp;#34;creator&amp;#34;: &amp;#34;sysop@example.</description>
+    </item>
+    
+    <item>
+      <title>Stashes API</title>
+      <link>/sensu-core/latest/api/stashes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/stashes/</guid>
+      <description>Reference documentation The /stashes API endpoints /stashes (GET) /stashes (POST) The /stashes/:path API endpoints /stashes/:path (GET) /stashes/:path (POST) /stashes/:path (DELETE) The /stashes API endpoints The /stashes API endpoint provides HTTP GET and HTTP POST access to Sensu stash data via the Sensu key/value store.
+/stashes (GET) EXAMPLES The following example demonstrates a /stashes query, which results in a JSON Array of JSON Hashes containing stash data.
+$ curl -s http://localhost:4567/stashes | jq .</description>
+    </item>
+    
+    <item>
+      <title>Health &amp; Info APIs</title>
+      <link>/sensu-core/latest/api/health-and-info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/health-and-info/</guid>
+      <description>Reference documentation How to obtain API status information The /health API endpoint /health (GET) The /info API endpoint /info (GET) How to obtain API status information The Sensu API provides two distinct endpoints for obtaining API status information: /health and /info. The Health API provides status information about the health of the API&amp;rsquo;s connections to the Sensu data store and transport. The Info API provides a report on the status of the API, including API version, the status of the API&amp;rsquo;s connections to the Sensu data store and transport, and the number of messages and consumers in various transport queues.</description>
+    </item>
+    
+    <item>
+      <title>Settings API</title>
+      <link>/sensu-core/latest/api/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/settings/</guid>
+      <description>Reference documentation The /settings API endpoint /settings (GET) The /settings API endpoint /settings (GET) The /settings API provides HTTP GET access to the APIs running configuration settings. Sensitive setting values are redacted by default, unless the URL query parameter redacted is set to false, e.g. /settings?redacted=false.
+EXAMPLE The following example demonstrates a request to the /settings API, resulting in a JSON Hash containing the APIs running configuration settings.
+$ curl -s http://127.</description>
+    </item>
+    
+    <item>
+      <title>API Configuration</title>
+      <link>/sensu-core/latest/api/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/api/configuration/</guid>
+      <description>Reference documentation API configuration Example API definition API definition specification API configuration Example API definition The following is an example API definition at /etc/sensu/conf.d/api.json.
+{ &amp;#34;api&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;57.43.53.22&amp;#34;, &amp;#34;bind&amp;#34;: &amp;#34;0.0.0.0&amp;#34;, &amp;#34;port&amp;#34;: 4567 } } API definition specification The API definition uses the &amp;quot;api&amp;quot;: {} definition scope.
+api attributes host description The hostname or IP address that is used when querying the API.NOTE: this attribute does not configure the address that the API binds to (that&amp;rsquo;s bind).</description>
+    </item>
+    
+  </channel>
+</rss>

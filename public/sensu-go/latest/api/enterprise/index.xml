@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enterprise APIs on Sensu Docs</title>
+    <link>/sensu-go/latest/api/enterprise/</link>
+    <description>Recent content in Enterprise APIs on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/latest/api/enterprise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>enterprise/authentication/v2</title>
+      <link>/sensu-go/latest/api/enterprise/authproviders/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/authproviders/</guid>
+      <description>COMMERCIAL FEATURE: Access authentication providers for single sign-on (SSO) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Requests to enterprise/authentication/v2 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get active authentication provider configurations The /authproviders API endpoint provides HTTP GET access to authentication provider configuration in Sensu.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/bsm/v1</title>
+      <link>/sensu-go/latest/api/enterprise/business-service-monitoring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/business-service-monitoring/</guid>
+      <description>COMMERCIAL FEATURE: Access business service monitoring (BSM) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Business service monitoring (BSM) is in public preview and is subject to change.
+Requests to enterprise/bsm/v1 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/federation/v1</title>
+      <link>/sensu-go/latest/api/enterprise/federation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/federation/</guid>
+      <description>COMMERCIAL FEATURE: Access federation in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Requests to enterprise/federation/v1 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all replicators The /etcd-replicators API endpoint provides HTTP GET access to a list of replicators.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/pipeline/v1</title>
+      <link>/sensu-go/latest/api/enterprise/pipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/pipeline/</guid>
+      <description>IMPORTANT: The enterprise/pipeline/v1 API endpoints do not allow you to create and manage pipelines, which are composed of observation event processing workflows. Instead, enterprise/pipeline/v1 API endpoints allow you to create and manage resources that can only be used within pipelines (the Sumo Logic metrics handlers and TCP stream handlers).
+COMMERCIAL FEATURE: Access enterprise/pipeline/v1 API endpoints in the packaged Sensu Go distribution. For more information, read Get started with commercial features.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/prune/v1alpha</title>
+      <link>/sensu-go/latest/api/enterprise/prune/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/prune/</guid>
+      <description>COMMERCIAL FEATURE: Access pruning via enterprise/prune/v1alpha API endpoints in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: The enterprise/prune/v1alpha API endpoints are an alpha feature and may include breaking changes.
+The pruning operation follows the role-based access control (RBAC) permissions of the current user. For example, to prune resources in the dev namespace, the current user who sends the prune command must have delete access to the dev namespace.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/searches/v1</title>
+      <link>/sensu-go/latest/api/enterprise/searches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/searches/</guid>
+      <description>COMMERCIAL FEATURE: Access saved searches in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Requests to enterprise/searches/v1 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all searches The /searches API endpoint provides HTTP GET access to the list of saved searches.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/secrets/v1</title>
+      <link>/sensu-go/latest/api/enterprise/secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/secrets/</guid>
+      <description>COMMERCIAL FEATURE: Access secrets management in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Requests to enterprise/secrets/v1 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all secrets providers The /providers API endpoint provides HTTP GET access to a list of secrets providers.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/store/v1</title>
+      <link>/sensu-go/latest/api/enterprise/datastore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/datastore/</guid>
+      <description>COMMERCIAL FEATURE: Access the datastore feature in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Requests to enterprise/store/v1 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all datastore providers The /provider API endpoint provides HTTP GET access to Sensu datastore data.</description>
+    </item>
+    
+    <item>
+      <title>enterprise/web/v1</title>
+      <link>/sensu-go/latest/api/enterprise/webconfig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/api/enterprise/webconfig/</guid>
+      <description>COMMERCIAL FEATURE: Access web UI configuration in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Requests to enterprise/web/v1 API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get the web UI configuration The /config API endpoint provides HTTP GET access to the global web UI configuration.</description>
+    </item>
+    
+  </channel>
+</rss>

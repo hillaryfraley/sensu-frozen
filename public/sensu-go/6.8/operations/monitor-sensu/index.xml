@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitor Sensu on Sensu Docs</title>
+    <link>/sensu-go/6.8/operations/monitor-sensu/</link>
+    <description>Recent content in Monitor Sensu on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.8/operations/monitor-sensu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log Sensu services with systemd</title>
+      <link>/sensu-go/6.8/operations/monitor-sensu/log-sensu-systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/operations/monitor-sensu/log-sensu-systemd/</guid>
+      <description>By default, systems where systemd is the service manager do not write logs to /var/log/sensu/ for the sensu-agent and the sensu-backend services. This guide explains how to add log forwarding from journald to syslog, have rsyslog write logging data to disk, and set up log rotation of the newly created log files.
+Requirements To follow this guide, install the Sensu backend and make sure at least one Sensu agent is running.</description>
+    </item>
+    
+    <item>
+      <title>Monitor Sensu with Sensu</title>
+      <link>/sensu-go/6.8/operations/monitor-sensu/monitor-sensu-with-sensu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/operations/monitor-sensu/monitor-sensu-with-sensu/</guid>
+      <description>This guide describes best practices and strategies for monitoring the Sensu backend with another Sensu backend or cluster.
+To completely monitor Sensu (a Sensu backend with internal etcd and an agent), you will need at least one independent Sensu instance in addition to the primary instance you want to monitor. The second Sensu instance will ensure that you are notified when the primary is down and vice versa.
+This guide requires Sensu plugins using dynamic runtime assets.</description>
+    </item>
+    
+    <item>
+      <title>Health reference</title>
+      <link>/sensu-go/6.8/operations/monitor-sensu/health/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/operations/monitor-sensu/health/</guid>
+      <description>Use Sensu&amp;rsquo;s /health API to make sure your backend is up and running and check the health of your etcd cluster members and PostgreSQL datastore resources.
+A request to the /health API endpoint retrieves a JSON map with health data for your Sensu instance. Here&amp;rsquo;s an example request to the health endpoint:
+curl -X GET \ http://127.0.0.1:8080/health Healthy cluster example In this example, all cluster members are healthy.
+{ &amp;#34;Alarms&amp;#34;: null, &amp;#34;ClusterHealth&amp;#34;: [ { &amp;#34;MemberID&amp;#34;: 9861478486968594000, &amp;#34;MemberIDHex&amp;#34;: &amp;#34;88db026f7feb72b4&amp;#34;, &amp;#34;Name&amp;#34;: &amp;#34;backend01&amp;#34;, &amp;#34;Err&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;Healthy&amp;#34;: true }, { &amp;#34;MemberID&amp;#34;: 16828500076473182000, &amp;#34;MemberIDHex&amp;#34;: &amp;#34;e98ad7a888d16bd6&amp;#34;, &amp;#34;Name&amp;#34;: &amp;#34;backend02&amp;#34;, &amp;#34;Err&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;Healthy&amp;#34;: true }, { &amp;#34;MemberID&amp;#34;: 848052855499371400, &amp;#34;MemberIDHex&amp;#34;: &amp;#34;bc4e39432cbb36d&amp;#34;, &amp;#34;Name&amp;#34;: &amp;#34;backend03&amp;#34;, &amp;#34;Err&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;Healthy&amp;#34;: true } ], &amp;#34;Header&amp;#34;: { &amp;#34;cluster_id&amp;#34;: 17701109828877156000, &amp;#34;member_id&amp;#34;: 16828500076473182000, &amp;#34;raft_term&amp;#34;: 42 } }, &amp;#34;PostgresHealth&amp;#34;: [ { &amp;#34;Name&amp;#34;: &amp;#34;my-first-postgres&amp;#34;, &amp;#34;Active&amp;#34;: true, &amp;#34;Healthy&amp;#34;: true }, { &amp;#34;Name&amp;#34;: &amp;#34;my-other-postgres&amp;#34;, &amp;#34;Active&amp;#34;: false, &amp;#34;Healthy&amp;#34;: false } ] } Unhealthy cluster member example In this example, one cluster member is unhealthy: it cannot communicate with the other cluster members.</description>
+    </item>
+    
+    <item>
+      <title>Ready reference</title>
+      <link>/sensu-go/6.8/operations/monitor-sensu/ready/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/operations/monitor-sensu/ready/</guid>
+      <description>Use Sensu&amp;rsquo;s /ready API endpoint to confirm whether a Sensu instance is ready to serve API requests and accept agent connections.
+A request to the /ready backend API endpoint retrieves a text response with information about whether your Sensu instance is ready to serve API requests. Here&amp;rsquo;s an example request to the /ready API endpoint:
+curl -X GET \ http://127.0.0.1:8080/ready A request to the /ready agent transport API endpoint via the backend WebSocket retrieves information about whether your Sensu instance is ready to accept agent connections.</description>
+    </item>
+    
+    <item>
+      <title>Tessen reference</title>
+      <link>/sensu-go/6.8/operations/monitor-sensu/tessen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/operations/monitor-sensu/tessen/</guid>
+      <description>Tessen is the Sensu call-home service. It is enabled by default on Sensu backends. Tessen sends anonymized data about Sensu instances to Sensu Inc., including the version, cluster size, number of events processed, and number of resources created (like checks and handlers). We rely on Tessen data to understand how Sensu is being used and make informed decisions about product improvements. Read Announcing Tessen, the Sensu call-home service to learn more about Tessen.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,60 @@
+#toc {
+  ul ul {
+    margin-left: 2rem;
+  }
+}
+
+aside#toc {
+  padding: 3rem 0 9rem 1rem;
+  position: sticky;
+  top: 8rem;
+
+  a::before {
+    border-bottom: 4px solid transparent;
+    border-left-color: $green;
+    border-left-style: solid;
+    border-left-width: 0;
+    border-top: 4px solid transparent;
+    content: '';
+    display: block;
+    left: -1.25rem;
+    position: absolute;
+    top: 6px;
+    transition: border 0.3s;
+  }
+
+  code {
+    padding: 0;
+  }
+
+  li {
+    display: block;
+    font-size: 1.4rem;
+    padding-left: 1.6rem;
+    position: relative;
+
+    &.active > a {
+      color: $green;
+    }
+
+    &.active a::before {
+      border-left-width: 6px;
+    }
+
+    &.active ~ li > a {
+      color: inherit;
+    }
+
+    &.active ~ li > a::before {
+      border-left-width: 0;
+    }
+
+    &.h3 {
+      padding-left: 3.2rem;
+    }
+  }
+
+  ul ul {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Process your observation data on Sensu Docs</title>
+    <link>/sensu-go/6.8/observability-pipeline/observe-process/</link>
+    <description>Recent content in Process your observation data on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.8/observability-pipeline/observe-process/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Handlers reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/handlers/</guid>
+      <description>Sensu executes handlers during the process stage of the observability pipeline.
+Handlers are actions the Sensu backend executes on events. Several types of handlers are available. The most common are pipe handlers, which work similarly to checks and enable Sensu to interact with almost any computer program via standard streams.
+Pipe handlers send observation data (events) into arbitrary commands via stdin TCP/UDP handlers send observation data (events) to a remote socket Handler sets group event handlers and streamline groups of actions to execute for certain types of events (also called &amp;ldquo;set handlers&amp;rdquo;) The handler stack concept describes a group of handlers or a handler set that escalates events through a series of different handlers.</description>
+    </item>
+    
+    <item>
+      <title>Pipelines reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/pipelines/</guid>
+      <description>IMPORTANT: The pipelines described on this page are different from the resources you can create and manage with the enterprise/pipeline/v1 API. The enterprise/pipeline/v1 API allows you to create and manage resources that can only be used in pipelines rather than pipelines themselves.
+Read the Sumo Logic metrics handlers reference and TCP stream handlers reference for more information about enterprise pipeline resources.
+Sensu executes pipelines during the process stage of the observability pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Silencing reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/silencing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/silencing/</guid>
+      <description>Sensu&amp;rsquo;s silencing capability allows you to suppress event handler execution on an ad hoc basis so you can plan maintenance and reduce alert fatigue. Silences are created on an ad hoc basis using sensuctl, the web UI, and the core/v2/silenced API endpoints.
+Successfully created silencing entries are assigned a name in the format $SUBSCRIPTION:$CHECK, where $SUBSCRIPTION is the name of a Sensu entity subscription and $CHECK is the name of a Sensu check.</description>
+    </item>
+    
+    <item>
+      <title>Sumo Logic metrics handlers reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/sumo-logic-metrics-handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/sumo-logic-metrics-handlers/</guid>
+      <description>COMMERCIAL FEATURE: Access Sumo Logic metrics handlers in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu executes Sumo Logic metrics handlers during the process stage of the observability pipeline.
+Sumo Logic metrics handlers provide a persistent connection to transmit Sensu observability metrics to a Sumo Logic HTTP Logs and Metrics Source, which helps prevent the data bottlenecks you may experience with traditional handlers.</description>
+    </item>
+    
+    <item>
+      <title>TCP stream handlers reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/tcp-stream-handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/tcp-stream-handlers/</guid>
+      <description>COMMERCIAL FEATURE: Access TCP stream handlers in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu executes TCP stream handlers during the process stage of the observability pipeline.
+Like traditional TCP handlers, TCP stream handlers send observability event data to TCP sockets for external services to consume. However, TCP stream handlers can help prevent the data bottlenecks you may experience with traditional TCP handlers.</description>
+    </item>
+    
+    <item>
+      <title>Aggregate metrics with the Sensu StatsD listener</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/aggregate-metrics-statsd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/aggregate-metrics-statsd/</guid>
+      <description>Sensu implements a StatsD listener on its agents. StatsD is a daemon, tool, and protocol that you can use to send, collect, and aggregate custom metrics.
+With StatsD, you can measure anything and everything. Collect custom metrics in your code and send them to a StatsD server to monitor applicaton performance. Monitor CPU, I/O, and network system levels with collection daemons. You can feed the metrics that StatsD aggregates to multiple different backends to store or visualize the data.</description>
+    </item>
+    
+    <item>
+      <title>Create handler templates</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/handler-templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/handler-templates/</guid>
+      <description>Sensu Go uses the Go template package, which allows you to generate text output that includes observation data from events. Sensu handler templates include HTML-formatted text and data derived from event attributes like event.entity.name and event.check.output. This allows you to add meaningful, actionable context to alerts.
+For example, a template for a brief Slack alert might include information about the affected entity and its status, as well as a link to the organization&amp;rsquo;s playbook for resolving observability alerts:</description>
+    </item>
+    
+    <item>
+      <title>Plan maintenance windows with silencing</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/plan-maintenance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/plan-maintenance/</guid>
+      <description>As the Sensu backend processes check results, the server executes handlers to send alerts or otherwise relay observation events and metrics data to external services. Sensu’s built-in silencing capability allows you to suppress event handler execution as needed. This feature is useful when you&amp;rsquo;re planning maintenance.
+You can configure silences to prevent handlers from taking actions based on check name, entity subscription, entity name, or a combination of these factors. In this guide, you&amp;rsquo;ll create a silenced entry for a specific entity and its associated check to prevent alerts and create a time window for maintenance.</description>
+    </item>
+    
+    <item>
+      <title>Populate metrics in InfluxDB with handlers</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/populate-metrics-influxdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/populate-metrics-influxdb/</guid>
+      <description>PRO TIP: You can use the InfluxDB Metrics integration in the Sensu Catalog to send Sensu event data to InfluxDB instead of following this guide. Follow the Catalog prompts to configure the Sensu resources you need and start processing your observability data with a few clicks.
+A Sensu event handler is an action the Sensu backend executes when a specific event occurs. In this guide, you&amp;rsquo;ll use a handler to populate the time-series database InfluxDB with Sensu observability event data.</description>
+    </item>
+    
+    <item>
+      <title>Send data to Sumo Logic with Sensu</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/send-data-sumo-logic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/send-data-sumo-logic/</guid>
+      <description>PRO TIP: You can use the Sumo Logic Analytics integration in the Sensu Catalog to send Sensu event data to Sumo Logic instead of following this guide. Follow the Catalog prompts to configure the Sensu resources you need and start processing your observability data with a few clicks.
+Follow this guide to create a pipeline that sends data from a Sensu check to Sumo Logic for long-term logs and metrics storage.</description>
+    </item>
+    
+    <item>
+      <title>Send email alerts with a pipeline</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/send-email-alerts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/send-email-alerts/</guid>
+      <description>PRO TIP: You can use the Email Alerts integration in the Sensu Catalog to send email alerts based on Sensu event data instead of following this guide. Follow the Catalog prompts to configure the Sensu resources you need and start processing your observability data with a few clicks.
+Pipelines are Sensu resources composed of observation event processing workflows that include filters, mutators, and handlers. You can use pipelines to send email alerts, create or resolve incidents (in PagerDuty, for example), or store metrics in a time-series database like InfluxDB.</description>
+    </item>
+    
+    <item>
+      <title>Send PagerDuty alerts with Sensu</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/send-pagerduty-alerts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/send-pagerduty-alerts/</guid>
+      <description>PRO TIP: You can use the PagerDuty integration in the Sensu Catalog to send alerts based on Sensu event data instead of following this guide. Follow the Catalog prompts to configure the Sensu resources you need and start processing your observability data with a few clicks.
+Follow this guide to create a pipeline that sends incident alerts to PagerDuty and add the pipeline to a check named check_cpu. Sensu checks are commands the Sensu agent executes that generate observability data in a status or metric event.</description>
+    </item>
+    
+    <item>
+      <title>Send Slack alerts with a pipeline</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-process/send-slack-alerts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-process/send-slack-alerts/</guid>
+      <description>PRO TIP: You can use the Slack Alerts integration in the Sensu Catalog to send Slack alerts based on Sensu event data instead of following this guide. Follow the Catalog prompts to configure the Sensu resources you need and start processing your observability data with a few clicks.
+Pipelines are Sensu resources composed of observation event processing workflows that include filters, mutators, and handlers. You can use pipelines to send email alerts, create or resolve incidents (in PagerDuty, for example), or store metrics in a time-series database like InfluxDB.</description>
+    </item>
+    
+  </channel>
+</rss>

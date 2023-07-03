@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Configuration - Sensu Docs</title>
+    <meta name="generator" content="Hugo 0.101.0" />
+
+    
+    <meta name="description" content="The Sensu Enterprise dashboard uses two configuration scopes to provide connection details for one or more Sensu API endpoints and to configure the behavior of the dashboard itself.">
+    
+    <link rel="canonical" href="/sensu-enterprise-dashboard/latest/configuration/">
+    
+
+    
+      <meta name="docsearch:version" content="2.16" />
+    
+
+    
+    <meta name="robots" content="noindex">
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="/sensu-enterprise-dashboard/latest/configuration/">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="Configuration | Sensu Enterprise Dashboard 2.16">
+    <meta property="og:image" content="/images/sensu-logo-icon-dark@128px.png">
+    <meta name="apple-mobile-web-app-title" content="Sensu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="/javascripts/application.js"></script>
+
+
+  
+  
+
+
+<header>
+  <nav aria-label="Header" id="navbar">
+    <label id="hamburger" for="toggle-drawer"></label>
+
+    <a class="logo" href="/">Sensu Docs</a>
+    
+    
+      <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Enterprise Dashboard<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      2.16
+      (latest)&nbsp;
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+        
+          
+        
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-enterprise-dashboard/2.16/configuration/">
+          
+            2.16 (latest)
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <input id="desktop-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+  </nav>
+
+  
+    
+<div id="alerts">
+  
+  
+  
+
+  
+
+  
+
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    
+    alertElement = "<div class='alert' style='background-color: #b7312e'>";
+    
+      alertElement += "<a href='https:\/\/docs.sensu.io\/sensu-go\/latest\/operations\/maintain-sensu\/migrate\/'>Sensu Enterprise Dashboard reached end-of-life (EOL) on March 31, 2020, and we removed the EOL repository on February 1, 2021. Click here to start your migration to Sensu Go.</a>";
+    
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    
+    $("#alerts").append(alertElement);
+  });
+</script>
+
+  
+</div>
+
+    <div id="alerts">
+  
+  
+  
+</div>
+
+  
+
+</header>
+
+
+<main class="main">
+  <input class="hidden" type="checkbox" id="toggle-drawer" autocomplete="off">
+<label id="backdrop" for="toggle-drawer"></label>
+<aside class="drawer">
+  <div class="drawer--inner">
+    
+    <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Enterprise Dashboard<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      2.16
+      (latest)&nbsp;
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-enterprise-dashboard/2.16/configuration/">
+          
+            2.16 (latest)
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    <input id="mobile-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+    <nav>
+      
+        <ul>
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+          
+
+          
+          
+          
+          <li><a class="strong" href="/sensu-enterprise-dashboard/2.16">Sensu Enterprise Dashboard</a><ul>
+
+          
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-enterprise-dashboard/latest/changelog/">CHANGELOG</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-enterprise-dashboard/latest/api/">
+                    
+                      API
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/overview/">Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/aggregates/">Aggregates API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/checks/">Checks API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/clients/">Clients API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/config/">Configuration API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/datacenters/">Datacenters API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/events/">Events API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/health/">Health API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/results/">Results API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/silenced/">Silenced API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/stashes/">Stashes API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/api/subscriptions/">Subscriptions API</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-enterprise-dashboard/latest/rbac/">
+                    
+                      RBAC
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/rbac/overview/">Role Based Access Controls</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/rbac/rbac-for-ldap/">RBAC for LDAP</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/rbac/rbac-for-github/">RBAC for GitHub</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/rbac/rbac-for-oidc/">RBAC for OpenID Connect</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/rbac/rbac-for-gitlab/">RBAC for GitLab</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-enterprise-dashboard/latest/rbac/audit-logging/">Audit Logging</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-enterprise-dashboard/latest/configuration/">Configuration</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-enterprise-dashboard/latest/hud/">Heads-Up Display</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-enterprise-dashboard/latest/collections/">Collections</a></li>
+              
+            
+          
+          </ul></li>
+        
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>
+</ul>
+      
+      <hr>
+      <div class="drawer--footer">
+        <iframe src="https://ghbtns.com/github-btn.html?user=sensu&repo=sensu-docs&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20"></iframe>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/issues/new?title=Docs%20Feedback&body=%3C!--Thanks%20for%20submitting%20feedback%20to%20the%20Sensu%20docs!--%3E%0A%0ALink%20to%20page%3A%20%0A%0A%23%23%23%20Feedback">Open a docs issue</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-enterprise-dashboard/6.9/configuration.md">Edit this page</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md">Read the contributing guide</a>
+        
+        
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>Configuration </h1>
+
+      
+        
+
+
+
+      
+      <ul>
+<li><a href="#dashboard-configuration">Dashboard configuration</a>
+<ul>
+<li><a href="#example-dashboard-configuration">Example configuration</a></li>
+<li><a href="#configuring-multiple-users">Configuring multiple users</a></li>
+<li><a href="#encrypting-passwords">Encrypting passwords</a></li>
+</ul>
+</li>
+<li><a href="#dashboard-definition-specification">Dashboard definition specification</a>
+<ul>
+<li><a href="#sensu-attributes"><code>sensu</code> attributes</a></li>
+<li><a href="#dashboard-attributes"><code>dashboard</code> attributes</a>
+<ul>
+<li><a href="#auth-attributes"><code>auth</code> attributes</a></li>
+<li><a href="#audit-attributes"><code>audit</code> attributes</a></li>
+<li><a href="#github-attributes"><code>github</code> attributes</a></li>
+<li><a href="#gitlab-attributes"><code>gitlab</code> attributes</a></li>
+<li><a href="#ldap-attributes"><code>ldap</code> attributes</a></li>
+<li><a href="#oidc-attributes"><code>oidc</code> attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="dashboard-configuration">Dashboard configuration</h2>
+<h3 id="example-dashboard-configuration">Example dashboard configuration</h3>
+<p>The following is the bare minimum that should be included in your Sensu
+Enterprise Dashboard configuration.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sensu&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;sensu-server-1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;api1.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">4567</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;dashboard&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3000</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p><em>NOTE: the Sensu Enterprise Dashboard requires two configuration scopes: <code>sensu</code>
+and <code>dashboard</code> (see <a href="#dashboard-definition-specification">Dashboard definition specification</a>, below).</em></p>
+<p>For a more advanced configuration making use of RBAC and SSL, consider the example below:</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sensu&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Sensu Deployment 1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;localhost&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">4567</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Sensu Deployment 2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;10.0.1.10&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">4567</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;dashboard&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;sensu_user_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;{crypt}EXAMPLEPASSFORUSER1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;sensu_user_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;{crypt}EXAMPLEPASSFORUSER2&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ssl&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;certfile&#34;</span><span class="p">:</span> <span class="s2">&#34;/etc/sensu/ssl/cert.pem&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;keyfile&#34;</span><span class="p">:</span> <span class="s2">&#34;/etc/sensu/ssl/key.pem&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ciphersuite&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_RSA_WITH_AES_128_GCM_SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_RSA_WITH_AES_256_GCM_SHA384&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_RSA_WITH_AES_128_CBC_SHA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;TLS_RSA_WITH_AES_256_CBC_SHA&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;tlsminversion&#34;</span><span class="p">:</span> <span class="s2">&#34;tls12&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;usersOptions&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dateFormat&#34;</span><span class="p">:</span> <span class="s2">&#34;YYYY-MM-DD HH:mm:ss&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;defaultTheme&#34;</span><span class="p">:</span> <span class="s2">&#34;uchiwa-default&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;disableNoExpiration&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;favicon&#34;</span><span class="p">:</span> <span class="s2">&#34;/etc/sensu/favicon.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;logoURL&#34;</span><span class="p">:</span> <span class="s2">&#34;/etc/sensu/logo.jpg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;requireSilencingReason&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;silenceDurations&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;github&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;clientId&#34;</span><span class="p">:</span> <span class="s2">&#34;GITHUBCLIENTID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;clientSecret&#34;</span><span class="p">:</span> <span class="s2">&#34;GITHUBCLIENTSECRET&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;server&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;roles&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;members&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">             <span class="s2">&#34;my-github-org/admins&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;datacenters&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;readonly&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;accessToken&#34;</span><span class="p">:</span> <span class="s2">&#34;MYACCESSTOKEN&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p>This example makes use of the following:</p>
+<ul>
+<li>Multiple Sensu datacenters</li>
+<li>Local users (for fallback in the event Github cannot be reached)</li>
+<li>SSL (a full list of supperted ciphers can be found <a href="https://golang.org/pkg/crypto/tls/#pkg-constants">here</a>)</li>
+<li>Default options (which you can view under the <a href="/uchiwa/latest/getting-started/configuration/#users-options">Uchiwa docmentation</a>)</li>
+<li>RBAC via <a href="../rbac/rbac-for-github">Github</a></li>
+</ul>
+<p><em>NOTE: Local users can only be used for fallback with Github, Gitlab, and OIDC RBAC providers. It is not possible to have a local fallback with LDAP.</em></p>
+<h3 id="configuring-multiple-users">Configuring multiple users</h3>
+<p>You can define multiple users, including read-only users, within your
+users attribute. The <strong>users</strong> attribute has precedence over the <strong>user</strong> attribute.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sensu&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;sensu-server-1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;api1.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">4567</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;dashboard&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;username&#34;</span> <span class="p">:</span> <span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;secret&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;accessToken&#34;</span><span class="p">:</span> <span class="s2">&#34;vFzX6rFDAn3G9ieuZ4ZhN-XrfdRow4Hd5CXXOUZ5NsTw4h3k3l4jAw__&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;readonly&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;username&#34;</span> <span class="p">:</span> <span class="s2">&#34;guest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;secret&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;accessToken&#34;</span><span class="p">:</span> <span class="s2">&#34;hrKMW3uIt2RGxuMIoXQ-bVp-TL1MP4St5Hap3KAanMxI3OovFV48ww__&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;readonly&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>true</td>
+<td>string</td>
+<td>Username of the user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>true</td>
+<td>string</td>
+<td>Password of the user. Also see the <a href="#encrypting-passwords">encrypting passwords documentation</a>.</td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td>false</td>
+<td>string</td>
+<td>A unique and secure token to interact with the Sensu Enterprise Dashboard API as the related user. Remember to keep your access tokens secret. Must only contain friendly URL characters. See <a href="../api/overview">API authentication</a>.</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>false</td>
+<td>boolean</td>
+<td>Restrict write access to the dashboard (create stashes, delete clients, etc.). The default value is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="encrypting-passwords">Encrypting passwords</h3>
+<p>You can place hashed passwords in the <em>password</em>
+attributes, but only within the <strong>dashboard</strong> object, in order to obfuscate
+users passwords in your configuration files.</p>
+<p>Please note that you must <strong>absolutely</strong> use the <code>{crypt}</code> prefix when using an encrypted
+password. For example:
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;password&#34;</span>: <span class="s2">&#34;{crypt}</span><span class="nv">$1$MteWnoFT$yhEi8KMxO794K0TIriZcI0</span><span class="s2">&#34;</span></span></span></code></pre></div>
+</div>
+
+</p>
+<p>The following algorithms are supported (along with the commands to create the hashes):</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APR1</td>
+<td><code>openssl passwd -apr1 MY_PASSWORD</code></td>
+</tr>
+<tr>
+<td>MD5</td>
+<td><code>mkpasswd --method=MD5 MY_PASSWORD</code></td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td><code>mkpasswd --method=SHA-256 MY_PASSWORD</code></td>
+</tr>
+<tr>
+<td>SHA-512</td>
+<td><code>mkpasswd --method=SHA-512 MY_PASSWORD</code></td>
+</tr>
+</tbody>
+</table>
+<p>Alternatively, you could use the [Passlib hashing library for Python 2 &amp; 3]
+(<a href="https://passlib.readthedocs.io/en/stable/)">https://passlib.readthedocs.io/en/stable/)</a>.</p>
+<h2 id="dashboard-definition-specification">Dashboard definition specification</h2>
+<p>The Sensu Enterprise dashboard uses two <a href="#configuration-scopes">configuration scopes</a>: the
+<code>{ &quot;sensu&quot;: {} }</code> configuration scope provides connection details for one or
+more Sensu API endpoints (i.e. <a href="../#what-is-a-sensu-datacenter">datacenters</a>, and the <code>{ &quot;dashboard&quot;: {} }</code>
+configuration scope is used to configure the behavior of the dashboard itself.</p>
+<p><em>NOTE: by default, the Sensu Enterprise Dashboard will load configuration from
+<code>/etc/sensu/dashboard.json</code> and/or from JSON configuration files located in
+<code>/etc/sensu/dashboard.d/**.json</code>, with the same configuration merging behavior
+as described <a href="/sensu-core/latest/reference/configuration/#configuration-merging">here</a>.</em></p>
+<h3 id="sensu-attributes"><code>sensu</code> attributes</h3>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The name of the Sensu API (used elsewhere as the <code>datacenter</code> name).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>randomly generated</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;us-west-1&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>host</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The hostname or IP address of the Sensu API.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;host&#34;</span>: <span class="s2">&#34;127.0.0.1&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>port</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The port of the Sensu API.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td>4567</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;port&#34;</span>: <span class="m">4567</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ssl</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Determines whether or not to use the HTTPS protocol.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td>false</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;ssl&#34;</span>: true</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>insecure</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Determines whether or not to accept an insecure SSL certificate.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td>false</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;insecure&#34;</span>: true</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>path</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The path of the Sensu API. Leave empty unless your Sensu API is not mounted to <code>/</code>.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;path&#34;</span>: <span class="s2">&#34;/my_api&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>timeout</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The timeout for the Sensu API, in seconds.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td>5</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;timeout&#34;</span>: <span class="m">15</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>user</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The username of the Sensu API. Leave empty for no authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;user&#34;</span>: <span class="s2">&#34;my_sensu_api_username&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>pass</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The password of the Sensu API. Leave empty for no authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;pass&#34;</span>: <span class="s2">&#34;my_sensu_api_password&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dashboard-attributes"><code>dashboard</code> attributes</h3>
+<table>
+<thead>
+<tr>
+<th>host</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The hostname or IP address on which Sensu Enterprise Dashboard will listen on.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>&ldquo;0.0.0.0&rdquo;</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;host&#34;</span>: <span class="s2">&#34;1.2.3.4&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>port</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The port on which Sensu Enterprise Dashboard and Console API will listen on.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;port&#34;</span>: <span class="m">3000</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>refresh</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Determines the interval to poll the Sensu APIs, in seconds.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td>5</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;refresh&#34;</span>: <span class="m">5</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ssl</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>A hash of SSL configuration for native SSL support.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;ssl&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;certfile&#34;</span>: <span class="s2">&#34;/path/to/dashboard.pem&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;keyfile&#34;</span>: <span class="s2">&#34;/path/to/dashboard.key&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ciphersuite&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_RSA_WITH_AES_128_GCM_SHA256&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_RSA_WITH_AES_128_CBC_SHA&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;TLS_RSA_WITH_AES_256_CBC_SHA&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;tlsminversion&#34;</span>: <span class="s2">&#34;tls10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>user</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>A username to enable simple authentication and restrict access to the dashboard. Leave blank along with <code>pass</code> to disable simple authentication. You can also configure multiple users with the <a href="#configuring-multiple-users"><code>users</code> attribute</a>.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;user&#34;</span>: <span class="s2">&#34;admin&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>pass</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>A password to enable simple authentication and restrict access to the dashboard. Leave blank along with <code>user</code> to disable simple authentication. Sensu also supports <a href="#encrypting-passwords">encrypted passwords</a>.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;pass&#34;</span>: <span class="s2">&#34;secret&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>auth</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#auth-attributes"><code>auth</code> definition scope</a>, used to configure JSON Web Token (JWT) authentication signatures.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;auth&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;privatekey&#34;</span>: <span class="s2">&#34;/path/to/console.rsa&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;publickey&#34;</span>: <span class="s2">&#34;/path/to/console.rsa.pub&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>audit</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#audit-attributes"><code>audit</code> definition scope</a>, used to configure <a href="../rbac/audit-logging">Audit Logging</a> for the Sensu Enterprise Dashboard.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;audit&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;logfile&#34;</span>: <span class="s2">&#34;/var/log/sensu/sensu-enterprise-dashboard-audit.log&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;level&#34;</span>: <span class="s2">&#34;default&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>requireSilencingReason</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Determines whether or not a reason must be provided when creating a silencing entry.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td>false</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;requireSilencingReason&#34;</span>: false</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>github</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#github-attributes"><code>github</code> definition scope</a>, used to configure <a href="../rbac/overview">Role Based Access Controls</a> with the <a href="../rbac/rbac-for-github">RBAC for GitHub driver</a>. Overrides simple authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;github&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;clientId&#34;</span>: <span class="s2">&#34;a8e43af034e7f2608780&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;clientSecret&#34;</span>: <span class="s2">&#34;b63968394be6ed2edb61c93847ee792f31bf6216&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;server&#34;</span>: <span class="s2">&#34;https://github.com&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;roles&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;guests&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;myorganization/devs&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;us-west-1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;webserver&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;operators&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;myorganization/owners&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>gitlab</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#gitlab-attributes"><code>gitlab</code> definition scope</a>, used to configure <a href="../rbac/overview">Role Based Access Controls</a> with the <a href="../rbac/rbac-for-gitlab">RBAC for GitLab driver</a>. Overrides simple authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;gitlab&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;clientId&#34;</span>: <span class="s2">&#34;a8e43af034e7f2608780&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;clientSecret&#34;</span>: <span class="s2">&#34;b63968394be6ed2edb61c93847ee792f31bf6216&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;server&#34;</span>: <span class="s2">&#34;https://github.com&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;roles&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;guests&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;myorganization/devs&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;us-west-1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;webserver&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;operators&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;myorganization/owners&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ldap</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#ldap-attributes"><code>ldap</code> configuration scope</a>, used to configure <a href="../rbac/overview">Role Based Access Controls</a> with the <a href="../rbac/rbac-for-ldap">RBAC for LDAP driver</a>. Overrides simple authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;ldap&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;server&#34;</span>: <span class="s2">&#34;localhost&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;port&#34;</span>: 389,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;basedn&#34;</span>: <span class="s2">&#34;cn=users,dc=domain,dc=tld&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;binduser&#34;</span>: <span class="s2">&#34;cn=binder,cn=users,dc=domain,dc=tld&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;bindpass&#34;</span>: <span class="s2">&#34;secret&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;roles&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;guests&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;guests_group&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;us-west-1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;webserver&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;operators&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;operators_group&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insecure&#34;</span>: false,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;security&#34;</span>: <span class="s2">&#34;none&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;userattribute&#34;</span>: <span class="s2">&#34;sAMAccountName&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>oidc</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#oidc-attributes"><code>oidc</code> definition scope</a>, used to configure <a href="../rbac/overview">Role Based Access Controls</a> with the <a href="../rbac/rbac-for-oidc">RBAC for OpenID Connect (OIDC) driver</a>. Overrides simple authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;oidc&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;clientId&#34;</span>: <span class="s2">&#34;a8e43af034e7f2608780&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;clientSecret&#34;</span>: <span class="s2">&#34;b63968394be6ed2edb61c93847ee792f31bf6216&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insecure&#34;</span>: false,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;server&#34;</span>: <span class="s2">&#34;https://localhost:9031&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;roles&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;guests&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;myorganization/devs&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;us-west-1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;webserver&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;operators&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;members&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;myorganization/owners&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;datacenters&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[]</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;readonly&#34;</span>: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="auth-attributes"><code>auth</code> attributes</h4>
+<p><em>NOTE: By default, temporary keys are generated when the Sensu Enterprise
+Dashboard starts. These keys are later destroyed once the process is stopped or
+restarted. These keys are used for generating and validating the signatures of
+the JSON Web Tokens (JWT) for authentication. Specifying static keys is
+supported and is necessary when using Sensu Enterprise Console behind a load
+balancer. Static keys can be configured by using the <code>auth</code> attributes detailed
+below.</em></p>
+<table>
+<thead>
+<tr>
+<th>privatekey</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Path to a private RSA key used for generating and validating the signatures of the JSON Web Tokens (JWT) for authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;auth&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;privatekey&#34;</span>: <span class="s2">&#34;/path/to/console.rsa&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>public</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Path to a public RSA key used for generating and validating the signatures of the JSON Web Tokens (JWT) for authentication.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;auth&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;publickey&#34;</span>: <span class="s2">&#34;/path/to/console.rsa.pub&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="audit-attributes"><code>audit</code> attributes</h4>
+<p>Please see the <a href="../rbac/audit-logging">Sensu Enterprise Dashboard Audit Logging reference
+documentation</a> for information on how to configure the dashboard for audit
+logging purposes.</p>
+<h4 id="github-attributes"><code>github</code> attributes</h4>
+<p>Please see the <a href="../rbac/rbac-for-github">RBAC for GitHub reference documentation</a> for information on
+how to configure the dashboard for RBAC with GitHub.com or GitHub Enterprise.</p>
+<h4 id="gitlab-attributes"><code>gitlab</code> attributes</h4>
+<p>Please see the <a href="../rbac/rbac-for-gitlab">RBAC for GitLab reference documentation</a> for information on
+how to configure the dashboard for RBAC with GitLab.</p>
+<h4 id="ldap-attributes"><code>ldap</code> attributes</h4>
+<p>Please see the <a href="../rbac/rbac-for-ldap">RBAC for LDAP reference documentation</a> for information on how
+to configure the dashboard for RBAC with LDAP.</p>
+<h4 id="oidc-attributes"><code>oidc</code> attributes</h4>
+<p>Please see the <a href="../rbac/rbac-for-ldap">RBAC for OIDC reference documentation</a> for information on how
+to configure the dashboard for RBAC with OpenID Connect (OIDC).</p>
+<!-- Supplemental Links -->
+
+
+      <script async type="text/javascript" src="/js/clip.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+      
+      
+
+
+
+
+    </div>
+  </article>
+
+  <section id="sidebar">
+    <aside id="contribute">
+  <div id="page-rating">
+    <h4>Is this page helpful?</h4>
+    <fieldset class="rating">
+      <input type="radio" id="heart5" name="rating" value="5">
+      <label for="heart5" title="Excellent"></label>
+      <input type="radio" id="heart4" name="rating" value="4">
+      <label for="heart4" title="Good"></label>
+      <input type="radio" id="heart3" name="rating" value="3">
+      <label for="heart3" title="OK"></label>
+      <input type="radio" id="heart2" name="rating" value="2">
+      <label for="heart2" title="Poor"></label>
+      <input type="radio" id="heart1" name="rating" value="1">
+      <label for="heart1" title="Unusable"></label>
+    </fieldset>
+  </div>
+
+  <div>
+    <h4>Contribute:</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-enterprise-dashboard/6.9/configuration.md" target="_blank">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit this page
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/issues/new/choose" target="_blank">
+          <i class="fa fa-bug" aria-hidden="true"></i>
+          Report a docs issue
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md" target="_blank">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Read the contributing guide
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+    <aside id="toc">
+  
+    <div>
+      <h4>On this page:</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dashboard-configuration">Dashboard configuration</a></li>
+    <li><a href="#dashboard-definition-specification">Dashboard definition specification</a></li>
+  </ul>
+</nav>
+    </div>
+  
+</aside>
+
+  </section>
+</main>
+
+<section id="footer">
+  <div class="footer--content">
+
+    <div class="footer--content--center">
+
+      <div class="register">
+        <img alt="Sensu Go Lizy mascot image" title="Register your Sensu installation" src="/images/lizy-logo-a.png">
+        <h3>Register your Sensu installation &mdash; Get rewards!</h3>
+        <p>Take 2 minutes to <a href="https://sensu.io/register"><b><u>register your installation</u></b></a> and let Sensu help you along your journey.<br>
+        We'll send you a free reward when you add your first 10 checks and connect at least 10 agents!</p>
+      </div>
+    </div>
+
+    <div class="footer--content--left">
+      <h3>About Sensu</h3>
+      <p>The Sensu monitoring event pipeline empowers businesses to automate their monitoring workflows and gain deep visibility into their multi-cloud infrastructure, from Kubernetes to bare metal. Companies like Sony, Box.com, and Activision rely on Sensu to help deliver value faster, at scale.</p>
+
+      <div class="footer--navigation">
+        <div>
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="https://sensu.io/products">Products</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/products/core">Sensu Core</a></li>
+                <li><a href="https://sensu.io/products/enterprise">Sensu Enterprise</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/solutions">Solutions</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/solutions/container-monitoring">For Containers</a></li>
+                <li><a href="https://sensu.io/solutions/cloud-monitoring">For Cloud</a></li>
+                <li><a href="https://sensu.io/solutions/nagios-alternative">For Nagios</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://sensu.io/community">Community</a></li>
+            <li><a href="https://docs.sensu.io">Documentation</a></li>
+            <li><a href="https://sensu.io/products/downloads">Downloads</a></li>
+            <li><a href="https://account.sensu.io/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://sensu.io/about">About</a></li>
+            <li><a href="https://blog.sensu.io/" target="_blank">Blog</a></li>
+            <li><a href="https://sensu.io/customers">Customers</a></li>
+            <li><a href="https://sensu.io/contact">Contact</a></li>
+            <li><a href="https://sensu.io/sales">Sales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--content--right">
+      <h3>Get In Touch</h3>
+      <p>Our team is here to help. Use our <a href="https://sensu.io/contact"><b><u>contact form</b></u></a> or reach out on GitHub, Slack, or Twitter.</p>
+      <ul class="inline">
+        <li><a href="https://github.com/sensu" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-920.000000, -4175.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M944,179.302423 C944,184.73279 940.5625,189.346199 935.796875,190.980114 C935.1875,191.092246 934.984375,190.707795 934.984375,190.387419 L934.984375,187.007457 C934.984375,185.854105 934.609375,185.117241 934.171875,184.73279 C936.84375,184.428433 939.65625,183.387212 939.65625,178.661672 C939.65625,177.316095 939.1875,176.210799 938.421875,175.361803 C938.546875,175.041428 938.953125,173.791963 938.296875,172.093972 C937.296875,171.773597 935,173.359456 935,173.359456 C934.046875,173.087137 933.015625,172.942968 932,172.942968 C930.984375,172.942968 929.953125,173.087137 929,173.359456 C929,173.359456 926.703125,171.773597 925.6875,172.093972 C925.046875,173.791963 925.453125,175.041428 925.578125,175.361803 C924.8125,176.210799 924.34375,177.316095 924.34375,178.661672 C924.34375,183.371194 927.140625,184.428433 929.8125,184.73279 C929.46875,185.053166 929.15625,185.581785 929.046875,186.382724 C928.359375,186.7031 926.609375,187.247739 925.5625,185.357522 C924.90625,184.188151 923.71875,184.092039 923.71875,184.092039 C922.546875,184.07602 923.640625,184.844921 923.640625,184.844921 C924.421875,185.213353 924.96875,186.639025 924.96875,186.639025 C925.671875,188.833598 929.015625,188.096734 929.015625,188.096734 C929.015625,189.121936 929.03125,190.099081 929.03125,190.387419 C929.03125,190.707795 928.8125,191.092246 928.203125,190.980114 C923.4375,189.346199 920,184.73279 920,179.302423 C920,172.51046 925.375,167 932,167 C938.625,167 944,172.51046 944,179.302423 Z"></path>
+              </g>
+          </g>
+      </svg>
+      </svg></a></li>
+        <li><a href="https://slack.sensu.io/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-970.000000, -4174.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M983.558646,174.858722 C981.981445,175.389656 980.426,175.913367 978.850551,176.443791 C979.381566,178.019593 979.905426,179.574164 980.436149,181.149018 C982.013351,180.618084 983.568868,180.094373 985.144317,179.56395 C984.613229,177.988147 984.089442,176.433576 983.558646,174.858722 M987.341608,173.597015 C987.875471,175.177268 988.398382,176.725054 988.927352,178.290642 C989.756037,178.018937 990.556758,177.747669 991.363173,177.494204 C992.397094,177.169165 993.417872,177.616194 993.827396,178.558626 C994.288246,179.619546 993.796293,180.824125 992.708489,181.235696 C991.977422,181.512289 991.230584,181.747514 990.490901,182.001563 C990.405258,182.031112 990.320418,182.063069 990.205863,182.104583 C990.270843,182.306246 990.332611,182.502072 990.396862,182.697023 C990.599104,183.310913 990.820184,183.919332 991.000743,184.53957 C991.250662,185.398097 990.877426,186.300984 990.115766,186.758301 C989.350602,187.21766 988.359685,187.148348 987.740107,186.522857 C987.48201,186.262315 987.291814,185.904516 987.158276,185.557297 C986.881926,184.838635 986.664132,184.097501 986.41465,183.342724 C984.842632,183.872564 983.293175,184.39467 981.715316,184.926334 C981.780881,185.135657 981.839875,185.33214 981.903906,185.526945 C982.108631,186.149518 982.328324,186.767567 982.518155,187.394517 C982.876862,188.579689 982.220339,189.689565 981.01893,189.955652 C980.084524,190.162568 979.102077,189.628716 978.759651,188.702773 C978.491625,187.977983 978.253679,187.242175 978.0023,186.511256 C977.970101,186.417502 977.937538,186.32382 977.894972,186.200955 C977.176317,186.441068 976.471168,186.676877 975.765801,186.912175 C975.373216,187.043066 974.980924,187.128722 974.558915,187.042774 C973.695331,186.866793 973.028587,186.13799 972.956744,185.262317 C972.879935,184.327035 973.388828,183.514036 974.25964,183.211249 C974.963547,182.966612 975.674171,182.741237 976.381583,182.506669 C976.466496,182.478579 976.55024,182.446841 976.652603,182.410361 C976.123997,180.844627 975.601086,179.295966 975.0681,177.717318 C974.51102,177.900157 973.970732,178.081902 973.427451,178.254162 C973.037422,178.37783 972.650459,178.539437 972.249697,178.595763 C971.209351,178.742049 970.294513,178.107584 970.060948,177.128745 C969.815775,176.101533 970.325324,175.12138 971.318796,174.755556 C972.03548,174.491658 972.763335,174.258184 973.486153,174.010993 C973.579827,173.978964 973.673355,173.946496 973.79397,173.904836 C973.550914,173.175814 973.313845,172.461675 973.074512,171.74834 C972.9455,171.363911 972.86818,170.9797 972.952144,170.56864 C973.131023,169.693697 973.864792,169.035155 974.761961,168.966718 C975.677968,168.896895 976.483872,169.408859 976.785849,170.272931 C977.019633,170.941761 977.231952,171.618032 977.454565,172.290583 C977.494064,172.4098 977.537798,172.527559 977.585329,172.662317 C979.165889,172.133353 980.72586,171.61132 982.311677,171.080605 C982.104542,170.467809 981.897408,169.876609 981.705971,169.280375 C981.586962,168.909882 981.437652,168.53771 981.396401,168.156053 C981.286591,167.140296 981.9326,166.296142 982.949216,166.053402 C983.895304,165.827516 984.871253,166.334373 985.22244,167.268633 C985.503974,168.017355 985.744548,168.781398 986.00447,169.538291 C986.033236,169.622196 986.069012,169.703693 986.108439,169.804013 C986.874479,169.548505 987.622777,169.293362 988.374726,169.049601 C989.361919,168.729596 990.330567,169.104759 990.808575,169.982548 C991.399095,171.06718 990.889838,172.393822 989.71829,172.800431 C989.014237,173.044776 988.304123,173.27183 987.596931,173.507055 C987.520195,173.532518 987.444409,173.560608 987.341608,173.597015"></path>
+              </g>
+          </g>
+      </svg></a></li>
+        <li><a href="https://twitter.com/sensu" target="_blank"><svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1017.000000, -4176.000000)">
+                <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                    <path d="M1038.54405,172.982073 C1038.55358,173.198827 1038.55676,173.41558 1038.55676,173.633963 C1038.55676,180.306063 1033.60511,188 1024.54749,188 C1021.76566,188 1019.17936,187.16558 1017,185.729791 C1017.38469,185.778683 1017.77732,185.79987 1018.17473,185.79987 C1020.48126,185.79987 1022.60498,184.994785 1024.28997,183.638853 C1022.13604,183.601369 1020.31594,182.139505 1019.68963,180.134941 C1019.99006,180.195241 1020.30004,180.226206 1020.61796,180.226206 C1021.06464,180.226206 1021.49861,180.162647 1021.91509,180.048566 C1019.66101,179.584094 1017.96331,177.543677 1017.96331,175.099087 L1017.96331,175.035528 C1018.62777,175.410365 1019.3876,175.640156 1020.19513,175.664602 C1018.87257,174.758475 1018.00305,173.215124 1018.00305,171.463168 C1018.00305,170.537484 1018.24467,169.672099 1018.67068,168.924055 C1021.09803,171.979791 1024.72871,173.987614 1028.82037,174.201108 C1028.73612,173.83116 1028.6932,173.443286 1028.6932,173.048892 C1028.6932,170.26043 1030.89641,168 1033.61624,168 C1035.03259,168 1036.31223,168.614407 1037.20877,169.595502 C1038.33263,169.36897 1039.38495,168.948501 1040.33872,168.369948 C1039.96834,169.54824 1039.18943,170.537484 1038.17208,171.161669 C1039.16876,171.044329 1040.11776,170.770535 1041,170.367992 C1040.33872,171.381682 1039.50576,172.269883 1038.54405,172.982073"></path>
+                </g>
+            </g>
+        </svg>
+      </a></li>
+      </ul>
+
+      <h3>Join Our Community</h3>
+      <p>Become a member of the Sensu community and get access to the community Slack channel and our weekly newsletter containing updates about Sensu.</p>
+      <form action="https://share.hsforms.com/10Dzh-ahWTaulALvp3xFfmQ2mwx3" target="_blank">
+        <input type="email" id="EMAIL" name="email" placeholder="Your Email">
+        <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    Made with <a href="https://twitter.com/hashtag/monitoringlove" target="_blank">#monitoringlove</a> by Sensu, Inc. &copy; 2013-2023 &mdash; <a href="https://sensu.io/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+</section>
+
+
+<script>
+$( document ).ready(function() {
+  applyTipBoxes();
+});
+
+function boldFirstWord(element) {
+  newElement = element.html().replace(/(^\w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function boldFirstTwoWords(element) {
+  newElement = element.html().replace(/(^\w+ \w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function applyTipBoxes() {
+  $('em').wrap(function() {
+    if ($(this).text().includes('NOTE:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-note"></div>';
+    } else if ($(this).text().includes('WARNING:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-warning"></div>';
+    } else if ($(this).text().includes('PRO TIP:')) {
+      boldFirstTwoWords($(this));
+      return '<div class="alert-tip"></div>';
+    } else if ($(this).text().includes('IMPORTANT:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-important"></div>';
+    }
+  });
+}
+</script>
+
+<script>
+  
+    var base_url = '';
+    var repo_id  = 'sensu\/sensu-docs';
+  
+</script>
+
+<script src="/javascripts/application.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  /* Add headers to scrollspy */
+  var headers   = document.getElementsByTagName("h2");
+  var scrollspy = document.getElementById('scrollspy');
+
+  if(scrollspy) {
+    if(headers.length > 0) {
+      for(var i = 0; i < headers.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("class", "anchor");
+
+        var a  = document.createElement("a");
+        a.setAttribute("href", "#" + headers[i].id);
+        a.setAttribute("title", headers[i].innerHTML);
+        a.innerHTML = headers[i].innerHTML;
+
+        li.appendChild(a)
+        scrollspy.appendChild(li);
+      }
+    } else {
+      scrollspy.parentElement.removeChild(scrollspy)
+    }
+  }
+
+  /* Add permanent link next to the headers */
+  var headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+
+  for(var i = 0; i < headers.length; i++) {
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + headers[i].id);
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 9.2" width="18.3px"><path d="M-1.8-6.4h22v22h-22v-22z" fill="none"/><path d="M1.7 4.6C1.7 3 3 1.7 4.6 1.7h3.7V0H4.6C2.1 0 0 2.1 0 4.6s2.1 4.6 4.6 4.6h3.7V7.4H4.6C3 7.4 1.7 6.2 1.7 4.6zm3.8.9h7.3V3.7H5.5v1.8zM13.8 0h-3.7v1.7h3.7c1.6 0 2.8 1.3 2.8 2.8s-1.3 2.8-2.8 2.8h-3.7V9h3.7c2.5 0 4.6-2.1 4.6-4.6S16.3 0 13.8 0z"/></svg>';
+    headers[i].appendChild(a);
+  }
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0087/0389.js" async="async"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+      []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+      m.parentNode.insertBefore(a,m)
+    })(window, document,
+      'script', '//www.google-analytics.com/analytics.js', 'ga');
+     
+    ga('create', 'UA-39138312-17', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+     
+    var buttons = document.querySelectorAll('a');
+    Array.prototype.map.call(buttons, function(item) {
+      if (item.host != document.location.host) {
+        item.addEventListener('click', function() {
+          var action = item.getAttribute('data-action') || 'follow';
+          ga('send', 'event', 'outbound', action, item.href);
+        });
+      }
+    });
+     
+    var searchInputs = document.getElementsByClassName('search');
+    for (var i=0; i < searchInputs.length; i++) {
+      searchInputs[i].addEventListener('blur', function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga('send', 'pageview', path + '?q=' + this.value);
+        }
+      });
+    }
+
+    var dropdowns = document.getElementsByClassName('dropdown');
+    for (var i=0; i < dropdowns.length; i++) {
+      dropdowns[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.currentTarget.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function(e) {
+      for (var i=0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove('open');
+      };
+    });
+
+    
+    var languages = {
+      javascript: "JavaScript",
+      json: "JSON",
+      yml: "YML",
+    };
+    var toggles = document.getElementsByClassName('language-toggle');
+    for (var i=0; i < toggles.length; i++) {
+      var children = Array.prototype.slice.call(toggles[i].querySelectorAll('.language'));
+      var langs = children.map(function(c) { return c.dataset.lang; });
+
+      
+      langs.forEach(function(lang) {
+        var el = document.createElement('span');
+        el.setAttribute('role', 'tab');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('data-lang', lang);
+        el.innerText = languages[lang] || lang;
+        el.addEventListener('click', function(e) {
+          var elOffset = e.currentTarget.getBoundingClientRect().top;
+          setLanguage(e.currentTarget.dataset.lang);
+          e.currentTarget.scrollIntoView();
+          window.scrollBy(0, -elOffset);
+        });
+        toggles[i].querySelector('.tabs').appendChild(el);
+      });
+
+      
+      toggles[i].querySelector('.languages').children[0].classList.add('active');
+    }
+
+    
+    function setLanguage(lang) {
+      
+      localStorage.setItem('lang', lang);
+
+      
+      var tabLists = Array.prototype.slice.call(document.querySelectorAll('.language-toggle .tabs'));
+      
+      tabLists.forEach(function(tabList) {
+        var activeTab = tabList.querySelector('.active');
+        var selectedTab = tabList.querySelector('[data-lang="' + lang + '"]');
+        var allTabs = Array.prototype.slice.call(tabList.children);
+        allTabs.forEach(function(t) { return t.classList.remove('active'); });
+        if (selectedTab) {
+          selectedTab.classList.add('active');
+        } else if (activeTab) {
+          activeTab.classList.add('active');
+        } else {
+          allTabs[0].classList.add('active');
+        }
+      });
+
+      
+      var selector = '.language-toggle .language[data-lang="' + lang + '"]';
+      var langBlockChildren = document.querySelectorAll(selector);
+      var langBlocks = Array.prototype.slice.call(langBlockChildren).map(function(el) { return el.closest('.languages'); });
+      
+      langBlocks.forEach(function(el) {
+        Array.prototype.slice.call(el.children).forEach(function(c) {
+          return c.classList.remove('active');
+        })
+      });
+      
+      langBlockChildren.forEach(function(el) { return el.classList.add('active'); });
+    }
+    
+    setLanguage(localStorage.getItem('lang'));
+  </script>
+
+
+
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o1043');
+  twq('track','PageView');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+  var docsearchOptions = {
+    appId: 'S633WESKWC',
+    apiKey: '2aaea336f8b58143b17119944385071f',
+    indexName: 'sensu',
+    inputSelector: '#desktop-search',
+    algoliaOptions: {
+      facetFilters: [
+        [
+          
+            'tags:sensu-enterprise-dashboard'
+          
+        ],
+        [
+          
+            'version:2.16'
+          
+        ]
+      ]
+    },
+    debug: false
+  };
+
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+
+  docsearchOptions.inputSelector = '#mobile-search';
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+</script>
+
+</body>
+</html>

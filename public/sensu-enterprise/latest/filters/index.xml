@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Filters on Sensu Docs</title>
+    <link>/sensu-enterprise/latest/filters/</link>
+    <description>Recent content in Filters on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise/latest/filters/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>check_dependencies</title>
+      <link>/sensu-enterprise/latest/filters/check-dependencies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/filters/check-dependencies/</guid>
+      <description>ENTERPRISE: Built-in filters are available for Sensu Enterprise users only.
+Reference documentation Overview Configuration Example(s) Filter specification CHECK attributes Overview The check_dependencies enterprise filter is used to filter events when an event already exists for a defined check dependency, enabling the user to reduce notification noise and only be notified for the &amp;ldquo;root cause&amp;rdquo; of a given failure. Check dependencies can be defined in the check definition, using dependencies, an array of checks (e.</description>
+    </item>
+    
+    <item>
+      <title>handle_when</title>
+      <link>/sensu-enterprise/latest/filters/handle-when/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/filters/handle-when/</guid>
+      <description>ENTERPRISE: Built-in filters are available for Sensu Enterprise users only.
+Reference documentation Overview Configuration Example(s) Filter specification handle_when attributes Overview The handle_when enterprise filter is used to reduce notification &amp;ldquo;noise&amp;rdquo;. Users can define a minimum number of event occurrences before notifications will be sent. Users can also specify a reset time, in seconds, to reset where recurrences are counted from, to control when reminder/update notifications are sent. By default, occurrences is set to 1, and reset is 1800 (30 minutes).</description>
+    </item>
+    
+    <item>
+      <title>silence_stashes</title>
+      <link>/sensu-enterprise/latest/filters/silence-stashes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/filters/silence-stashes/</guid>
+      <description>ENTERPRISE: Built-in filters are available for Sensu Enterprise users only.
+Reference documentation Overview Configuration Example(s) Filter specification Overview The silence_stashes Enterprise filter is used to filter events when specific Sensu API stashes exist. The Sensu Enterprise Dashboard and many community tools make use of &amp;ldquo;silence stashes&amp;rdquo; to indicate Sensu clients and/or their checks that are &amp;ldquo;silenced&amp;rdquo; or under maintenance. Events will be filtered if a silence stash exists for the client and/or its check specified in the event data.</description>
+    </item>
+    
+  </channel>
+</rss>

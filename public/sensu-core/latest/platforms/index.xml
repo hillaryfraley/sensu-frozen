@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Platforms on Sensu Docs</title>
+    <link>/sensu-core/latest/platforms/</link>
+    <description>Recent content in Platforms on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-core/latest/platforms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD</title>
+      <link>/sensu-core/latest/platforms/sensu-on-freebsd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-freebsd/</guid>
+      <description>Sensu on FreeBSD reference documentation Installing Sensu Core Download and install Sensu using the Sensu .txz file Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Install Sensu Core IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.
+This means the packages specified in the instructions below are no longer available. To migrate to Sensu Go, read the Sensu Core migration guide.</description>
+    </item>
+    
+    <item>
+      <title>IBM AIX</title>
+      <link>/sensu-core/latest/platforms/sensu-on-ibm-aix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-ibm-aix/</guid>
+      <description>Sensu on IBM AIX Installing Sensu Core Download and install Sensu using the Sensu .bff file Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Operating Sensu Managing the Sensu client process Rotating Sensu Logs Known limitations Foreign Function Interface Install Sensu Core IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.
+This means the packages specified in the instructions below are no longer available.</description>
+    </item>
+    
+    <item>
+      <title>Mac OS X</title>
+      <link>/sensu-core/latest/platforms/sensu-on-mac-os-x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-mac-os-x/</guid>
+      <description>Sensu on Mac OS X Installing Sensu Core Download and install Sensu using the Sensu Universal .pkg file Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Configure the Sensu client launchd daemon Operating Sensu Managing the Sensu client process with launchctl Interacting with Sensu via CLI Install Sensu Core IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Windows</title>
+      <link>/sensu-core/latest/platforms/sensu-on-microsoft-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-microsoft-windows/</guid>
+      <description>Sensu on Microsoft Windows reference documentation Installing Sensu Core Download and install Sensu using the Sensu MSI Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Configure the Sensu client Windows service wrapper Install the Sensu client Windows service Operating Sensu Managing the Sensu client Windows service Install Sensu Core IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.</description>
+    </item>
+    
+    <item>
+      <title>Solaris</title>
+      <link>/sensu-core/latest/platforms/sensu-on-oracle-solaris/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-oracle-solaris/</guid>
+      <description>Sensu on Solaris reference documentation Installing Sensu Core Download and install Sensu on Solaris 10 Download and install Sensu on Solaris 11 Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Operating Sensu Managing the Sensu client process Install Sensu IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.
+This means the packages specified in the instructions below are no longer available.</description>
+    </item>
+    
+    <item>
+      <title>RHEL/CentOS</title>
+      <link>/sensu-core/latest/platforms/sensu-on-rhel-centos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-rhel-centos/</guid>
+      <description>Sensu on RHEL/CentOS reference documentation Installing Sensu Core Install Sensu using YUM Installing Sensu Enterprise Install the Sensu Enterprise repository Install the Sensu Enterprise Dashboard repository Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Example data store configuration Example API configurations Standalone configuration Distributed configuration Example Sensu Enterprise Dashboard configurations Standalone configuration Distributed configuration Enable the Sensu services to start on boot Disable the Sensu services on boot Operating Sensu Managing the Sensu services/processes Install Sensu Core IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu/Debian</title>
+      <link>/sensu-core/latest/platforms/sensu-on-ubuntu-debian/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/platforms/sensu-on-ubuntu-debian/</guid>
+      <description>Sensu on Ubuntu/Debian reference documentation Installing Sensu Core Install Sensu using APT Installing Sensu Enterprise Install the Sensu Enterprise repository Install the Sensu Enterprise Dashboard repository Configure Sensu Create the Sensu configuration directory Example client configuration Example transport configuration Example data store configuration Example API configurations Standalone configuration Distributed configuration Example Sensu Enterprise Dashboard configurations Standalone configuration Distributed configuration Enable the Sensu services to start on boot Disable the Sensu services on boot Operating Sensu Managing the Sensu services/processes Install Sensu Core IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.</description>
+    </item>
+    
+  </channel>
+</rss>

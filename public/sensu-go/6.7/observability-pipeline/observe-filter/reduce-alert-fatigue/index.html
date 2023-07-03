@@ -1,0 +1,3229 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Reduce alert fatigue with event filters - Sensu Docs</title>
+    <meta name="generator" content="Hugo 0.101.0" />
+
+    
+    <meta name="description" content="Here’s how to reduce alert fatigue with Sensu. Learn about Sensu filters, how they reduce alert fatigue, and how to put them into action.">
+    
+    <link rel="canonical" href="/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+    
+
+    
+      <meta name="docsearch:version" content="6.7" />
+    
+
+    
+    <meta name="robots" content="noindex">
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="Reduce alert fatigue with event filters | Sensu Go 6.7">
+    <meta property="og:image" content="/images/sensu-logo-icon-dark@128px.png">
+    <meta name="apple-mobile-web-app-title" content="Sensu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="/javascripts/application.js"></script>
+
+
+  
+  
+
+
+<header>
+  <nav aria-label="Header" id="navbar">
+    <label id="hamburger" for="toggle-drawer"></label>
+
+    <a class="logo" href="/">Sensu Docs</a>
+    
+    
+      <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Go<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      6.7
+      
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.9/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.9 (latest)
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.8/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.8 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.7 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.6/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.6 
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <input id="desktop-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+  </nav>
+
+  
+    
+<div id="alerts">
+  
+  
+  
+
+  
+
+  
+
+  
+</div>
+
+    <div id="alerts">
+  
+  
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    
+    alertElement = "<div class='alert' style='background-color: #7a4595'>";
+    
+      alertElement += "<a href='\/sensu-go\/6.9\/observability-pipeline\/observe-filter\/reduce-alert-fatigue\/'>You\u0027re viewing documentation for an older or pre-release version of Sensu Go. Click here for the latest.</a>";
+    
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    
+    $("#alerts").append(alertElement);
+  });
+</script>
+
+  
+</div>
+
+  
+
+</header>
+
+
+<main class="main">
+  <input class="hidden" type="checkbox" id="toggle-drawer" autocomplete="off">
+<label id="backdrop" for="toggle-drawer"></label>
+<aside class="drawer">
+  <div class="drawer--inner">
+    
+    <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Go<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      6.7
+      
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.9/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.9 (latest)
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.8/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.8 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.7 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.6/observability-pipeline/observe-filter/reduce-alert-fatigue/">
+          
+            6.6 
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    <input id="mobile-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+    <nav>
+      
+        <ul>
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+          
+
+          
+          
+          
+          <li><a class="strong" href="/sensu-go/6.7">Sensu Go</a><ul>
+
+          
+          
+
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/release-notes/">Release Notes</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/get-started/">Get Started with Sensu</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/platforms/">Platforms and Distributions</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/commercial/">Commercial Features</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/versions/">Supported Versions</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/sensu-plus/">Sensu Plus</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion current active" href="/sensu-go/6.7/observability-pipeline/">
+                    
+                      Observability Pipeline
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-entities/">
+                              Entities
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-entities/entities/">Entities Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-entities/auto-register-deregister/">Auto-register and Deregister Entities</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-entities/monitor-external-resources/">Monitor External Resources</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-events/">
+                              Events
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-events/events/">Events Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-schedule/">
+                              Schedule
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/agent/">Agent Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/backend/">Backend Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/checks/">Checks Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/hooks/">Hooks Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/metrics/">Metrics Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/rule-templates/">Rule Templates Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/service-components/">Service Components Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/subscriptions/">Subscriptions Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/tokens/">Tokens Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/business-service-monitoring-sdk/">Business Service Monitoring SDK</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/augment-event-data-with-hooks/">Augment Event Data</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/prometheus-metrics/">Collect Prometheus Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/collect-metrics-with-checks/">Collect Service Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/business-service-monitoring/">Monitor Business Services</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/monitor-server-resources/">Monitor Server Resources</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion active current" href="/sensu-go/6.7/observability-pipeline/observe-filter/">
+                              Filter
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/filters/">Event Filters Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/sensu-query-expressions/">Sensu Query Expressions Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="current" href="/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue/">Reduce Alert Fatigue</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/route-alerts/">Route Alerts</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-transform/">
+                              Transform
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-transform/mutators/">Mutators Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-process/">
+                              Process
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/handlers/">Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/pipelines/">Pipelines Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/silencing/">Silencing Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/sumo-logic-metrics-handlers/">Sumo Logic Metrics Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/tcp-stream-handlers/">TCP Stream Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/aggregate-metrics-statsd/">Aggregate StatsD Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/handler-templates/">Create Handler Templates</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/plan-maintenance/">Plan Maintenance Windows</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/populate-metrics-influxdb/">Populate Metrics in InfluxDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-data-sumo-logic/">Send Data to Sumo Logic</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-email-alerts/">Send Email Alerts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-pagerduty-alerts/">Send PagerDuty Alerts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-slack-alerts/">Send Slack Alerts</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/operations/">
+                    
+                      Operations
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/operations/monitoring-as-code/">Monitoring as Code</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/deploy-sensu/">
+                              Deploy Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/hardware-requirements/">Hardware Requirements</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/install-sensu/">Install Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/deployment-architecture/">Deployment Architecture</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/configuration-management/">Configuration Management</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/generate-certificates/">Generate Certificates</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/secure-sensu/">Secure Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/secure-postgres/">Secure PostgreSQL</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/cluster-sensu/">Run a Sensu Cluster</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/use-federation/">Reach Multi-cluster Visibility</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/scale-event-storage/">Scale with Enterprise Datastore</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/datastore/">Datastore Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/etcdreplicators/">Etcd Replicators Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/control-access/">
+                              Control Access
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/sso/">Configure SSO Authentication</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/use-apikeys/">Use API Keys</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/create-read-only-user/">Create a Read-only User</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/create-limited-service-accounts/">Create Limited Service Accounts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/ad-auth/">AD Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/ldap-auth/">LDAP Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/oidc-auth/">OIDC Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/apikeys/">API Keys Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/namespaces/">Namespaces Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/rbac/">RBAC Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/maintain-sensu/">
+                              Maintain Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/upgrade/">Upgrade Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/migrate/">Migrate from Sensu Core and Sensu Enterprise</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/tune/">Tune Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/troubleshoot/">Troubleshoot</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/disaster-recovery/">Restore Sensu Configuration</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/license/">License Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/monitor-sensu/">
+                              Monitor Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/log-sensu-systemd/">Log Sensu Services</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/monitor-sensu-with-sensu/">Monitor Sensu with Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/health/">Health Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/tessen/">Tessen Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/manage-secrets/">
+                              Manage Secrets
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/manage-secrets/secrets-management/">Use Secrets Management</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/manage-secrets/secrets/">Secrets Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/manage-secrets/secrets-providers/">Secrets Providers Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/guides/">Guides Index</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/sensuctl/">
+                    
+                      Sensuctl CLI
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/create-manage-resources/">Create and Manage Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/back-up-recover/">Back Up and Recover Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/filter-responses/">Filter Responses</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/environment-variables/">Set Environment Variables</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/sensuctl-bonsai/">Use sensuctl with Bonsai</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/web-ui/">
+                    
+                      Web UI
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/view-manage-resources/">View and Manage Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/search/">Search in the Web UI</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/webconfig/">Configure the Web UI</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/bsm-module/">Build Business Service Monitoring</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/searches-reference/">Searches Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/webconfig-reference/">Web UI Configuration Reference</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/catalog/">
+                    
+                      Sensu Catalog
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/sensu-catalog/">Configure Integrations in the Sensu Catalog</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/build-private-catalog/">Build a Private Catalog</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/catalog-reference/">Catalog Integrations Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/catalog-api/">Catalog API</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/api/">
+                    
+                      API
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/api/core/">
+                              Core API
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/apikeys/">core/v2/apikeys</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/assets/">core/v2/assets</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/checks/">core/v2/checks</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/cluster/">core/v2/cluster</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/cluster-role-bindings/">core/v2/clusterrolebindings</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/cluster-roles/">core/v2/clusterroles</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/entities/">core/v2/entities</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/events/">core/v2/events</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/filters/">core/v2/filters</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/handlers/">core/v2/handlers</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/hooks/">core/v2/hooks</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/mutators/">core/v2/mutators</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/namespaces/">core/v2/namespaces</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/pipelines/">core/v2/pipelines</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/role-bindings/">core/v2/rolebindings</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/roles/">core/v2/roles</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/silenced/">core/v2/silenced</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/tessen/">core/v2/tessen</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/users/">core/v2/users</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/api/enterprise/">
+                              Enterprise APIs
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/authproviders/">enterprise/authentication/v2</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/business-service-monitoring/">enterprise/bsm/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/federation/">enterprise/federation/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/pipeline/">enterprise/pipeline/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/prune/">enterprise/prune/v1alpha</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/searches/">enterprise/searches/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/secrets/">enterprise/secrets/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/datastore/">enterprise/store/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/webconfig/">enterprise/web/v1</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/api/other/">
+                              Other APIs
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/auth/">/auth</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/health/">/health</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/license/">/license</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/metrics/">/metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/version/">/version</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/reference/">Reference Index</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/plugins/">
+                    
+                      Plugins
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/assets/">Assets Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/plugins/">Plugins Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/install-plugins/">Install Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/use-assets-to-install-plugins/">Use Assets to Install Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/plugins/featured-integrations/">
+                              Featured Integrations
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/ansible/">Ansible</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/chef/">Chef</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/aws-ec2/">EC2</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/elasticsearch/">Elasticsearch</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/email/">Email</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/graphite/">Graphite</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/influxdb/">InfluxDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/jira/">Jira</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/opentsdb/">OpenTSDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/pagerduty/">PagerDuty</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/prometheus/">Prometheus</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/puppet/">Puppet</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/rundeck/">Rundeck</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/saltstack/">SaltStack</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/servicenow/">ServiceNow</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/slack/">Slack</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/sumologic/">Sumo Logic</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/timescaledb/">TimescaleDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/wavefront/">Wavefront</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/learn/">
+                    
+                      Learn Sensu
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/learn/concepts-terminology/">Concepts and Terminology</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/learn/demo/">Live Demo</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+          </ul></li>
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+  
+    
+  
+
+
+
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>
+</ul>
+      
+      <hr>
+      <div class="drawer--footer">
+        <iframe src="https://ghbtns.com/github-btn.html?user=sensu&repo=sensu-docs&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20"></iframe>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/issues/new?title=Docs%20Feedback&body=%3C!--Thanks%20for%20submitting%20feedback%20to%20the%20Sensu%20docs!--%3E%0A%0ALink%20to%20page%3A%20%0A%0A%23%23%23%20Feedback">Open a docs issue</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue.md">Edit this page</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md">Read the contributing guide</a>
+        
+        
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>Reduce alert fatigue with event filters </h1>
+
+      
+        
+
+
+
+      
+      <p>Sensu event filters allow you to filter events destined for one or more event handlers.
+Filters evaluate their expressions against the observation data in events to determine whether the event should be passed to an event handler.</p>
+<p>Use event filters to customize alert policies, improve contact routing, eliminate notification noise from recurring events, and filter events from systems in pre-production environments.</p>
+<p>In this guide, you&rsquo;ll learn how to reduce alert fatigue by configuring an event filter named <code>hourly</code>.
+You&rsquo;ll then add the filter to a <a href="../../observe-process/pipelines/">pipeline workflow</a> that includes a handler named <code>slack</code> to prevent alerts from being sent to Slack every minute.</p>
+<p>You can take either of two approaches to create the event filter to handle occurrences: use sensuctl or use a filter dynamic runtime asset.</p>
+<h2 id="requirements">Requirements</h2>
+<p>To follow this guide, install the Sensu <a href="../../../operations/deploy-sensu/install-sensu/#install-the-sensu-backend">backend</a>, make sure at least one Sensu <a href="../../../operations/deploy-sensu/install-sensu/#install-sensu-agents">agent</a> is running, and configure <a href="../../../operations/deploy-sensu/install-sensu/#install-sensuctl">sensuctl</a> to connect to the backend as the <a href="../../../operations/control-access/rbac/#default-users"><code>admin</code> user</a>.</p>
+<p>The examples in this guide rely on the <code>check_cpu</code> check from <a href="../../observe-schedule/monitor-server-resources/">Monitor server resources with checks</a>.
+Before you begin, follow the instructions to <a href="../../observe-schedule/monitor-server-resources/#register-the-sensucheck-cpu-usage-asset">add the <code>sensu/check-cpu-usage</code></a> dynamic runtime asset and the <a href="../../observe-schedule/monitor-server-resources/#create-a-check-to-monitor-a-server"><code>check_cpu</code></a> check.</p>
+<p>In addition, if you don&rsquo;t already have a Slack handler in place, follow <a href="../../observe-process/send-slack-alerts/">Send Slack alerts with handlers</a> to create one before continuing with this guide.</p>
+<h2 id="configure-a-sensu-entity">Configure a Sensu entity</h2>
+<p>Every Sensu agent has a defined set of subscriptions that determine which checks the agent will execute.
+For an agent to execute a specific check, you must specify the same subscription in the agent configuration and the check definition.</p>
+<p>The examples for both approaches in this guide use the <code>check_cpu</code> check from Monitor server resources with checks, which includes the subscription <code>system</code>.
+Use sensuctl to add a <code>system</code> subscription to one of your entities.</p>
+<p>Before you run the following code, replace <code>&lt;ENTITY_NAME&gt;</code> with the name of the entity on your system.</p>
+
+<div class="notices note" ><p><strong>NOTE</strong>: To find your entity name, run <code>sensuctl entity list</code>.
+The <code>ID</code> is the name of your entity.</p>
+</div>
+
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl entity update &lt;ENTITY_NAME&gt;</span></span></code></pre></div>
+</div>
+
+
+<ul>
+<li>For <code>Entity Class</code>, press enter.</li>
+<li>For <code>Subscriptions</code>, type <code>system</code> and press enter.</li>
+</ul>
+<p>Run this command to confirm both Sensu services are running:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl status sensu-backend <span class="o">&amp;&amp;</span> systemctl status sensu-agent</span></span></code></pre></div>
+</div>
+
+
+<p>The response should indicate <code>active (running)</code> for both the Sensu backend and agent.</p>
+<h2 id="approach-1-use-sensuctl-to-create-an-event-filter">Approach 1: Use sensuctl to create an event filter</h2>
+<p>First, create an event filter called <code>hourly</code> that matches new events (where the event&rsquo;s <code>occurrences</code> is equal to <code>1</code>) or hourly events (every hour after the first occurrence, calculated with the check&rsquo;s <code>interval</code> and the event&rsquo;s <code>occurrences</code>).</p>
+<p>Events in Sensu Go are handled regardless of check execution status.
+Even successful check events are passed through the pipeline, so you&rsquo;ll need to add a clause for non-zero status.</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl filter create hourly <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--action allow <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--expressions <span class="s2">&#34;event.check.occurrences == 1 || event.check.occurrences % (3600 / event.check.interval) == 0&#34;</span></span></span></code></pre></div>
+</div>
+
+
+<p>You should receive a confirmation message:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Created</span></span></code></pre></div>
+</div>
+
+
+<p>To view the event filter resource definition, run:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl filter info hourly --format yaml</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl filter info hourly --format wrapped-json</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The event filter definition will be similar to this example:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="yml">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">EventFilter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hourly</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">allow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">expressions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">event.check.occurrences == 1 || event.check.occurrences % (3600 / event.check.interval) == 0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">runtime_assets</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span></span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;EventFilter&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;api_version&#34;</span><span class="p">:</span> <span class="s2">&#34;core/v2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;metadata&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;hourly&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;spec&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;allow&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;expressions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;event.check.occurrences == 1 || event.check.occurrences % (3600 / event.check.interval) == 0&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;runtime_assets&#34;</span><span class="p">:</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="add-the-event-filter-to-a-pipeline">Add the event filter to a pipeline</h3>
+<p>Now that you&rsquo;ve created the <code>hourly</code> event filter, you can include it in a new pipeline, along with the <code>slack</code> handler created in Send Slack alerts with handlers (see <a href="#requirements">Requirements</a> if you do not have a handler that sends alerts to a Slack channel).
+You&rsquo;ll also include the built-in <code>is_incident</code> filter so that only failing events are handled, which will further reduce the number of Slack messages Sensu sends.</p>
+<p>To create a new pipeline that includes the <code>hourly</code> and <code>is_incident</code> event filters as well as the <code>slack</code> handler, run:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;---
+</span></span></span><span class="line"><span class="cl"><span class="s1">type: Pipeline
+</span></span></span><span class="line"><span class="cl"><span class="s1">api_version: core/v2
+</span></span></span><span class="line"><span class="cl"><span class="s1">metadata:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  name: reduce_alerts
+</span></span></span><span class="line"><span class="cl"><span class="s1">spec:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  workflows:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  - name: slack_alerts
+</span></span></span><span class="line"><span class="cl"><span class="s1">    filters:
+</span></span></span><span class="line"><span class="cl"><span class="s1">    - name: is_incident
+</span></span></span><span class="line"><span class="cl"><span class="s1">      type: EventFilter
+</span></span></span><span class="line"><span class="cl"><span class="s1">      api_version: core/v2
+</span></span></span><span class="line"><span class="cl"><span class="s1">    - name: hourly
+</span></span></span><span class="line"><span class="cl"><span class="s1">      type: EventFilter
+</span></span></span><span class="line"><span class="cl"><span class="s1">      api_version: core/v2
+</span></span></span><span class="line"><span class="cl"><span class="s1">    handler:
+</span></span></span><span class="line"><span class="cl"><span class="s1">      name: slack
+</span></span></span><span class="line"><span class="cl"><span class="s1">      type: Handler
+</span></span></span><span class="line"><span class="cl"><span class="s1">      api_version: core/v2&#39;</span> <span class="p">|</span> sensuctl create</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;type&#34;: &#34;Pipeline&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;api_version&#34;: &#34;core/v2&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;metadata&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;name&#34;: &#34;reduce_alerts&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  },
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;spec&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;workflows&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">      {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;name&#34;: &#34;slack_alerts&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;filters&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">          {
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;name&#34;: &#34;is_incident&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;type&#34;: &#34;EventFilter&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;api_version&#34;: &#34;core/v2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">          },
+</span></span></span><span class="line"><span class="cl"><span class="s1">          {
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;name&#34;: &#34;hourly&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;type&#34;: &#34;EventFilter&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;api_version&#34;: &#34;core/v2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">          }
+</span></span></span><span class="line"><span class="cl"><span class="s1">        ],
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;handler&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;name&#34;: &#34;slack&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;type&#34;: &#34;Handler&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;api_version&#34;: &#34;core/v2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        }
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    ]
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="p">|</span> sensuctl create</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="assign-the-pipeline-to-a-check">Assign the pipeline to a check</h3>
+<p>To use the <code>reduce_alerts</code> pipeline, list it in a check definition&rsquo;s pipelines array.
+All the observability events that the check produces will be processed according to the pipeline&rsquo;s workflows.</p>
+<p>In this example, assign your <code>reduce_alerts</code> pipeline to the <code>check_cpu</code> check to receive Slack alerts when the CPU usage of your system reaches the specific thresholds set in the check command.</p>
+<p>To open the check definition in your text editor, run:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl edit check check_cpu</span></span></code></pre></div>
+</div>
+
+
+<p>Replace the <code>pipelines: []</code> line with the following array and save the updated check definition:</p>
+<div class="language" data-lang="yml">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pipelines</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Pipeline</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">reduce_alerts</span></span></span></code></pre></div>
+</div>
+
+
+<p>You should see a response to confirm the update:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Updated /api/core/v2/namespaces/default/checks/check_cpu</span></span></code></pre></div>
+</div>
+
+
+<p>To view the updated <code>check_cpu</code> resource definition, run:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl check info check_cpu --format yaml</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl check info check_cpu --format wrapped-json</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The updated check definition will be similar to this example:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="yml">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">CheckConfig</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">check_cpu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">check_hooks</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">check-cpu-usage -w 75 -c 90</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">env_vars</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">handlers</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">high_flap_threshold</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">low_flap_threshold</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">output_metric_format</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">output_metric_handlers</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pipelines</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">reduce_alerts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Pipeline</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">proxy_entity_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">publish</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">round_robin</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">runtime_assets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">check-cpu-usage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secrets</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">stdin</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subdue</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subscriptions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">system</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="m">0</span></span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;CheckConfig&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;api_version&#34;</span><span class="p">:</span> <span class="s2">&#34;core/v2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;metadata&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;check_cpu&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;spec&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;check_hooks&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;check-cpu-usage -w 75 -c 90&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;env_vars&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;handlers&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;high_flap_threshold&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;low_flap_threshold&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;output_metric_format&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;output_metric_handlers&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;pipelines&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;api_version&#34;</span><span class="p">:</span> <span class="s2">&#34;core/v2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;reduce_alerts&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Pipeline&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proxy_entity_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;publish&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;round_robin&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;runtime_assets&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;check-cpu-usage&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;secrets&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;stdin&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subdue&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;system&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ttl&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The check will now send events to the <code>reduce_alerts</code> pipeline.
+Skip to <a href="#confirm-the-event-filter">Confirm the event filter</a> to learn how to verify that the filter is working.</p>
+<h2 id="approach-2-use-an-event-filter-dynamic-runtime-asset">Approach 2: Use an event filter dynamic runtime asset</h2>
+<p>In the dynamic runtime asset approach, the first step is to obtain an event filter asset that will allow you to replicate the behavior of the <code>hourly</code> event filter created in <a href="#approach-1-use-sensuctl-to-create-an-event-filter">Approach 1 via <code>sensuctl</code></a>.</p>
+<p>Use <code>sensuctl asset add</code> to register the sensu/sensu-go-fatigue-check-filter dynamic runtime asset:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl asset add sensu/sensu-go-fatigue-check-filter:0.8.1 -r fatigue-filter</span></span></code></pre></div>
+</div>
+
+
+<p>This example uses the <code>-r</code> (rename) flag to specify a shorter name for the asset: <code>fatigue-filter</code>.</p>
+<p>The response will indicate that the asset was added:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">fetching bonsai asset: sensu/sensu-go-fatigue-check-filter:0.8.1
+</span></span><span class="line"><span class="cl">added asset: sensu/sensu-go-fatigue-check-filter:0.8.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">You have successfully added the Sensu asset resource, but the asset will not get downloaded until
+</span></span><span class="line"><span class="cl">it&#39;s invoked by another Sensu resource (ex. check). To add this runtime asset to the appropriate
+</span></span><span class="line"><span class="cl">resource, populate the &#34;runtime_assets&#34; field with [&#34;fatigue-filter&#34;].</span></span></code></pre></div>
+</div>
+
+
+
+<div class="notices note" ><p><strong>NOTE</strong>: Sensu does not download and install dynamic runtime asset builds onto the system until they are needed for command execution.</p>
+</div>
+
+<p>You&rsquo;ve registered the dynamic runtime asset, but you still need to create the filter.</p>
+<p>Create a file named <code>sensu-fatigue-check-filter.yml</code> or <code>sensu-fatigue-check-filter.json</code> in your Sensu installation to store the event filter definition.
+Copy this this filter definition into the file and save it:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="yml">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">EventFilter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">fatigue_check</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">allow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">expressions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">fatigue_check(event)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">runtime_assets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">fatigue-filter</span></span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;EventFilter&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;api_version&#34;</span><span class="p">:</span> <span class="s2">&#34;core/v2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;metadata&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;fatigue_check&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;spec&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;allow&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;expressions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;fatigue_check(event)&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;runtime_assets&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;fatigue-filter&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>Then, use sensuctl to create a filter named <code>fatigue_check</code> from the file:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl create -f sensu-fatigue-check-filter.yml</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl create -f sensu-fatigue-check-filter.json</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>Now that you&rsquo;ve added the dynamic runtime asset and created the event filter definition and pipeline, you can create the check annotations you need for the dynamic runtime asset to work properly.</p>
+<h3 id="update-a-check-for-filter-dynamic-runtime-asset-use">Update a check for filter dynamic runtime asset use</h3>
+<p>Next, you&rsquo;ll need to make some additions to any checks you want to use the <code>fatigue_check</code> filter with.
+All the observability events that the check produces will be processed according to the pipeline&rsquo;s workflows.</p>
+<p>Assign your <code>reduce_alerts</code> pipeline to the <code>check_cpu</code> check to receive Slack alerts when the CPU usage of your system reaches the specific thresholds set in the check command.</p>
+<p>To open the check definition in your text editor, run:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl edit check check_cpu</span></span></code></pre></div>
+</div>
+
+
+<p>In the check definition, update the <code>pipelines: []</code> line with the following array:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  pipelines:
+</span></span><span class="line"><span class="cl">  - type: Pipeline
+</span></span><span class="line"><span class="cl">    api_version: core/v2
+</span></span><span class="line"><span class="cl">    name: cpu_check_alerts</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  <span class="s2">&#34;pipelines&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;Pipeline&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;api_version&#34;</span>: <span class="s2">&#34;core/v2&#34;</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;cpu_check_alerts&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>Add the following annotations in the check metadata:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  annotations:
+</span></span><span class="line"><span class="cl">    fatigue_check/occurrences: <span class="s1">&#39;1&#39;</span>
+</span></span><span class="line"><span class="cl">    fatigue_check/interval: <span class="s1">&#39;3600&#39;</span>
+</span></span><span class="line"><span class="cl">    fatigue_check/allow_resolution: <span class="s1">&#39;false&#39;</span></span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  <span class="s2">&#34;annotations&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fatigue_check/occurrences&#34;</span>: <span class="s2">&#34;1&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fatigue_check/interval&#34;</span>: <span class="s2">&#34;3600&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fatigue_check/allow_resolution&#34;</span>: <span class="s2">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>After you add the pipeline array and annotations, save the updated check definition.
+To confirm your updates, run this command to retrieve the check definition:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl check info check_cpu --format yaml</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl check info check_cpu --format wrapped-json</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The check definition should be similar to this example:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="yml">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">CheckConfig</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cpu-check</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">fatigue_check/occurrences</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">fatigue_check/interval</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3600&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">fatigue_check/allow_resolution</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;false&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">check-cpu -w 75 c 95</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">env_vars</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">handlers</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">high_flap_threshold</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">low_flap_threshold</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">output_metric_format</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">output_metric_handlers</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">output_metric_tags</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pipelines</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l">core/v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">reduce_alerts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Pipeline</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">proxy_entity_name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">publish</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">round_robin</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">runtime_assets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">check_cpu_usage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">stdin</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subdue</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subscriptions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">system</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="m">0</span></span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;CheckConfig&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;api_version&#34;</span><span class="p">:</span> <span class="s2">&#34;core/v2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;metadata&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;cpu-check&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;annotations&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;fatigue_check/occurrences&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;fatigue_check/interval&#34;</span><span class="p">:</span> <span class="s2">&#34;3600&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;fatigue_check/allow_resolution&#34;</span><span class="p">:</span> <span class="s2">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;spec&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;check-cpu -w 75 c 95&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;env_vars&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;handlers&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;high_flap_threshold&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;low_flap_threshold&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;output_metric_format&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;output_metric_handlers&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;output_metric_tags&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;pipelines&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;api_version&#34;</span><span class="p">:</span> <span class="s2">&#34;core/v2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;reduce_alerts&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Pipeline&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proxy_entity_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;publish&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;round_robin&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;runtime_assets&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;check_cpu_usage&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;stdin&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subdue&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;system&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ttl&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The annotations are required for the filter dynamic runtime asset to work the same way as the interactively created event filter.
+Specifically, the annotations in this check definition are doing several things:</p>
+<ol>
+<li><code>fatigue_check/occurrences</code>: Tells the event filter on which occurrence to send the event for further processing</li>
+<li><code>fatigue_check/interval</code>: Tells the event filter the interval at which to allow additional events to be processed (in seconds)</li>
+<li><code>fatigue_check/allow_resolution</code>: Determines whether to pass a <code>resolve</code> event through to the filter</li>
+</ol>
+<p>For more information about configuring these values, read the <a href="https://bonsai.sensu.io/assets/sensu/sensu-go-fatigue-check-filter">Sensu Go Fatigue Check Filter</a> README.
+Next, you&rsquo;ll add the newly minted event filter and an existing handler to a pipeline.</p>
+<h3 id="add-the-event-filter-to-a-pipeline-1">Add the event filter to a pipeline</h3>
+<p>Now that you&rsquo;ve created the <code>fatigue_check</code> event filter, you can add it to a pipeline along with the <code>slack</code> handler created in Send Slack alerts with handlers (see <a href="#requirements">Requirements</a> if you do not have a handler that sends alerts to a Slack channel).
+You&rsquo;ll also add the built-in <code>is_incident</code> filter so that only failing events are handled, which will further reduce the number of Slack messages Sensu sends.</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;---
+</span></span></span><span class="line"><span class="cl"><span class="s1">type: Pipeline
+</span></span></span><span class="line"><span class="cl"><span class="s1">api_version: core/v2
+</span></span></span><span class="line"><span class="cl"><span class="s1">metadata:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  name: reduce_alerts
+</span></span></span><span class="line"><span class="cl"><span class="s1">spec:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  workflows:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  - name: slack_alerts
+</span></span></span><span class="line"><span class="cl"><span class="s1">    filters:
+</span></span></span><span class="line"><span class="cl"><span class="s1">    - name: is_incident
+</span></span></span><span class="line"><span class="cl"><span class="s1">      type: EventFilter
+</span></span></span><span class="line"><span class="cl"><span class="s1">      api_version: core/v2
+</span></span></span><span class="line"><span class="cl"><span class="s1">    - name: fatigue_check
+</span></span></span><span class="line"><span class="cl"><span class="s1">      type: EventFilter
+</span></span></span><span class="line"><span class="cl"><span class="s1">      api_version: core/v2
+</span></span></span><span class="line"><span class="cl"><span class="s1">    handler:
+</span></span></span><span class="line"><span class="cl"><span class="s1">      name: slack
+</span></span></span><span class="line"><span class="cl"><span class="s1">      type: Handler
+</span></span></span><span class="line"><span class="cl"><span class="s1">      api_version: core/v2&#39;</span> <span class="p">|</span> sensuctl create</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;type&#34;: &#34;Pipeline&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;api_version&#34;: &#34;core/v2&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;metadata&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;name&#34;: &#34;reduce_alerts&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  },
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;spec&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;workflows&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">      {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;name&#34;: &#34;slack_alerts&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;filters&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">          {
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;name&#34;: &#34;is_incident&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;type&#34;: &#34;EventFilter&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;api_version&#34;: &#34;core/v2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">          },
+</span></span></span><span class="line"><span class="cl"><span class="s1">          {
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;name&#34;: &#34;fatigue_check&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;type&#34;: &#34;EventFilter&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;api_version&#34;: &#34;core/v2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">          }
+</span></span></span><span class="line"><span class="cl"><span class="s1">        ],
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;handler&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;name&#34;: &#34;slack&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;type&#34;: &#34;Handler&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;api_version&#34;: &#34;core/v2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        }
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    ]
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="p">|</span> sensuctl create</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<h2 id="confirm-the-event-filter">Confirm the event filter</h2>
+<p>Instead of waiting to receive a Slack alert, you can verify the proper behavior of these event filters with <code>sensu-backend</code> logs.
+The default location of these logs varies based on your platform.
+Read <a href="../../../operations/maintain-sensu/troubleshoot#log-file-locations">Troubleshoot Sensu</a> for details about the log location.</p>
+<p>Whenever an event is being handled, two log entries are added:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#34;handler&#34;:&#34;slack&#34;,&#34;level&#34;:&#34;debug&#34;,&#34;msg&#34;:&#34;sending event to handler&#34;
+</span></span><span class="line"><span class="cl">&#34;msg&#34;:&#34;pipelined executed event pipe handler&#34;,&#34;output&#34;:&#34;&#34;,&#34;status&#34;:0</span></span></code></pre></div>
+</div>
+
+
+<p>However, if the event is being discarded by the event filter, a log entry with the message <code>event filtered</code> will appear instead.</p>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>Now that you know how to add event filters to pipelines and use a dynamic runtime asset to help reduce alert fatigue, read the <a href="../filters/">filters reference</a> for in-depth information about event filters.</p>
+<p>If you&rsquo;re not already familiar with <a href="../../../plugins/assets/">dynamic runtime assets</a>, read <a href="../../../plugins/use-assets-to-install-plugins/">Use assets to install plugins</a>.
+This will help you understand what dynamic runtime assets are and how they are used in Sensu.
+Read the asset page in Bonsai for details about the <a href="https://bonsai.sensu.io/assets/sensu/sensu-go-fatigue-check-filter">sensu/sensu-go-fatigue-check-filter</a> dynamic runtime asset.</p>
+<p>If you want to share and reuse the <code>hourly</code> and <code>fatigue_check</code> event filters like code, you can <a href="../../../operations/monitoring-as-code/#build-as-you-go">save them to a file</a> and start building a <a href="../../../operations/monitoring-as-code/">monitoring as code repository</a>.</p>
+
+
+      <script async type="text/javascript" src="/js/clip.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+      
+      
+
+
+
+
+    </div>
+  </article>
+
+  <section id="sidebar">
+    <aside id="contribute">
+  <div id="page-rating">
+    <h4>Is this page helpful?</h4>
+    <fieldset class="rating">
+      <input type="radio" id="heart5" name="rating" value="5">
+      <label for="heart5" title="Excellent"></label>
+      <input type="radio" id="heart4" name="rating" value="4">
+      <label for="heart4" title="Good"></label>
+      <input type="radio" id="heart3" name="rating" value="3">
+      <label for="heart3" title="OK"></label>
+      <input type="radio" id="heart2" name="rating" value="2">
+      <label for="heart2" title="Poor"></label>
+      <input type="radio" id="heart1" name="rating" value="1">
+      <label for="heart1" title="Unusable"></label>
+    </fieldset>
+  </div>
+
+  <div>
+    <h4>Contribute:</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue.md" target="_blank">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit this page
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/issues/new/choose" target="_blank">
+          <i class="fa fa-bug" aria-hidden="true"></i>
+          Report a docs issue
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md" target="_blank">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Read the contributing guide
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+    <aside id="toc">
+  
+    <div>
+      <h4>On this page:</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#configure-a-sensu-entity">Configure a Sensu entity</a></li>
+    <li><a href="#approach-1-use-sensuctl-to-create-an-event-filter">Approach 1: Use sensuctl to create an event filter</a></li>
+    <li><a href="#approach-2-use-an-event-filter-dynamic-runtime-asset">Approach 2: Use an event filter dynamic runtime asset</a></li>
+    <li><a href="#confirm-the-event-filter">Confirm the event filter</a></li>
+    <li><a href="#whats-next">What&rsquo;s next</a></li>
+  </ul>
+</nav>
+    </div>
+  
+</aside>
+
+  </section>
+</main>
+
+<section id="footer">
+  <div class="footer--content">
+
+    <div class="footer--content--center">
+
+      <div class="register">
+        <img alt="Sensu Go Lizy mascot image" title="Register your Sensu installation" src="/images/lizy-logo-a.png">
+        <h3>Register your Sensu installation &mdash; Get rewards!</h3>
+        <p>Take 2 minutes to <a href="https://sensu.io/register"><b><u>register your installation</u></b></a> and let Sensu help you along your journey.<br>
+        We'll send you a free reward when you add your first 10 checks and connect at least 10 agents!</p>
+      </div>
+    </div>
+
+    <div class="footer--content--left">
+      <h3>About Sensu</h3>
+      <p>The Sensu monitoring event pipeline empowers businesses to automate their monitoring workflows and gain deep visibility into their multi-cloud infrastructure, from Kubernetes to bare metal. Companies like Sony, Box.com, and Activision rely on Sensu to help deliver value faster, at scale.</p>
+
+      <div class="footer--navigation">
+        <div>
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="https://sensu.io/products">Products</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/products/core">Sensu Core</a></li>
+                <li><a href="https://sensu.io/products/enterprise">Sensu Enterprise</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/solutions">Solutions</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/solutions/container-monitoring">For Containers</a></li>
+                <li><a href="https://sensu.io/solutions/cloud-monitoring">For Cloud</a></li>
+                <li><a href="https://sensu.io/solutions/nagios-alternative">For Nagios</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://sensu.io/community">Community</a></li>
+            <li><a href="https://docs.sensu.io">Documentation</a></li>
+            <li><a href="https://sensu.io/products/downloads">Downloads</a></li>
+            <li><a href="https://account.sensu.io/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://sensu.io/about">About</a></li>
+            <li><a href="https://blog.sensu.io/" target="_blank">Blog</a></li>
+            <li><a href="https://sensu.io/customers">Customers</a></li>
+            <li><a href="https://sensu.io/contact">Contact</a></li>
+            <li><a href="https://sensu.io/sales">Sales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--content--right">
+      <h3>Get In Touch</h3>
+      <p>Our team is here to help. Use our <a href="https://sensu.io/contact"><b><u>contact form</b></u></a> or reach out on GitHub, Slack, or Twitter.</p>
+      <ul class="inline">
+        <li><a href="https://github.com/sensu" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-920.000000, -4175.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M944,179.302423 C944,184.73279 940.5625,189.346199 935.796875,190.980114 C935.1875,191.092246 934.984375,190.707795 934.984375,190.387419 L934.984375,187.007457 C934.984375,185.854105 934.609375,185.117241 934.171875,184.73279 C936.84375,184.428433 939.65625,183.387212 939.65625,178.661672 C939.65625,177.316095 939.1875,176.210799 938.421875,175.361803 C938.546875,175.041428 938.953125,173.791963 938.296875,172.093972 C937.296875,171.773597 935,173.359456 935,173.359456 C934.046875,173.087137 933.015625,172.942968 932,172.942968 C930.984375,172.942968 929.953125,173.087137 929,173.359456 C929,173.359456 926.703125,171.773597 925.6875,172.093972 C925.046875,173.791963 925.453125,175.041428 925.578125,175.361803 C924.8125,176.210799 924.34375,177.316095 924.34375,178.661672 C924.34375,183.371194 927.140625,184.428433 929.8125,184.73279 C929.46875,185.053166 929.15625,185.581785 929.046875,186.382724 C928.359375,186.7031 926.609375,187.247739 925.5625,185.357522 C924.90625,184.188151 923.71875,184.092039 923.71875,184.092039 C922.546875,184.07602 923.640625,184.844921 923.640625,184.844921 C924.421875,185.213353 924.96875,186.639025 924.96875,186.639025 C925.671875,188.833598 929.015625,188.096734 929.015625,188.096734 C929.015625,189.121936 929.03125,190.099081 929.03125,190.387419 C929.03125,190.707795 928.8125,191.092246 928.203125,190.980114 C923.4375,189.346199 920,184.73279 920,179.302423 C920,172.51046 925.375,167 932,167 C938.625,167 944,172.51046 944,179.302423 Z"></path>
+              </g>
+          </g>
+      </svg>
+      </svg></a></li>
+        <li><a href="https://slack.sensu.io/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-970.000000, -4174.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M983.558646,174.858722 C981.981445,175.389656 980.426,175.913367 978.850551,176.443791 C979.381566,178.019593 979.905426,179.574164 980.436149,181.149018 C982.013351,180.618084 983.568868,180.094373 985.144317,179.56395 C984.613229,177.988147 984.089442,176.433576 983.558646,174.858722 M987.341608,173.597015 C987.875471,175.177268 988.398382,176.725054 988.927352,178.290642 C989.756037,178.018937 990.556758,177.747669 991.363173,177.494204 C992.397094,177.169165 993.417872,177.616194 993.827396,178.558626 C994.288246,179.619546 993.796293,180.824125 992.708489,181.235696 C991.977422,181.512289 991.230584,181.747514 990.490901,182.001563 C990.405258,182.031112 990.320418,182.063069 990.205863,182.104583 C990.270843,182.306246 990.332611,182.502072 990.396862,182.697023 C990.599104,183.310913 990.820184,183.919332 991.000743,184.53957 C991.250662,185.398097 990.877426,186.300984 990.115766,186.758301 C989.350602,187.21766 988.359685,187.148348 987.740107,186.522857 C987.48201,186.262315 987.291814,185.904516 987.158276,185.557297 C986.881926,184.838635 986.664132,184.097501 986.41465,183.342724 C984.842632,183.872564 983.293175,184.39467 981.715316,184.926334 C981.780881,185.135657 981.839875,185.33214 981.903906,185.526945 C982.108631,186.149518 982.328324,186.767567 982.518155,187.394517 C982.876862,188.579689 982.220339,189.689565 981.01893,189.955652 C980.084524,190.162568 979.102077,189.628716 978.759651,188.702773 C978.491625,187.977983 978.253679,187.242175 978.0023,186.511256 C977.970101,186.417502 977.937538,186.32382 977.894972,186.200955 C977.176317,186.441068 976.471168,186.676877 975.765801,186.912175 C975.373216,187.043066 974.980924,187.128722 974.558915,187.042774 C973.695331,186.866793 973.028587,186.13799 972.956744,185.262317 C972.879935,184.327035 973.388828,183.514036 974.25964,183.211249 C974.963547,182.966612 975.674171,182.741237 976.381583,182.506669 C976.466496,182.478579 976.55024,182.446841 976.652603,182.410361 C976.123997,180.844627 975.601086,179.295966 975.0681,177.717318 C974.51102,177.900157 973.970732,178.081902 973.427451,178.254162 C973.037422,178.37783 972.650459,178.539437 972.249697,178.595763 C971.209351,178.742049 970.294513,178.107584 970.060948,177.128745 C969.815775,176.101533 970.325324,175.12138 971.318796,174.755556 C972.03548,174.491658 972.763335,174.258184 973.486153,174.010993 C973.579827,173.978964 973.673355,173.946496 973.79397,173.904836 C973.550914,173.175814 973.313845,172.461675 973.074512,171.74834 C972.9455,171.363911 972.86818,170.9797 972.952144,170.56864 C973.131023,169.693697 973.864792,169.035155 974.761961,168.966718 C975.677968,168.896895 976.483872,169.408859 976.785849,170.272931 C977.019633,170.941761 977.231952,171.618032 977.454565,172.290583 C977.494064,172.4098 977.537798,172.527559 977.585329,172.662317 C979.165889,172.133353 980.72586,171.61132 982.311677,171.080605 C982.104542,170.467809 981.897408,169.876609 981.705971,169.280375 C981.586962,168.909882 981.437652,168.53771 981.396401,168.156053 C981.286591,167.140296 981.9326,166.296142 982.949216,166.053402 C983.895304,165.827516 984.871253,166.334373 985.22244,167.268633 C985.503974,168.017355 985.744548,168.781398 986.00447,169.538291 C986.033236,169.622196 986.069012,169.703693 986.108439,169.804013 C986.874479,169.548505 987.622777,169.293362 988.374726,169.049601 C989.361919,168.729596 990.330567,169.104759 990.808575,169.982548 C991.399095,171.06718 990.889838,172.393822 989.71829,172.800431 C989.014237,173.044776 988.304123,173.27183 987.596931,173.507055 C987.520195,173.532518 987.444409,173.560608 987.341608,173.597015"></path>
+              </g>
+          </g>
+      </svg></a></li>
+        <li><a href="https://twitter.com/sensu" target="_blank"><svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1017.000000, -4176.000000)">
+                <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                    <path d="M1038.54405,172.982073 C1038.55358,173.198827 1038.55676,173.41558 1038.55676,173.633963 C1038.55676,180.306063 1033.60511,188 1024.54749,188 C1021.76566,188 1019.17936,187.16558 1017,185.729791 C1017.38469,185.778683 1017.77732,185.79987 1018.17473,185.79987 C1020.48126,185.79987 1022.60498,184.994785 1024.28997,183.638853 C1022.13604,183.601369 1020.31594,182.139505 1019.68963,180.134941 C1019.99006,180.195241 1020.30004,180.226206 1020.61796,180.226206 C1021.06464,180.226206 1021.49861,180.162647 1021.91509,180.048566 C1019.66101,179.584094 1017.96331,177.543677 1017.96331,175.099087 L1017.96331,175.035528 C1018.62777,175.410365 1019.3876,175.640156 1020.19513,175.664602 C1018.87257,174.758475 1018.00305,173.215124 1018.00305,171.463168 C1018.00305,170.537484 1018.24467,169.672099 1018.67068,168.924055 C1021.09803,171.979791 1024.72871,173.987614 1028.82037,174.201108 C1028.73612,173.83116 1028.6932,173.443286 1028.6932,173.048892 C1028.6932,170.26043 1030.89641,168 1033.61624,168 C1035.03259,168 1036.31223,168.614407 1037.20877,169.595502 C1038.33263,169.36897 1039.38495,168.948501 1040.33872,168.369948 C1039.96834,169.54824 1039.18943,170.537484 1038.17208,171.161669 C1039.16876,171.044329 1040.11776,170.770535 1041,170.367992 C1040.33872,171.381682 1039.50576,172.269883 1038.54405,172.982073"></path>
+                </g>
+            </g>
+        </svg>
+      </a></li>
+      </ul>
+
+      <h3>Join Our Community</h3>
+      <p>Become a member of the Sensu community and get access to the community Slack channel and our weekly newsletter containing updates about Sensu.</p>
+      <form action="https://share.hsforms.com/10Dzh-ahWTaulALvp3xFfmQ2mwx3" target="_blank">
+        <input type="email" id="EMAIL" name="email" placeholder="Your Email">
+        <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    Made with <a href="https://twitter.com/hashtag/monitoringlove" target="_blank">#monitoringlove</a> by Sensu, Inc. &copy; 2013-2023 &mdash; <a href="https://sensu.io/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+</section>
+
+
+<script>
+$( document ).ready(function() {
+  applyTipBoxes();
+});
+
+function boldFirstWord(element) {
+  newElement = element.html().replace(/(^\w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function boldFirstTwoWords(element) {
+  newElement = element.html().replace(/(^\w+ \w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function applyTipBoxes() {
+  $('em').wrap(function() {
+    if ($(this).text().includes('NOTE:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-note"></div>';
+    } else if ($(this).text().includes('WARNING:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-warning"></div>';
+    } else if ($(this).text().includes('PRO TIP:')) {
+      boldFirstTwoWords($(this));
+      return '<div class="alert-tip"></div>';
+    } else if ($(this).text().includes('IMPORTANT:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-important"></div>';
+    }
+  });
+}
+</script>
+
+<script>
+  
+    var base_url = '';
+    var repo_id  = 'sensu\/sensu-docs';
+  
+</script>
+
+<script src="/javascripts/application.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  /* Add headers to scrollspy */
+  var headers   = document.getElementsByTagName("h2");
+  var scrollspy = document.getElementById('scrollspy');
+
+  if(scrollspy) {
+    if(headers.length > 0) {
+      for(var i = 0; i < headers.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("class", "anchor");
+
+        var a  = document.createElement("a");
+        a.setAttribute("href", "#" + headers[i].id);
+        a.setAttribute("title", headers[i].innerHTML);
+        a.innerHTML = headers[i].innerHTML;
+
+        li.appendChild(a)
+        scrollspy.appendChild(li);
+      }
+    } else {
+      scrollspy.parentElement.removeChild(scrollspy)
+    }
+  }
+
+  /* Add permanent link next to the headers */
+  var headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+
+  for(var i = 0; i < headers.length; i++) {
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + headers[i].id);
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 9.2" width="18.3px"><path d="M-1.8-6.4h22v22h-22v-22z" fill="none"/><path d="M1.7 4.6C1.7 3 3 1.7 4.6 1.7h3.7V0H4.6C2.1 0 0 2.1 0 4.6s2.1 4.6 4.6 4.6h3.7V7.4H4.6C3 7.4 1.7 6.2 1.7 4.6zm3.8.9h7.3V3.7H5.5v1.8zM13.8 0h-3.7v1.7h3.7c1.6 0 2.8 1.3 2.8 2.8s-1.3 2.8-2.8 2.8h-3.7V9h3.7c2.5 0 4.6-2.1 4.6-4.6S16.3 0 13.8 0z"/></svg>';
+    headers[i].appendChild(a);
+  }
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0087/0389.js" async="async"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+      []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+      m.parentNode.insertBefore(a,m)
+    })(window, document,
+      'script', '//www.google-analytics.com/analytics.js', 'ga');
+     
+    ga('create', 'UA-39138312-17', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+     
+    var buttons = document.querySelectorAll('a');
+    Array.prototype.map.call(buttons, function(item) {
+      if (item.host != document.location.host) {
+        item.addEventListener('click', function() {
+          var action = item.getAttribute('data-action') || 'follow';
+          ga('send', 'event', 'outbound', action, item.href);
+        });
+      }
+    });
+     
+    var searchInputs = document.getElementsByClassName('search');
+    for (var i=0; i < searchInputs.length; i++) {
+      searchInputs[i].addEventListener('blur', function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga('send', 'pageview', path + '?q=' + this.value);
+        }
+      });
+    }
+
+    var dropdowns = document.getElementsByClassName('dropdown');
+    for (var i=0; i < dropdowns.length; i++) {
+      dropdowns[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.currentTarget.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function(e) {
+      for (var i=0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove('open');
+      };
+    });
+
+    
+    var languages = {
+      javascript: "JavaScript",
+      json: "JSON",
+      yml: "YML",
+    };
+    var toggles = document.getElementsByClassName('language-toggle');
+    for (var i=0; i < toggles.length; i++) {
+      var children = Array.prototype.slice.call(toggles[i].querySelectorAll('.language'));
+      var langs = children.map(function(c) { return c.dataset.lang; });
+
+      
+      langs.forEach(function(lang) {
+        var el = document.createElement('span');
+        el.setAttribute('role', 'tab');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('data-lang', lang);
+        el.innerText = languages[lang] || lang;
+        el.addEventListener('click', function(e) {
+          var elOffset = e.currentTarget.getBoundingClientRect().top;
+          setLanguage(e.currentTarget.dataset.lang);
+          e.currentTarget.scrollIntoView();
+          window.scrollBy(0, -elOffset);
+        });
+        toggles[i].querySelector('.tabs').appendChild(el);
+      });
+
+      
+      toggles[i].querySelector('.languages').children[0].classList.add('active');
+    }
+
+    
+    function setLanguage(lang) {
+      
+      localStorage.setItem('lang', lang);
+
+      
+      var tabLists = Array.prototype.slice.call(document.querySelectorAll('.language-toggle .tabs'));
+      
+      tabLists.forEach(function(tabList) {
+        var activeTab = tabList.querySelector('.active');
+        var selectedTab = tabList.querySelector('[data-lang="' + lang + '"]');
+        var allTabs = Array.prototype.slice.call(tabList.children);
+        allTabs.forEach(function(t) { return t.classList.remove('active'); });
+        if (selectedTab) {
+          selectedTab.classList.add('active');
+        } else if (activeTab) {
+          activeTab.classList.add('active');
+        } else {
+          allTabs[0].classList.add('active');
+        }
+      });
+
+      
+      var selector = '.language-toggle .language[data-lang="' + lang + '"]';
+      var langBlockChildren = document.querySelectorAll(selector);
+      var langBlocks = Array.prototype.slice.call(langBlockChildren).map(function(el) { return el.closest('.languages'); });
+      
+      langBlocks.forEach(function(el) {
+        Array.prototype.slice.call(el.children).forEach(function(c) {
+          return c.classList.remove('active');
+        })
+      });
+      
+      langBlockChildren.forEach(function(el) { return el.classList.add('active'); });
+    }
+    
+    setLanguage(localStorage.getItem('lang'));
+  </script>
+
+
+
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o1043');
+  twq('track','PageView');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+  var docsearchOptions = {
+    appId: 'S633WESKWC',
+    apiKey: '2aaea336f8b58143b17119944385071f',
+    indexName: 'sensu',
+    inputSelector: '#desktop-search',
+    algoliaOptions: {
+      facetFilters: [
+        [
+          
+            'tags:sensu-go'
+          
+        ],
+        [
+          
+            'version:6.7'
+          
+        ]
+      ]
+    },
+    debug: false
+  };
+
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+
+  docsearchOptions.inputSelector = '#mobile-search';
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on Sensu Docs</title>
+    <link>/sensu-enterprise-dashboard/latest/api/</link>
+    <description>Recent content in API on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise-dashboard/latest/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sensu Enterprise Console API Overview</title>
+      <link>/sensu-enterprise-dashboard/latest/api/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/overview/</guid>
+      <description>The Sensu Enterprise Console API provides access to monitoring data across datacenters, including clients, checks, and events. Use the Console API to request adhoc check executions, silence check results, resolve events, and more.
+RESTful JSON API The Console API is a JSON-based RESTful API that uses standard HTTP response codes.
+Reference documentation Aggregates API Checks API Clients API Configuration API Datacenters API Events API Health API Results API Silenced API Stashes API Subscriptions API RBAC for the Sensu Enterprise Console API Sensu Enterprise integrates role-based access controls with the Console API to help give your users the right level of API functionality.</description>
+    </item>
+    
+    <item>
+      <title>Aggregates API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/aggregates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/aggregates/</guid>
+      <description>The /aggregates API endpoint /aggregates (GET) The /aggregates/:name API endpoints /aggregates/:name (GET) /aggregates/:name (DELETE) The /aggregates API endpoint The /aggregates API endpoint provides HTTP GET access to named aggregate data.
+/aggregates (GET) EXAMPLES The following example demonstrates a /aggregates API query which results in a JSON Array of JSON Hashes containing named check aggregates.
+$ curl -s http://127.0.0.1:3000/aggregates | jq . [ { &amp;#34;_id&amp;#34;: &amp;#34;us_east1/check_web_app&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_east1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;check_web_app&amp;#34; }, { &amp;#34;_id&amp;#34;: &amp;#34;us_west1/elasticsearch_health&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_west1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;elasticsearch_health&amp;#34; } ] API specification /aggregates (GET) description Returns the list of named aggregates by name and datacenter (dc) example url http://hostname:3000/aggregates response type Array response codes Success: 200 (OK)Error: 500 (Internal Server Error) output [ { &amp;#34;_id&amp;#34;: &amp;#34;us_east1/check_web_app&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_east1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;check_web_app&amp;#34; }, { &amp;#34;_id&amp;#34;: &amp;#34;us_west1/elasticsearch_health&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_west1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;elasticsearch_health&amp;#34; } ] The /aggregates/:name API endpoints The /aggregates/:name API endpoints provide HTTP GET and HTTP DELETE access to check aggregate data for a named aggregate.</description>
+    </item>
+    
+    <item>
+      <title>Checks API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/checks/</guid>
+      <description>The /checks API endpoint /checks (GET) The /checks/:check API endpoint /checks/:check (GET) The /request API endpoint /request (POST) The /checks API endpoint The /checks API endpoint provides HTTP GET access to subscription check data.
+/checks (GET) EXAMPLE The following example demonstrates a request to the /checks API, resulting in a JSON Array of JSON Hashes containing subscription check definitions.
+$ curl -s http://127.0.0.1:3000/checks | jq . [ { &amp;#34;name&amp;#34;: &amp;#34;sensu_website&amp;#34;, &amp;#34;_id&amp;#34;: &amp;#34;us_east1/sensu_website&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_east1&amp;#34;, &amp;#34;interval&amp;#34;: 60, &amp;#34;subscribers&amp;#34;: [ &amp;#34;production&amp;#34; ], &amp;#34;command&amp;#34;: &amp;#34;check-http.</description>
+    </item>
+    
+    <item>
+      <title>Clients API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/clients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/clients/</guid>
+      <description>The /clients API endpoint /clients (GET) The /clients/:client API endpoints /clients/:client (GET) /clients/:client (DELETE) The /clients/:client/history API endpoint The /clients API Endpoint The /clients API endpoint provides HTTP GET and POST access to the Sensu client registry.
+/clients (GET) The /clients endpoint provides HTTP GET access to client registry data as published via client keepalives, generated for a proxy client, or created via HTTP POST to the /clients API.</description>
+    </item>
+    
+    <item>
+      <title>Configuration API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/config/</guid>
+      <description>Reference documentation The /config API endpoint /config (GET) The /config API endpoint The /config API provides HTTP GET access to the Sensu Enterprise configuration. Sensitive setting values are redacted by default.
+/config (GET) EXAMPLE The following example demonstrates a request to the /config API, resulting in a JSON Hash containing the Sensu Enterprise configuration.
+$ curl -s http://127.0.0.1:3000/config | jq . { &amp;#34;Sensu&amp;#34;: [ { &amp;#34;Advanced&amp;#34;: { &amp;#34;CloseRequest&amp;#34;: false, &amp;#34;DisableKeepAlives&amp;#34;: false, &amp;#34;Tracing&amp;#34;: false }, &amp;#34;Name&amp;#34;: &amp;#34;sensu1&amp;#34;, &amp;#34;Host&amp;#34;: &amp;#34;127.</description>
+    </item>
+    
+    <item>
+      <title>Datacenters API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/datacenters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/datacenters/</guid>
+      <description>The /datacenters API endpoint /datacenters (GET) The /datacenters/:datacenter API endpoint /datacenters/:datacenter (GET) The /datacenters API endpoint The /datacenters API endpoint provides HTTP GET access to datacenter information.
+/datacenters (GET) EXAMPLE The following example demonstrates a request to the /datacenters API, resulting in a JSON Array of JSON Hashes containing datacenter information.
+$ curl -s http://127.0.0.1:3000/datacenters | jq . [ { &amp;#34;name&amp;#34;: &amp;#34;us_west1&amp;#34;, &amp;#34;info&amp;#34;: { &amp;#34;...&amp;#34;: &amp;#34;...&amp;#34; }, &amp;#34;metrics&amp;#34;: { &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Events API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/events/</guid>
+      <description>The /events API endpoint /events (GET) The /events/:client/:check API endpoint /events/:client/:check (DELETE) The /events API endpoint The /events API endpoint provide HTTP GET access to the Sensu event registry.
+/events (GET) EXAMPLES The following example demonstrates a /events API query which returns a JSON Array of JSON Hashes containing event data.
+$ curl -s http://127.0.0.1:3000/events | jq . [ { &amp;#34;_id&amp;#34;: &amp;#34;us_west1/client-01/sensu_website&amp;#34;, &amp;#34;action&amp;#34;: &amp;#34;create&amp;#34;, &amp;#34;check&amp;#34;: { &amp;#34;total_state_change&amp;#34;: 14, &amp;#34;history&amp;#34;: [ &amp;#34;0&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;0&amp;#34;, &amp;#34;1&amp;#34; ], &amp;#34;status&amp;#34;: 1, &amp;#34;output&amp;#34;: &amp;#34;CheckHttp WARNING: 301\n&amp;#34;, &amp;#34;command&amp;#34;: &amp;#34;check-http.</description>
+    </item>
+    
+    <item>
+      <title>Health API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/health/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/health/</guid>
+      <description>Reference documentation The /health API endpoint /health (GET) The /health API endpoint The /health API provides HTTP GET access to the health of a Sensu Enterprise installation.
+/health (GET) EXAMPLE The following example demonstrates a request to the /health API, resulting in a JSON Hash indicating the health of Sensu Enterprise.
+$ curl -s http://127.0.0.1:3000/health | jq . { &amp;#34;sensu&amp;#34;: { &amp;#34;sensu-1&amp;#34;: { &amp;#34;output&amp;#34;: &amp;#34;ok&amp;#34;, &amp;#34;status&amp;#34;: 0 } }, &amp;#34;uchiwa&amp;#34;: &amp;#34;ok&amp;#34; } API Specification /health (GET) description Returns Sensu Enterprise health information.</description>
+    </item>
+    
+    <item>
+      <title>Results API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/results/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/results/</guid>
+      <description>The /results/:client/:check API endpoint /results/:client/:check (DELETE) The /results/:client/:check API endpoint The /results/:client/:check API endpoint provides HTTP DELETE access to check result data for a named client and check.
+/results/:client/:check (DELETE) EXAMPLES The following example demonstrates a /results/:client/:check request to delete check result data for a client named client-01 and a check named sensu_website, resulting in a 202 (Accepted) HTTP response code indicating that the result was successful, but that no content is provided as output.</description>
+    </item>
+    
+    <item>
+      <title>Silenced API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/silenced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/silenced/</guid>
+      <description>The /silenced API endpoints /silenced (GET) /silenced (POST) /silenced/clear (POST) The /silenced API endpoints The Silenced API provides HTTP POST and GET access to create, query, and clear (delete) a silencing entry.
+/silenced (GET) The /silenced endpoint provides HTTP GET access to silencing entry specifications.
+EXAMPLES The following example demonstrates a /silenced API query which returns a JSON Array of JSON Hashes containing all silencing entry specifications.
+$ curl -s -X GET http://127.</description>
+    </item>
+    
+    <item>
+      <title>Stashes API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/stashes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/stashes/</guid>
+      <description>The /stashes API endpoints /stashes (GET) /stashes (POST) The /stashes/:path API endpoint /stashes/:path (DELETE) The /stashes API endpoints The /stashes API endpoint provides HTTP GET and HTTP POST access to Sensu stash data via the Sensu key/value store.
+/stashes (GET) EXAMPLES The following example demonstrates a /stashes query, which results in a JSON Array of JSON Hashes containing stash data.
+$ curl -s http://127.0.0.1:3000/stashes | jq . [ { &amp;#34;_id&amp;#34;: &amp;#34;us_west1/silence/i-424242/chef_client_process&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_west1&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;silence/i-424242/chef_client_process&amp;#34;, &amp;#34;content&amp;#34;: { &amp;#34;timestamp&amp;#34;: 1383441836 }, &amp;#34;expire&amp;#34;: 3600 }, { &amp;#34;_id&amp;#34;: &amp;#34;us_east1/application/storefront&amp;#34;, &amp;#34;dc&amp;#34;: &amp;#34;us_east1&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;application/storefront&amp;#34;, &amp;#34;content&amp;#34;: { &amp;#34;timestamp&amp;#34;: 1381350802, &amp;#34;endpoints&amp;#34;: [ &amp;#34;https://hostname/store&amp;#34; ] }, &amp;#34;expire&amp;#34;: -1 } ] API specification /stashes (GET) description Returns a list of stashes by path and datacenter (dc).</description>
+    </item>
+    
+    <item>
+      <title>Subscriptions API</title>
+      <link>/sensu-enterprise-dashboard/latest/api/subscriptions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/api/subscriptions/</guid>
+      <description>The /subscriptions API endpoint /subscriptions (GET) The /subscriptions API endpoint The /subscriptions API endpoint provides HTTP GET access to subscription data.
+/subscriptions (GET) EXAMPLE The following example demonstrates a request to the /subscriptions API, resulting in a JSON Array of JSON Hashes containing subscription definitions.
+$ curl -s http://127.0.0.1:3000/subscriptions | jq . [ { &amp;#34;dc&amp;#34;: &amp;#34;us_west1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;web_server&amp;#34; }, { &amp;#34;dc&amp;#34;: &amp;#34;us_west1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;database&amp;#34; } ] API Specification /subscriptions (GET) description Returns a list of subscriptions by name and datacenter (dc).</description>
+    </item>
+    
+  </channel>
+</rss>

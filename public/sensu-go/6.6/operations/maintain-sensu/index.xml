@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maintain Sensu on Sensu Docs</title>
+    <link>/sensu-go/6.6/operations/maintain-sensu/</link>
+    <description>Recent content in Maintain Sensu on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.6/operations/maintain-sensu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Upgrade Sensu</title>
+      <link>/sensu-go/6.6/operations/maintain-sensu/upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/operations/maintain-sensu/upgrade/</guid>
+      <description>To upgrade to the latest version of Sensu Go:
+Install or upgrade to the latest packages or Docker image.
+NOTE: If you&amp;rsquo;re upgrading a Sensu cluster, upgrade all of your Sensu backends before you run the sensu-backend upgrade command in step 5.
+For systems that use systemd, run: sudo systemctl daemon-reload Restart the Sensu agent: sudo systemctl restart sensu-agent Restart the Sensu backend: sudo systemctl restart sensu-backend Run a single upgrade command on one your Sensu backends to migrate the cluster: sensu-backend upgrade To skip confirmation and immediately run the upgrade command, add the --skip-confirm flag: sensu-backend upgrade --skip-confirm NOTE: If you are deploying a new Sensu cluster rather than upgrading from a previous version, you do not need to run the sensu-backend upgrade command.</description>
+    </item>
+    
+    <item>
+      <title>Migrate from Sensu Core and Sensu Enterprise to Sensu Go</title>
+      <link>/sensu-go/6.6/operations/maintain-sensu/migrate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/operations/maintain-sensu/migrate/</guid>
+      <description>This guide includes general information for migrating your Sensu instance from Sensu Core and Sensu Enterprise to Sensu Go. For instructions and tools to help you translate your Sensu configuration from Sensu Core and Enterprise to Sensu Go, review the Sensu Translator project.
+NOTE: The information in this guide applies to Sensu Enterprise as well as Sensu Core, although we refer to &amp;ldquo;Sensu Core&amp;rdquo; for brevity.
+The step for translating integrations, contact routing, and LDAP authentication applies to Sensu Enterprise (but not Sensu Core), and it is designated as Sensu Enterprise-only.</description>
+    </item>
+    
+    <item>
+      <title>Tune Sensu</title>
+      <link>/sensu-go/6.6/operations/maintain-sensu/tune/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/operations/maintain-sensu/tune/</guid>
+      <description>This page describes tuning options that may help restore proper operation if you experience performance issues with your Sensu installation.
+NOTE: Before you tune your Sensu installation, read Troubleshoot Sensu, Hardware requirements, and Deployment architecture for Sensu. These pages describe common problems and solutions, planning and optimization considerations, and other recommendations that may resolve your issue without tuning adjustments.
+Latency tolerances for etcd If you use embedded etcd for storage, you might notice high network or storage latency.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshoot Sensu</title>
+      <link>/sensu-go/6.6/operations/maintain-sensu/troubleshoot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/operations/maintain-sensu/troubleshoot/</guid>
+      <description>Service logging Logs produced by Sensu services (sensu-backend and sensu-agent) are often the best place to start when troubleshooting a variety of issues.
+Log file locations Linux Sensu services print structured log messages to standard output. To capture these log messages to disk or another logging facility, Sensu services use capabilities provided by the underlying operating system&amp;rsquo;s service management. For example, logs are sent to the journald when systemd is the service manager, whereas log messages are redirected to /var/log/sensu when running under sysv init schemes.</description>
+    </item>
+    
+    <item>
+      <title>Restore your Sensu configuration for disaster recovery</title>
+      <link>/sensu-go/6.6/operations/maintain-sensu/disaster-recovery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/operations/maintain-sensu/disaster-recovery/</guid>
+      <description>This page explains how to restore your Sensu configuration for disaster recovery. The disaster recovery processes include steps for creating backups of your Sensu configuration, but you must make backups before you need to use them. Read best practices for backups for more information.
+The instructions for restoring Sensu assume that your primary Sensu deployment is down and you need to bring up a new one to take its place.</description>
+    </item>
+    
+    <item>
+      <title>License reference</title>
+      <link>/sensu-go/6.6/operations/maintain-sensu/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/operations/maintain-sensu/license/</guid>
+      <description>Activate your commercial license If you haven&amp;rsquo;t already, install the backend, agent, and sensuctl and configure sensuctl.
+Log in to your Sensu account at account.sensu.io and click Download license to download your license file.
+Save your license to a file such as sensu_license.yml or sensu_license.json. With the license file downloaded and saved to a file, you can activate your license with sensuctl or the /license API.
+NOTE: For clustered configurations, you only need to activate your license for one of the backends within the cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on Sensu Docs</title>
+    <link>/uchiwa/latest/guides/</link>
+    <description>Recent content in Guides on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/uchiwa/latest/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Availability</title>
+      <link>/uchiwa/latest/guides/high-availability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/guides/high-availability/</guid>
+      <description>Datacenters High Availability You can define multiple Sensu APIs by datacenter in order to provide failover and rudimentary load balancing between these APIs.
+To get started with this feature, you&amp;rsquo;ll simply need to define at least two Sensu objects with the same name. Here&amp;rsquo;s a basic example:
+{ &amp;#34;sensu&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;us-east-1&amp;#34;, &amp;#34;host&amp;#34;: &amp;#34;10.0.0.1&amp;#34;, &amp;#34;port&amp;#34;: 4567 }, { &amp;#34;name&amp;#34;: &amp;#34;us-east-1&amp;#34;, &amp;#34;host&amp;#34;: &amp;#34;10.0.0.2&amp;#34;, &amp;#34;port&amp;#34;: 4567 } ] } With this configuration, the datacenter us-east-1 now has two APIs (10.</description>
+    </item>
+    
+    <item>
+      <title>Search Queries</title>
+      <link>/uchiwa/latest/guides/search-queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/guides/search-queries/</guid>
+      <description>Queries The most basic query is composed of a value but can also contains a field and its value, in the form of field:value. When only specifying the value, all fields are tested against it.
+A query can use any field, visible or not, to match a value, such as:
+us-west-1 dc:us-west-1 subscriber:rabbitmq subscription:linux team:webops Regular Expressions Javascript&amp;rsquo;s RegExp object is used to retrieve the matches, thus the following special characters are available to use exclusively with field:value queries.</description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/uchiwa/latest/guides/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/guides/security/</guid>
+      <description>Encrypted Passwords You can place hashed passwords in the password attributes, but only within the uchiwa object, in order to obfuscate users passwords in your configuration files.
+Please note that you must absolutely use the {crypt} prefix when using an encrypted password. For example: &amp;#34;password&amp;#34;: &amp;#34;{crypt}$1$MteWnoFT$yhEi8KMxO794K0TIriZcI0&amp;#34; The following algorithms are supported (along the commands to create the hashes):
+Algorithm Command APR1 openssl passwd -apr1 MY_PASSWORD MD5 mkpasswd --method=MD5 MY_PASSWORD SHA-256 mkpasswd --method=SHA-256 MY_PASSWORD SHA-512 mkpasswd --method=SHA-512 MY_PASSWORD Alternatively, you could use the [Passlib hashing library for Python 2 &amp;amp; 3] (https://passlib.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting</title>
+      <link>/uchiwa/latest/guides/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/guides/troubleshooting/</guid>
+      <description>Authentication How do I disable Uchiwa built-in authentication? In order to remove Uchiwa authentication, you simply need to remove or leave empty the user, pass and users attributes from the Uchiwa Configurationon your configuration file.
+Checks My standalone check does not appear in the checks view Uchiwa uses the /checks Sensu API endpoint to build the checks list. This endpoint only provides the checks that are defined and known by the Sensu server itself, therefore standalone checks that are only defined on some particular clients can&amp;rsquo;t be shown.</description>
+    </item>
+    
+  </channel>
+</rss>

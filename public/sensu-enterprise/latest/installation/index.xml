@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installation on Sensu Docs</title>
+    <link>/sensu-enterprise/latest/installation/</link>
+    <description>Recent content in Installation on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise/latest/installation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installation Overview</title>
+      <link>/sensu-enterprise/latest/installation/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/installation/overview/</guid>
+      <description>Installing Sensu Enterprise Upgrading from Sensu Core to Sensu Enterprise Getting Started with Sensu Enterprise Installing Sensu Enterprise Sensu Enterprise is supported on RHEL/CentOS and Ubuntu/Debian Linux distributions. Please see the relevant section below for information on installing Sensu Enterprise and its prerequisites.
+Prior to working through either the installation or upgrade instructions linked below, you&amp;rsquo;ll need to create a Sensu Enterprise account and obtain your Sensu Enterprise repository credentials via the Sensu Account Manager portal.</description>
+    </item>
+    
+    <item>
+      <title>Testing Prereleases</title>
+      <link>/sensu-enterprise/latest/installation/testing-prereleases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/installation/testing-prereleases/</guid>
+      <description>WARNING: Sensu prereleases are your first chance to try out new features and bug fixes. Please be aware that you may be the first to discover an issue, you probably do not want to use a prerelease in production.
+Testing and using a Sensu prerelease is straightforward, it simply involves using a different package repository. You should only be using prereleases if you already have experience installing and managing a Sensu installation.</description>
+    </item>
+    
+  </channel>
+</rss>

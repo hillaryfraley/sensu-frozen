@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quick Start on Sensu Docs</title>
+    <link>/sensu-core/latest/quick-start/</link>
+    <description>Recent content in Quick Start on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-core/latest/quick-start/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Sensu</title>
+      <link>/sensu-core/latest/quick-start/learn-sensu-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/quick-start/learn-sensu-basics/</guid>
+      <description>Download the sandbox The Sensu sandbox is a virtual environment that makes it easy to get started building monitoring workflows.
+Download the sandbox and learn Sensu Core Download the sandbox and learn Sensu Enterprise Install Sensu Core Sensu Core is the free and open source monitoring event pipeline.
+Install Sensu with configuration management Install Sensu Core Discover Sensu Community Plugins Try Sensu Enterprise Sensu Enterprise offers features designed for enterprises, like contact routing, role-based access control, and support.</description>
+    </item>
+    
+    <item>
+      <title>The Five Minute Install</title>
+      <link>/sensu-core/latest/quick-start/five-minute-install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/quick-start/five-minute-install/</guid>
+      <description>IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.
+This means the repositories and https://eol-repositories.sensuapp.org URLs specified in the instructions and code examples on this page are no longer available. To migrate to Sensu Go, read the Sensu Core migration guide.
+This installation guide is intended to help you install Sensu Core in a development environment for testing purposes.</description>
+    </item>
+    
+    <item>
+      <title>Client Installation</title>
+      <link>/sensu-core/latest/quick-start/client-installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/quick-start/client-installation/</guid>
+      <description>IMPORTANT: Sensu Core reached end-of-life (EOL) on December 31, 2019, and we permanently removed the Sensu EOL repository on February 1, 2021.
+This means the packages and https://eol-repositories.sensuapp.org URLs specified in the instructions and code examples on this page are no longer available. To migrate to Sensu Go, read the Sensu Core migration guide.
+Install the Sensu Client Having successfully installed and configured a Sensu server and API (Sensu Core or Sensu Enterprise), let&amp;rsquo;s now install and/or configure a Sensu client.</description>
+    </item>
+    
+  </channel>
+</rss>

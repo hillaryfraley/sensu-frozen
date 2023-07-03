@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Control Access on Sensu Docs</title>
+    <link>/sensu-go/latest/operations/control-access/</link>
+    <description>Recent content in Control Access on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/latest/operations/control-access/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure single sign-on (SSO) authentication</title>
+      <link>/sensu-go/latest/operations/control-access/sso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/sso/</guid>
+      <description>COMMERCIAL FEATURE: Access authentication providers for single sign-on (SSO) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu requires username and password authentication to access the web UI, API, and sensuctl command line tool.
+In addition to the built-in basic authentication, Sensu offers commercial support for using Lightweight Directory Access Protocol (LDAP), Active Directory (AD), or OpenID Connect 1.0 protocol (OIDC) for single sign-on (SSO) authentication.</description>
+    </item>
+    
+    <item>
+      <title>Use API keys to authenticate to Sensu</title>
+      <link>/sensu-go/latest/operations/control-access/use-apikeys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/use-apikeys/</guid>
+      <description>The Sensu API key feature (core/v2.APIKey) is a persistent universally unique identifier (UUID) that maps to a stored Sensu username. The advantages of authenticating with API keys rather than access tokens include:
+More efficient integration: Check and handler plugins and other code can integrate with the Sensu API without implementing the logic required to authenticate via the /auth API endpoint to periodically refresh the access token Improved security: API keys do not require providing a username and password in check or handler definitions Better admin control: API keys can be created and revoked without changing the underlying user&amp;rsquo;s password&amp;hellip;but keep in mind that API keys will continue to work even if the user&amp;rsquo;s password changes API keys are cluster-wide resources, so only cluster admins can grant, view, and revoke them.</description>
+    </item>
+    
+    <item>
+      <title>Create a read-only user with role-based access control</title>
+      <link>/sensu-go/latest/operations/control-access/create-read-only-user/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/create-read-only-user/</guid>
+      <description>Role-based access control (RBAC) allows you to exercise fine-grained control over how Sensu users interact with Sensu resources. Use RBAC rules to achieve multitenancy so different projects and teams can share a Sensu instance.
+Sensu RBAC helps different teams and projects share a Sensu instance. RBAC allows you to manage users and their access to resources based on namespaces, groups, roles, and bindings.
+By default, Sensu includes a default namespace and an admin user with full permissions to create, modify, and delete resources within Sensu, including RBAC resources like users and roles.</description>
+    </item>
+    
+    <item>
+      <title>Create limited service accounts</title>
+      <link>/sensu-go/latest/operations/control-access/create-limited-service-accounts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/create-limited-service-accounts/</guid>
+      <description>In some cases, you may want to allow an application or service to interact with Sensu resources. Use Sensu&amp;rsquo;s role-based access control (RBAC) to create and configure accounts that represent applications or services rather than individual human users. These limited service accounts give you fine-grained control of the access and permissions the application or service needs.
+For example, you might develop a service that displays a high-level view of your webserver statuses based on an aggregate check.</description>
+    </item>
+    
+    <item>
+      <title>Active Directory (AD) reference</title>
+      <link>/sensu-go/latest/operations/control-access/ad-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/ad-auth/</guid>
+      <description>COMMERCIAL FEATURE: Access active directory (AD) authentication for single sign-on (SSO) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu requires username and password authentication to access the web UI, API, and sensuctl command line tool.
+In addition to the built-in basic authentication, Sensu offers commercial support for using Microsoft Active Directory (AD) for single sign-on (SSO) authentication. The AD authentication provider is based on the LDAP authentication provider.</description>
+    </item>
+    
+    <item>
+      <title>Lightweight Directory Access Protocol (LDAP) reference</title>
+      <link>/sensu-go/latest/operations/control-access/ldap-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/ldap-auth/</guid>
+      <description>COMMERCIAL FEATURE: Access Lightweight Directory Access Protocol (LDAP) authentication for single sign-on (SSO) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu requires username and password authentication to access the web UI, API, and sensuctl command line tool.
+In addition to the built-in basic authentication, Sensu offers commercial support for a standards-compliant Lightweight Directory Access Protocol (LDAP) tool for single sign-on (SSO) authentication.</description>
+    </item>
+    
+    <item>
+      <title>OpenID Connect 1.0 protocol (OIDC) reference</title>
+      <link>/sensu-go/latest/operations/control-access/oidc-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/oidc-auth/</guid>
+      <description>COMMERCIAL FEATURE: Access OpenID Connect 1.0 protocol (OIDC) authentication for single sign-on (SSO) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu requires username and password authentication to access the web UI, API, and sensuctl command line tool.
+In addition to the built-in basic authentication, Sensu offers commercial support for single sign-on (SSO) authentication using the OpenID Connect 1.0 protocol (OIDC) on top of the OAuth 2.</description>
+    </item>
+    
+    <item>
+      <title>API keys reference</title>
+      <link>/sensu-go/latest/operations/control-access/apikeys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/apikeys/</guid>
+      <description>API keys are long-lived authentication tokens that make it more convenient for Sensu plugins and other Sensu-adjacent applications to authenticate with the Sensu API. Unlike authentication tokens, API keys are persistent and do not need to be refreshed every 15 minutes.
+The Sensu backend generates API keys, and you can provide them to applications that want to interact with the Sensu API.
+Use the core/v2/apikeys API endpoints to create, retrieve, and delete API keys.</description>
+    </item>
+    
+    <item>
+      <title>Namespaces reference</title>
+      <link>/sensu-go/latest/operations/control-access/namespaces/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/namespaces/</guid>
+      <description>Namespaces partition resources within Sensu. Sensu entities, checks, handlers, and other namespaced resources belong to a single namespace.
+Namespaces help teams use different resources (like entities, checks, and handlers) within Sensu and impose their own controls on those resources. A Sensu instance can have multiple namespaces, each with their own set of managed resources. Resource names must be unique within a namespace but do not need to be unique across namespaces.</description>
+    </item>
+    
+    <item>
+      <title>Role-based access control (RBAC) reference</title>
+      <link>/sensu-go/latest/operations/control-access/rbac/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/operations/control-access/rbac/</guid>
+      <description>Sensu&amp;rsquo;s role-based access control (RBAC) helps different teams and projects share a Sensu instance. Use RBAC to specify the actions users are allowed to take against specific Sensu resources, within namespaces or across all namespaces, based on roles bound to the user or to one or more groups the user is a member of.
+Roles create sets of permissions (for example, get and delete) tied to resource types. Cluster roles apply permissions across namespaces and include access to cluster-wide resources like users and namespaces.</description>
+    </item>
+    
+  </channel>
+</rss>

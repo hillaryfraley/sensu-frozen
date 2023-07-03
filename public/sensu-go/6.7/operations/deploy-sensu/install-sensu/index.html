@@ -1,0 +1,3127 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Install Sensu - Sensu Docs</title>
+    <meta name="generator" content="Hugo 0.101.0" />
+
+    
+    <meta name="description" content="Install Sensu packages for Linux and Windows, Docker images for Linux containers, and binary-only distributions for Linux, Windows, macOS, FreeBSD, and Solaris.">
+    
+    <link rel="canonical" href="/sensu-go/6.7/operations/deploy-sensu/install-sensu/">
+    
+
+    
+      <meta name="docsearch:version" content="6.7" />
+    
+
+    
+    <meta name="robots" content="noindex">
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="/sensu-go/6.7/operations/deploy-sensu/install-sensu/">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="Install Sensu | Sensu Go 6.7">
+    <meta property="og:image" content="/images/sensu-logo-icon-dark@128px.png">
+    <meta name="apple-mobile-web-app-title" content="Sensu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="/javascripts/application.js"></script>
+
+
+  
+  
+
+
+<header>
+  <nav aria-label="Header" id="navbar">
+    <label id="hamburger" for="toggle-drawer"></label>
+
+    <a class="logo" href="/">Sensu Docs</a>
+    
+    
+      <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Go<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      6.7
+      
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.9/operations/deploy-sensu/install-sensu/">
+          
+            6.9 (latest)
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.8/operations/deploy-sensu/install-sensu/">
+          
+            6.8 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.7/operations/deploy-sensu/install-sensu/">
+          
+            6.7 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.6/operations/deploy-sensu/install-sensu/">
+          
+            6.6 
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <input id="desktop-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+  </nav>
+
+  
+    
+<div id="alerts">
+  
+  
+  
+
+  
+
+  
+
+  
+</div>
+
+    <div id="alerts">
+  
+  
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    
+    alertElement = "<div class='alert' style='background-color: #7a4595'>";
+    
+      alertElement += "<a href='\/sensu-go\/6.9\/operations\/deploy-sensu\/install-sensu\/'>You\u0027re viewing documentation for an older or pre-release version of Sensu Go. Click here for the latest.</a>";
+    
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    
+    $("#alerts").append(alertElement);
+  });
+</script>
+
+  
+</div>
+
+  
+
+</header>
+
+
+<main class="main">
+  <input class="hidden" type="checkbox" id="toggle-drawer" autocomplete="off">
+<label id="backdrop" for="toggle-drawer"></label>
+<aside class="drawer">
+  <div class="drawer--inner">
+    
+    <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Go<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      6.7
+      
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.9/operations/deploy-sensu/install-sensu/">
+          
+            6.9 (latest)
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.8/operations/deploy-sensu/install-sensu/">
+          
+            6.8 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.7/operations/deploy-sensu/install-sensu/">
+          
+            6.7 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.6/operations/deploy-sensu/install-sensu/">
+          
+            6.6 
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    <input id="mobile-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+    <nav>
+      
+        <ul>
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+          
+
+          
+          
+          
+          <li><a class="strong" href="/sensu-go/6.7">Sensu Go</a><ul>
+
+          
+          
+
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/release-notes/">Release Notes</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/get-started/">Get Started with Sensu</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/platforms/">Platforms and Distributions</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/commercial/">Commercial Features</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/versions/">Supported Versions</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/sensu-plus/">Sensu Plus</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/observability-pipeline/">
+                    
+                      Observability Pipeline
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-entities/">
+                              Entities
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-entities/entities/">Entities Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-entities/auto-register-deregister/">Auto-register and Deregister Entities</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-entities/monitor-external-resources/">Monitor External Resources</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-events/">
+                              Events
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-events/events/">Events Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-schedule/">
+                              Schedule
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/agent/">Agent Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/backend/">Backend Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/checks/">Checks Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/hooks/">Hooks Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/metrics/">Metrics Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/rule-templates/">Rule Templates Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/service-components/">Service Components Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/subscriptions/">Subscriptions Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/tokens/">Tokens Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/business-service-monitoring-sdk/">Business Service Monitoring SDK</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/augment-event-data-with-hooks/">Augment Event Data</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/prometheus-metrics/">Collect Prometheus Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/collect-metrics-with-checks/">Collect Service Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/business-service-monitoring/">Monitor Business Services</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-schedule/monitor-server-resources/">Monitor Server Resources</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-filter/">
+                              Filter
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/filters/">Event Filters Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/sensu-query-expressions/">Sensu Query Expressions Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/reduce-alert-fatigue/">Reduce Alert Fatigue</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-filter/route-alerts/">Route Alerts</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-transform/">
+                              Transform
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-transform/mutators/">Mutators Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/observability-pipeline/observe-process/">
+                              Process
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/handlers/">Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/pipelines/">Pipelines Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/silencing/">Silencing Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/sumo-logic-metrics-handlers/">Sumo Logic Metrics Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/tcp-stream-handlers/">TCP Stream Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/aggregate-metrics-statsd/">Aggregate StatsD Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/handler-templates/">Create Handler Templates</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/plan-maintenance/">Plan Maintenance Windows</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/populate-metrics-influxdb/">Populate Metrics in InfluxDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-data-sumo-logic/">Send Data to Sumo Logic</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-email-alerts/">Send Email Alerts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-pagerduty-alerts/">Send PagerDuty Alerts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/observability-pipeline/observe-process/send-slack-alerts/">Send Slack Alerts</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion current active" href="/sensu-go/6.7/operations/">
+                    
+                      Operations
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/operations/monitoring-as-code/">Monitoring as Code</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion active current" href="/sensu-go/6.7/operations/deploy-sensu/">
+                              Deploy Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/hardware-requirements/">Hardware Requirements</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="current" href="/sensu-go/6.7/operations/deploy-sensu/install-sensu/">Install Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/deployment-architecture/">Deployment Architecture</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/configuration-management/">Configuration Management</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/generate-certificates/">Generate Certificates</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/secure-sensu/">Secure Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/secure-postgres/">Secure PostgreSQL</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/cluster-sensu/">Run a Sensu Cluster</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/use-federation/">Reach Multi-cluster Visibility</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/scale-event-storage/">Scale with Enterprise Datastore</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/datastore/">Datastore Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/deploy-sensu/etcdreplicators/">Etcd Replicators Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/control-access/">
+                              Control Access
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/sso/">Configure SSO Authentication</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/use-apikeys/">Use API Keys</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/create-read-only-user/">Create a Read-only User</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/create-limited-service-accounts/">Create Limited Service Accounts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/ad-auth/">AD Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/ldap-auth/">LDAP Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/oidc-auth/">OIDC Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/apikeys/">API Keys Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/namespaces/">Namespaces Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/control-access/rbac/">RBAC Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/maintain-sensu/">
+                              Maintain Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/upgrade/">Upgrade Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/migrate/">Migrate from Sensu Core and Sensu Enterprise</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/tune/">Tune Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/troubleshoot/">Troubleshoot</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/disaster-recovery/">Restore Sensu Configuration</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/maintain-sensu/license/">License Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/monitor-sensu/">
+                              Monitor Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/log-sensu-systemd/">Log Sensu Services</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/monitor-sensu-with-sensu/">Monitor Sensu with Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/health/">Health Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/monitor-sensu/tessen/">Tessen Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/operations/manage-secrets/">
+                              Manage Secrets
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/manage-secrets/secrets-management/">Use Secrets Management</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/manage-secrets/secrets/">Secrets Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/operations/manage-secrets/secrets-providers/">Secrets Providers Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/guides/">Guides Index</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/sensuctl/">
+                    
+                      Sensuctl CLI
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/create-manage-resources/">Create and Manage Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/back-up-recover/">Back Up and Recover Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/filter-responses/">Filter Responses</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/environment-variables/">Set Environment Variables</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/sensuctl/sensuctl-bonsai/">Use sensuctl with Bonsai</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/web-ui/">
+                    
+                      Web UI
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/view-manage-resources/">View and Manage Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/search/">Search in the Web UI</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/webconfig/">Configure the Web UI</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/bsm-module/">Build Business Service Monitoring</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/searches-reference/">Searches Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/web-ui/webconfig-reference/">Web UI Configuration Reference</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/catalog/">
+                    
+                      Sensu Catalog
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/sensu-catalog/">Configure Integrations in the Sensu Catalog</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/build-private-catalog/">Build a Private Catalog</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/catalog-reference/">Catalog Integrations Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/catalog/catalog-api/">Catalog API</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/api/">
+                    
+                      API
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/api/core/">
+                              Core API
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/apikeys/">core/v2/apikeys</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/assets/">core/v2/assets</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/checks/">core/v2/checks</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/cluster/">core/v2/cluster</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/cluster-role-bindings/">core/v2/clusterrolebindings</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/cluster-roles/">core/v2/clusterroles</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/entities/">core/v2/entities</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/events/">core/v2/events</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/filters/">core/v2/filters</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/handlers/">core/v2/handlers</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/hooks/">core/v2/hooks</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/mutators/">core/v2/mutators</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/namespaces/">core/v2/namespaces</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/pipelines/">core/v2/pipelines</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/role-bindings/">core/v2/rolebindings</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/roles/">core/v2/roles</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/silenced/">core/v2/silenced</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/tessen/">core/v2/tessen</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/core/users/">core/v2/users</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/api/enterprise/">
+                              Enterprise APIs
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/authproviders/">enterprise/authentication/v2</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/business-service-monitoring/">enterprise/bsm/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/federation/">enterprise/federation/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/pipeline/">enterprise/pipeline/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/prune/">enterprise/prune/v1alpha</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/searches/">enterprise/searches/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/secrets/">enterprise/secrets/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/datastore/">enterprise/store/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/enterprise/webconfig/">enterprise/web/v1</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/api/other/">
+                              Other APIs
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/auth/">/auth</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/health/">/health</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/license/">/license</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/metrics/">/metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/api/other/version/">/version</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.7/reference/">Reference Index</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/plugins/">
+                    
+                      Plugins
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/assets/">Assets Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/plugins/">Plugins Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/install-plugins/">Install Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/plugins/use-assets-to-install-plugins/">Use Assets to Install Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.7/plugins/featured-integrations/">
+                              Featured Integrations
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/ansible/">Ansible</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/chef/">Chef</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/aws-ec2/">EC2</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/elasticsearch/">Elasticsearch</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/email/">Email</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/graphite/">Graphite</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/influxdb/">InfluxDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/jira/">Jira</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/opentsdb/">OpenTSDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/pagerduty/">PagerDuty</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/prometheus/">Prometheus</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/puppet/">Puppet</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/rundeck/">Rundeck</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/saltstack/">SaltStack</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/servicenow/">ServiceNow</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/slack/">Slack</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/sumologic/">Sumo Logic</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/timescaledb/">TimescaleDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.7/plugins/featured-integrations/wavefront/">Wavefront</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.7/learn/">
+                    
+                      Learn Sensu
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/learn/concepts-terminology/">Concepts and Terminology</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.7/learn/demo/">Live Demo</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+          </ul></li>
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+  
+    
+  
+
+
+
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>
+</ul>
+      
+      <hr>
+      <div class="drawer--footer">
+        <iframe src="https://ghbtns.com/github-btn.html?user=sensu&repo=sensu-docs&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20"></iframe>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/issues/new?title=Docs%20Feedback&body=%3C!--Thanks%20for%20submitting%20feedback%20to%20the%20Sensu%20docs!--%3E%0A%0ALink%20to%20page%3A%20%0A%0A%23%23%23%20Feedback">Open a docs issue</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-go/6.7/operations/deploy-sensu/install-sensu.md">Edit this page</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md">Read the contributing guide</a>
+        
+        
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>Install Sensu </h1>
+
+      
+        
+
+
+
+      
+      <p>This installation guide describes how to install the Sensu backend, Sensu agent, and sensuctl command line tool.</p>
+<p>These instructions explain how to install Sensu for proof-of-concept purposes or testing in a development environment.
+We recommend using a <a href="../../../platforms/#supported-packages">supported package</a> to follow this guide.</p>
+<p>To build Sensu Go from source (OSS), follow the <a href="https://github.com/sensu/sensu-go#installation">Sensu Go installation instructions on GitHub</a>.</p>
+
+<div class="notices note" ><p><strong>NOTE</strong>: If you’re trying Sensu for the first time, consider following the the <a href="https://github.com/sensu/sensu-go-workshop#overview">Sensu Go workshop</a> instead.
+The workshop includes a local sandbox environment and a collection of resources designed to help new users learn and test Sensu.<br><br>
+If you will deploy Sensu to your infrastructure, we recommend securing your installation with transport layer security (TLS) in addition to using one of our supported packages, Docker images, or <a href="../configuration-management/">configuration management integrations</a>.
+Read <a href="../generate-certificates">Generate certificates</a> next to get the certificates you will need for TLS.</p>
+</div>
+
+<p>Sensu downloads are provided under the <a href="https://sensu.io/licenses">Sensu commercial license</a>.</p>
+<p>Sensu Go is packaged for Linux, Windows (agent and sensuctl only), macOS (sensuctl only), and Docker.
+Review <a href="../../../platforms/">supported platforms</a> for more information.</p>
+<h2 id="architecture-overview">Architecture overview</h2>
+<p>Sensu works differently from other monitoring and observability solutions.
+Instead of provisioning each device, server, container, or sidecar you want to monitor, you install the Sensu agent on each infrastructure component.</p>
+<p><strong>Sensu agents</strong> are lightweight clients that run on the infrastructure components you want to monitor.
+Agents are responsible for creating status and metric events to send to the Sensu backend event pipeline.
+Agents automatically register with Sensu as entities when you start them up and connect to the Sensu backend with no need for further provisioning.
+You only need to specify the IP address for the Sensu backend server — you do not need to list the components to monitor in the backend.</p>
+<p>The <strong>Sensu backend</strong> is powered by an an embedded transport and <a href="https://etcd.io/">etcd</a> datastore.
+The backend sends specific checks for each agent to execute according to the <a href="../../../observability-pipeline/observe-schedule/subscriptions">subscriptions</a> you define in the agent configuration.
+Sensu automatically downloads the files needed to run the checks from an asset repository like <a href="https://bonsai.sensu.io/">Bonsai</a> or a local repo and schedules the checks on each agent.
+The agents execute the checks the backend sends to their subscriptions and send the resulting status and metric events to the backend event pipeline, which gives you flexible, automated workflows to route these events.</p>
+<figure><a href="/images/go/install_sensu/basic_architecture.png" target="_blank"><img src="/images/go/install_sensu/basic_architecture.png"
+         alt="Basic Sensu architecture diagram showing agents and the backend"/></a>
+</figure>
+
+<!-- Image source is Installation_diagram_with_ports at https://lucid.app/lucidchart/4a3ee7cd-6054-43d0-bcc9-e3376c7b1b90/edit?viewport_loc=-444%2C-400%2C2219%2C1117%2C0_0&invitationId=inv_cc6857aa-5cd3-4621-937c-2bfd97813eda# -->
+<p>The Sensu backend keeps track of all self-registered agents.
+If the backend loses a keepalive signal from any of the agents, it flags the agent and generates an event.
+You can configure your instance so that when an agent (for example, a server) shuts down gracefully, the agent automatically de-registers from the backend and does not generate an alert.</p>
+<p>Sensu backends require persistent storage for their embedded database, disk space for local asset caching, and several exposed ports.
+Agents that use Sensu <a href="../../../plugins/assets/">dynamic runtime assets</a> require some disk space for a local cache.</p>
+<p>For more information, read <a href="../secure-sensu/">Secure Sensu</a>.
+Read <a href="../deployment-architecture/">deployment architecture</a> and <a href="../hardware-requirements/">hardware requirements</a> for deployment recommendations.</p>
+<h2 id="ports">Ports</h2>
+<p>Sensu backends require the following ports:</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Protocol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2379</td>
+<td>gRPC</td>
+<td>Sensu storage client: Required for Sensu backends using an external etcd instance</td>
+</tr>
+<tr>
+<td>2380</td>
+<td>gRPC</td>
+<td>Sensu storage peer: Required for etcd <a href="../cluster-sensu/">cluster</a> members to communicate directly with their peers</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>HTTP/HTTPS</td>
+<td><a href="../../../web-ui/">Sensu web UI</a>: Required for all Sensu backends using a Sensu web UI</td>
+</tr>
+<tr>
+<td>6060</td>
+<td>HTTP/HTTPS</td>
+<td>Required for all Sensu backends when performance profiling is enabled via <a href="../../../observability-pipeline/observe-schedule/backend/#debug-attribute">debug</a> setting</td>
+</tr>
+<tr>
+<td>8080</td>
+<td>HTTP/HTTPS</td>
+<td><a href="../../../api/">Sensu API</a>: Required for all users accessing the Sensu API</td>
+</tr>
+<tr>
+<td>8081</td>
+<td>WS/WSS</td>
+<td>Agent API (backend WebSocket): Required for all Sensu agents connecting to a Sensu backend</td>
+</tr>
+</tbody>
+</table>
+<p>The Sensu agent uses the following ports:</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Protocol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3030</td>
+<td>TCP/UDP</td>
+<td>Sensu agent socket: Required for Sensu agents using the agent socket</td>
+</tr>
+<tr>
+<td>3031</td>
+<td>HTTP</td>
+<td>Sensu <a href="../../../observability-pipeline/observe-schedule/agent#create-observability-events-using-the-agent-api">agent API</a>: Required for all users accessing the agent API</td>
+</tr>
+<tr>
+<td>8125</td>
+<td>UDP</td>
+<td><a href="../../../observability-pipeline/observe-schedule/agent#create-observability-events-using-the-statsd-listener">StatsD listener</a>: Required for all Sensu agents using the StatsD listener</td>
+</tr>
+</tbody>
+</table>
+<p>The agent TCP and UDP sockets are deprecated in favor of the <a href="../../../observability-pipeline/observe-schedule/agent#create-observability-events-using-the-agent-api">agent API</a>.</p>
+<h2 id="install-the-sensu-backend">Install the Sensu backend</h2>
+<p>The Sensu backend is available for Debian- and RHEL-family distributions and Docker.
+Review <a href="../../../platforms/">supported platforms</a> for more information.</p>
+<h3 id="1-download">1. Download</h3>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="Docker">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker" data-lang="Docker"><span class="line"><span class="cl"><span class="c"># All Sensu Docker images contain a Sensu backend and a Sensu agent</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Pull the Alpine-based image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>docker pull sensu/sensu<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Pull the image based on Red Hat Enterprise Linux</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>docker pull sensu/sensu-rhel</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Debian family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Add the Sensu repository</span>
+</span></span><span class="line"><span class="cl">curl -s https://packagecloud.io/install/repositories/sensu/stable/script.deb.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the sensu-go-backend package</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install sensu-go-backend</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="RHEL family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Add the Sensu repository</span>
+</span></span><span class="line"><span class="cl">curl -s https://packagecloud.io/install/repositories/sensu/stable/script.rpm.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the sensu-go-backend package</span>
+</span></span><span class="line"><span class="cl">sudo yum install sensu-go-backend</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="2-configure-and-start">2. Configure and start</h3>
+<p>You can configure the Sensu backend with <code>sensu-backend start</code> flags (recommended) or an <code>/etc/sensu/backend.yml</code> file.
+The Sensu backend requires the <code>state-dir</code> flag at minimum, but other useful configurations and templates are available.</p>
+
+<div class="notices note" ><p><strong>NOTE</strong>: If you are using Docker, intitialization is included in this step when you start the backend rather than in <a href="#3-initialize">3. Initialize</a>.
+For details about intialization in Docker, read the <a href="../../../observability-pipeline/observe-schedule/backend#docker-initialization">backend reference</a>.</p>
+</div>
+
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="Docker">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker" data-lang="Docker"><span class="line"><span class="cl"><span class="c"># Replace `&lt;username&gt;` and `&lt;password&gt;` with the username and password</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># you want to use for your admin user credentials.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>docker run -v /var/lib/sensu:/var/lib/sensu <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d --name sensu-backend <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 3000:3000 -p 8080:8080 -p 8081:8081 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_USERNAME</span><span class="o">=</span>&lt;username&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD</span><span class="o">=</span>&lt;password&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>sensu/sensu:latest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>sensu-backend start --state-dir /var/lib/sensu/sensu-backend --log-level debug</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Docker Compose">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># Replace `&lt;username&gt;` and `&lt;password&gt;` with the username and password</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># you want to use for your admin user credentials.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>---<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>version: <span class="s2">&#34;3&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>services:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  sensu-backend:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - 3000:3000<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - 8080:8080<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - 8081:8081<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - <span class="s2">&#34;sensu-backend-data:/var/lib/sensu/sensu-backend/etcd&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    command: <span class="s2">&#34;sensu-backend start --state-dir /var/lib/sensu/sensu-backend --log-level debug&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    environment:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_USERNAME</span><span class="o">=</span>&lt;username&gt;<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD</span><span class="o">=</span>&lt;password&gt;<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: sensu/sensu:latest<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  sensu-backend-data:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    driver: local</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Debian family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Copy the config template from the docs</span>
+</span></span><span class="line"><span class="cl">sudo curl -L https://docs.sensu.io/sensu-go/latest/files/backend.yml -o /etc/sensu/backend.yml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start sensu-backend using a service manager</span>
+</span></span><span class="line"><span class="cl">sudo systemctl start sensu-backend
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verify that the backend is running</span>
+</span></span><span class="line"><span class="cl">sudo systemctl status sensu-backend</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="RHEL family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Copy the config template from the docs</span>
+</span></span><span class="line"><span class="cl">sudo curl -L https://docs.sensu.io/sensu-go/latest/files/backend.yml -o /etc/sensu/backend.yml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start sensu-backend using a service manager</span>
+</span></span><span class="line"><span class="cl">sudo systemctl start sensu-backend
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verify that the backend is running</span>
+</span></span><span class="line"><span class="cl">sudo systemctl status sensu-backend</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The backend reference includes a complete list of <a href="../../../observability-pipeline/observe-schedule/backend/#backend-configuration-options">configuration options</a> and <a href="../../../observability-pipeline/observe-schedule/backend#initialization">backend initialization details</a>.</p>
+
+<div class="notices warning" ><p><strong>WARNING</strong>: If you plan to <a href="../cluster-sensu/">run a Sensu cluster</a>, make sure that each of your backend nodes is configured, running, and a member of the cluster before you continue the installation process.</p>
+</div>
+
+<h3 id="3-initialize">3. Initialize</h3>
+
+<div class="notices note" ><p><strong>NOTE</strong>: If you are using Docker, you already completed intitialization in <a href="#2-configure-and-start">2. Configure and start</a>.
+Skip ahead to <a href="#4-open-the-web-ui">4. Open the web UI</a> to continue the backend installation process.
+If you did not use environment variables to override the default admin credentials in step 2, skip ahead to <a href="#install-sensuctl">Install sensuctl</a> so you can change your default admin password immediately.</p>
+</div>
+
+<p><strong>With the backend running</strong>, run <code>sensu-backend init</code> to set up your Sensu administrator username and password.
+In this initialization step, you only need to set environment variables with a username and password string — no need for role-based access control (RBAC).</p>
+<p>Replace <code>&lt;username&gt;</code> and <code>&lt;password&gt;</code> with the username and password you want to use:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="Debian family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_USERNAME</span><span class="o">=</span>&lt;username&gt;
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD</span><span class="o">=</span>&lt;password&gt;
+</span></span><span class="line"><span class="cl">sensu-backend init</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="RHEL family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_USERNAME</span><span class="o">=</span>&lt;username&gt;
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD</span><span class="o">=</span>&lt;password&gt;
+</span></span><span class="line"><span class="cl">sensu-backend init</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>For details about initializing the Sensu backend, read the <a href="../../../observability-pipeline/observe-schedule/backend#initialization">backend reference</a>.</p>
+
+<div class="notices note" ><p><strong>NOTE</strong>: You may need to allow access to the <a href="#ports">ports Sensu requires</a> in your local server firewall.
+Refer to the documentation for your operating system to configure port access as needed.</p>
+</div>
+
+<h3 id="4-open-the-web-ui">4. Open the web UI</h3>
+
+<div class="notices commercial" ><p><strong>COMMERCIAL FEATURE</strong>: Access the Sensu web UI in the packaged Sensu Go distribution.
+For more information, read <a href="../../../commercial/">Get started with commercial features</a>.</p>
+</div>
+
+<p>The web UI provides a unified view of your observability events and user-friendly tools to reduce alert fatigue.
+After starting the Sensu backend, open the web UI by visiting http://localhost:3000.
+You may need to replace <code>localhost</code> with the hostname or IP address where the Sensu backend is running.</p>
+<p>To log in to the web UI, enter your Sensu user credentials.
+If you are using Docker and you did not specify environment variables to override the default admin credentials, your user credentials are username <code>admin</code> and password <code>P@ssw0rd!</code>.
+Otherwise, your user credentials are the username and password you provided with the <code>SENSU_BACKEND_CLUSTER_ADMIN_USERNAME</code> and <code>SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD</code> environment variables.</p>
+<p>Select the ☰ icon to explore the web UI.</p>
+<h3 id="5-make-a-request-to-the-health-api">5. Make a request to the /health API</h3>
+<p>To make sure the backend is up and running, use the Sensu <a href="../../../api/other/health/">/health API</a> to check the backend&rsquo;s health.
+You should receive a response that includes <code>&quot;Healthy&quot;: true</code>.</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl http://127.0.0.1:8080/health</span></span></code></pre></div>
+</div>
+
+
+<p>Now that you&rsquo;ve installed the Sensu backend, <a href="#install-sensuctl">install and configure sensuctl</a> to connect to your backend URL.
+Then you can <a href="#install-sensu-agents">install a Sensu agent</a> and start monitoring your infrastructure.</p>
+<h2 id="install-sensuctl">Install sensuctl</h2>
+<p><a href="../../../sensuctl/">Sensuctl</a> is a command line tool for managing resources within Sensu.
+It works by calling Sensu’s HTTP API to create, read, update, and delete resources, events, and entities.
+Sensuctl is available for Linux, Windows, and macOS.</p>
+<p>To install sensuctl:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="Debian family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Add the Sensu repository</span>
+</span></span><span class="line"><span class="cl">curl -s https://packagecloud.io/install/repositories/sensu/stable/script.deb.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the sensu-go-cli package</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install sensu-go-cli</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="RHEL family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Add the Sensu repository</span>
+</span></span><span class="line"><span class="cl">curl https://packagecloud.io/install/repositories/sensu/stable/script.rpm.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the sensu-go-cli package</span>
+</span></span><span class="line"><span class="cl">sudo yum install sensu-go-cli</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Windows">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Download sensuctl for Windows amd64</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="nb">s3-us</span><span class="n">-west</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">sensu</span><span class="p">.</span><span class="n">io</span><span class="p">/</span><span class="nb">sensu-go</span><span class="p">/</span><span class="n">6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">/</span><span class="nb">sensu-go_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5_windows_amd64</span><span class="p">.</span><span class="n">zip</span>  <span class="n">-OutFile</span> <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">Administrator</span><span class="p">\</span><span class="nb">sensu-go_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5_windows_amd64</span><span class="p">.</span><span class="n">zip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Or for Windows 386</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="nb">s3-us</span><span class="n">-west</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">sensu</span><span class="p">.</span><span class="n">io</span><span class="p">/</span><span class="nb">sensu-go</span><span class="p">/</span><span class="n">6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">/</span><span class="nb">sensu-go_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5_windows_386</span><span class="p">.</span><span class="n">zip</span>  <span class="n">-OutFile</span> <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">Administrator</span><span class="p">\</span><span class="nb">sensu-go_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5_windows_386</span><span class="p">.</span><span class="n">zip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Unzip the file with PowerShell for Windows amd64</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;C:\Users\Administrator\sensu-go_6.7.5_windows_amd64.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="s1">&#39;C:\\Program Files\sensu\sensuctl\bin&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># or for Windows 386</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;C:\Users\Administrator\sensu-go_6.7.5_windows_386.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="s1">&#39;C:\\Program Files\sensu\sensuctl\bin&#39;</span></span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="macOS">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Download the latest release</span>
+</span></span><span class="line"><span class="cl">curl -LO https://s3-us-west-2.amazonaws.com/sensu.io/sensu-go/6.7.5/sensu-go_6.7.5_darwin_amd64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract the archive</span>
+</span></span><span class="line"><span class="cl">tar -xvf sensu-go_6.7.5_darwin_amd64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Copy the executable into your PATH</span>
+</span></span><span class="line"><span class="cl">sudo cp sensuctl /usr/local/bin/</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>To start using sensuctl, run <code>sensuctl configure</code> and log in with your user credentials, namespace, and <a href="#install-the-sensu-backend">Sensu backend</a> URL.
+To configure sensuctl using default values:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">sensuctl configure -n \
+</span></span><span class="line"><span class="cl">--username &#39;YOUR_USERNAME&#39; \
+</span></span><span class="line"><span class="cl">--password &#39;YOUR_PASSWORD&#39; \
+</span></span><span class="line"><span class="cl">--namespace default \
+</span></span><span class="line"><span class="cl">--url &#39;http://127.0.0.1:8080&#39;</span></span></code></pre></div>
+</div>
+
+
+<p>Here, the <code>-n</code> flag triggers non-interactive mode.
+Run <code>sensuctl config view</code> to view your user profile.</p>
+<p>For more information about sensuctl, read the <a href="../../../sensuctl/">sensuctl documentation</a>.</p>
+<h3 id="change-default-admin-password">Change default admin password</h3>
+<p>If you are using Docker and you did not use environment variables to override the default admin credentials in <a href="#2-configure-and-start">step 2 of the backend installation process</a>, we recommend that you change the default admin password as soon as you have <a href="#install-sensuctl">installed sensuctl</a>.
+Run:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl user change-password --interactive</span></span></code></pre></div>
+</div>
+
+
+<h2 id="install-sensu-agents">Install Sensu agents</h2>
+<p>The Sensu agent is available for Debian- and RHEL-family distributions, Windows, and Docker.
+Review <a href="../../../platforms/">supported platforms</a> for more information.</p>
+<h3 id="agent-download">1. Download</h3>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="Docker">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker" data-lang="Docker"><span class="line"><span class="cl"><span class="c"># All Sensu images contain a Sensu backend and a Sensu agent</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Pull the Alpine-based image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>docker pull sensu/sensu<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Pull the RHEL-based image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>docker pull sensu/sensu-rhel</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Debian family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Add the Sensu repository</span>
+</span></span><span class="line"><span class="cl">curl -s https://packagecloud.io/install/repositories/sensu/stable/script.deb.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the sensu-go-agent package</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install sensu-go-agent</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="RHEL family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Add the Sensu repository</span>
+</span></span><span class="line"><span class="cl">curl -s https://packagecloud.io/install/repositories/sensu/stable/script.rpm.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the sensu-go-agent package</span>
+</span></span><span class="line"><span class="cl">sudo yum install sensu-go-agent</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Windows">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Download the Sensu agent for Windows amd64</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="nb">s3-us</span><span class="n">-west</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">sensu</span><span class="p">.</span><span class="n">io</span><span class="p">/</span><span class="nb">sensu-go</span><span class="p">/</span><span class="n">6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">/</span><span class="nb">sensu-go</span><span class="n">-agent_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">.</span><span class="n">6587_en-US</span><span class="p">.</span><span class="n">x64</span><span class="p">.</span><span class="n">msi</span>  <span class="n">-OutFile</span> <span class="s2">&#34;$env:userprofile\sensu-go-agent_6.7.5.6587_en-US.x64.msi&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Or for Windows 386</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="nb">s3-us</span><span class="n">-west</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">sensu</span><span class="p">.</span><span class="n">io</span><span class="p">/</span><span class="nb">sensu-go</span><span class="p">/</span><span class="n">6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">/</span><span class="nb">sensu-go</span><span class="n">-agent_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">.</span><span class="n">6587_en-US</span><span class="p">.</span><span class="n">x86</span><span class="p">.</span><span class="n">msi</span>  <span class="n">-OutFile</span> <span class="s2">&#34;$env:userprofile\sensu-go-agent_6.7.5.6587_en-US.x86.msi&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Install the Sensu agent for Windows amd64</span>
+</span></span><span class="line"><span class="cl"><span class="n">msiexec</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">i</span> <span class="nv">$env:userprofile</span><span class="p">\</span><span class="nb">sensu-go</span><span class="n">-agent_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">.</span><span class="n">6587_en-US</span><span class="p">.</span><span class="n">x64</span><span class="p">.</span><span class="n">msi</span> <span class="p">/</span><span class="n">qn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Or for Windows 386</span>
+</span></span><span class="line"><span class="cl"><span class="n">msiexec</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">i</span> <span class="nv">$env:userprofile</span><span class="p">\</span><span class="nb">sensu-go</span><span class="n">-agent_6</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">5</span><span class="p">.</span><span class="n">6587_en-US</span><span class="p">.</span><span class="n">x86</span><span class="p">.</span><span class="n">msi</span> <span class="p">/</span><span class="n">qn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Or via Chocolatey</span>
+</span></span><span class="line"><span class="cl"><span class="n">choco</span> <span class="n">install</span> <span class="nb">sensu-agent</span></span></span></code></pre></div>
+</div>
+
+
+
+  </div>
+</div>
+
+<h3 id="agent-start">2. Configure and start</h3>
+<p>You can configure the Sensu agent with <code>sensu-agent start</code> flags (recommended) or an <code>/etc/sensu/agent.yml</code> file.
+The Sensu agent requires the <code>--backend-url</code> flag at minimum, but other useful configurations and templates are available.</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="Docker">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker" data-lang="Docker"><span class="line"><span class="cl"><span class="c"># If you are running the agent locally on the same system as the Sensu backend,</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># add `--link sensu-backend` to your Docker arguments and change the backend</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># URL to `--backend-url ws://sensu-backend:8081`.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Start an agent with the system subscription</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>docker run -v /var/lib/sensu:/var/lib/sensu -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name sensu-agent sensu/sensu:latest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>sensu-agent start --backend-url ws://sensu.yourdomain.com:8081 --log-level debug --subscriptions system --api-host 0.0.0.0 --cache-dir /var/lib/sensu</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Docker Compose">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># Start an agent with the system subscription</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>---<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>version: <span class="s2">&#34;3&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>services:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  sensu-agent:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: sensu/sensu:latest<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - 3031:3031<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    - <span class="s2">&#34;sensu-agent-data:/var/lib/sensu&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    command: <span class="s2">&#34;sensu-agent start --backend-url ws://sensu-backend:8081 --log-level debug --subscriptions system --api-host 0.0.0.0 --cache-dir /var/lib/sensu&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  sensu-agent-data:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    driver: local</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Debian family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Copy the config template from the docs</span>
+</span></span><span class="line"><span class="cl">sudo curl -L https://docs.sensu.io/sensu-go/latest/files/agent.yml -o /etc/sensu/agent.yml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start sensu-agent using a service manager</span>
+</span></span><span class="line"><span class="cl">sudo systemctl start sensu-agent</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="RHEL family">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Copy the config template from the docs</span>
+</span></span><span class="line"><span class="cl">sudo curl -L https://docs.sensu.io/sensu-go/latest/files/agent.yml -o /etc/sensu/agent.yml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start sensu-agent using a service manager</span>
+</span></span><span class="line"><span class="cl">sudo systemctl start sensu-agent</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="Windows">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Copy the example agent config file from %ALLUSERSPROFILE%\sensu\config\agent.yml.example</span>
+</span></span><span class="line"><span class="cl"><span class="c"># (default: C:\ProgramData\sensu\config\agent.yml.example) to C:\ProgramData\sensu\config\agent.yml</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cp </span><span class="n">C:</span><span class="p">\</span><span class="n">ProgramData</span><span class="p">\</span><span class="n">sensu</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">agent</span><span class="p">.</span><span class="n">yml</span><span class="p">.</span><span class="n">example</span> <span class="n">C:</span><span class="p">\</span><span class="n">ProgramData</span><span class="p">\</span><span class="n">sensu</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">agent</span><span class="p">.</span><span class="n">yml</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Change to the sensu\sensu-agent\bin directory where you installed Sensu</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd </span><span class="s1">&#39;C:\Program Files\sensu\sensu-agent\bin&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Run the sensu-agent executable</span>
+</span></span><span class="line"><span class="cl"><span class="p">./</span><span class="nb">sensu-agent</span><span class="p">.</span><span class="n">exe</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Install and start the agent</span>
+</span></span><span class="line"><span class="cl"><span class="p">./</span><span class="nb">sensu-agent</span> <span class="n">service</span> <span class="n">install</span></span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>The agent reference includes a complete list of <a href="../../../observability-pipeline/observe-schedule/agent/#agent-configuration-options">configuration options</a>.</p>
+<h3 id="3-verify-keepalive-events">3. Verify keepalive events</h3>
+<p>Sensu keepalives are the heartbeat mechanism used to ensure that all registered agents are operating and can reach the Sensu backend.
+To confirm that the agent is registered with Sensu and is sending keepalive events, open the entity page in the <a href="#4-open-the-web-ui">Sensu web UI</a> or run <code>sensuctl entity list</code>.</p>
+<h3 id="4-verify-an-example-event">4. Verify an example event</h3>
+<p>With your backend and agent still running, send this request to the Sensu core/v2/events API:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;check&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;metadata&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">      &#34;name&#34;: &#34;check-mysql-status&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    },
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;status&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;output&#34;: &#34;could not connect to mysql&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:3031/events</span></span></code></pre></div>
+</div>
+
+
+<p>This request creates a <code>warning</code> event that you can <a href="http://localhost:3000/">view in your web UI Events page</a>.</p>
+<p>To create an OK event, change the <code>status</code> to <code>0</code> and resend.
+You can change the <code>output</code> value to <code>connected to mysql</code> to use a different message for the OK event.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>Now that you have installed Sensu, you’re ready to build your observability pipelines!
+Here are some ideas for next steps.</p>
+<h3 id="get-started-with-sensu">Get started with Sensu</h3>
+<p>If you&rsquo;re ready to try Sensu, one of these pathways can get you started:</p>
+<ul>
+<li>Manually trigger an event that <a href="../../../observability-pipeline/observe-process/send-email-alerts/">sends alerts to your email inbox</a>.</li>
+<li><a href="../../../observability-pipeline/observe-schedule/monitor-server-resources/">Create a check to monitor CPU usage</a> and <a href="../../../observability-pipeline/observe-process/send-slack-alerts/">send Slack alerts based on your check</a>.</li>
+<li><a href="../../../observability-pipeline/observe-schedule/collect-metrics-with-checks/">Collect metrics</a> with a Sensu check and use a handler to <a href="../../../observability-pipeline/observe-process/populate-metrics-influxdb/">populate metrics in InfluxDB</a>.</li>
+<li>Use the <a href="../../../sensuctl/back-up-recover/">sensuctl dump</a> command to export all of your events and resources as a backup — then use <a href="../../../sensuctl/create-manage-resources/#create-resources">sensuctl create</a> to restore if needed.</li>
+</ul>
+<h3 id="deploy-sensu-outside-your-local-development-environment">Deploy Sensu outside your local development environment</h3>
+<p>To deploy Sensu for use outside of a local development environment, first decide whether you want to <a href="../cluster-sensu/">run a Sensu cluster</a>.
+A Sensu cluster is a group of three or more sensu-backend nodes, each connected to a shared database provided either by Sensu’s embedded etcd or an external etcd cluster.</p>
+<p>Clustering allows you to absorb the loss of a backend node, prevent data loss, and distribute the network load of agents.
+However, scaling a single backend to a cluster or migrating a cluster from cleartext HTTP to encrypted HTTPS without downtime can require <a href="https://etcd.io/docs/latest/op-guide/runtime-configuration/">a number of tedious steps</a>.
+For this reason, we recommend that you decide whether your deployment will require clustering as part of your initial planning effort.</p>
+<p>No matter whether you deploy a single backend or a clustered configuration, begin by securing Sensu with transport layer security (TLS).
+The first step in setting up TLS is to <a href="../generate-certificates/">generate the certificates you need</a>.
+Then, follow our <a href="../secure-sensu/">Secure Sensu</a> guide to make Sensu production-ready.</p>
+<p>After you&rsquo;ve secured Sensu, read <a href="../cluster-sensu/">Run a Sensu cluster</a> if you are setting up a clustered configuration.</p>
+<h2 id="commercial-features">Commercial features</h2>
+<p>Sensu Inc. offers support packages for Sensu Go and <a href="../../../commercial/">commercial features</a> designed for monitoring at scale.</p>
+<p>All commercial features are <a href="https://sensu.io/blog/one-year-of-sensu-go/">free for your first 100 entities</a>.
+To learn more about Sensu Go commercial licenses for more than 100 entities, <a href="https://sensu.io/contact?subject=contact-sales/">contact the Sensu sales team</a>.</p>
+<p>If you already have a Sensu commercial license, <a href="https://account.sensu.io/">log in to your Sensu account</a> and download your license file.
+Save your license to a file such as <code>sensu_license.yml</code> or <code>sensu_license.json</code>.</p>
+<p>Use sensuctl to activate your license:</p>
+<div class="language-toggle">
+  <div class="tabs"></div>
+  <div class="languages">
+    
+
+<div class="language" data-lang="YML">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl create --file sensu_license.yml</span></span></code></pre></div>
+</div>
+
+
+
+<div class="language" data-lang="JSON">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl create --file sensu_license.json</span></span></code></pre></div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<p>You can use sensuctl to view your license details at any time.</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sensuctl license info</span></span></code></pre></div>
+</div>
+
+
+
+
+      <script async type="text/javascript" src="/js/clip.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+      
+      
+
+
+
+
+    </div>
+  </article>
+
+  <section id="sidebar">
+    <aside id="contribute">
+  <div id="page-rating">
+    <h4>Is this page helpful?</h4>
+    <fieldset class="rating">
+      <input type="radio" id="heart5" name="rating" value="5">
+      <label for="heart5" title="Excellent"></label>
+      <input type="radio" id="heart4" name="rating" value="4">
+      <label for="heart4" title="Good"></label>
+      <input type="radio" id="heart3" name="rating" value="3">
+      <label for="heart3" title="OK"></label>
+      <input type="radio" id="heart2" name="rating" value="2">
+      <label for="heart2" title="Poor"></label>
+      <input type="radio" id="heart1" name="rating" value="1">
+      <label for="heart1" title="Unusable"></label>
+    </fieldset>
+  </div>
+
+  <div>
+    <h4>Contribute:</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-go/6.7/operations/deploy-sensu/install-sensu.md" target="_blank">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit this page
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/issues/new/choose" target="_blank">
+          <i class="fa fa-bug" aria-hidden="true"></i>
+          Report a docs issue
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md" target="_blank">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Read the contributing guide
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+    <aside id="toc">
+  
+    <div>
+      <h4>On this page:</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#architecture-overview">Architecture overview</a></li>
+    <li><a href="#ports">Ports</a></li>
+    <li><a href="#install-the-sensu-backend">Install the Sensu backend</a></li>
+    <li><a href="#install-sensuctl">Install sensuctl</a></li>
+    <li><a href="#install-sensu-agents">Install Sensu agents</a></li>
+    <li><a href="#next-steps">Next steps</a></li>
+    <li><a href="#commercial-features">Commercial features</a></li>
+  </ul>
+</nav>
+    </div>
+  
+</aside>
+
+  </section>
+</main>
+
+<section id="footer">
+  <div class="footer--content">
+
+    <div class="footer--content--center">
+
+      <div class="register">
+        <img alt="Sensu Go Lizy mascot image" title="Register your Sensu installation" src="/images/lizy-logo-a.png">
+        <h3>Register your Sensu installation &mdash; Get rewards!</h3>
+        <p>Take 2 minutes to <a href="https://sensu.io/register"><b><u>register your installation</u></b></a> and let Sensu help you along your journey.<br>
+        We'll send you a free reward when you add your first 10 checks and connect at least 10 agents!</p>
+      </div>
+    </div>
+
+    <div class="footer--content--left">
+      <h3>About Sensu</h3>
+      <p>The Sensu monitoring event pipeline empowers businesses to automate their monitoring workflows and gain deep visibility into their multi-cloud infrastructure, from Kubernetes to bare metal. Companies like Sony, Box.com, and Activision rely on Sensu to help deliver value faster, at scale.</p>
+
+      <div class="footer--navigation">
+        <div>
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="https://sensu.io/products">Products</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/products/core">Sensu Core</a></li>
+                <li><a href="https://sensu.io/products/enterprise">Sensu Enterprise</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/solutions">Solutions</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/solutions/container-monitoring">For Containers</a></li>
+                <li><a href="https://sensu.io/solutions/cloud-monitoring">For Cloud</a></li>
+                <li><a href="https://sensu.io/solutions/nagios-alternative">For Nagios</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://sensu.io/community">Community</a></li>
+            <li><a href="https://docs.sensu.io">Documentation</a></li>
+            <li><a href="https://sensu.io/products/downloads">Downloads</a></li>
+            <li><a href="https://account.sensu.io/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://sensu.io/about">About</a></li>
+            <li><a href="https://blog.sensu.io/" target="_blank">Blog</a></li>
+            <li><a href="https://sensu.io/customers">Customers</a></li>
+            <li><a href="https://sensu.io/contact">Contact</a></li>
+            <li><a href="https://sensu.io/sales">Sales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--content--right">
+      <h3>Get In Touch</h3>
+      <p>Our team is here to help. Use our <a href="https://sensu.io/contact"><b><u>contact form</b></u></a> or reach out on GitHub, Slack, or Twitter.</p>
+      <ul class="inline">
+        <li><a href="https://github.com/sensu" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-920.000000, -4175.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M944,179.302423 C944,184.73279 940.5625,189.346199 935.796875,190.980114 C935.1875,191.092246 934.984375,190.707795 934.984375,190.387419 L934.984375,187.007457 C934.984375,185.854105 934.609375,185.117241 934.171875,184.73279 C936.84375,184.428433 939.65625,183.387212 939.65625,178.661672 C939.65625,177.316095 939.1875,176.210799 938.421875,175.361803 C938.546875,175.041428 938.953125,173.791963 938.296875,172.093972 C937.296875,171.773597 935,173.359456 935,173.359456 C934.046875,173.087137 933.015625,172.942968 932,172.942968 C930.984375,172.942968 929.953125,173.087137 929,173.359456 C929,173.359456 926.703125,171.773597 925.6875,172.093972 C925.046875,173.791963 925.453125,175.041428 925.578125,175.361803 C924.8125,176.210799 924.34375,177.316095 924.34375,178.661672 C924.34375,183.371194 927.140625,184.428433 929.8125,184.73279 C929.46875,185.053166 929.15625,185.581785 929.046875,186.382724 C928.359375,186.7031 926.609375,187.247739 925.5625,185.357522 C924.90625,184.188151 923.71875,184.092039 923.71875,184.092039 C922.546875,184.07602 923.640625,184.844921 923.640625,184.844921 C924.421875,185.213353 924.96875,186.639025 924.96875,186.639025 C925.671875,188.833598 929.015625,188.096734 929.015625,188.096734 C929.015625,189.121936 929.03125,190.099081 929.03125,190.387419 C929.03125,190.707795 928.8125,191.092246 928.203125,190.980114 C923.4375,189.346199 920,184.73279 920,179.302423 C920,172.51046 925.375,167 932,167 C938.625,167 944,172.51046 944,179.302423 Z"></path>
+              </g>
+          </g>
+      </svg>
+      </svg></a></li>
+        <li><a href="https://slack.sensu.io/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-970.000000, -4174.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M983.558646,174.858722 C981.981445,175.389656 980.426,175.913367 978.850551,176.443791 C979.381566,178.019593 979.905426,179.574164 980.436149,181.149018 C982.013351,180.618084 983.568868,180.094373 985.144317,179.56395 C984.613229,177.988147 984.089442,176.433576 983.558646,174.858722 M987.341608,173.597015 C987.875471,175.177268 988.398382,176.725054 988.927352,178.290642 C989.756037,178.018937 990.556758,177.747669 991.363173,177.494204 C992.397094,177.169165 993.417872,177.616194 993.827396,178.558626 C994.288246,179.619546 993.796293,180.824125 992.708489,181.235696 C991.977422,181.512289 991.230584,181.747514 990.490901,182.001563 C990.405258,182.031112 990.320418,182.063069 990.205863,182.104583 C990.270843,182.306246 990.332611,182.502072 990.396862,182.697023 C990.599104,183.310913 990.820184,183.919332 991.000743,184.53957 C991.250662,185.398097 990.877426,186.300984 990.115766,186.758301 C989.350602,187.21766 988.359685,187.148348 987.740107,186.522857 C987.48201,186.262315 987.291814,185.904516 987.158276,185.557297 C986.881926,184.838635 986.664132,184.097501 986.41465,183.342724 C984.842632,183.872564 983.293175,184.39467 981.715316,184.926334 C981.780881,185.135657 981.839875,185.33214 981.903906,185.526945 C982.108631,186.149518 982.328324,186.767567 982.518155,187.394517 C982.876862,188.579689 982.220339,189.689565 981.01893,189.955652 C980.084524,190.162568 979.102077,189.628716 978.759651,188.702773 C978.491625,187.977983 978.253679,187.242175 978.0023,186.511256 C977.970101,186.417502 977.937538,186.32382 977.894972,186.200955 C977.176317,186.441068 976.471168,186.676877 975.765801,186.912175 C975.373216,187.043066 974.980924,187.128722 974.558915,187.042774 C973.695331,186.866793 973.028587,186.13799 972.956744,185.262317 C972.879935,184.327035 973.388828,183.514036 974.25964,183.211249 C974.963547,182.966612 975.674171,182.741237 976.381583,182.506669 C976.466496,182.478579 976.55024,182.446841 976.652603,182.410361 C976.123997,180.844627 975.601086,179.295966 975.0681,177.717318 C974.51102,177.900157 973.970732,178.081902 973.427451,178.254162 C973.037422,178.37783 972.650459,178.539437 972.249697,178.595763 C971.209351,178.742049 970.294513,178.107584 970.060948,177.128745 C969.815775,176.101533 970.325324,175.12138 971.318796,174.755556 C972.03548,174.491658 972.763335,174.258184 973.486153,174.010993 C973.579827,173.978964 973.673355,173.946496 973.79397,173.904836 C973.550914,173.175814 973.313845,172.461675 973.074512,171.74834 C972.9455,171.363911 972.86818,170.9797 972.952144,170.56864 C973.131023,169.693697 973.864792,169.035155 974.761961,168.966718 C975.677968,168.896895 976.483872,169.408859 976.785849,170.272931 C977.019633,170.941761 977.231952,171.618032 977.454565,172.290583 C977.494064,172.4098 977.537798,172.527559 977.585329,172.662317 C979.165889,172.133353 980.72586,171.61132 982.311677,171.080605 C982.104542,170.467809 981.897408,169.876609 981.705971,169.280375 C981.586962,168.909882 981.437652,168.53771 981.396401,168.156053 C981.286591,167.140296 981.9326,166.296142 982.949216,166.053402 C983.895304,165.827516 984.871253,166.334373 985.22244,167.268633 C985.503974,168.017355 985.744548,168.781398 986.00447,169.538291 C986.033236,169.622196 986.069012,169.703693 986.108439,169.804013 C986.874479,169.548505 987.622777,169.293362 988.374726,169.049601 C989.361919,168.729596 990.330567,169.104759 990.808575,169.982548 C991.399095,171.06718 990.889838,172.393822 989.71829,172.800431 C989.014237,173.044776 988.304123,173.27183 987.596931,173.507055 C987.520195,173.532518 987.444409,173.560608 987.341608,173.597015"></path>
+              </g>
+          </g>
+      </svg></a></li>
+        <li><a href="https://twitter.com/sensu" target="_blank"><svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1017.000000, -4176.000000)">
+                <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                    <path d="M1038.54405,172.982073 C1038.55358,173.198827 1038.55676,173.41558 1038.55676,173.633963 C1038.55676,180.306063 1033.60511,188 1024.54749,188 C1021.76566,188 1019.17936,187.16558 1017,185.729791 C1017.38469,185.778683 1017.77732,185.79987 1018.17473,185.79987 C1020.48126,185.79987 1022.60498,184.994785 1024.28997,183.638853 C1022.13604,183.601369 1020.31594,182.139505 1019.68963,180.134941 C1019.99006,180.195241 1020.30004,180.226206 1020.61796,180.226206 C1021.06464,180.226206 1021.49861,180.162647 1021.91509,180.048566 C1019.66101,179.584094 1017.96331,177.543677 1017.96331,175.099087 L1017.96331,175.035528 C1018.62777,175.410365 1019.3876,175.640156 1020.19513,175.664602 C1018.87257,174.758475 1018.00305,173.215124 1018.00305,171.463168 C1018.00305,170.537484 1018.24467,169.672099 1018.67068,168.924055 C1021.09803,171.979791 1024.72871,173.987614 1028.82037,174.201108 C1028.73612,173.83116 1028.6932,173.443286 1028.6932,173.048892 C1028.6932,170.26043 1030.89641,168 1033.61624,168 C1035.03259,168 1036.31223,168.614407 1037.20877,169.595502 C1038.33263,169.36897 1039.38495,168.948501 1040.33872,168.369948 C1039.96834,169.54824 1039.18943,170.537484 1038.17208,171.161669 C1039.16876,171.044329 1040.11776,170.770535 1041,170.367992 C1040.33872,171.381682 1039.50576,172.269883 1038.54405,172.982073"></path>
+                </g>
+            </g>
+        </svg>
+      </a></li>
+      </ul>
+
+      <h3>Join Our Community</h3>
+      <p>Become a member of the Sensu community and get access to the community Slack channel and our weekly newsletter containing updates about Sensu.</p>
+      <form action="https://share.hsforms.com/10Dzh-ahWTaulALvp3xFfmQ2mwx3" target="_blank">
+        <input type="email" id="EMAIL" name="email" placeholder="Your Email">
+        <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    Made with <a href="https://twitter.com/hashtag/monitoringlove" target="_blank">#monitoringlove</a> by Sensu, Inc. &copy; 2013-2023 &mdash; <a href="https://sensu.io/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+</section>
+
+
+<script>
+$( document ).ready(function() {
+  applyTipBoxes();
+});
+
+function boldFirstWord(element) {
+  newElement = element.html().replace(/(^\w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function boldFirstTwoWords(element) {
+  newElement = element.html().replace(/(^\w+ \w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function applyTipBoxes() {
+  $('em').wrap(function() {
+    if ($(this).text().includes('NOTE:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-note"></div>';
+    } else if ($(this).text().includes('WARNING:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-warning"></div>';
+    } else if ($(this).text().includes('PRO TIP:')) {
+      boldFirstTwoWords($(this));
+      return '<div class="alert-tip"></div>';
+    } else if ($(this).text().includes('IMPORTANT:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-important"></div>';
+    }
+  });
+}
+</script>
+
+<script>
+  
+    var base_url = '';
+    var repo_id  = 'sensu\/sensu-docs';
+  
+</script>
+
+<script src="/javascripts/application.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  /* Add headers to scrollspy */
+  var headers   = document.getElementsByTagName("h2");
+  var scrollspy = document.getElementById('scrollspy');
+
+  if(scrollspy) {
+    if(headers.length > 0) {
+      for(var i = 0; i < headers.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("class", "anchor");
+
+        var a  = document.createElement("a");
+        a.setAttribute("href", "#" + headers[i].id);
+        a.setAttribute("title", headers[i].innerHTML);
+        a.innerHTML = headers[i].innerHTML;
+
+        li.appendChild(a)
+        scrollspy.appendChild(li);
+      }
+    } else {
+      scrollspy.parentElement.removeChild(scrollspy)
+    }
+  }
+
+  /* Add permanent link next to the headers */
+  var headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+
+  for(var i = 0; i < headers.length; i++) {
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + headers[i].id);
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 9.2" width="18.3px"><path d="M-1.8-6.4h22v22h-22v-22z" fill="none"/><path d="M1.7 4.6C1.7 3 3 1.7 4.6 1.7h3.7V0H4.6C2.1 0 0 2.1 0 4.6s2.1 4.6 4.6 4.6h3.7V7.4H4.6C3 7.4 1.7 6.2 1.7 4.6zm3.8.9h7.3V3.7H5.5v1.8zM13.8 0h-3.7v1.7h3.7c1.6 0 2.8 1.3 2.8 2.8s-1.3 2.8-2.8 2.8h-3.7V9h3.7c2.5 0 4.6-2.1 4.6-4.6S16.3 0 13.8 0z"/></svg>';
+    headers[i].appendChild(a);
+  }
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0087/0389.js" async="async"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+      []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+      m.parentNode.insertBefore(a,m)
+    })(window, document,
+      'script', '//www.google-analytics.com/analytics.js', 'ga');
+     
+    ga('create', 'UA-39138312-17', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+     
+    var buttons = document.querySelectorAll('a');
+    Array.prototype.map.call(buttons, function(item) {
+      if (item.host != document.location.host) {
+        item.addEventListener('click', function() {
+          var action = item.getAttribute('data-action') || 'follow';
+          ga('send', 'event', 'outbound', action, item.href);
+        });
+      }
+    });
+     
+    var searchInputs = document.getElementsByClassName('search');
+    for (var i=0; i < searchInputs.length; i++) {
+      searchInputs[i].addEventListener('blur', function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga('send', 'pageview', path + '?q=' + this.value);
+        }
+      });
+    }
+
+    var dropdowns = document.getElementsByClassName('dropdown');
+    for (var i=0; i < dropdowns.length; i++) {
+      dropdowns[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.currentTarget.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function(e) {
+      for (var i=0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove('open');
+      };
+    });
+
+    
+    var languages = {
+      javascript: "JavaScript",
+      json: "JSON",
+      yml: "YML",
+    };
+    var toggles = document.getElementsByClassName('language-toggle');
+    for (var i=0; i < toggles.length; i++) {
+      var children = Array.prototype.slice.call(toggles[i].querySelectorAll('.language'));
+      var langs = children.map(function(c) { return c.dataset.lang; });
+
+      
+      langs.forEach(function(lang) {
+        var el = document.createElement('span');
+        el.setAttribute('role', 'tab');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('data-lang', lang);
+        el.innerText = languages[lang] || lang;
+        el.addEventListener('click', function(e) {
+          var elOffset = e.currentTarget.getBoundingClientRect().top;
+          setLanguage(e.currentTarget.dataset.lang);
+          e.currentTarget.scrollIntoView();
+          window.scrollBy(0, -elOffset);
+        });
+        toggles[i].querySelector('.tabs').appendChild(el);
+      });
+
+      
+      toggles[i].querySelector('.languages').children[0].classList.add('active');
+    }
+
+    
+    function setLanguage(lang) {
+      
+      localStorage.setItem('lang', lang);
+
+      
+      var tabLists = Array.prototype.slice.call(document.querySelectorAll('.language-toggle .tabs'));
+      
+      tabLists.forEach(function(tabList) {
+        var activeTab = tabList.querySelector('.active');
+        var selectedTab = tabList.querySelector('[data-lang="' + lang + '"]');
+        var allTabs = Array.prototype.slice.call(tabList.children);
+        allTabs.forEach(function(t) { return t.classList.remove('active'); });
+        if (selectedTab) {
+          selectedTab.classList.add('active');
+        } else if (activeTab) {
+          activeTab.classList.add('active');
+        } else {
+          allTabs[0].classList.add('active');
+        }
+      });
+
+      
+      var selector = '.language-toggle .language[data-lang="' + lang + '"]';
+      var langBlockChildren = document.querySelectorAll(selector);
+      var langBlocks = Array.prototype.slice.call(langBlockChildren).map(function(el) { return el.closest('.languages'); });
+      
+      langBlocks.forEach(function(el) {
+        Array.prototype.slice.call(el.children).forEach(function(c) {
+          return c.classList.remove('active');
+        })
+      });
+      
+      langBlockChildren.forEach(function(el) { return el.classList.add('active'); });
+    }
+    
+    setLanguage(localStorage.getItem('lang'));
+  </script>
+
+
+
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o1043');
+  twq('track','PageView');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+  var docsearchOptions = {
+    appId: 'S633WESKWC',
+    apiKey: '2aaea336f8b58143b17119944385071f',
+    indexName: 'sensu',
+    inputSelector: '#desktop-search',
+    algoliaOptions: {
+      facetFilters: [
+        [
+          
+            'tags:sensu-go'
+          
+        ],
+        [
+          
+            'version:6.7'
+          
+        ]
+      ]
+    },
+    debug: false
+  };
+
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+
+  docsearchOptions.inputSelector = '#mobile-search';
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+</script>
+
+</body>
+</html>

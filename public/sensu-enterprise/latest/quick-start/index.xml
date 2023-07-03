@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quick Start on Sensu Docs</title>
+    <link>/sensu-enterprise/latest/quick-start/</link>
+    <description>Recent content in Quick Start on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise/latest/quick-start/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Sensu Enterprise</title>
+      <link>/sensu-enterprise/latest/quick-start/get-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/quick-start/get-started/</guid>
+      <description>Download the sandbox The Sensu sandbox is a virtual environment that makes it easy to get started building monitoring workflows.
+Download the sandbox and learn Sensu Enterprise Try Sensu Enterprise Sensu Enterprise offers features designed for organizations, like contact routing, role-based access control, and support.
+Sign up for a free trial of Sensu Enterprise, no credit card required Get started with the Sensu Enterprise sandbox Install Sensu Enterprise </description>
+    </item>
+    
+    <item>
+      <title>The Five Minute Install</title>
+      <link>/sensu-enterprise/latest/quick-start/five-minute-install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/quick-start/five-minute-install/</guid>
+      <description>IMPORTANT: Sensu Enterprise reached end-of-life (EOL) March 31, 2020, and we permanently removed the Sensu EOL repository on February 1, 2021.
+This means the repositories specified in the instructions and code examples below are no longer available. To migrate to Sensu Go, read Migrate from Sensu Core and Sensu Enterprise to Sensu Go.
+This installation guide is intended to help you install Sensu Enterprise in a development environment for testing purposes.</description>
+    </item>
+    
+  </channel>
+</rss>

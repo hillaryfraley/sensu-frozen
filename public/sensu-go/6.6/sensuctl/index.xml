@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensuctl CLI on Sensu Docs</title>
+    <link>/sensu-go/6.6/sensuctl/</link>
+    <description>Recent content in Sensuctl CLI on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.6/sensuctl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create and manage resources with sensuctl</title>
+      <link>/sensu-go/6.6/sensuctl/create-manage-resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/sensuctl/create-manage-resources/</guid>
+      <description>Use the sensuctl command line tool to create and manage resources within Sensu. Sensuctl works by calling Sensu’s underlying API to create, read, update, and delete resources, events, and entities.
+Create resources The sensuctl create command allows you to create or update resources by reading from STDIN or a file.
+The create command accepts Sensu resource definitions in yaml or wrapped-json formats, which wrap the contents of the resource in spec and identify the resource type and api_version.</description>
+    </item>
+    
+    <item>
+      <title>Back up and recover resources with sensuctl</title>
+      <link>/sensu-go/6.6/sensuctl/back-up-recover/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/sensuctl/back-up-recover/</guid>
+      <description>PRO TIP: For disaster recovery instructions, read Restore your Sensu configuration for disaster recovery.
+The sensuctl dump command allows you to export your resources to standard out (stdout) or to a file. You can export all resources or a subset of them based on a list of resource types. The dump command supports exporting in wrapped-json and yaml.
+For example, to export all resources for the current namespace to a file named my-resources.</description>
+    </item>
+    
+    <item>
+      <title>Filter responses with sensuctl</title>
+      <link>/sensu-go/6.6/sensuctl/filter-responses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/sensuctl/filter-responses/</guid>
+      <description>COMMERCIAL FEATURE: Access sensuctl response filtering in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensuctl supports response filtering for all commands using the list verb. For information about response filtering methods and available label and field selectors, read API response filtering.
+Sensuctl-specific syntax You can use the same methods, selectors, and examples for sensuctl response filtering as for API response filtering, except you&amp;rsquo;ll format your requests with the --label-selector and --field-selector flags instead of cURL.</description>
+    </item>
+    
+    <item>
+      <title>Set environment variables with sensuctl</title>
+      <link>/sensu-go/6.6/sensuctl/environment-variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/sensuctl/environment-variables/</guid>
+      <description>Sensu allows you to set sensuctl environment variables for a single sensuctl command or with sensuctl configure. You can also export and set environment variables on your system with sensuctl env.
+These environment variables are alternatives to configuration flags like the sensuctl global flags and sensuctl configure flags.
+Setting sensuctl options as environment variables instead of using flags offers the following advantages:
+Use environment variables to avoid exposing sensitive information like your API key and other security credentials.</description>
+    </item>
+    
+    <item>
+      <title>Use sensuctl with Bonsai</title>
+      <link>/sensu-go/6.6/sensuctl/sensuctl-bonsai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/sensuctl/sensuctl-bonsai/</guid>
+      <description>Sensuctl supports installing dynamic runtime asset definitions directly from Bonsai, the Sensu asset hub, and checking your Sensu backend for outdated dynamic runtime assets. You can also use sensuctl command to install, execute, list, and delete commands from Bonsai or a URL.
+Install dynamic runtime asset definitions To install a dynamic runtime asset definition directly from Bonsai, use sensuctl asset add &amp;lt;ASSET_NAME&amp;gt;:&amp;lt;ASSET_VERSION&amp;gt;. Replace &amp;lt;ASSET_NAME&amp;gt; with the complete name of the dynamic runtime asset from Bonsai.</description>
+    </item>
+    
+  </channel>
+</rss>

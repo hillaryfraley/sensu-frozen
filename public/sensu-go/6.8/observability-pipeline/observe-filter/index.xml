@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Filter your observation data on Sensu Docs</title>
+    <link>/sensu-go/6.8/observability-pipeline/observe-filter/</link>
+    <description>Recent content in Filter your observation data on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.8/observability-pipeline/observe-filter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event filters reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-filter/filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-filter/filters/</guid>
+      <description>Sensu executes event filters during the filter stage of the observability pipeline.
+Sensu event filters are applied when you configure a pipeline with a workflow that uses one or more filters. Before executing the handler in a pipeline workflow, the Sensu backend will apply any event filters listed in the same pipeline workflow to the observation data in events. If the filters do not remove the event, the handler will be executed.</description>
+    </item>
+    
+    <item>
+      <title>Sensu query expressions reference</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-filter/sensu-query-expressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-filter/sensu-query-expressions/</guid>
+      <description>Sensu query expressions (SQEs) are JavaScript-based expressions that provide additional functionality for using Sensu, like nested parameters and custom functions.
+SQEs are defined in event filters, so they act in the context of determining whether a given event should be passed to the handler. SQEs always receive a single event and some information about that event, like event.timestamp or event.check.interval.
+SQEs always return either true or false. They are evaluated by the Otto JavaScript VM as JavaScript programs.</description>
+    </item>
+    
+    <item>
+      <title>Reduce alert fatigue with event filters</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-filter/reduce-alert-fatigue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-filter/reduce-alert-fatigue/</guid>
+      <description>Sensu event filters allow you to filter events destined for one or more event handlers. Filters evaluate their expressions against the observation data in events to determine whether the event should be passed to an event handler.
+Use event filters to customize alert policies, improve contact routing, eliminate notification noise from recurring events, and filter events from systems in pre-production environments.
+In this guide, you&amp;rsquo;ll learn how to reduce alert fatigue by configuring an event filter named hourly.</description>
+    </item>
+    
+    <item>
+      <title>Route alerts with event filters</title>
+      <link>/sensu-go/6.8/observability-pipeline/observe-filter/route-alerts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/observability-pipeline/observe-filter/route-alerts/</guid>
+      <description>Every alert has an ideal first responder: a team or person who knows how to triage and address the issue. Sensu contact routing lets you alert the right people using their preferred contact methods and reduce mean time to response and recovery.
+In this guide, you&amp;rsquo;ll set up alerts for two teams (dev and ops) with separate Slack channels. Each team wants to be alerted only for the things they care about, using their team&amp;rsquo;s Slack channel.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugins on Sensu Docs</title>
+    <link>/sensu-go/latest/plugins/</link>
+    <description>Recent content in Plugins on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/latest/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Assets reference</title>
+      <link>/sensu-go/latest/plugins/assets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/plugins/assets/</guid>
+      <description>Dynamic runtime assets are shareable, reusable packages that make it easier to deploy Sensu plugins. You can use dynamic runtime assets to provide the plugins, libraries, and runtimes you need to automate your monitoring workflows. Sensu supports dynamic runtime assets for checks, filters, mutators, and handlers.
+Use the Sensu Catalog to find, configure, and install many dynamic runtime assets directly from your browser. Follow the Catalog prompts to configure the Sensu resources you need and start processing your observability data with a few clicks.</description>
+    </item>
+    
+    <item>
+      <title>Plugins reference</title>
+      <link>/sensu-go/latest/plugins/plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/plugins/plugins/</guid>
+      <description>Sensu plugins provide executable scripts or other programs that you can use as Sensu checks, handlers, and mutators. Sensu plugins must comply with the following specification:
+Accept input/data via stdin (handler and mutator plugins only) Optionally able to parse a JSON data payload (that is, observation data in an event) Output data to stdout or stderr Produce an exit status code to indicate state: 0 indicates OK 1 indicates WARNING 2 indicates CRITICAL exit status codes other than 0, 1, or 2 indicate an unknown or custom status Optionally able to parse command line arguments to modify plugin behavior Supported programming languages You can use any programming language that can satisfy the Sensu plugin specification requirements — which is nearly any programming language in the world — to write Sensu plugins.</description>
+    </item>
+    
+    <item>
+      <title>Install Sensu plugins</title>
+      <link>/sensu-go/latest/plugins/install-plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/plugins/install-plugins/</guid>
+      <description>Extend Sensu&amp;rsquo;s functionality with plugins, which provide executables for performing status or metric checks, mutators for changing data to a desired format, and handlers for performing an action on a Sensu event.
+Install plugins with dynamic runtime assets Dynamic runtime assets are shareable, reusable packages that make it easier to deploy Sensu plugins. Read Use dynamic runtime assets to install plugins to become familiar with workflows that involve assets.
+NOTE: Dynamic runtime assets are not required to use Sensu Go.</description>
+    </item>
+    
+    <item>
+      <title>Use dynamic runtime assets to install plugins</title>
+      <link>/sensu-go/latest/plugins/use-assets-to-install-plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/plugins/use-assets-to-install-plugins/</guid>
+      <description>Dynamic runtime assets are shareable, reusable packages that make it easier to deploy Sensu plugins. You can use assets to provide the plugins, libraries, and runtimes you need to automate your monitoring workflows. Read the asset reference for more information about dynamic runtime assets. This guide uses the sensu/sensu-pagerduty-handler dynamic runtime asset as an example.
+NOTE: Dynamic runtime assets are not required to use Sensu Go. You can install Sensu plugins using the sensu-install tool or a configuration management solution.</description>
+    </item>
+    
+  </channel>
+</rss>

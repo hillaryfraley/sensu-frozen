@@ -1,0 +1,3574 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>core/v2/entities - Sensu Docs</title>
+    <meta name="generator" content="Hugo 0.101.0" />
+
+    
+    <meta name="description" content="Read this API documentation for information about Sensu core/v2/entities API endpoints, with examples for retrieving and managing entities.">
+    
+    <link rel="canonical" href="/sensu-go/6.8/api/core/entities/">
+    
+
+    
+      <meta name="docsearch:version" content="6.8" />
+    
+
+    
+    <meta name="robots" content="noindex">
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="/sensu-go/6.8/api/core/entities/">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="core/v2/entities | Sensu Go 6.8">
+    <meta property="og:image" content="/images/sensu-logo-icon-dark@128px.png">
+    <meta name="apple-mobile-web-app-title" content="Sensu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="/javascripts/application.js"></script>
+
+
+  
+  
+
+
+<header>
+  <nav aria-label="Header" id="navbar">
+    <label id="hamburger" for="toggle-drawer"></label>
+
+    <a class="logo" href="/">Sensu Docs</a>
+    
+    
+      <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Go<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      6.8
+      
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.9/api/core/entities/">
+          
+            6.9 (latest)
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.8/api/core/entities/">
+          
+            6.8 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.7/api/core/entities/">
+          
+            6.7 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.6/api/core/entities/">
+          
+            6.6 
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <input id="desktop-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+  </nav>
+
+  
+    
+<div id="alerts">
+  
+  
+  
+
+  
+
+  
+
+  
+</div>
+
+    <div id="alerts">
+  
+  
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    
+    alertElement = "<div class='alert' style='background-color: #7a4595'>";
+    
+      alertElement += "<a href='\/sensu-go\/6.9\/api\/core\/entities\/'>You\u0027re viewing documentation for an older or pre-release version of Sensu Go. Click here for the latest.</a>";
+    
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    
+    $("#alerts").append(alertElement);
+  });
+</script>
+
+  
+</div>
+
+  
+
+</header>
+
+
+<main class="main">
+  <input class="hidden" type="checkbox" id="toggle-drawer" autocomplete="off">
+<label id="backdrop" for="toggle-drawer"></label>
+<aside class="drawer">
+  <div class="drawer--inner">
+    
+    <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Go<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      6.8
+      
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.9/api/core/entities/">
+          
+            6.9 (latest)
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.8/api/core/entities/">
+          
+            6.8 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.7/api/core/entities/">
+          
+            6.7 
+          </a>
+        
+      
+        
+        
+          
+          
+            <a href="/sensu-go/6.6/api/core/entities/">
+          
+            6.6 
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    <input id="mobile-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+    <nav>
+      
+        <ul>
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+          
+
+          
+          
+          
+          <li><a class="strong" href="/sensu-go/6.8">Sensu Go</a><ul>
+
+          
+          
+
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/release-notes/">Release Notes</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/get-started/">Get Started with Sensu</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/platforms/">Platforms and Distributions</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/commercial/">Commercial Features</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/versions/">Supported Versions</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/sensu-plus/">Sensu Plus</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/observability-pipeline/">
+                    
+                      Observability Pipeline
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/observability-pipeline/observe-entities/">
+                              Entities
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-entities/entities/">Entities Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-entities/auto-register-deregister/">Auto-register and Deregister Entities</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-entities/monitor-external-resources/">Monitor External Resources</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/observability-pipeline/observe-events/">
+                              Events
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-events/events/">Events Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/observability-pipeline/observe-schedule/">
+                              Schedule
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/agent/">Agent Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/backend/">Backend Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/checks/">Checks Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/hooks/">Hooks Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/metrics/">Metrics Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/rule-templates/">Rule Templates Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/service-components/">Service Components Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/subscriptions/">Subscriptions Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/tokens/">Tokens Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/business-service-monitoring-sdk/">Business Service Monitoring SDK</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/augment-event-data-with-hooks/">Augment Event Data</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/prometheus-metrics/">Collect Prometheus Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/collect-metrics-with-checks/">Collect Service Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/business-service-monitoring/">Monitor Business Services</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-schedule/monitor-server-resources/">Monitor Server Resources</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/observability-pipeline/observe-filter/">
+                              Filter
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-filter/filters/">Event Filters Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-filter/sensu-query-expressions/">Sensu Query Expressions Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-filter/reduce-alert-fatigue/">Reduce Alert Fatigue</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-filter/route-alerts/">Route Alerts</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/observability-pipeline/observe-transform/">
+                              Transform
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-transform/mutators/">Mutators Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/observability-pipeline/observe-process/">
+                              Process
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/handlers/">Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/pipelines/">Pipelines Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/silencing/">Silencing Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/sumo-logic-metrics-handlers/">Sumo Logic Metrics Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/tcp-stream-handlers/">TCP Stream Handlers Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/aggregate-metrics-statsd/">Aggregate StatsD Metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/handler-templates/">Create Handler Templates</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/plan-maintenance/">Plan Maintenance Windows</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/populate-metrics-influxdb/">Populate Metrics in InfluxDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/send-data-sumo-logic/">Send Data to Sumo Logic</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/send-email-alerts/">Send Email Alerts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/send-pagerduty-alerts/">Send PagerDuty Alerts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/observability-pipeline/observe-process/send-slack-alerts/">Send Slack Alerts</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/operations/">
+                    
+                      Operations
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/operations/monitoring-as-code/">Monitoring as Code</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/operations/deploy-sensu/">
+                              Deploy Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/hardware-requirements/">Hardware Requirements</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/install-sensu/">Install Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/deployment-architecture/">Deployment Architecture</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/configuration-management/">Configuration Management</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/generate-certificates/">Generate Certificates</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/secure-sensu/">Secure Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/secure-postgres/">Secure PostgreSQL</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/cluster-sensu/">Run a Sensu Cluster</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/use-federation/">Reach Multi-cluster Visibility</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/scale-event-storage/">Scale with Enterprise Datastore</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/datastore/">Datastore Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/deploy-sensu/etcdreplicators/">Etcd Replicators Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/operations/control-access/">
+                              Control Access
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/sso/">Configure SSO Authentication</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/use-apikeys/">Use API Keys</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/create-read-only-user/">Create a Read-only User</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/create-limited-service-accounts/">Create Limited Service Accounts</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/ad-auth/">AD Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/ldap-auth/">LDAP Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/oidc-auth/">OIDC Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/apikeys/">API Keys Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/namespaces/">Namespaces Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/control-access/rbac/">RBAC Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/operations/maintain-sensu/">
+                              Maintain Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/maintain-sensu/upgrade/">Upgrade Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/maintain-sensu/migrate/">Migrate from Sensu Core and Sensu Enterprise</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/maintain-sensu/tune/">Tune Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/maintain-sensu/troubleshoot/">Troubleshoot</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/maintain-sensu/disaster-recovery/">Restore Sensu Configuration</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/maintain-sensu/license/">License Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/operations/monitor-sensu/">
+                              Monitor Sensu
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/monitor-sensu/log-sensu-systemd/">Log Sensu Services</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/monitor-sensu/monitor-sensu-with-sensu/">Monitor Sensu with Sensu</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/monitor-sensu/health/">Health Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/monitor-sensu/ready/">Ready Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/monitor-sensu/tessen/">Tessen Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/operations/manage-secrets/">
+                              Manage Secrets
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/manage-secrets/secrets-management/">Use Secrets Management</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/manage-secrets/secrets/">Secrets Reference</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/operations/manage-secrets/secrets-providers/">Secrets Providers Reference</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/guides/">Guides Index</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/sensuctl/">
+                    
+                      Sensuctl CLI
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/sensuctl/create-manage-resources/">Create and Manage Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/sensuctl/back-up-recover/">Back Up and Recover Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/sensuctl/filter-responses/">Filter Responses</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/sensuctl/environment-variables/">Set Environment Variables</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/sensuctl/sensuctl-bonsai/">Use sensuctl with Bonsai</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/web-ui/">
+                    
+                      Web UI
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/web-ui/view-manage-resources/">View and Manage Resources</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/web-ui/search/">Search in the Web UI</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/web-ui/webconfig/">Configure the Web UI</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/web-ui/bsm-module/">Build Business Service Monitoring</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/web-ui/searches-reference/">Searches Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/web-ui/webconfig-reference/">Web UI Configuration Reference</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/catalog/">
+                    
+                      Sensu Catalog
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/catalog/sensu-catalog/">Configure Integrations in the Sensu Catalog</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/catalog/build-private-catalog/">Build a Private Catalog</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/catalog/catalog-reference/">Catalog Integrations Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/catalog/catalog-api/">Catalog API</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion current active" href="/sensu-go/6.8/api/">
+                    
+                      API
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion active current" href="/sensu-go/6.8/api/core/">
+                              Core API
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/apikeys/">core/v2/apikeys</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/assets/">core/v2/assets</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/checks/">core/v2/checks</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/cluster/">core/v2/cluster</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/cluster-role-bindings/">core/v2/clusterrolebindings</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/cluster-roles/">core/v2/clusterroles</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="current" href="/sensu-go/6.8/api/core/entities/">core/v2/entities</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/events/">core/v2/events</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/filters/">core/v2/filters</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/handlers/">core/v2/handlers</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/hooks/">core/v2/hooks</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/mutators/">core/v2/mutators</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/namespaces/">core/v2/namespaces</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/pipelines/">core/v2/pipelines</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/role-bindings/">core/v2/rolebindings</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/roles/">core/v2/roles</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/silenced/">core/v2/silenced</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/tessen/">core/v2/tessen</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/core/users/">core/v2/users</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/api/enterprise/">
+                              Enterprise APIs
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/authproviders/">enterprise/authentication/v2</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/business-service-monitoring/">enterprise/bsm/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/federation/">enterprise/federation/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/pipeline/">enterprise/pipeline/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/prune/">enterprise/prune/v1alpha</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/searches/">enterprise/searches/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/secrets/">enterprise/secrets/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/datastore/">enterprise/store/v1</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/enterprise/webconfig/">enterprise/web/v1</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/api/other/">
+                              Other APIs
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/other/auth/">/auth</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/other/health/">/health</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/other/license/">/license</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/other/metrics/">/metrics</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/other/ready/">/ready</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/api/other/version/">/version</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-go/6.8/reference/">Reference Index</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/plugins/">
+                    
+                      Plugins
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/plugins/assets/">Assets Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/plugins/plugins/">Plugins Reference</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/plugins/install-plugins/">Install Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/plugins/use-assets-to-install-plugins/">Use Assets to Install Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="accordion " href="/sensu-go/6.8/plugins/featured-integrations/">
+                              Featured Integrations
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/ansible/">Ansible</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/chef/">Chef</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/aws-ec2/">EC2</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/elasticsearch/">Elasticsearch</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/email/">Email</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/graphite/">Graphite</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/influxdb/">InfluxDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/jira/">Jira</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/opentsdb/">OpenTSDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/pagerduty/">PagerDuty</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/prometheus/">Prometheus</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/puppet/">Puppet</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/rundeck/">Rundeck</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/saltstack/">SaltStack</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/servicenow/">ServiceNow</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/slack/">Slack</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/sumologic/">Sumo Logic</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/timescaledb/">TimescaleDB</a>
+                                  </li>
+                                
+                              
+                                
+                                  
+                                  <li>
+                                    <a class="" href="/sensu-go/6.8/plugins/featured-integrations/wavefront/">Wavefront</a>
+                                  </li>
+                                
+                              
+                            </ul>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-go/6.8/learn/">
+                    
+                      Learn Sensu
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/learn/concepts-terminology/">Concepts and Terminology</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-go/6.8/learn/demo/">Live Demo</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+          </ul></li>
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+  
+    
+  
+
+
+
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>
+</ul>
+      
+      <hr>
+      <div class="drawer--footer">
+        <iframe src="https://ghbtns.com/github-btn.html?user=sensu&repo=sensu-docs&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20"></iframe>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/issues/new?title=Docs%20Feedback&body=%3C!--Thanks%20for%20submitting%20feedback%20to%20the%20Sensu%20docs!--%3E%0A%0ALink%20to%20page%3A%20%0A%0A%23%23%23%20Feedback">Open a docs issue</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-go/6.8/api/core/entities.md">Edit this page</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md">Read the contributing guide</a>
+        
+        
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>core/v2/entities </h1>
+
+      
+        
+
+
+
+      
+      
+<div class="notices note" ><p><strong>NOTE</strong>: Requests to <code>core/v2/entities</code> API endpoints require you to authenticate with a Sensu <a href="../../#configure-an-environment-variable-for-api-key-authentication">API key</a> or <a href="../../#authenticate-with-auth-api-endpoints">access token</a>.
+The code examples in this document use the <a href="../../#configure-an-environment-variable-for-api-key-authentication">environment variable</a> <code>$SENSU_API_KEY</code> to represent a valid API key in API requests.</p>
+</div>
+
+<h2 id="get-all-entities">Get all entities</h2>
+<p>The <code>/entities</code> API endpoint provides HTTP GET access to <a href="../../../observability-pipeline/observe-entities/entities/">entity</a> data.</p>
+<h3 id="entities-get-example">Example</h3>
+<p>The following example demonstrates a GET request to the <code>/entities</code> API endpoint:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X GET <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:8080/api/core/v2/namespaces/default/entities <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span></span></span></code></pre></div>
+</div>
+
+
+<p>The request results in a successful <code>HTTP/1.1 200 OK</code> response and a JSON array that contains the <a href="../../../observability-pipeline/observe-entities/entities/">entity definitions</a> in the <code>default</code> namespace:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;hostname&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;os&#34;: &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform&#34;: &#34;centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_family&#34;: &#34;rhel&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_version&#34;: &#34;7.4.1708&#34;,
+</span></span><span class="line"><span class="cl">      &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;interfaces&#34;: [
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;lo&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;127.0.0.1/8&#34;,
+</span></span><span class="line"><span class="cl">              &#34;::1/128&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;enp0s3&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:11:ad:d2&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;10.0.2.15/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::f50c:b029:30a5:3e26/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;enp0s8&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:9f:5d:f3&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;172.28.128.3/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::a00:27ff:fe9f:5df3/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        ]
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;arch&#34;: &#34;amd64&#34;,
+</span></span><span class="line"><span class="cl">      &#34;libc_type&#34;: &#34;glibc&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_system&#34;: &#34;kvm&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_role&#34;: &#34;host&#34;,
+</span></span><span class="line"><span class="cl">      &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;processes&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;Slack&#34;,
+</span></span><span class="line"><span class="cl">          &#34;pid&#34;: 1349,
+</span></span><span class="line"><span class="cl">          &#34;ppid&#34;: 0,
+</span></span><span class="line"><span class="cl">          &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">          &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">          &#34;memory_percent&#34;: 1.09932518,
+</span></span><span class="line"><span class="cl">          &#34;cpu_percent&#34;: 0.3263987595984941
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;Slack Helper&#34;,
+</span></span><span class="line"><span class="cl">          &#34;pid&#34;: 1360,
+</span></span><span class="line"><span class="cl">          &#34;ppid&#34;: 1349,
+</span></span><span class="line"><span class="cl">          &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">          &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">          &#34;memory_percent&#34;: 0.146866455,
+</span></span><span class="line"><span class="cl">          &#34;cpu_percent&#34;: 0.308976181461092553
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      ]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;entity:sensu-centos&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 1543349936,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;user&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;redact&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;password&#34;,
+</span></span><span class="line"><span class="cl">      &#34;passwd&#34;,
+</span></span><span class="line"><span class="cl">      &#34;pass&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_token&#34;,
+</span></span><span class="line"><span class="cl">      &#34;access_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;private_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;namespace&#34;: &#34;default&#34;,
+</span></span><span class="line"><span class="cl">      &#34;created_by&#34;: &#34;admin&#34;,
+</span></span><span class="line"><span class="cl">      &#34;labels&#34;: null,
+</span></span><span class="line"><span class="cl">      &#34;annotations&#34;: null
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">]</span></span></code></pre></div>
+</div>
+
+
+<h3 id="entities-get-specification">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities (GET)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Returns the list of entities.</td>
+</tr>
+<tr>
+<td>example url</td>
+<td>http://hostname:8080/api/core/v2/namespaces/default/entities</td>
+</tr>
+<tr>
+<td>pagination</td>
+<td>This endpoint supports <a href="../../#pagination">pagination</a> using the <code>limit</code> and <code>continue</code> query parameters.</td>
+</tr>
+<tr>
+<td>response filtering</td>
+<td>This endpoint supports <a href="../../#response-filtering">API response filtering</a>.</td>
+</tr>
+<tr>
+<td>response type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 200 (OK)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+<tr>
+<td>output</td>
+<td><div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;hostname&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;os&#34;: &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform&#34;: &#34;centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_family&#34;: &#34;rhel&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_version&#34;: &#34;7.4.1708&#34;,
+</span></span><span class="line"><span class="cl">      &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;interfaces&#34;: [
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;lo&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;127.0.0.1/8&#34;,
+</span></span><span class="line"><span class="cl">              &#34;::1/128&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;enp0s3&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:11:ad:d2&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;10.0.2.15/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::f50c:b029:30a5:3e26/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;enp0s8&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:9f:5d:f3&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;172.28.128.3/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::a00:27ff:fe9f:5df3/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        ]
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;arch&#34;: &#34;amd64&#34;,
+</span></span><span class="line"><span class="cl">      &#34;libc_type&#34;: &#34;glibc&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_system&#34;: &#34;kvm&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_role&#34;: &#34;host&#34;,
+</span></span><span class="line"><span class="cl">      &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;processes&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;Slack&#34;,
+</span></span><span class="line"><span class="cl">          &#34;pid&#34;: 1349,
+</span></span><span class="line"><span class="cl">          &#34;ppid&#34;: 0,
+</span></span><span class="line"><span class="cl">          &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">          &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">          &#34;memory_percent&#34;: 1.09932518,
+</span></span><span class="line"><span class="cl">          &#34;cpu_percent&#34;: 0.3263987595984941
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;Slack Helper&#34;,
+</span></span><span class="line"><span class="cl">          &#34;pid&#34;: 1360,
+</span></span><span class="line"><span class="cl">          &#34;ppid&#34;: 1349,
+</span></span><span class="line"><span class="cl">          &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">          &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">          &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">          &#34;memory_percent&#34;: 0.146866455,
+</span></span><span class="line"><span class="cl">          &#34;cpu_percent&#34;: 0.308976181461092553
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      ]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;entity:sensu-centos&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 1543349936,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;user&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;redact&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;password&#34;,
+</span></span><span class="line"><span class="cl">      &#34;passwd&#34;,
+</span></span><span class="line"><span class="cl">      &#34;pass&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_token&#34;,
+</span></span><span class="line"><span class="cl">      &#34;access_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;private_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;namespace&#34;: &#34;default&#34;,
+</span></span><span class="line"><span class="cl">      &#34;created_by&#34;: &#34;admin&#34;,
+</span></span><span class="line"><span class="cl">      &#34;labels&#34;: null,
+</span></span><span class="line"><span class="cl">      &#34;annotations&#34;: null
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">]</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create-a-new-entity">Create a new entity</h2>
+<p>The <code>/entities</code> API endpoint provides HTTP POST access to create a Sensu entity.</p>
+<h3 id="entities-post-example">Example</h3>
+<p>In the following example, an HTTP POST request is submitted to the <code>/entities</code> API endpoint to create a proxy entity named <code>sensu-centos</code>.
+The request includes the entity definition in the request body:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;entity_class&#34;: &#34;proxy&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;subscriptions&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;web&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ],
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;deregister&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;deregistration&#34;: {},
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;metadata&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;namespace&#34;: &#34;default&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;labels&#34;: null,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;annotations&#34;: null
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:8080/api/core/v2/namespaces/default/entities</span></span></code></pre></div>
+</div>
+
+
+<p>The request will return a successful <code>HTTP/1.1 201 Created</code> response.</p>
+<h3 id="entities-post-specification">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities (POST)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Creates a Sensu entity.</td>
+</tr>
+<tr>
+<td>example URL</td>
+<td>http://hostname:8080/api/core/v2/namespaces/default/entities</td>
+</tr>
+<tr>
+<td>payload</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;entity_class&#34;</span>: <span class="s2">&#34;proxy&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;sensu_agent_version&#34;</span>: <span class="s2">&#34;1.0.0&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;web&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;deregister&#34;</span>: false,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;deregistration&#34;</span>: <span class="o">{}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sensu-centos&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;namespace&#34;</span>: <span class="s2">&#34;default&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;labels&#34;</span>: null,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;annotations&#34;</span>: null
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 200 (OK)</li><li><strong>Malformed</strong>: 400 (Bad Request)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-a-specific-entity">Get a specific entity</h2>
+<p>The <code>/entities/:entity</code> API endpoint provides HTTP GET access to <a href="../../../observability-pipeline/observe-entities/entities/">entity data</a> for specific <code>:entity</code> definitions, by entity <code>name</code>.</p>
+<h3 id="entitiesentity-get-example">Example</h3>
+<p>The following example queries the <code>/entities/:entity</code> API endpoint for the <code>:entity</code> named <code>sensu-centos</code>:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X GET <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:8080/api/core/v2/namespaces/default/entities/sensu-centos <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span></span></span></code></pre></div>
+</div>
+
+
+<p>The request will return a successful <code>HTTP/1.1 200 OK</code> response and a JSON map that contains the requested <a href="../../../observability-pipeline/observe-entities/entities/"><code>:entity</code> definition</a> (in this example, <code>sensu-centos</code>):</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">  &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;,
+</span></span><span class="line"><span class="cl">  &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;hostname&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">    &#34;os&#34;: &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">    &#34;platform&#34;: &#34;centos&#34;,
+</span></span><span class="line"><span class="cl">    &#34;platform_family&#34;: &#34;rhel&#34;,
+</span></span><span class="line"><span class="cl">    &#34;platform_version&#34;: &#34;7.4.1708&#34;,
+</span></span><span class="line"><span class="cl">    &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;interfaces&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;lo&#34;,
+</span></span><span class="line"><span class="cl">          &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">            &#34;127.0.0.1/8&#34;,
+</span></span><span class="line"><span class="cl">            &#34;::1/128&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;enp0s3&#34;,
+</span></span><span class="line"><span class="cl">          &#34;mac&#34;: &#34;08:00:27:11:ad:d2&#34;,
+</span></span><span class="line"><span class="cl">          &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">            &#34;10.0.2.15/24&#34;,
+</span></span><span class="line"><span class="cl">            &#34;fe80::f50c:b029:30a5:3e26/64&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;enp0s8&#34;,
+</span></span><span class="line"><span class="cl">          &#34;mac&#34;: &#34;08:00:27:9f:5d:f3&#34;,
+</span></span><span class="line"><span class="cl">          &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">            &#34;172.28.128.3/24&#34;,
+</span></span><span class="line"><span class="cl">            &#34;fe80::a00:27ff:fe9f:5df3/64&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      ]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;arch&#34;: &#34;amd64&#34;,
+</span></span><span class="line"><span class="cl">    &#34;libc_type&#34;: &#34;glibc&#34;,
+</span></span><span class="line"><span class="cl">    &#34;vm_system&#34;: &#34;kvm&#34;,
+</span></span><span class="line"><span class="cl">    &#34;vm_role&#34;: &#34;host&#34;,
+</span></span><span class="line"><span class="cl">    &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">    &#34;processes&#34;: [
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl">        &#34;name&#34;: &#34;Slack&#34;,
+</span></span><span class="line"><span class="cl">        &#34;pid&#34;: 1349,
+</span></span><span class="line"><span class="cl">        &#34;ppid&#34;: 0,
+</span></span><span class="line"><span class="cl">        &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">        &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">        &#34;memory_percent&#34;: 1.09932518,
+</span></span><span class="line"><span class="cl">        &#34;cpu_percent&#34;: 0.3263987595984941
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl">        &#34;name&#34;: &#34;Slack Helper&#34;,
+</span></span><span class="line"><span class="cl">        &#34;pid&#34;: 1360,
+</span></span><span class="line"><span class="cl">        &#34;ppid&#34;: 1349,
+</span></span><span class="line"><span class="cl">        &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">        &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">        &#34;memory_percent&#34;: 0.146866455,
+</span></span><span class="line"><span class="cl">        &#34;cpu_percent&#34;: 0.308976181461092553
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    ]
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">    &#34;entity:sensu-centos&#34;
+</span></span><span class="line"><span class="cl">  ],
+</span></span><span class="line"><span class="cl">  &#34;last_seen&#34;: 1543349936,
+</span></span><span class="line"><span class="cl">  &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">  &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">  &#34;user&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">  &#34;redact&#34;: [
+</span></span><span class="line"><span class="cl">    &#34;password&#34;,
+</span></span><span class="line"><span class="cl">    &#34;passwd&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pass&#34;,
+</span></span><span class="line"><span class="cl">    &#34;api_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;api_token&#34;,
+</span></span><span class="line"><span class="cl">    &#34;access_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;secret_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;private_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;secret&#34;
+</span></span><span class="line"><span class="cl">  ],
+</span></span><span class="line"><span class="cl">  &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">    &#34;namespace&#34;: &#34;default&#34;,
+</span></span><span class="line"><span class="cl">    &#34;created_by&#34;: &#34;admin&#34;,
+</span></span><span class="line"><span class="cl">    &#34;labels&#34;: null,
+</span></span><span class="line"><span class="cl">    &#34;annotations&#34;: null
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></div>
+</div>
+
+
+<h3 id="entitiesentity-get-specification">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities/:entity (GET)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Returns the specified entity.</td>
+</tr>
+<tr>
+<td>example url</td>
+<td>http://hostname:8080/api/core/v2/namespaces/default/entities/sensu-centos</td>
+</tr>
+<tr>
+<td>response type</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 200 (OK)</li><li><strong>Missing</strong>: 404 (Not Found)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+<tr>
+<td>output</td>
+<td><div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">  &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;,
+</span></span><span class="line"><span class="cl">  &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;hostname&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">    &#34;os&#34;: &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">    &#34;platform&#34;: &#34;centos&#34;,
+</span></span><span class="line"><span class="cl">    &#34;platform_family&#34;: &#34;rhel&#34;,
+</span></span><span class="line"><span class="cl">    &#34;platform_version&#34;: &#34;7.4.1708&#34;,
+</span></span><span class="line"><span class="cl">    &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;interfaces&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;lo&#34;,
+</span></span><span class="line"><span class="cl">          &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">            &#34;127.0.0.1/8&#34;,
+</span></span><span class="line"><span class="cl">            &#34;::1/128&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;enp0s3&#34;,
+</span></span><span class="line"><span class="cl">          &#34;mac&#34;: &#34;08:00:27:11:ad:d2&#34;,
+</span></span><span class="line"><span class="cl">          &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">            &#34;10.0.2.15/24&#34;,
+</span></span><span class="line"><span class="cl">            &#34;fe80::f50c:b029:30a5:3e26/64&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">          &#34;name&#34;: &#34;enp0s8&#34;,
+</span></span><span class="line"><span class="cl">          &#34;mac&#34;: &#34;08:00:27:9f:5d:f3&#34;,
+</span></span><span class="line"><span class="cl">          &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">            &#34;172.28.128.3/24&#34;,
+</span></span><span class="line"><span class="cl">            &#34;fe80::a00:27ff:fe9f:5df3/64&#34;
+</span></span><span class="line"><span class="cl">          ]
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      ]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;arch&#34;: &#34;amd64&#34;,
+</span></span><span class="line"><span class="cl">    &#34;libc_type&#34;: &#34;glibc&#34;,
+</span></span><span class="line"><span class="cl">    &#34;vm_system&#34;: &#34;kvm&#34;,
+</span></span><span class="line"><span class="cl">    &#34;vm_role&#34;: &#34;host&#34;,
+</span></span><span class="line"><span class="cl">    &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">    &#34;processes&#34;: [
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl">        &#34;name&#34;: &#34;Slack&#34;,
+</span></span><span class="line"><span class="cl">        &#34;pid&#34;: 1349,
+</span></span><span class="line"><span class="cl">        &#34;ppid&#34;: 0,
+</span></span><span class="line"><span class="cl">        &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">        &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">        &#34;memory_percent&#34;: 1.09932518,
+</span></span><span class="line"><span class="cl">        &#34;cpu_percent&#34;: 0.3263987595984941
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl">        &#34;name&#34;: &#34;Slack Helper&#34;,
+</span></span><span class="line"><span class="cl">        &#34;pid&#34;: 1360,
+</span></span><span class="line"><span class="cl">        &#34;ppid&#34;: 1349,
+</span></span><span class="line"><span class="cl">        &#34;status&#34;: &#34;Ss&#34;,
+</span></span><span class="line"><span class="cl">        &#34;background&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;running&#34;: true,
+</span></span><span class="line"><span class="cl">        &#34;created&#34;: 1582137786,
+</span></span><span class="line"><span class="cl">        &#34;memory_percent&#34;: 0.146866455,
+</span></span><span class="line"><span class="cl">        &#34;cpu_percent&#34;: 0.308976181461092553
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    ]
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">    &#34;entity:sensu-centos&#34;
+</span></span><span class="line"><span class="cl">  ],
+</span></span><span class="line"><span class="cl">  &#34;last_seen&#34;: 1543349936,
+</span></span><span class="line"><span class="cl">  &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">  &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">  &#34;user&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">  &#34;redact&#34;: [
+</span></span><span class="line"><span class="cl">    &#34;password&#34;,
+</span></span><span class="line"><span class="cl">    &#34;passwd&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pass&#34;,
+</span></span><span class="line"><span class="cl">    &#34;api_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;api_token&#34;,
+</span></span><span class="line"><span class="cl">    &#34;access_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;secret_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;private_key&#34;,
+</span></span><span class="line"><span class="cl">    &#34;secret&#34;
+</span></span><span class="line"><span class="cl">  ],
+</span></span><span class="line"><span class="cl">  &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">    &#34;namespace&#34;: &#34;default&#34;,
+</span></span><span class="line"><span class="cl">    &#34;created_by&#34;: &#34;admin&#34;,
+</span></span><span class="line"><span class="cl">    &#34;labels&#34;: null,
+</span></span><span class="line"><span class="cl">    &#34;annotations&#34;: null
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entitiesentity-put">Create or update an entity</h2>
+
+<div class="notices note" ><p><strong>NOTE</strong>: This endpoint will not update <a href="../../../observability-pipeline/observe-entities/entities/#manage-agent-entities-via-the-agent">agent-managed entities</a>.
+Requests to update agent-managed entities via the Sensu backend REST API will fail and return <code>HTTP 409 Conflict</code>.</p>
+</div>
+
+<p>The <code>/entities/:entity</code> API endpoint provides HTTP PUT access to create or update the specified Sensu entity.</p>
+<h3 id="entitiesentity-put-example">Example</h3>
+<p>In the following example, an HTTP PUT request is submitted to the <code>/entities/:entity</code> API endpoint to update the entity named <code>sensu-centos</code>.
+The request includes the updated entity definition in the request body:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X PUT <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;entity_class&#34;: &#34;proxy&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;subscriptions&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;web&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;system&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ],
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;deregister&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;deregistration&#34;: {},
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;metadata&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;namespace&#34;: &#34;default&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;labels&#34;: null,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;annotations&#34;: null
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:8080/api/core/v2/namespaces/default/entities/sensu-centos</span></span></code></pre></div>
+</div>
+
+
+<p>The request will return a successful <code>HTTP/1.1 200 OK</code> response and a JSON map that contains the updated entity definition:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;proxy&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;interfaces&#34;: null
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        &#34;libc_type&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">        &#34;vm_system&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">        &#34;vm_role&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">        &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">        &#34;processes&#34;: null
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">        &#34;web&#34;,
+</span></span><span class="line"><span class="cl">        &#34;system&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 0,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">        &#34;namespace&#34;: &#34;default&#34;
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;1.0.0&#34;
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></div>
+</div>
+
+
+<h3 id="entitiesentity-put-specification">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities/:entity (PUT)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Creates or updates the specified Sensu entity. 
+<div class="notices note" ><p><strong>NOTE</strong>: When you create an entity via an HTTP PUT request, the entity will use the namespace in the request URL.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>example URL</td>
+<td>http://hostname:8080/api/core/v2/namespaces/default/entities/sensu-centos</td>
+</tr>
+<tr>
+<td>payload</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;entity_class&#34;</span>: <span class="s2">&#34;proxy&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;sensu_agent_version&#34;</span>: <span class="s2">&#34;1.0.0&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;web&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;system&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;deregister&#34;</span>: false,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;deregistration&#34;</span>: <span class="o">{}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sensu-centos&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;namespace&#34;</span>: <span class="s2">&#34;default&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;labels&#34;</span>: null,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;annotations&#34;</span>: null
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 200 (OK)</li><li><strong>Malformed</strong>: 400 (Bad Request)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h2 id="update-an-entity-with-patch">Update an entity with PATCH</h2>
+
+<div class="notices note" ><p><strong>NOTE</strong>: This endpoint will not update <a href="../../../observability-pipeline/observe-entities/entities/#manage-agent-entities-via-the-agent">agent-managed entities</a>.
+Requests to update agent-managed entities via the Sensu backend REST API will fail and return <code>HTTP 409 Conflict</code>.</p>
+</div>
+
+<p>The <code>/entities/:entity</code> API endpoint provides HTTP PATCH access to update <strong>entity configuration attributes</strong> in <code>:entity</code> definitions, specified by entity name:</p>
+<ul>
+<li><code>labels</code></li>
+<li><code>annotations</code></li>
+<li><code>created_by</code></li>
+<li><code>entity_class</code></li>
+<li><code>user</code></li>
+<li><code>subscriptions</code></li>
+<li><code>deregister</code></li>
+<li><code>deregistration</code></li>
+<li><code>redact</code></li>
+<li><code>keepalive_handler</code></li>
+</ul>
+
+<div class="notices note" ><p><strong>NOTE</strong>: You cannot change a resource&rsquo;s <code>name</code> or <code>namespace</code> with a PATCH request.
+Use a <a href="#entitiesentity-put">PUT request</a> instead.<br><br>
+Also, you cannot add elements to an array with a PATCH request — you must replace the entire array.</p>
+</div>
+
+<h3 id="example">Example</h3>
+<p>In the following example, an HTTP PATCH request is submitted to the <code>/entities/:entity</code> API endpoint to add a label for the <code>sensu-centos</code> entity, resulting in a <code>HTTP/1.1 200 OK</code> response and the updated entity definition.</p>
+<p>We support <a href="https://tools.ietf.org/html/rfc7396">JSON merge patches</a>, so you must set the <code>Content-Type</code> header to <code>application/merge-patch+json</code> for PATCH requests.</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X PATCH <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s1">&#39;Content-Type: application/merge-patch+json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;metadata&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;labels&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">      &#34;region&#34;: &#34;us-west-1&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:8080/api/core/v2/namespaces/default/entities/sensu-centos</span></span></code></pre></div>
+</div>
+
+
+<h3 id="api-specification">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities/:entity (PATCH)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Updates the specified Sensu entity.</td>
+</tr>
+<tr>
+<td>example URL</td>
+<td>http://hostname:8080/api/core/v2/namespaces/default/entities/sensu-centos</td>
+</tr>
+<tr>
+<td>payload</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;labels&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;us-west-1&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 200 (OK)</li><li><strong>Malformed</strong>: 400 (Bad Request)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entitiesentity-delete">Delete an entity</h2>
+<p>The <code>/entities/:entity</code> API endpoint provides HTTP DELETE access to delete an entity from Sensu (specified by the entity name).</p>
+<h3 id="entitiesentity-delete-example">Example</h3>
+<p>The following example shows a request to the <code>/entities/:entity</code> API endpoint to delete the entity <code>sensu-centos</code>, which will result in a successful <code>HTTP/1.1 204 No Content</code> response:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -X DELETE <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>http://127.0.0.1:8080/api/core/v2/namespaces/default/entities/sensu-centos <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span></span></span></code></pre></div>
+</div>
+
+
+<h3 id="entitiesentity-delete-specification">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities/:entity (DELETE)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Removes a entity from Sensu (specified by the entity name).</td>
+</tr>
+<tr>
+<td>example url</td>
+<td>http://hostname:8080/api/core/v2/namespaces/default/entities/sensu-centos</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 204 (No Content)</li><li><strong>Missing</strong>: 404 (Not Found)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-a-subset-of-entities-with-response-filtering">Get a subset of entities with response filtering</h2>
+<p>The <code>/entities</code> API endpoint supports <a href="../../#response-filtering">response filtering</a> for a subset of entity data based on labels and the following fields:</p>
+<ul>
+<li><code>entity.name</code></li>
+<li><code>entity.namespace</code></li>
+<li><code>entity.deregister</code></li>
+<li><code>entity.entity_class</code></li>
+<li><code>entity.subscriptions</code></li>
+</ul>
+<h3 id="example-1">Example</h3>
+<p>The following example demonstrates a request to the <code>/entities</code> API endpoint with <a href="../../#response-filtering">response filtering</a> for only <a href="../../../observability-pipeline/observe-entities/entities/">entity definitions</a> whose subscriptions include <code>linux</code>:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Key </span><span class="nv">$SENSU_API_KEY</span><span class="s2">&#34;</span> http://127.0.0.1:8080/api/core/v2/entities -G <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data-urlencode <span class="s1">&#39;fieldSelector=&#34;linux&#34; in entity.subscriptions&#39;</span></span></span></code></pre></div>
+</div>
+
+
+<p>The example request will result in a successful <code>HTTP/1.1 200 OK</code> response and a JSON array that contains only <a href="../../../observability-pipeline/observe-entities/entities/">entity definitions</a> whose subscriptions include <code>linux</code>:</p>
+<div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;interfaces&#34;: null
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;libc_type&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_system&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_role&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;processes&#34;: null
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;entity:datastore01&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 0,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: &#34;datastore01&#34;,
+</span></span><span class="line"><span class="cl">      &#34;namespace&#34;: &#34;default&#34;,
+</span></span><span class="line"><span class="cl">      &#34;labels&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;region&#34;: &#34;us-west-1&#34;,
+</span></span><span class="line"><span class="cl">        &#34;service_type&#34;: &#34;datastore&#34;,
+</span></span><span class="line"><span class="cl">        &#34;sensu.io/managed_by&#34;: &#34;sensuctl&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;&#34;
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;hostname&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;os&#34;: &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform&#34;: &#34;centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_family&#34;: &#34;rhel&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_version&#34;: &#34;7.5.1804&#34;,
+</span></span><span class="line"><span class="cl">      &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;interfaces&#34;: [
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;lo&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;127.0.0.1/8&#34;,
+</span></span><span class="line"><span class="cl">              &#34;::1/128&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;eth0&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:8b:c9:3f&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;10.0.2.15/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::c68e:8fd8:32f0:7c5d/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;eth1&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:3b:a9:9f&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;192.168.56.23/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::a00:27ff:fe3b:a99f/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        ]
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;arch&#34;: &#34;amd64&#34;,
+</span></span><span class="line"><span class="cl">      &#34;libc_type&#34;: &#34;glibc&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_system&#34;: &#34;vbox&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_role&#34;: &#34;guest&#34;,
+</span></span><span class="line"><span class="cl">      &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;processes&#34;: null
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;entity:sensu-centos&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 1644615964,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;user&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;redact&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;password&#34;,
+</span></span><span class="line"><span class="cl">      &#34;passwd&#34;,
+</span></span><span class="line"><span class="cl">      &#34;pass&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_token&#34;,
+</span></span><span class="line"><span class="cl">      &#34;access_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;private_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;namespace&#34;: &#34;default&#34;
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;6.6.5&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">]</span></span></code></pre></div>
+</div>
+
+
+
+<div class="notices note" ><p><strong>NOTE</strong>: Read <a href="../../#response-filtering">API response filtering</a> for more filter statement examples that demonstrate how to filter responses using different operators with label and field selectors.</p>
+</div>
+
+<h3 id="api-specification-1">API Specification</h3>
+<table>
+<thead>
+<tr>
+<th>/entities (GET) with response filters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Returns the list of entities that match the <a href="../../#response-filtering">response filters</a> applied in the API request.</td>
+</tr>
+<tr>
+<td>example url</td>
+<td>http://hostname:8080/api/core/v2/entities</td>
+</tr>
+<tr>
+<td>pagination</td>
+<td>This endpoint supports <a href="https://tools.ietf.org/html/rfc7396">pagination</a> using the <code>limit</code> and <code>continue</code> query parameters.</td>
+</tr>
+<tr>
+<td>response type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>response codes</td>
+<td><ul><li><strong>Success</strong>: 200 (OK)</li><li><strong>Error</strong>: 500 (Internal Server Error)</li></ul></td>
+</tr>
+<tr>
+<td>output</td>
+<td><div class="language" data-lang="text">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;interfaces&#34;: null
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;libc_type&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_system&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_role&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;processes&#34;: null
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;entity:datastore01&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 0,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: &#34;datastore01&#34;,
+</span></span><span class="line"><span class="cl">      &#34;namespace&#34;: &#34;default&#34;,
+</span></span><span class="line"><span class="cl">      &#34;labels&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;region&#34;: &#34;us-west-1&#34;,
+</span></span><span class="line"><span class="cl">        &#34;service_type&#34;: &#34;datastore&#34;,
+</span></span><span class="line"><span class="cl">        &#34;sensu.io/managed_by&#34;: &#34;sensuctl&#34;
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;&#34;
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    &#34;entity_class&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;system&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;hostname&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;os&#34;: &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform&#34;: &#34;centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_family&#34;: &#34;rhel&#34;,
+</span></span><span class="line"><span class="cl">      &#34;platform_version&#34;: &#34;7.5.1804&#34;,
+</span></span><span class="line"><span class="cl">      &#34;network&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;interfaces&#34;: [
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;lo&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;127.0.0.1/8&#34;,
+</span></span><span class="line"><span class="cl">              &#34;::1/128&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;eth0&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:8b:c9:3f&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;10.0.2.15/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::c68e:8fd8:32f0:7c5d/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          {
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;eth1&#34;,
+</span></span><span class="line"><span class="cl">            &#34;mac&#34;: &#34;08:00:27:3b:a9:9f&#34;,
+</span></span><span class="line"><span class="cl">            &#34;addresses&#34;: [
+</span></span><span class="line"><span class="cl">              &#34;192.168.56.23/24&#34;,
+</span></span><span class="line"><span class="cl">              &#34;fe80::a00:27ff:fe3b:a99f/64&#34;
+</span></span><span class="line"><span class="cl">            ]
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        ]
+</span></span><span class="line"><span class="cl">      },
+</span></span><span class="line"><span class="cl">      &#34;arch&#34;: &#34;amd64&#34;,
+</span></span><span class="line"><span class="cl">      &#34;libc_type&#34;: &#34;glibc&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_system&#34;: &#34;vbox&#34;,
+</span></span><span class="line"><span class="cl">      &#34;vm_role&#34;: &#34;guest&#34;,
+</span></span><span class="line"><span class="cl">      &#34;cloud_provider&#34;: &#34;&#34;,
+</span></span><span class="line"><span class="cl">      &#34;processes&#34;: null
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;subscriptions&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;linux&#34;,
+</span></span><span class="line"><span class="cl">      &#34;entity:sensu-centos&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;last_seen&#34;: 1644615964,
+</span></span><span class="line"><span class="cl">    &#34;deregister&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;deregistration&#34;: {},
+</span></span><span class="line"><span class="cl">    &#34;user&#34;: &#34;agent&#34;,
+</span></span><span class="line"><span class="cl">    &#34;redact&#34;: [
+</span></span><span class="line"><span class="cl">      &#34;password&#34;,
+</span></span><span class="line"><span class="cl">      &#34;passwd&#34;,
+</span></span><span class="line"><span class="cl">      &#34;pass&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;api_token&#34;,
+</span></span><span class="line"><span class="cl">      &#34;access_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;private_key&#34;,
+</span></span><span class="line"><span class="cl">      &#34;secret&#34;
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    &#34;metadata&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;name&#34;: &#34;sensu-centos&#34;,
+</span></span><span class="line"><span class="cl">      &#34;namespace&#34;: &#34;default&#34;
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">    &#34;sensu_agent_version&#34;: &#34;6.6.5&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">]</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+      <script async type="text/javascript" src="/js/clip.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+      
+      
+
+
+
+
+    </div>
+  </article>
+
+  <section id="sidebar">
+    <aside id="contribute">
+  <div id="page-rating">
+    <h4>Is this page helpful?</h4>
+    <fieldset class="rating">
+      <input type="radio" id="heart5" name="rating" value="5">
+      <label for="heart5" title="Excellent"></label>
+      <input type="radio" id="heart4" name="rating" value="4">
+      <label for="heart4" title="Good"></label>
+      <input type="radio" id="heart3" name="rating" value="3">
+      <label for="heart3" title="OK"></label>
+      <input type="radio" id="heart2" name="rating" value="2">
+      <label for="heart2" title="Poor"></label>
+      <input type="radio" id="heart1" name="rating" value="1">
+      <label for="heart1" title="Unusable"></label>
+    </fieldset>
+  </div>
+
+  <div>
+    <h4>Contribute:</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-go/6.8/api/core/entities.md" target="_blank">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit this page
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/issues/new/choose" target="_blank">
+          <i class="fa fa-bug" aria-hidden="true"></i>
+          Report a docs issue
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md" target="_blank">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Read the contributing guide
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+    <aside id="toc">
+  
+    <div>
+      <h4>On this page:</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#get-all-entities">Get all entities</a></li>
+    <li><a href="#create-a-new-entity">Create a new entity</a></li>
+    <li><a href="#get-a-specific-entity">Get a specific entity</a></li>
+    <li><a href="#entitiesentity-put">Create or update an entity</a></li>
+    <li><a href="#update-an-entity-with-patch">Update an entity with PATCH</a></li>
+    <li><a href="#entitiesentity-delete">Delete an entity</a></li>
+    <li><a href="#get-a-subset-of-entities-with-response-filtering">Get a subset of entities with response filtering</a></li>
+  </ul>
+</nav>
+    </div>
+  
+</aside>
+
+  </section>
+</main>
+
+<section id="footer">
+  <div class="footer--content">
+
+    <div class="footer--content--center">
+
+      <div class="register">
+        <img alt="Sensu Go Lizy mascot image" title="Register your Sensu installation" src="/images/lizy-logo-a.png">
+        <h3>Register your Sensu installation &mdash; Get rewards!</h3>
+        <p>Take 2 minutes to <a href="https://sensu.io/register"><b><u>register your installation</u></b></a> and let Sensu help you along your journey.<br>
+        We'll send you a free reward when you add your first 10 checks and connect at least 10 agents!</p>
+      </div>
+    </div>
+
+    <div class="footer--content--left">
+      <h3>About Sensu</h3>
+      <p>The Sensu monitoring event pipeline empowers businesses to automate their monitoring workflows and gain deep visibility into their multi-cloud infrastructure, from Kubernetes to bare metal. Companies like Sony, Box.com, and Activision rely on Sensu to help deliver value faster, at scale.</p>
+
+      <div class="footer--navigation">
+        <div>
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="https://sensu.io/products">Products</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/products/core">Sensu Core</a></li>
+                <li><a href="https://sensu.io/products/enterprise">Sensu Enterprise</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/solutions">Solutions</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/solutions/container-monitoring">For Containers</a></li>
+                <li><a href="https://sensu.io/solutions/cloud-monitoring">For Cloud</a></li>
+                <li><a href="https://sensu.io/solutions/nagios-alternative">For Nagios</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://sensu.io/community">Community</a></li>
+            <li><a href="https://docs.sensu.io">Documentation</a></li>
+            <li><a href="https://sensu.io/products/downloads">Downloads</a></li>
+            <li><a href="https://account.sensu.io/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://sensu.io/about">About</a></li>
+            <li><a href="https://blog.sensu.io/" target="_blank">Blog</a></li>
+            <li><a href="https://sensu.io/customers">Customers</a></li>
+            <li><a href="https://sensu.io/contact">Contact</a></li>
+            <li><a href="https://sensu.io/sales">Sales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--content--right">
+      <h3>Get In Touch</h3>
+      <p>Our team is here to help. Use our <a href="https://sensu.io/contact"><b><u>contact form</b></u></a> or reach out on GitHub, Slack, or Twitter.</p>
+      <ul class="inline">
+        <li><a href="https://github.com/sensu" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-920.000000, -4175.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M944,179.302423 C944,184.73279 940.5625,189.346199 935.796875,190.980114 C935.1875,191.092246 934.984375,190.707795 934.984375,190.387419 L934.984375,187.007457 C934.984375,185.854105 934.609375,185.117241 934.171875,184.73279 C936.84375,184.428433 939.65625,183.387212 939.65625,178.661672 C939.65625,177.316095 939.1875,176.210799 938.421875,175.361803 C938.546875,175.041428 938.953125,173.791963 938.296875,172.093972 C937.296875,171.773597 935,173.359456 935,173.359456 C934.046875,173.087137 933.015625,172.942968 932,172.942968 C930.984375,172.942968 929.953125,173.087137 929,173.359456 C929,173.359456 926.703125,171.773597 925.6875,172.093972 C925.046875,173.791963 925.453125,175.041428 925.578125,175.361803 C924.8125,176.210799 924.34375,177.316095 924.34375,178.661672 C924.34375,183.371194 927.140625,184.428433 929.8125,184.73279 C929.46875,185.053166 929.15625,185.581785 929.046875,186.382724 C928.359375,186.7031 926.609375,187.247739 925.5625,185.357522 C924.90625,184.188151 923.71875,184.092039 923.71875,184.092039 C922.546875,184.07602 923.640625,184.844921 923.640625,184.844921 C924.421875,185.213353 924.96875,186.639025 924.96875,186.639025 C925.671875,188.833598 929.015625,188.096734 929.015625,188.096734 C929.015625,189.121936 929.03125,190.099081 929.03125,190.387419 C929.03125,190.707795 928.8125,191.092246 928.203125,190.980114 C923.4375,189.346199 920,184.73279 920,179.302423 C920,172.51046 925.375,167 932,167 C938.625,167 944,172.51046 944,179.302423 Z"></path>
+              </g>
+          </g>
+      </svg>
+      </svg></a></li>
+        <li><a href="https://slack.sensu.io/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-970.000000, -4174.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M983.558646,174.858722 C981.981445,175.389656 980.426,175.913367 978.850551,176.443791 C979.381566,178.019593 979.905426,179.574164 980.436149,181.149018 C982.013351,180.618084 983.568868,180.094373 985.144317,179.56395 C984.613229,177.988147 984.089442,176.433576 983.558646,174.858722 M987.341608,173.597015 C987.875471,175.177268 988.398382,176.725054 988.927352,178.290642 C989.756037,178.018937 990.556758,177.747669 991.363173,177.494204 C992.397094,177.169165 993.417872,177.616194 993.827396,178.558626 C994.288246,179.619546 993.796293,180.824125 992.708489,181.235696 C991.977422,181.512289 991.230584,181.747514 990.490901,182.001563 C990.405258,182.031112 990.320418,182.063069 990.205863,182.104583 C990.270843,182.306246 990.332611,182.502072 990.396862,182.697023 C990.599104,183.310913 990.820184,183.919332 991.000743,184.53957 C991.250662,185.398097 990.877426,186.300984 990.115766,186.758301 C989.350602,187.21766 988.359685,187.148348 987.740107,186.522857 C987.48201,186.262315 987.291814,185.904516 987.158276,185.557297 C986.881926,184.838635 986.664132,184.097501 986.41465,183.342724 C984.842632,183.872564 983.293175,184.39467 981.715316,184.926334 C981.780881,185.135657 981.839875,185.33214 981.903906,185.526945 C982.108631,186.149518 982.328324,186.767567 982.518155,187.394517 C982.876862,188.579689 982.220339,189.689565 981.01893,189.955652 C980.084524,190.162568 979.102077,189.628716 978.759651,188.702773 C978.491625,187.977983 978.253679,187.242175 978.0023,186.511256 C977.970101,186.417502 977.937538,186.32382 977.894972,186.200955 C977.176317,186.441068 976.471168,186.676877 975.765801,186.912175 C975.373216,187.043066 974.980924,187.128722 974.558915,187.042774 C973.695331,186.866793 973.028587,186.13799 972.956744,185.262317 C972.879935,184.327035 973.388828,183.514036 974.25964,183.211249 C974.963547,182.966612 975.674171,182.741237 976.381583,182.506669 C976.466496,182.478579 976.55024,182.446841 976.652603,182.410361 C976.123997,180.844627 975.601086,179.295966 975.0681,177.717318 C974.51102,177.900157 973.970732,178.081902 973.427451,178.254162 C973.037422,178.37783 972.650459,178.539437 972.249697,178.595763 C971.209351,178.742049 970.294513,178.107584 970.060948,177.128745 C969.815775,176.101533 970.325324,175.12138 971.318796,174.755556 C972.03548,174.491658 972.763335,174.258184 973.486153,174.010993 C973.579827,173.978964 973.673355,173.946496 973.79397,173.904836 C973.550914,173.175814 973.313845,172.461675 973.074512,171.74834 C972.9455,171.363911 972.86818,170.9797 972.952144,170.56864 C973.131023,169.693697 973.864792,169.035155 974.761961,168.966718 C975.677968,168.896895 976.483872,169.408859 976.785849,170.272931 C977.019633,170.941761 977.231952,171.618032 977.454565,172.290583 C977.494064,172.4098 977.537798,172.527559 977.585329,172.662317 C979.165889,172.133353 980.72586,171.61132 982.311677,171.080605 C982.104542,170.467809 981.897408,169.876609 981.705971,169.280375 C981.586962,168.909882 981.437652,168.53771 981.396401,168.156053 C981.286591,167.140296 981.9326,166.296142 982.949216,166.053402 C983.895304,165.827516 984.871253,166.334373 985.22244,167.268633 C985.503974,168.017355 985.744548,168.781398 986.00447,169.538291 C986.033236,169.622196 986.069012,169.703693 986.108439,169.804013 C986.874479,169.548505 987.622777,169.293362 988.374726,169.049601 C989.361919,168.729596 990.330567,169.104759 990.808575,169.982548 C991.399095,171.06718 990.889838,172.393822 989.71829,172.800431 C989.014237,173.044776 988.304123,173.27183 987.596931,173.507055 C987.520195,173.532518 987.444409,173.560608 987.341608,173.597015"></path>
+              </g>
+          </g>
+      </svg></a></li>
+        <li><a href="https://twitter.com/sensu" target="_blank"><svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1017.000000, -4176.000000)">
+                <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                    <path d="M1038.54405,172.982073 C1038.55358,173.198827 1038.55676,173.41558 1038.55676,173.633963 C1038.55676,180.306063 1033.60511,188 1024.54749,188 C1021.76566,188 1019.17936,187.16558 1017,185.729791 C1017.38469,185.778683 1017.77732,185.79987 1018.17473,185.79987 C1020.48126,185.79987 1022.60498,184.994785 1024.28997,183.638853 C1022.13604,183.601369 1020.31594,182.139505 1019.68963,180.134941 C1019.99006,180.195241 1020.30004,180.226206 1020.61796,180.226206 C1021.06464,180.226206 1021.49861,180.162647 1021.91509,180.048566 C1019.66101,179.584094 1017.96331,177.543677 1017.96331,175.099087 L1017.96331,175.035528 C1018.62777,175.410365 1019.3876,175.640156 1020.19513,175.664602 C1018.87257,174.758475 1018.00305,173.215124 1018.00305,171.463168 C1018.00305,170.537484 1018.24467,169.672099 1018.67068,168.924055 C1021.09803,171.979791 1024.72871,173.987614 1028.82037,174.201108 C1028.73612,173.83116 1028.6932,173.443286 1028.6932,173.048892 C1028.6932,170.26043 1030.89641,168 1033.61624,168 C1035.03259,168 1036.31223,168.614407 1037.20877,169.595502 C1038.33263,169.36897 1039.38495,168.948501 1040.33872,168.369948 C1039.96834,169.54824 1039.18943,170.537484 1038.17208,171.161669 C1039.16876,171.044329 1040.11776,170.770535 1041,170.367992 C1040.33872,171.381682 1039.50576,172.269883 1038.54405,172.982073"></path>
+                </g>
+            </g>
+        </svg>
+      </a></li>
+      </ul>
+
+      <h3>Join Our Community</h3>
+      <p>Become a member of the Sensu community and get access to the community Slack channel and our weekly newsletter containing updates about Sensu.</p>
+      <form action="https://share.hsforms.com/10Dzh-ahWTaulALvp3xFfmQ2mwx3" target="_blank">
+        <input type="email" id="EMAIL" name="email" placeholder="Your Email">
+        <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    Made with <a href="https://twitter.com/hashtag/monitoringlove" target="_blank">#monitoringlove</a> by Sensu, Inc. &copy; 2013-2023 &mdash; <a href="https://sensu.io/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+</section>
+
+
+<script>
+$( document ).ready(function() {
+  applyTipBoxes();
+});
+
+function boldFirstWord(element) {
+  newElement = element.html().replace(/(^\w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function boldFirstTwoWords(element) {
+  newElement = element.html().replace(/(^\w+ \w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function applyTipBoxes() {
+  $('em').wrap(function() {
+    if ($(this).text().includes('NOTE:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-note"></div>';
+    } else if ($(this).text().includes('WARNING:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-warning"></div>';
+    } else if ($(this).text().includes('PRO TIP:')) {
+      boldFirstTwoWords($(this));
+      return '<div class="alert-tip"></div>';
+    } else if ($(this).text().includes('IMPORTANT:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-important"></div>';
+    }
+  });
+}
+</script>
+
+<script>
+  
+    var base_url = '';
+    var repo_id  = 'sensu\/sensu-docs';
+  
+</script>
+
+<script src="/javascripts/application.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  /* Add headers to scrollspy */
+  var headers   = document.getElementsByTagName("h2");
+  var scrollspy = document.getElementById('scrollspy');
+
+  if(scrollspy) {
+    if(headers.length > 0) {
+      for(var i = 0; i < headers.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("class", "anchor");
+
+        var a  = document.createElement("a");
+        a.setAttribute("href", "#" + headers[i].id);
+        a.setAttribute("title", headers[i].innerHTML);
+        a.innerHTML = headers[i].innerHTML;
+
+        li.appendChild(a)
+        scrollspy.appendChild(li);
+      }
+    } else {
+      scrollspy.parentElement.removeChild(scrollspy)
+    }
+  }
+
+  /* Add permanent link next to the headers */
+  var headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+
+  for(var i = 0; i < headers.length; i++) {
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + headers[i].id);
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 9.2" width="18.3px"><path d="M-1.8-6.4h22v22h-22v-22z" fill="none"/><path d="M1.7 4.6C1.7 3 3 1.7 4.6 1.7h3.7V0H4.6C2.1 0 0 2.1 0 4.6s2.1 4.6 4.6 4.6h3.7V7.4H4.6C3 7.4 1.7 6.2 1.7 4.6zm3.8.9h7.3V3.7H5.5v1.8zM13.8 0h-3.7v1.7h3.7c1.6 0 2.8 1.3 2.8 2.8s-1.3 2.8-2.8 2.8h-3.7V9h3.7c2.5 0 4.6-2.1 4.6-4.6S16.3 0 13.8 0z"/></svg>';
+    headers[i].appendChild(a);
+  }
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0087/0389.js" async="async"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+      []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+      m.parentNode.insertBefore(a,m)
+    })(window, document,
+      'script', '//www.google-analytics.com/analytics.js', 'ga');
+     
+    ga('create', 'UA-39138312-17', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+     
+    var buttons = document.querySelectorAll('a');
+    Array.prototype.map.call(buttons, function(item) {
+      if (item.host != document.location.host) {
+        item.addEventListener('click', function() {
+          var action = item.getAttribute('data-action') || 'follow';
+          ga('send', 'event', 'outbound', action, item.href);
+        });
+      }
+    });
+     
+    var searchInputs = document.getElementsByClassName('search');
+    for (var i=0; i < searchInputs.length; i++) {
+      searchInputs[i].addEventListener('blur', function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga('send', 'pageview', path + '?q=' + this.value);
+        }
+      });
+    }
+
+    var dropdowns = document.getElementsByClassName('dropdown');
+    for (var i=0; i < dropdowns.length; i++) {
+      dropdowns[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.currentTarget.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function(e) {
+      for (var i=0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove('open');
+      };
+    });
+
+    
+    var languages = {
+      javascript: "JavaScript",
+      json: "JSON",
+      yml: "YML",
+    };
+    var toggles = document.getElementsByClassName('language-toggle');
+    for (var i=0; i < toggles.length; i++) {
+      var children = Array.prototype.slice.call(toggles[i].querySelectorAll('.language'));
+      var langs = children.map(function(c) { return c.dataset.lang; });
+
+      
+      langs.forEach(function(lang) {
+        var el = document.createElement('span');
+        el.setAttribute('role', 'tab');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('data-lang', lang);
+        el.innerText = languages[lang] || lang;
+        el.addEventListener('click', function(e) {
+          var elOffset = e.currentTarget.getBoundingClientRect().top;
+          setLanguage(e.currentTarget.dataset.lang);
+          e.currentTarget.scrollIntoView();
+          window.scrollBy(0, -elOffset);
+        });
+        toggles[i].querySelector('.tabs').appendChild(el);
+      });
+
+      
+      toggles[i].querySelector('.languages').children[0].classList.add('active');
+    }
+
+    
+    function setLanguage(lang) {
+      
+      localStorage.setItem('lang', lang);
+
+      
+      var tabLists = Array.prototype.slice.call(document.querySelectorAll('.language-toggle .tabs'));
+      
+      tabLists.forEach(function(tabList) {
+        var activeTab = tabList.querySelector('.active');
+        var selectedTab = tabList.querySelector('[data-lang="' + lang + '"]');
+        var allTabs = Array.prototype.slice.call(tabList.children);
+        allTabs.forEach(function(t) { return t.classList.remove('active'); });
+        if (selectedTab) {
+          selectedTab.classList.add('active');
+        } else if (activeTab) {
+          activeTab.classList.add('active');
+        } else {
+          allTabs[0].classList.add('active');
+        }
+      });
+
+      
+      var selector = '.language-toggle .language[data-lang="' + lang + '"]';
+      var langBlockChildren = document.querySelectorAll(selector);
+      var langBlocks = Array.prototype.slice.call(langBlockChildren).map(function(el) { return el.closest('.languages'); });
+      
+      langBlocks.forEach(function(el) {
+        Array.prototype.slice.call(el.children).forEach(function(c) {
+          return c.classList.remove('active');
+        })
+      });
+      
+      langBlockChildren.forEach(function(el) { return el.classList.add('active'); });
+    }
+    
+    setLanguage(localStorage.getItem('lang'));
+  </script>
+
+
+
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o1043');
+  twq('track','PageView');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+  var docsearchOptions = {
+    appId: 'S633WESKWC',
+    apiKey: '2aaea336f8b58143b17119944385071f',
+    indexName: 'sensu',
+    inputSelector: '#desktop-search',
+    algoliaOptions: {
+      facetFilters: [
+        [
+          
+            'tags:sensu-go'
+          
+        ],
+        [
+          
+            'version:6.8'
+          
+        ]
+      ]
+    },
+    debug: false
+  };
+
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+
+  docsearchOptions.inputSelector = '#mobile-search';
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+</script>
+
+</body>
+</html>

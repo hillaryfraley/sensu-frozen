@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started on Sensu Docs</title>
+    <link>/uchiwa/latest/getting-started/</link>
+    <description>Recent content in Getting Started on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/uchiwa/latest/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic Concepts</title>
+      <link>/uchiwa/latest/getting-started/basic-concepts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/getting-started/basic-concepts/</guid>
+      <description>Datacenter A datacenter is a logical representation of a Sensu cluster. Datacenters can be used, for example, to organize physical datacenters or environments.
+Sensu See Sensu documentation for more concepts.</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>/uchiwa/latest/getting-started/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/getting-started/installation/</guid>
+      <description>Manual Installation See the download page to download the packages.
+Debian/Ubuntu Install the GPG public key: wget -q https://sensu.global.ssl.fastly.net/apt/pubkey.gpg -O- | sudo apt-key add - Determine the codename of the Ubuntu/Debian release on your system: . /etc/os-release &amp;amp;&amp;amp; echo $VERSION &amp;#34;14.04.4 LTS, Trusty Tahr&amp;#34; # codename for this system is &amp;#34;trusty&amp;#34; Create an APT configuration file at /etc/apt/sources.list.d/sensu.list: export CODENAME=your_release_codename_here # e.g. &amp;#34;trusty&amp;#34; echo &amp;#34;deb https://sensu.global.ssl.fastly.net/apt $CODENAME main&amp;#34; | sudo tee /etc/apt/sources.</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>/uchiwa/latest/getting-started/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/getting-started/configuration/</guid>
+      <description>Configuration Load Order Uchiwa loads configuration from these sources in the following order:
+Uchiwa loads configuration from the configuration file (by default, this is located at /etc/sensu/uchiwa.json which is provided with the -c command line argument). Uchiwa loads configuration snippets from configuration files located in one or multiple Uchiwa configuration directories (by default, this is the /etc/sensu/dashboard.d/ directory which is provided with the -d command line argument). Minimal Configuration { &amp;#34;sensu&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;Site 1&amp;#34;, &amp;#34;host&amp;#34;: &amp;#34;api1.</description>
+    </item>
+    
+  </channel>
+</rss>

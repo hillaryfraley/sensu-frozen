@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RBAC on Sensu Docs</title>
+    <link>/sensu-enterprise-dashboard/latest/rbac/</link>
+    <description>Recent content in RBAC on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise-dashboard/latest/rbac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Role Based Access Controls</title>
+      <link>/sensu-enterprise-dashboard/latest/rbac/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/rbac/overview/</guid>
+      <description>ENTERPRISE: Role based access controls are available for Sensu Enterprise users only.
+Reference Documentation What are Role Based Access Controls for Sensu Enterprise? How does Sensu provide RBAC? Supported RBAC drivers RBAC for the Sensu Enterprise Console API RBAC configuration Example RBAC definition RBAC definition specification DRIVER attributes roles attributes methods attributes What are Role Based Access Controls for Sensu Enterprise? Role-based access controls (RBAC) are a system for restricting access to authorized users according to a role, or job function.</description>
+    </item>
+    
+    <item>
+      <title>RBAC for LDAP</title>
+      <link>/sensu-enterprise-dashboard/latest/rbac/rbac-for-ldap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/rbac/rbac-for-ldap/</guid>
+      <description>ENTERPRISE: Role based access controls are available for Sensu Enterprise users only.
+Reference Documentation What is RBAC for LDAP? LDAP provider compatibility RBAC for LDAP configuration Example RBAC for LDAP definition RBAC for LDAP definition specification ldap attributes servers attributes roles attributes What is RBAC for LDAP? The Sensu Enterprise Dashboard offers support for built-in Role Based Access Controls (RBAC), which depends on using some external source of truth for authentication.</description>
+    </item>
+    
+    <item>
+      <title>RBAC for GitHub</title>
+      <link>/sensu-enterprise-dashboard/latest/rbac/rbac-for-github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/rbac/rbac-for-github/</guid>
+      <description>ENTERPRISE: Role based access controls are available for Sensu Enterprise users only.
+Reference Documentation What is RBAC for GitHub? RBAC for GitHub configuration Example RBAC for GitHub definition RBAC for GitHub definition specification github attributes roles attributes Register an OAuth Application in GitHub What is RBAC for GitHub? The Sensu Enterprise Dashboard offers support for built-in Role Based Access Controls (RBAC), which depends on using some external source of truth for authentication.</description>
+    </item>
+    
+    <item>
+      <title>RBAC for OpenID Connect (OIDC)</title>
+      <link>/sensu-enterprise-dashboard/latest/rbac/rbac-for-oidc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/rbac/rbac-for-oidc/</guid>
+      <description>ENTERPRISE: Role based access controls are available for Sensu Enterprise users only.
+Reference Documentation What is RBAC for OIDC? RBAC for OIDC configuration Example RBAC for OIDC definition RBAC for OIDC definition specification oidc attributes roles attributes Register an OIDC Application Okta PingFederate What is RBAC for OIDC? The Sensu Enterprise Dashboard offers support for built-in Role Based Access Controls (RBAC), which depends on using some external source of truth for authentication.</description>
+    </item>
+    
+    <item>
+      <title>RBAC for GitLab</title>
+      <link>/sensu-enterprise-dashboard/latest/rbac/rbac-for-gitlab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/rbac/rbac-for-gitlab/</guid>
+      <description>ENTERPRISE: Role based access controls are available for Sensu Enterprise users only.
+Reference Documentation What is RBAC for GitLab? RBAC for GitLab configuration Example RBAC for GitLab definition RBAC for GitLab definition specification gitlab attributes roles attributes Register an OAuth Application in GitLab What is RBAC for GitLab? The Sensu Enterprise Dashboard offers support for built-in Role Based Access Controls (RBAC), which depends on using some external source of truth for authentication.</description>
+    </item>
+    
+    <item>
+      <title>Audit Logging</title>
+      <link>/sensu-enterprise-dashboard/latest/rbac/audit-logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/rbac/audit-logging/</guid>
+      <description>As of Sensu Enterprise Dashboard version 1.3, Audit Logging is enabled by default. Audit Logging captures user events in the dashboard such as user login/logout, and any user &amp;ldquo;write&amp;rdquo; actions in the dashboard (i.e. silencing checks, deleting clients, deleting stashes). Optionally, it is also possible to log all HTTP GET requests (i.e. every view requested by the user, and every search query performed by the user).
+NOTE: Audit Logging requires authentication to be enabled.</description>
+    </item>
+    
+  </channel>
+</rss>
