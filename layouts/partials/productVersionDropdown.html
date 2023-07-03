@@ -1,0 +1,57 @@
+<div class="product-picker">
+  <!-- Dropdown for products -->
+  <div class="dropdown dropdown--products">
+    {{ if isset .Params "product" }}
+      {{ $display := .Params.product }}
+      <a>{{ $display }}<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    {{ else }}
+      {{ $display := "Projects" }}
+      <a>{{ $display }}<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    {{ end }}
+    <div class="options">
+      {{ range sort .Site.Params.Products "weight" }} 
+        {{ $.Scratch.Set "url" "" }}
+          {{ $.Scratch.Set "url" (printf "/%s/%s/" .identifier .latest) }}
+        {{ $url := $.Scratch.Get "url" }}
+        <a href="{{ $url }}">{{ .name }}</a>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Dropdown for versions -->
+  <div class="dropdown dropdown--versions">
+    <!-- Grab info for the current product from global -->
+    {{ $product := replace .Section "-" "_" }}
+    {{ $product_info := (index .Site.Params.products $product) }}
+    {{ $chopurl := split $.RelPermalink "/"}}
+    {{ $pageversion := string (.Params.version) }}
+
+    <a>
+      {{ cond (isset .Params "version") $pageversion "Version" }}
+      {{ if (eq $pageversion $product_info.latest) }}(latest)&nbsp;{{ end }}
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      {{ if not ($.Scratch.Get "versionList") }}
+        {{ range $k, $v := $product_info.versions }}
+          {{ $.Scratch.Add "versionList" (slice $v.version) }}
+        {{ end }}
+      {{ end }}
+      {{ $versionList := $.Scratch.Get "versionList" }}
+      {{ range $version := $versionList }}
+        <!-- Protects when $chopurl has nothing after 3 /'s'-->
+        {{ if gt (len $chopurl) 3 }}
+          {{ $endurl := after 3 $chopurl}}
+          {{ if and (ne $version "2.0") (ne $pageversion "2.0") }}
+            <a href="/{{ $.Section }}/{{ $version }}/{{delimit $endurl "/"}}">
+          {{ else }}
+            <a href="/{{ $.Section }}/{{ $version }}">
+          {{ end }}
+            {{ $version }} {{ if eq $version $product_info.latest }}(latest){{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+

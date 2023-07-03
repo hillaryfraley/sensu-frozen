@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensu Core on Sensu Docs</title>
+    <link>/sensu-core/</link>
+    <description>Recent content in Sensu Core on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Jul 2017 13:36:39 -0700</lastBuildDate><atom:link href="/sensu-core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>This page covers documentation for legacy versions of Sensu, which are no longer hosted on the Sensu documentation site.</title>
+      <link>/sensu-core/legacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/legacy/</guid>
+      <description>You&amp;rsquo;ve requested docs for a legacy version of Sensu. Documentation covering Sensu versions up to 0.28 is no longer being hosted on the Sensu website.
+If you are intentionally seeking documentation for a legacy version, please visit the sensu-docs project on GitHub.
+Otherwise, please click here for the latest Sensu Core documentation.</description>
+    </item>
+    
+  </channel>
+</rss>

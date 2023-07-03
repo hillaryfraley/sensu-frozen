@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensu Go on Sensu Docs</title>
+    <link>/sensu-go/6.6/</link>
+    <description>Recent content in Sensu Go on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sensu Go release notes</title>
+      <link>/sensu-go/6.6/release-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/release-notes/</guid>
+      <description>6.6.6 release notes 6.6.5 release notes 6.6.4 release notes 6.6.3 release notes 6.6.2 release notes 6.6.1 release notes 6.6.0 release notes 6.5.5 release notes 6.5.4 release notes 6.5.3 release notes 6.5.2 release notes 6.5.1 release notes 6.5.0 release notes 6.4.3 release notes 6.4.2 release notes 6.4.1 release notes 6.4.0 release notes 6.3.0 release notes 6.2.7 release notes 6.2.6 release notes 6.2.5 release notes 6.2.4 release notes 6.2.3 release notes 6.</description>
+    </item>
+    
+    <item>
+      <title>Get started with Sensu</title>
+      <link>/sensu-go/6.6/get-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/get-started/</guid>
+      <description>Sensu Go is the flexible observability pipeline designed for container-based and multi-cloud infrastructures.
+Sensu is available as packages, Docker images, and binary-only distributions. You can install the commercial distribution or build Sensu from source.
+Install the commercial distribution of Sensu Go Sensu&amp;rsquo;s supported platforms include Debian- and RHEL-family distributions and Windows.
+Install Sensu Go with a commercial package and get started for free Learn about Sensu&amp;rsquo;s commercial features — all commercial features are available for free in the packaged Sensu Go distribution up to an entity limit of 100 Find the Sensu architecture that best meets your needs Discover Sensu dynamic runtime assets for deploying plugins on Bonsai, the Sensu asset hub Migrate from Sensu Core and Sensu Enterprise to Sensu Go Learn Sensu Watch this video for an 8-minute Sensu Go overview and demo:</description>
+    </item>
+    
+    <item>
+      <title>Supported platforms and distributions</title>
+      <link>/sensu-go/6.6/platforms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/platforms/</guid>
+      <description>Sensu is available as packages, Docker images, and binary-only distributions. We recommend installing Sensu with one of our supported packages, Docker images, or configuration management integrations. Sensu downloads are provided under the Sensu commercial license.
+Supported packages This page lists supported packages for the most common platforms. Supported packages are available from sensu/stable on packagecloud and the Sensu downloads page.
+NOTE: The sensu/stable repository on packagecloud includes packages for every platform Sensu supports, in addition to packages for the common platforms listed on this page.</description>
+    </item>
+    
+    <item>
+      <title>Get started with commercial features</title>
+      <link>/sensu-go/6.6/commercial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/commercial/</guid>
+      <description>Sensu Go offers commercial features designed for monitoring and observability at scale. All commercial features are available in the official Sensu Go distribution, and you can use them for free up to an entity limit of 100. If you have more than 100 entities, contact the Sensu sales team for a free trial.
+In addition to the summary on this page, we describe commercial features in detail throughout the documentation. Watch for this notice to identify commercial features:</description>
+    </item>
+    
+    <item>
+      <title>Supported versions</title>
+      <link>/sensu-go/6.6/versions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/versions/</guid>
+      <description>Update Sensu frequently to stay in sync with the latest features and fixes. Read Upgrade Sensu to upgrade to the latest version.
+Sensu supports the latest versions of official distributions, including packages, Docker images, and binary-only distributions. Learn more about Sensu licensing and support.
+This table lists the supported versions of Sensu Go with links to active documentation (for supported versions) and offline documentation artifacts (for versions that are not supported).</description>
+    </item>
+    
+    <item>
+      <title>Sensu Plus</title>
+      <link>/sensu-go/6.6/sensu-plus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/sensu-plus/</guid>
+      <description>COMMERCIAL FEATURE: Access Sensu Plus in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu Plus is a built-in integration for transmitting your Sensu observability data to the Sumo Logic Continuous Intelligence Platform™ via a Sumo Logic HTTP Logs and Metrics Source. In Sumo Logic, you can configure customized interactive dashboards and analytics tools to gain better visibility into your Sensu data — read Introducing Sensu Plus for more information.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reference on Sensu Docs</title>
+    <link>/sensu-core/latest/reference/</link>
+    <description>Recent content in Reference on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-core/latest/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sensu Server</title>
+      <link>/sensu-core/latest/reference/server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/server/</guid>
+      <description>Reference documentation What is the Sensu server? Sensu Core vs Sensu Enterprise Check execution scheduling Check scheduling algorithm &amp;amp; synchronization Event processing Automated Sensu server task election Sensu server tasks Scaling Sensu What is the Sensu server? The Sensu server schedules and publishes check execution requests to client subscriptions (via a Publish/Subscribe model), and provides a scalable event processing platform for processing check results and monitoring events.
+Sensu Core vs Sensu Enterprise The Sensu server comes in two flavors: the open-source Sensu Core (via the sensu-server process), and Sensu Enterprise (via the sensu-enterprise process).</description>
+    </item>
+    
+    <item>
+      <title>Clients</title>
+      <link>/sensu-core/latest/reference/clients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/clients/</guid>
+      <description>Reference documentation What is a Sensu client? Client keepalives What is a client keepalive? Client registration &amp;amp; the client registry Registration and deregistration events Proxy clients How are keepalive events created? Client keepalive configuration Client signature Client subscriptions What is a client subscription? Round-robin client subscriptions Client subscription configuration Client socket input What is the Sensu client socket Example client socket usage Client socket configuration Standalone check execution scheduler Managing clients Client configuration Example client definition Client definition specification client attributes socket attributes http-socket attributes keepalive attributes thresholds attributes registration attributes deregistration attributes ec2 attributes chef attributes puppet attributes servicenow attributes influxdb attributes opsgenie attributes Custom attributes What is a Sensu client?</description>
+    </item>
+    
+    <item>
+      <title>Checks</title>
+      <link>/sensu-core/latest/reference/checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/checks/</guid>
+      <description>Reference documentation What is a Sensu check? Sensu check specification Check commands What is a check command? Check command arguments How and where are check commands executed? Check execution platform How are checks scheduled? Subscription checks Standalone checks Check results What is a check result? Example check result output Check token substitution What is check token substitution? Example check tokens Check token specification Check hooks What are check hooks? Example check hooks Managing checks Check configuration Example check definition Check definition specification Check naming CHECK attributes subdue attributes influxdb attributes opsgenie attributes hooks attributes Custom attributes Check result specification check attributes client attributes What is a Sensu check?</description>
+    </item>
+    
+    <item>
+      <title>Aggregates</title>
+      <link>/sensu-core/latest/reference/aggregates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/aggregates/</guid>
+      <description>Reference documentation What is a Sensu named aggregate? When should named aggregates be used? How do named aggregates work? Example aggregated check result Aggregate configuration Example aggregate definition Aggregate definition specification Aggregate check attributes What is a Sensu named aggregate? Sensu named aggregates are collections of check results, accessible via the Aggregates API. Check aggregates make it possible to treat the results of multiple disparate check results – executed across multiple disparate systems – as a single result.</description>
+    </item>
+    
+    <item>
+      <title>Events</title>
+      <link>/sensu-core/latest/reference/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/events/</guid>
+      <description>Reference documentation What are Sensu events? How are Sensu events created? Event actions Event data Example event Event data specification EVENT attributes check attributes client attributes What are Sensu events? Sensu events are created to acknowledge that something potentially noteworthy has occurred, which events may then be processed by one or more event handlers to do things such as send an email, or invoke an automated action. Every Sensu event provides context, called &amp;ldquo;event data&amp;rdquo;, which contains information about the originating Sensu client and the corresponding check result.</description>
+    </item>
+    
+    <item>
+      <title>Filters</title>
+      <link>/sensu-core/latest/reference/filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/filters/</guid>
+      <description>Reference documentation How do Sensu filters work? Inclusive and exclusive filtering Filter attribute comparison Filter attribute evaluation Filter attribute eval tokens Built-in Filters Filter configuration Filter definition specification Filter naming Filter attributes when attributes What are Sensu filters? Sensu Filters (also called Event Filters) allow you to filter events destined for one or more event Handlers. Sensu filters inspect event data and match its keys/values with filter definition attributes, to determine if the event should be passed to an event handler.</description>
+    </item>
+    
+    <item>
+      <title>Silencing</title>
+      <link>/sensu-core/latest/reference/silencing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/silencing/</guid>
+      <description>Reference documentation What is Sensu Silencing? How does silencing work? Silencing entry specification Examples Silence all checks on a specific client Silence a specific check on a specific client Silence all checks on clients with a specific subscription Silence a specific check on clients with a specific subscription Silence a specific check on every client regardless of subscriptions Deleting silencing entries Appendix: Deprecated stash-based silencing What is Sensu Silencing? As check results are processed by a Sensu server, the server executes event handlers to send alerts to personnel or otherwise relay event data to external services.</description>
+    </item>
+    
+    <item>
+      <title>Mutators</title>
+      <link>/sensu-core/latest/reference/mutators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/mutators/</guid>
+      <description>Reference documentation What is a Sensu mutator? The Sensu mutator specification When to use a mutator How do Sensu mutators work? Mutator commands What is a mutator command? Mutator command arguments How and where are mutator commands executed? Mutator configuration Example mutator definition Mutator definition specification Mutator name(s) Mutator attributes What are Sensu mutators? Sensu mutators are executable scripts or other programs that modify event data for Sensu event handlers which may expect additional or modified event data (e.</description>
+    </item>
+    
+    <item>
+      <title>Handlers</title>
+      <link>/sensu-core/latest/reference/handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/handlers/</guid>
+      <description>Reference documentation What is a Sensu event handler? Handler types The default handler Pipe handlers Pipe handler commands What is a pipe handler command? Pipe handler command arguments How and where are pipe handler commands executed? TCP/UDP handlers Transport handlers Handler sets Handler configuration Example handler definition Handler definition specification Handler name(s) HANDLER attributes socket attributes (TCP/UDP handlers) pipe attributes (Transport handlers)s What is a Sensu event handler? Sensu event handlers are actions executed by the Sensu server on events, such as sending an email alert, creating or resolving an incident (e.</description>
+    </item>
+    
+    <item>
+      <title>Plugins</title>
+      <link>/sensu-core/latest/reference/plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/plugins/</guid>
+      <description>What is a Sensu plugin? Sensu plugins provide executable scripts or other programs that can be used as Sensu checks (i.e. to monitor server resources, services, and application health, or collect &amp;amp; analyze metrics), Sensu handlers (i.e. to send notifications or perform other actions based on Sensu events), or Sensu mutators (i.e. to modify event data prior to handling).
+For more about Sensu plugins, please refer to Installing &amp;amp; Managing Plugins.</description>
+    </item>
+    
+    <item>
+      <title>Extensions</title>
+      <link>/sensu-core/latest/reference/extensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/extensions/</guid>
+      <description>Reference documentation What is a Sensu extension? Installing Sensu extensions Installing Sensu legacy extensions Configuring Sensu extensions The Sensu Extension gem The Sensu Extensions gem template What is a Sensu extension? Unlike Sensu plugins, which spawn a new child process at every execution, Sensu extensions execute directly inside the EventMachine reactor thread of a Sensu client or server process. Because they avoid the overhead of spawning a new process at every invocation, Sensu extensions can fulfill the same functions as plugins, acting as checks, filters, mutators or handlers, but with much greater efficiency.</description>
+    </item>
+    
+    <item>
+      <title>Stashes</title>
+      <link>/sensu-core/latest/reference/stashes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/stashes/</guid>
+      <description>Reference documentation What is a Sensu stash? The Sensu key/value store The Sensu stash specification Example Sensu stash Stash definition specification Stash attributes content attributes Direct access to stash content data What is a Sensu stash? A Sensu stash is a JSON document containing arbitrary JSON Hash data which is accessible via the Stashes API. The most common use of the Sensu Stashes are via Sensu handlers, which may access the Stashes API to create and/or read &amp;ldquo;state&amp;rdquo; information that persists between handler executions.</description>
+    </item>
+    
+    <item>
+      <title>Data Store</title>
+      <link>/sensu-core/latest/reference/data-store/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/data-store/</guid>
+      <description>Reference documentation What is the Sensu data store? What is the Sensu data store? Sensu services use a data store (Redis) to persist monitoring data, including the Sensu client registry, check results, check execution history, and current event data. All Sensu Core server and API processes (i.e. sensu-server and sensu-api), or the Sensu Enterprise process (i.e. sensu-enterprise) require access to the same instance of the defined data store (i.e. a Redis server or cluster).</description>
+    </item>
+    
+    <item>
+      <title>Transport</title>
+      <link>/sensu-core/latest/reference/transport/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/transport/</guid>
+      <description>Reference documentation What is the Sensu Transport? Selecting a transport Transport configuration Example transport definition Maximum transport message size Transport DNS resolution Transport definition specification Transport attributes What is the Sensu Transport? Sensu services use a message bus (e.g. RabbitMQ) for communication. This message bus communication is provided by the Sensu Transport, which is a library that makes it possible to leverage alternate transport solutions in place of RabbitMQ (the default transport).</description>
+    </item>
+    
+    <item>
+      <title>Sensu Configuration</title>
+      <link>/sensu-core/latest/reference/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/configuration/</guid>
+      <description>Reference documentation How does Sensu load configuration? Sensu configuration sources Configuration load order Configuration merging Configuration logging Configuration scopes Configuration scopes are relative Configuration scope examples Sensu service init configuration Sensu service init configuration variables Sensu command line interfaces and arguments Sensu environment variables Sensu configuration specification Example sensu configuration Top-level configuration scopes Sensu definition specification How does Sensu load configuration? Sensu configuration sources By default, the main configuration file for the Sensu platform is located at /etc/sensu/config.</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ Configuration</title>
+      <link>/sensu-core/latest/reference/rabbitmq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/rabbitmq/</guid>
+      <description>Reference documentation What is RabbitMQ? How does Sensu use RabbitMQ? Install RabbitMQ Configure Sensu Example configuraitons RabbitMQ definition specificaiton rabbitmq attributes ssl attributes Configure RabbitMQ Standalone configuration Distributed configuration High-availability configuration What is a RabbitMQ cluster? High availability hardware requirements Install RabbitMQ Configure a RabbitMQ cluster Configure Sensu to use the RabbitMQ cluster Securing RabbitMQ RabbitMQ and SELinux RabbitMQ SSL RabbitMQ SSL and Erlang 18.3 What is RabbitMQ? RabbitMQ is a message bus, which describes itself as &amp;ldquo;a messaging broker - an intermediary for messaging.</description>
+    </item>
+    
+    <item>
+      <title>Redis Configuration</title>
+      <link>/sensu-core/latest/reference/redis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/redis/</guid>
+      <description>Reference documentation What is Redis? How does Sensu use Redis? Install Redis Configure Sensu Example configurations Redis definition specification redis attributes sentinels attributes Configure Redis Standalone configuration Distributed configuration High Availability configuration What is Redis master-slave replication? What is Redis Sentinel? High availability hardware requirements Install Redis Redis master-slave configuration Configure the Redis master Configure the Redis slave Verify master-slave replication Redis Sentinel configuration Configure a Sentinel Verify Redis Sentinel operation Configure Sensu to use Redis Sentinel Securing Redis What is Redis?</description>
+    </item>
+    
+    <item>
+      <title>SSL Configuration</title>
+      <link>/sensu-core/latest/reference/ssl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/ssl/</guid>
+      <description>Reference documentation How does Sensu use SSL? SSL-secured transports Configuring Sensu + RabbitMQ for SSL encryption Generate self-signed OpenSSL certificates &amp;amp; CA Enable RabbitMQ SSL support Configure Sensu Known limitations How does Sensu use SSL? All communication between Sensu services happens via the Sensu transport. As such, to secure a Sensu installation means to secure communication between all of the Sensu services and the Sensu transport via SSL encryption. Sensu can operate without the use of SSL encryption, however, this practice is heavily discouraged.</description>
+    </item>
+    
+    <item>
+      <title>Tessen</title>
+      <link>/sensu-core/latest/reference/tessen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/reference/tessen/</guid>
+      <description>What is Tessen? Tessen is a hosted Sensu call-home service hosted by Sensu Inc. The Tessen client, included in every sensu-server, is capable of sending anonymized data about the Sensu installation to the Tessen hosted service, on sensu-server startup and every 6 hours thereafter. All data submissions are logged for complete transparency and transmitted over HTTPS. The anonymized data currently includes the flavour of Sensu (Core or Enterprise), the Sensu version, and the Sensu client and server counts.</description>
+    </item>
+    
+  </channel>
+</rss>

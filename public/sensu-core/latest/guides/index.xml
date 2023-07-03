@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on Sensu Docs</title>
+    <link>/sensu-core/latest/guides/</link>
+    <description>Recent content in Guides on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-core/latest/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started</title>
+      <link>/sensu-core/latest/guides/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/overview/</guid>
+      <description>The complete getting started guide The purpose of this guide is to help new Sensu users to obtain a basic understanding of the primitives or components used to build a comprehensive monitoring solution. In the course of working through this guide, users should be able to start monitoring servers, services, and application health, collect and analyze metrics, and setup alerts.
+Objectives This guide will provide an introduction to the following building blocks:</description>
+    </item>
+    
+    <item>
+      <title>Adding a Client</title>
+      <link>/sensu-core/latest/guides/adding-a-client/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/adding-a-client/</guid>
+      <description>Sensu clients are pieces of infrastructure that Sensu monitors for you. The Sensu client software allows you to register a running instance of itself as capable of running any checks they might be eligible for.
+Infrastructure sometimes includes hardware or services that don&amp;rsquo;t necessarily support running the Sensu client software but still needs to be monitored. For those cases, proxy clients let you monitor anything you can tell Sensu about.</description>
+    </item>
+    
+    <item>
+      <title>Intro to Checks</title>
+      <link>/sensu-core/latest/guides/intro-to-checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/intro-to-checks/</guid>
+      <description>The purpose of this guide is to help Sensu users create monitoring checks. At the conclusion of this guide, you - the user - should have several Sensu checks in place to monitor and measure machine resources, applications, and services. Each Sensu monitoring check in this guide demonstrates one or more check definition features, for more information please refer to the Sensu checks reference documentation.
+Objectives What will be covered in this guide:</description>
+    </item>
+    
+    <item>
+      <title>Intro to Filters</title>
+      <link>/sensu-core/latest/guides/intro-to-filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/intro-to-filters/</guid>
+      <description>The purpose of this guide is to help Sensu users create event filters. At the conclusion of this guide, you - the user - should have several Sensu event filters in place to filter events for one or more event handlers. Each Sensu filter in this guide demonstrates one or more filter definition features, for more information please refer to the Sensu filters reference documentation.
+Objectives What will be covered in this guide:</description>
+    </item>
+    
+    <item>
+      <title>Intro to Mutators</title>
+      <link>/sensu-core/latest/guides/intro-to-mutators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/intro-to-mutators/</guid>
+      <description>The purpose of this guide is to help Sensu users create event data mutators. At the conclusion of this guide, you - the user - should have several Sensu mutators in place to mutate (transform) event data for one or more event handlers. Each Sensu mutator in this guide demonstrates one or more mutator definition features, for more information please refer to the Sensu mutators reference documentation.
+Objectives What will be covered in this guide:</description>
+    </item>
+    
+    <item>
+      <title>Intro to Handlers</title>
+      <link>/sensu-core/latest/guides/intro-to-handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/intro-to-handlers/</guid>
+      <description>The purpose of this guide is to help Sensu users create event handlers. At the conclusion of this guide, you - the user - should have several Sensu handlers in place to handle events. Each Sensu event handler in this guide demonstrates one or more handler types and definition features, for more information please refer to the handlers reference documentation.
+Objectives What will be covered in this guide:
+Creation of a pipe handler Creation of a tcp handler Creation of a udp handler Creation of a transport handler Creation of a set handler What are Sensu event handlers?</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Devices With Sensu&#39;s SNMP Receiver Extension</title>
+      <link>/sensu-core/latest/guides/snmp-sensu-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/snmp-sensu-guide/</guid>
+      <description>Objectives Set up a Sensu client as an SNMP trap receiver Send a test SNMP trap to simulate a real world circumstance Demonstrate the results of the SNMP trap test in Uchiwa/Sensu Enterprise Dashboard Prerequisites A working Sensu deployment including sensu-server/sensu-api (or sensu-enterprise), sensu-client, and transport/datastore components Uchiwa, or Sensu Enterprise Dashboard installed and configured snmptrap command installed on a Linux device (we’ll use CentOS 7) If you don’t have Sensu spun up yet, we encourage you to go through our 5 minute install guide.</description>
+    </item>
+    
+    <item>
+      <title>Securing Sensu</title>
+      <link>/sensu-core/latest/guides/securing-sensu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/securing-sensu/</guid>
+      <description>Securing Sensu is a multifaceted process that requires several different components to be secured in order to properly harden your Sensu deployment. In this guide, we&amp;rsquo;ll walk you through the best practices and strategies for securing Sensu. By the end of the guide, you should have a thorough understanding of what goes into securing all of the pieces that make up a Sensu deployment, including:
+How to secure your Sensu clients How to secure your Sensu Server/API/Enterprise instance(s) How to secure Uchiwa/the Sensu Enterprise Dashboard We&amp;rsquo;ll also walk through securing the additional components like RabbitMQ and Redis in the guides following this one.</description>
+    </item>
+    
+    <item>
+      <title>Securing RabbitMQ</title>
+      <link>/sensu-core/latest/guides/securing-rabbitmq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/securing-rabbitmq/</guid>
+      <description>As the supported transport mechanism for any Sensu deployment, RabbitMQ has its own set of security concerns, from ensuring that VHOST permissions are set correctly, to adding SSL/TLS encryption between clients, consumers, and queues. This guide will discuss how to properly secure RabbitMQ as one of the core elements of a Sensu deployment.
+Before we dive too deep in the article, you may want to familiarize yourself with RabbitMQ permissions. It&amp;rsquo;s important to note that RabbitMQ makes a distinction between configure, write, and read permissions.</description>
+    </item>
+    
+    <item>
+      <title>Securing Redis</title>
+      <link>/sensu-core/latest/guides/securing-redis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/securing-redis/</guid>
+      <description>Redis is a key-value database, which describes itself as “an open source, BSD licensed, advanced key-value cache and store”. Sensu uses Redis for storing persistent data. Two Sensu services, the server and API, require access to the same instance of Redis to function.
+This guide will discuss best practices to use with Redis for use with Sensu.
+Objectives This guide will discuss the following:
+Redis General Security Model Securing Redis with a Local Install Securing Redis via Localhost Security Redis General Security Model Redis was designed to be accessed by trusted clients inside a closed network environment.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting Sensu</title>
+      <link>/sensu-core/latest/guides/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/troubleshooting/</guid>
+      <description>In this guide, we&amp;rsquo;ll cover some of the more common issues to run into when deploying Sensu. For each section, we&amp;rsquo;ll start with the behavior that&amp;rsquo;s most commonly observed, and then walk through some possible solutions to solve that issue.
+Setting Log Levels Printing Configurations Restarting Services Collecting Logs Local Client Socket RabbitMQ Authentication Failures RabbitMQ SSL Issues Have an issue that isn&amp;rsquo;t listed here? Open an issue with what you think should be added to this guide!</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Sensu with Sensu</title>
+      <link>/sensu-core/latest/guides/monitor-the-monitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/monitor-the-monitor/</guid>
+      <description>In this guide, we&amp;rsquo;ll walk through best practices and strategies for monitoring Sensu with Sensu. By the end of the guide, you should have a thorough understanding of what is required to ensure your Sensu components are properly monitored, including:
+How to monitor your Sensu Server instance(s) How to monitor your Sensu API instance(s) How to monitor your Uchiwa Dashboard instance(s) How to monitor your RabbitMQ instance(s) How to monitor your Redis instance(s) In order to completely monitor a Sensu stack (Sensu server, Sensu API, Redis, RabbitMQ), you will need to have at least one other independent Sensu.</description>
+    </item>
+    
+    <item>
+      <title>Scaling Sensu - Overview</title>
+      <link>/sensu-core/latest/guides/scaling-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/scaling-overview/</guid>
+      <description>In this article we&amp;rsquo;ll provide brief overviews of the various ways that you can scale your Sensu deployment, from scaling individual components, to scaling across regions.
+Scaling Sensu at a Single Site Scaling Sensu Across Multiple Sites Strategy 1: Isolated Clusters Aggregated by Uchiwa Strategy 2: Centralized Sensu and Distributed RabbitMQ Strategy 3: Centralized Sensu and Directly Connected Clients Sensu Components A typical Sensu deployment consists of four pieces:
+Sensu Server Sensu API Redis (data store) RabbitMQ (message bus) There can be variation when it comes to the message bus and data store components, but using Redis as the data store and RabbitMQ as the message bus is the most common (and supported) way of deploying those components.</description>
+    </item>
+    
+    <item>
+      <title>Pre-Compiling Plugins</title>
+      <link>/sensu-core/latest/guides/pre-compile-plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/guides/pre-compile-plugins/</guid>
+      <description>This guide will walk you through an example on how to pre-compile Sensu Plugins for distribution among clients. The goal of this guide is to showcase how you can quickly install plugins on ephemeral instances where time to compile can affect time to production. We&amp;rsquo;ll be using sensu-plugins-aws as it requires nokogiri, usually requiring a longer build time.
+Prerequisites Sources:
+GitHub - luislavena/gem-compiler: A RubyGems plugin that generates binary gems This guide assumes the following:</description>
+    </item>
+    
+  </channel>
+</rss>

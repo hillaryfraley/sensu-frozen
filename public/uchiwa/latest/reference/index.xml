@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reference on Sensu Docs</title>
+    <link>/uchiwa/latest/reference/</link>
+    <description>Recent content in Reference on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/uchiwa/latest/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aggregates</title>
+      <link>/uchiwa/latest/reference/aggregates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/reference/aggregates/</guid>
+      <description>To understand aggregates in Sensu, please refer yourself to the Sensu documentation.
+List All Aggregates To view all aggregates, head over to the aggregates view.
+View An Aggregate To see the detail of a specific aggregate, click on it from the aggregates view. From there, you can see the check and client members, in addition to the results of every check members.
+Delete An Aggregate It&amp;rsquo;s currently impossible to delete an aggregate from Uchiwa, but we would love to have you contribute to Uchiwa by implementing this feature!</description>
+    </item>
+    
+    <item>
+      <title>Checks</title>
+      <link>/uchiwa/latest/reference/checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/reference/checks/</guid>
+      <description>To understand checks in Sensu, please refer yourself to the Sensu documentation.
+List All Checks To view all checks, head over to the checks view. Please note that standalone checks that are not installed on the Sensu Server will not be displayed.
+Issue A Check Request You can force a check request across a datacenter by selecting one or multiple checks on the checks view and clicking on the Issue Check Request action within the Bulk Actions dropdown menu.</description>
+    </item>
+    
+    <item>
+      <title>Clients</title>
+      <link>/uchiwa/latest/reference/clients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/reference/clients/</guid>
+      <description>To understand clients in Sensu, please refer yourself to the Sensu documentation.
+List All Clients To view all clients, including Sensu proxy clients (formerly known as &amp;ldquo;Just-in-time&amp;rdquo; or &amp;ldquo;JIT&amp;rdquo; clients), head over to the clients view.
+View A Client To see the detail of a specific client, click on it from the clients view. From there, you can see the client data of the left panel and the check results data on the right one.</description>
+    </item>
+    
+    <item>
+      <title>Events</title>
+      <link>/uchiwa/latest/reference/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/reference/events/</guid>
+      <description>To understand events in Sensu, please refer yourself to the Sensu documentation.
+List All Events To view all events, head over to the events view.
+View An Event To see the detail of a specific event, click on it from the events view.
+Resolve An Event You can resolve an event by selecting one or multiple events on the events view and clicking on the Resolve action within the Bulk Actions dropdown menu.</description>
+    </item>
+    
+    <item>
+      <title>Silencing</title>
+      <link>/uchiwa/latest/reference/silencing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/reference/silencing/</guid>
+      <description>Follow these instructions to silence or unsilence an element.
+Silence a check Across a datacenter You can silence a check for a given datacenter by selecting one or multiple checks on the checks view and clicking on the Silence/Unsilence action within the Bulk Actions dropdown menu.
+For a particular client Access the client view for this client and click on the silence icon corresponding to the check on the right panel.</description>
+    </item>
+    
+  </channel>
+</rss>

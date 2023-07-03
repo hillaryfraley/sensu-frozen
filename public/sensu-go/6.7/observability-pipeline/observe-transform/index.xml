@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transform your observation data on Sensu Docs</title>
+    <link>/sensu-go/6.7/observability-pipeline/observe-transform/</link>
+    <description>Recent content in Transform your observation data on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.7/observability-pipeline/observe-transform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mutators reference</title>
+      <link>/sensu-go/6.7/observability-pipeline/observe-transform/mutators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/observability-pipeline/observe-transform/mutators/</guid>
+      <description>Sensu executes mutators during the transform stage of the observability pipeline.
+Pipelines can specify a mutator to execute and transform observability event data before any handlers are applied. When the Sensu backend processes an event, it checks the pipeline for the presence of a mutator and executes that mutator before executing the handler.
+Mutators accept input/data via stdin and can parse JSON event data. They output JSON data (modified event data) to stdout or stderr.</description>
+    </item>
+    
+  </channel>
+</rss>

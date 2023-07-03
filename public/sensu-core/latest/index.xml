@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensu Core on Sensu Docs</title>
+    <link>/sensu-core/latest/</link>
+    <description>Recent content in Sensu Core on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-core/latest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CHANGELOG</title>
+      <link>/sensu-core/latest/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/changelog/</guid>
+      <description>Releases Core 1.9.0 Release Notes Core 1.8.0 Release Notes Core 1.7.1 Release Notes Core 1.7.0 Release Notes Core 1.6.2 Release Notes Core 1.6.1 Release Notes Core 1.6.0 Release Notes Core 1.5.0 Release Notes Core 1.4.3 Release Notes Core 1.4.2 Release Notes Core 1.4.1 Release Notes Core 1.4.0 Release Notes Core 1.3.0 Release Notes Core 1.2.1 Release Notes Core 1.2.0 Release Notes Core 1.1.3 Release Notes Core 1.1.2 Release Notes Core 1.</description>
+    </item>
+    
+    <item>
+      <title>FAQs</title>
+      <link>/sensu-core/latest/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-core/latest/faq/</guid>
+      <description>Sensu Frequently Asked Questions Please note the following frequently asked questions about Sensu Core, Sensu Enterprise, Sensu Training, Professional Services for Sensu, and more. If you need support for Sensu, please consider giving Sensu Enterprise a try.
+What platforms does Sensu support?
+Platform &amp;amp; Version 64bit 32bit Arch Comments Ubuntu 12.04 x86 Ubuntu 14.04 x86 Ubuntu 16.04 x86 No official 32bit images Ubuntu 18.04 x86 No official 32bit images Debian 8 x86 No official 32bit images Debian 9 x86 No official 32bit images CentOS 5 x86 32 and 64bit images built with sensu-omnibus-packer CentOS 6 x86 Using unofficial 32bit image CentOS 7 x86 No official 32bit images FreeBSD 10 x86 Official 32bit images are out of date FreeBSD 11 x86 No official 32bit images Solaris 10 sparc Solaris 11 sparc IBM AIX 6.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uchiwa on Sensu Docs</title>
+    <link>/uchiwa/latest/</link>
+    <description>Recent content in Uchiwa on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/uchiwa/latest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contributing</title>
+      <link>/uchiwa/latest/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/uchiwa/latest/contributing/</guid>
+      <description>Installation Backend Follow these instructions for the Go backend.
+Frontend Optional. If you wish to modify the frontend components, you&amp;rsquo;ll need to follow these additional instructions:
+Clone the uchiwa-web repository: git clone git@github.com:sensu/uchiwa-web.git &amp;amp;&amp;amp; cd uchiwa-web Install third-party libraries: npm install # Standard user npm install --unsafe-perm # Root user Create a global link for uchiwa-web: bower link Move to your uchiwa repository directory: cd $GOPATH/src/github.com/sensu/uchiwa Uninstall the uchiwa-web bower component if previously installed: bower uninstall uchiwa-web Point the bower component uchiwa-web to the previously created link bower link uchiwa-web Development Backend Run the program: go run uchiwa.</description>
+    </item>
+    
+  </channel>
+</rss>

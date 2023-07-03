@@ -1,0 +1,25 @@
+{{ $color := index . 0 }}
+{{ $message := index . 1 }}
+{{ $link := index . 2 }}
+
+<!-- creates a "mostly" unique id if there's multiple alerts -->
+{{ $uniqueness := replace $message " " "" }}
+{{ $uniqueness := replace $uniqueness "'" "" }}
+
+<script>
+  $(document).ready(function() {
+    // build the alert if it has a link or not
+    alertElement = "<div class='alert' style='background-color: {{ $color }}'>";
+    {{ if $link }}
+      alertElement += "<a href='{{ $link }}'>{{ $message }}</a>";
+    {{ else }}
+      alertElement += "<span>{{ $message }}</span>";
+    {{ end }}
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    // append the alert to the alert section
+    $("#alerts").append(alertElement);
+  });
+</script>

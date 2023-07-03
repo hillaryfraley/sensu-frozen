@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensu Enterprise Dashboard on Sensu Docs</title>
+    <link>/sensu-enterprise-dashboard/latest/</link>
+    <description>Recent content in Sensu Enterprise Dashboard on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise-dashboard/latest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configuration</title>
+      <link>/sensu-enterprise-dashboard/latest/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/configuration/</guid>
+      <description>Dashboard configuration Example configuration Configuring multiple users Encrypting passwords Dashboard definition specification sensu attributes dashboard attributes auth attributes audit attributes github attributes gitlab attributes ldap attributes oidc attributes Dashboard configuration Example dashboard configuration The following is the bare minimum that should be included in your Sensu Enterprise Dashboard configuration.
+{ &amp;#34;sensu&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;sensu-server-1&amp;#34;, &amp;#34;host&amp;#34;: &amp;#34;api1.example.com&amp;#34;, &amp;#34;port&amp;#34;: 4567 } ], &amp;#34;dashboard&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;0.0.0.0&amp;#34;, &amp;#34;port&amp;#34;: 3000 } } NOTE: the Sensu Enterprise Dashboard requires two configuration scopes: sensu and dashboard (see Dashboard definition specification, below).</description>
+    </item>
+    
+    <item>
+      <title>Heads-Up Display</title>
+      <link>/sensu-enterprise-dashboard/latest/hud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/hud/</guid>
+      <description>As of version 1.3, a new Heads Up Display (HUD) has been added to the Sensu Enterprise Dashboard, which provides an at-a-glance view into the overall health of your infrastructure via a set of built-in graphs and status widgets.
+HUD RBAC Support The HUD is scoped according to any existing Sensu Enterprise Dashboard RBAC controls. For example, if a user is a member of a role with limited access to Sensu data, they will only see history graphs and status widgets corresponding to the Sensu Subscriptions and/or Datacenters they have access to.</description>
+    </item>
+    
+    <item>
+      <title>Collections</title>
+      <link>/sensu-enterprise-dashboard/latest/collections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/collections/</guid>
+      <description>Collections are a grouping of items returned by a collection query. This query acts like a global search and it persists between the different views. Collections can be easily shared and saved.
+Collection Query The most basic query is composed of a field and its value, in the form of field:value. A query can use any field, visible or not, to match a value, such as:
+dc:us-west-1 subscriber:rabbitmq subscription:linux team:webops Regular Expressions The match method of Javascript&amp;rsquo;s String object is used to retrieve the matches, thus the following special characters are available to use exclusively in the values of a query.</description>
+    </item>
+    
+    <item>
+      <title>CHANGELOG</title>
+      <link>/sensu-enterprise-dashboard/latest/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise-dashboard/latest/changelog/</guid>
+      <description>NOTE: Sensu Enterprise Dashboard is built on Uchiwa. Uchiwa changes are documented in the Uchiwa changelog.
+Releases Enterprise Dashboard 2.16.0 Release Notes Enterprise Dashboard 2.15.0 Release Notes Enterprise Dashboard 2.14.0 Release Notes Enterprise Dashboard 2.13.2 Release Notes Enterprise Dashboard 2.13.1 Release Notes Enterprise Dashboard 2.13.0 Release Notes Enterprise Dashboard 2.12.0 Release Notes Enterprise Dashboard 2.11.2 Release Notes Enterprise Dashboard 2.11.1 Release Notes Enterprise Dashboard 2.11.0 Release Notes Enterprise Dashboard 2.10.1 Release Notes Enterprise Dashboard 2.</description>
+    </item>
+    
+  </channel>
+</rss>

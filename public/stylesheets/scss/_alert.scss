@@ -1,0 +1,90 @@
+.alert {
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+
+  .alert--close {
+    cursor: pointer;
+    float: right;
+  }
+
+  span {
+    color: #dedede;
+    font-size: 1.6rem;
+  }
+
+  a {
+    @extend span;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
+.alert-note {
+  background-color: #e1e4f0;
+  color: #2C3458;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.alert-tip {
+  @extend .alert-note;
+  background-color: #c4ede9;
+  color: #0d5651;
+}
+.alert-warning {
+  @extend .alert-note;
+  background-color: #ffebc8;
+  color: #671111;
+}
+.alert-commercial {
+  @extend .alert-note;
+  background-color: #d4eaaf;
+  color: #425a18;
+}
+
+div.notices {
+  margin: 2rem 0;
+  position: relative;
+}
+div.notices p {
+  padding: 15px;
+  display: block;
+  font-size: 1.6rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  font-style: italic;
+}
+div.notices p:first-child:before {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+}
+div.notices p:first-child:after {
+  position: absolute;
+  top: 2px;
+  left: 2rem;
+}
+div.notices.note p {
+  background-color: #e1e4f0;
+  color: #2C3458;
+  border-radius: 6px;
+}
+div.notices.protip p {
+  background-color: #c4ede9;
+  color: #0d5651;
+  border-radius: 6px;
+}
+div.notices.warning p {
+  background-color: #ffebc8;
+  color: #671111;
+  border-radius: 6px;
+}
+div.notices.commercial p {
+  background-color: #d4eaaf;
+  color: #425a18;
+  border-radius: 6px;
+}

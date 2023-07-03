@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+  <!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+  <!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+  <!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
+    {{ hugo.Generator }}
+
+    {{ if isset .Page.Params "description" }}
+    <meta name="description" content="{{ .Page.Params.description }}">
+    {{ else }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+    {{ end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}">
+    {{ end }}
+
+    {{ if isset .Page.Params "product" }}
+      <meta name="docsearch:version" content="{{ .Page.Params.version }}" />
+    {{ end}}
+
+    {{ if not (eq .Params.version "6.9") }}
+    <meta name="robots" content="noindex">
+    {{ end }}
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="{{ .Title }}{{ if isset .Page.Params "product" }} | {{ .Page.Params.product }} {{ .Page.Params.version }}{{end}}">
+    {{ with .Site.Params.logo }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+    {{ with .Site.Title }}<meta name="apple-mobile-web-app-title" content="{{ . }}">{{ end }}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}/images/favicon.ico{{ end }}">
+    <link rel="icon" type="image/x-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}/images/favicon.ico{{ end }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    {{ range .Site.Params.custom_css }}
+      <link rel="stylesheet" href="{{ . | absURL }}">
+    {{ end }}
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  <!-- Local fallback for assets in case of cdn failure -->
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  <!-- Global site tag (gtag.js) - Google Ads: 804504629 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  {{ end }}
+  </head>
+  <body>

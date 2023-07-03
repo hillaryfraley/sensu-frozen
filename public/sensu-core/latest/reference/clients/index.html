@@ -1,0 +1,4301 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Clients - Sensu Docs</title>
+    <meta name="generator" content="Hugo 0.101.0" />
+
+    
+    <meta name="description" content="Read this reference documentation for information about Sensu clients, the monitoring agents that are installed and run on every system to be monitored.">
+    
+    <link rel="canonical" href="/sensu-core/latest/reference/clients/">
+    
+
+    
+      <meta name="docsearch:version" content="1.9" />
+    
+
+    
+    <meta name="robots" content="noindex">
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="/sensu-core/latest/reference/clients/">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="Clients | Sensu Core 1.9">
+    <meta property="og:image" content="/images/sensu-logo-icon-dark@128px.png">
+    <meta name="apple-mobile-web-app-title" content="Sensu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="/javascripts/application.js"></script>
+
+
+  
+  
+
+
+<header>
+  <nav aria-label="Header" id="navbar">
+    <label id="hamburger" for="toggle-drawer"></label>
+
+    <a class="logo" href="/">Sensu Docs</a>
+    
+    
+      <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Core<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      1.9
+      (latest)&nbsp;
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+        
+          
+        
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-core/1.9/reference/clients/">
+          
+            1.9 (latest)
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <input id="desktop-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+  </nav>
+
+  
+    
+<div id="alerts">
+  
+  
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    
+    alertElement = "<div class='alert' style='background-color: #b7312e'>";
+    
+      alertElement += "<a href='https:\/\/docs.sensu.io\/sensu-go\/latest\/operations\/maintain-sensu\/migrate\/'>Sensu Core reached end-of-life (EOL) on December 31, 2019, and we removed the EOL repository on February 1, 2021. Click here to start your migration to Sensu Go.</a>";
+    
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    
+    $("#alerts").append(alertElement);
+  });
+</script>
+
+  
+
+  
+
+  
+
+  
+</div>
+
+    <div id="alerts">
+  
+  
+  
+</div>
+
+  
+
+</header>
+
+
+<main class="main">
+  <input class="hidden" type="checkbox" id="toggle-drawer" autocomplete="off">
+<label id="backdrop" for="toggle-drawer"></label>
+<aside class="drawer">
+  <div class="drawer--inner">
+    
+    <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Core<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      1.9
+      (latest)&nbsp;
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-core/1.9/reference/clients/">
+          
+            1.9 (latest)
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    <input id="mobile-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+    <nav>
+      
+        <ul>
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+          
+
+          
+          
+          
+          <li><a class="strong" href="/sensu-core/1.9">Sensu Core</a><ul>
+
+          
+          
+
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-core/latest/changelog/">CHANGELOG</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-core/latest/faq/">FAQs</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/quick-start/">
+                    
+                      Quick Start
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/quick-start/learn-sensu-basics/">Get Started with Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/quick-start/five-minute-install/">The Five Minute Install</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/quick-start/client-installation/">Client Installation</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/overview/">
+                    
+                      Overview
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/what-is-sensu/">What is Sensu?</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/how-sensu-works/">How Sensu Works</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/architecture/">Architecture</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/platforms/">Supported Platforms</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/installation/">
+                    
+                      Installation
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/overview/">Installation Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/installation-strategies/">Installation Strategies</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/installation-prerequisites/">Prerequisites</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-sensu-server-api/">Sensu Server and API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-sensu-client/">Sensu Client</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-a-dashboard/">Sensu Dashboards</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-redis/">Install Redis</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-rabbitmq/">Install RabbitMQ</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/summary/">Summary</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/upgrading/">Upgrading Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/testing-prereleases/">Testing Prereleases</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/configuration-management/">Configuration Management</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/installing-plugins/">Installing Plugins</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/guides/">
+                    
+                      Guides
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/overview/">Getting Started</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/adding-a-client/">Adding a Client</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-checks/">Intro to Checks</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-filters/">Intro to Filters</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-mutators/">Intro to Mutators</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-handlers/">Intro to Handlers</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/snmp-sensu-guide/">SNMP Receiver Extension</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/securing-sensu/">Securing Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/securing-rabbitmq/">Securing RabbitMQ</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/securing-redis/">Securing Redis</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/troubleshooting/">Troubleshooting</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/monitor-the-monitor/">Monitoring Sensu with Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/scaling-overview/">Scaling Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/pre-compile-plugins/">Pre-Compiling Plugins</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/api/">
+                    
+                      API
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/overview/">RESTful API Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/clients/">Clients API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/checks/">Checks API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/results/">Results API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/aggregates/">Aggregates API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/events/">Events API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/silenced/">Silenced API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/stashes/">Stashes API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/health-and-info/">Health &amp; Info APIs</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/settings/">Settings API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/configuration/">API Configuration</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/platforms/">
+                    
+                      Platforms
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-freebsd/">FreeBSD</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-ibm-aix/">IBM AIX</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-mac-os-x/">Mac OS X</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-microsoft-windows/">Microsoft Windows</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-oracle-solaris/">Solaris</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-rhel-centos/">RHEL/CentOS</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-ubuntu-debian/">Ubuntu/Debian</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion current active" href="/sensu-core/latest/reference/">
+                    
+                      Reference
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/server/">Sensu Server</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="current" href="/sensu-core/latest/reference/clients/">Clients</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/checks/">Checks</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/aggregates/">Aggregates</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/events/">Events</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/filters/">Filters</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/silencing/">Silencing</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/mutators/">Mutators</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/handlers/">Handlers</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/plugins/">Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/extensions/">Extensions</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/stashes/">Stashes</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/data-store/">Data Store</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/transport/">Transport</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/configuration/">Sensu Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/rabbitmq/">RabbitMQ Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/redis/">Redis Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/ssl/">SSL Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/tessen/">Tessen</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+          </ul></li>
+        
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>
+</ul>
+      
+      <hr>
+      <div class="drawer--footer">
+        <iframe src="https://ghbtns.com/github-btn.html?user=sensu&repo=sensu-docs&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20"></iframe>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/issues/new?title=Docs%20Feedback&body=%3C!--Thanks%20for%20submitting%20feedback%20to%20the%20Sensu%20docs!--%3E%0A%0ALink%20to%20page%3A%20%0A%0A%23%23%23%20Feedback">Open a docs issue</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-core/6.9/reference/clients.md">Edit this page</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md">Read the contributing guide</a>
+        
+        
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>Clients </h1>
+
+      
+        
+
+
+
+      
+      <h2 id="reference-documentation">Reference documentation</h2>
+<ul>
+<li><a href="#what-is-a-sensu-client">What is a Sensu client?</a></li>
+<li><a href="#client-keepalives">Client keepalives</a>
+<ul>
+<li><a href="#what-is-a-client-keepalive">What is a client keepalive?</a></li>
+<li><a href="#registration-and-registry">Client registration &amp; the client registry</a>
+<ul>
+<li><a href="#registration-events">Registration and deregistration events</a></li>
+<li><a href="#proxy-clients">Proxy clients</a></li>
+</ul>
+</li>
+<li><a href="#keepalive-events">How are keepalive events created?</a></li>
+<li><a href="#client-keepalive-configuration">Client keepalive configuration</a></li>
+</ul>
+</li>
+<li><a href="#client-signature">Client signature</a></li>
+<li><a href="#client-subscriptions">Client subscriptions</a>
+<ul>
+<li><a href="#what-is-a-sensu-subscription">What is a client subscription?</a></li>
+<li><a href="#round-robin-client-subscriptions">Round-robin client subscriptions</a></li>
+<li><a href="#client-subscription-configuration">Client subscription configuration</a></li>
+</ul>
+</li>
+<li><a href="#client-socket-input">Client socket input</a>
+<ul>
+<li><a href="#what-is-the-sensu-client-socket">What is the Sensu client socket</a></li>
+<li><a href="#example-client-socket-usage">Example client socket usage</a></li>
+<li><a href="#socket-attributes">Client socket configuration</a></li>
+</ul>
+</li>
+<li><a href="#standalone-check-execution-scheduler">Standalone check execution scheduler</a></li>
+<li><a href="#managing-clients">Managing clients</a></li>
+<li><a href="#client-configuration">Client configuration</a>
+<ul>
+<li><a href="#example-client-definition">Example client definition</a></li>
+<li><a href="#client-definition-specification">Client definition specification</a>
+<ul>
+<li><a href="#client-attributes"><code>client</code> attributes</a></li>
+<li><a href="#socket-attributes"><code>socket</code> attributes</a></li>
+<li><a href="#http-socket-attributes"><code>http-socket</code> attributes</a></li>
+<li><a href="#keepalive-attributes"><code>keepalive</code> attributes</a></li>
+<li><a href="#thresholds-attributes"><code>thresholds</code> attributes</a></li>
+<li><a href="#registration-attributes"><code>registration</code> attributes</a></li>
+<li><a href="#deregistration-attributes"><code>deregistration</code> attributes</a></li>
+<li><a href="#ec2-attributes"><code>ec2</code> attributes</a></li>
+<li><a href="#chef-attributes"><code>chef</code> attributes</a></li>
+<li><a href="#puppet-attributes"><code>puppet</code> attributes</a></li>
+<li><a href="#servicenow-attributes"><code>servicenow</code> attributes</a></li>
+<li><a href="#influxdb-attributes"><code>influxdb</code> attributes</a></li>
+<li><a href="#opsgenie-attributes"><code>opsgenie</code> attributes</a></li>
+<li><a href="#custom-attributes">Custom attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-a-sensu-client">What is a Sensu client?</h2>
+<p>Sensu clients are <a href="../../overview/architecture/#monitoring-agent">monitoring agents</a>, which are installed and run on every
+system (e.g. server, container, etc) that needs to be monitored. The client is
+responsible for registering the system with Sensu, sending client <a href="#client-keepalives">keepalive</a>
+messages (the Sensu heartbeat mechanism), and executing monitoring checks. Each
+client is a member of one or more <a href="#client-subscriptions">subscriptions</a> – a list of roles
+and/or responsibilities assigned to the system (e.g. a webserver, database,
+etc). Sensu clients will &ldquo;subscribe&rdquo; to (or watch for) <a href="../checks/#check-requests">check requests</a>
+published by the <a href="../server">Sensu server</a> (via the <a href="../transport">Sensu Transport</a>), execute the
+corresponding requests locally, and publish the results of the check back to the
+transport (to be processed by a Sensu server).</p>
+<h2 id="client-keepalives">Client keepalives</h2>
+<h3 id="what-is-a-client-keepalive">What is a client keepalive?</h3>
+<p>Sensu Client <code>keepalives</code> are the heartbeat mechanism used by Sensu to ensure
+that all registered Sensu clients are still operational and able to reach the
+<a href="../transport">Sensu Transport</a>. Sensu clients publish keepalive messages containing client
+configuration data to the Sensu transport every 20 seconds. If a Sensu client
+fails to send keepalive messages over a period of 120 seconds (by default), the
+Sensu server (or Sensu Enterprise) will create a keepalive <a href="../events">event</a>.
+Keepalives can be used to identify unhealthy systems and network partitions
+(among other things), and keepalive events can trigger email notifications and
+other useful actions.</p>
+<p>Among those actions is communicating with external sources of truth to determine if the client should still be active. Those sources of truth may be something like a Chef server, a Puppet master, or AWS. This is especially useful when combined with <a href="#registration-events">deregistration events</a>. Adopting this pattern results in clients being deregistered only when a client keepalive threshold has been exceeded.</p>
+<h3 id="registration-and-registry">Client registration &amp; the client registry</h3>
+<p>In practice, client registrations happens when a Sensu server processes a client
+<code>keepalive</code> message for a client that is not already registered in the Sensu
+client registry (based on the configured client <code>name</code> or <code>source</code> attribute).
+This client registry is stored in the Sensu <a href="../data-store">data store</a>, and is accessible
+via the Sensu <a href="../../api/clients">Clients API</a>.</p>
+<p>All Sensu client data provided in client keepalive messages gets stored in the
+client registry, which data is used to add context to Sensu <a href="../events">Events</a> and
+to detect Sensu clients in an unhealthy state.</p>
+<h4 id="registration-events">Registration events</h4>
+<p>If a <a href="../handlers">Sensu event handler</a> named <code>registration</code> is configured, or if a Sensu
+client definition includes a <a href="#registration-attributes">registration attribute</a>, the <a href="../server">Sensu server</a>
+will create and process a <a href="../events">Sensu event</a> for the client registration, applying
+any configured <a href="../filters">filters</a> and <a href="../mutators">mutators</a> before executing the configured
+<a href="../handlers">handler(s)</a>.</p>
+<p>Registration events are useful for executing one-time handlers for new Sensu
+clients. For example, registration event handlers can be used to update external
+<a href="https://en.wikipedia.org/wiki/Configuration_management_database">Configuration Management Databases (CMDBs)</a> such as <a href="https://www.servicenow.com/products/it-operations-management.html">ServiceNow</a>, etc.</p>
+<p>To configure a registration event handler, please refer to the <a href="../handlers">Sensu event
+handler documentation</a> for instructions on creating a handler named
+<code>registration</code>. Alternatively, please see <a href="#registration-attributes">Client definition <code>registration</code>
+attributes</a>, below.</p>
+<p><em>WARNING: registration events are not stored in the event registry (in the Sensu
+<a href="../data-store">data store</a>), so they are not accessible via the Sensu API; however, all
+registration events are logged in the <a href="../server">Sensu server</a> log.</em></p>
+<h4 id="deregistration-events">Deregistration events</h4>
+<p>Similarly to registration events, Sensu can create and process a deregistration event when the Sensu client process stops.
+You can use deregistration events to trigger a handler that updates external CMDBs or performs an action to update ephemeral infrastructures.</p>
+<p>By default, deregistration events trigger the built-in deregistration extension. To enable deregistration events, set the client <code>deregister</code> flag to <code>true</code>. This results in the client being immediately depopulated from the client registry in the event that the sensu-client process is administratively stopped. If you require additional logic or actions to be applied when deregistration events are received, specify your custom deregistration event handler using the client <a href="#deregistration-attributes"><code>deregistration</code> definition scope</a>.</p>
+<p><em>NOTE: To ensure visibility into stopped clients, we recommend implementing a handler inside the keepalive scope to deregister clients based on a keepalive exceeding a threshold. For the vast majority of Sensu use cases, having clients deregister immediately does not produce the desired effect.</em></p>
+<h4 id="proxy-clients">Proxy clients</h4>
+<p>Sensu proxy clients (formerly known as &ldquo;Just-in-time&rdquo; or &ldquo;JIT&rdquo; clients) are
+dynamically created clients, added to the client registry if a client does not
+already exist for a <em>check result</em>.</p>
+<p>Proxy client registration differs from keepalive-based registration
+because the registration event happens while processing a check result (not a
+keepalive message). If a check result includes a <code>source</code> attribute, a proxy
+client will be created for the <code>source</code>, and the check result will be stored
+under the newly created client. Sensu proxy clients allow Sensu to monitor
+external resources (e.g. on systems and/or devices where a <code>sensu-client</code> cannot
+be installed, such a network switches), using the defined check <code>source</code> to
+create a proxy clients for the external resource. Once created, proxy clients
+work much in the same way as any other Sensu client; e.g. they are used to store
+check execution history and provide context within event data.</p>
+<p><em>NOTE: <code>keepalive</code> monitoring is not supported for proxy clients, as they are
+inherently unable to run a <code>sensu-client</code>.</em></p>
+<h5 id="proxy-client-example">Proxy client example</h5>
+<p>Proxy clients are created when a check result includes a <code>source</code> attribute. See the example check definition below:</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;check&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;check-http.rb -u https://sensu.io&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subscribers&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;sensu-website&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;sensuapp.org&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p><em>NOTE: This <code>source</code> attribute can be provided in a <a href="../checks#check-definition-specification">check definition</a>, or
+included in a check result published to the Sensu <a href="#client-socket-input">client input socket</a>.</em></p>
+<p>By default, proxy client data includes a minimal number of attributes. The
+following is an example of proxy client data that is added to the registry.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;switch-x&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;unknown&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;keepalives&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p>The Sensu API can be used to update proxy client data in the client registry. To
+update proxy client data, please refer to the <a href="../../api/clients">Client API reference
+documentation</a>.</p>
+<h5 id="create-a-proxy-client-via-the-client-socket">Create a proxy client via the client socket</h5>
+<p>The following is an example of how to create a proxy client payload via the <a href="#client-socket-input">client socket</a>, using netcat:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{&#34;source&#34;: &#34;mysql_01&#34;, &#34;name&#34;: &#34;app_01&#34;, &#34;output&#34;: &#34;could not connect to mysql&#34;, &#34;status&#34;: 1}&#39;</span> <span class="p">|</span> nc localhost <span class="m">3030</span></span></span></code></pre></div>
+</div>
+
+
+<h3 id="keepalive-events">How are keepalive events created?</h3>
+<p>Sensu servers (including Sensu Enterprise) monitor the Sensu client registry for
+stale client data, detecting clients that have failed to send <a href="#what-is-a-client-keepalive">client keepalive
+messages</a> for more than 120 seconds (by default). When a Sensu server
+detects that a client hasn&rsquo;t sent a keepalive message within the configured
+<code>threshold</code>, <em>the Sensu server (or Sensu Enterprise)</em> will create an event (this
+is different from how events are created for monitoring checks; see <a href="../events/#how-are-events-created">&ldquo;How are
+Sensu events created?&rdquo;</a>).</p>
+<h3 id="client-keepalive-configuration">Client keepalive configuration</h3>
+<p>For more information on configuring client keepalives, please see the <a href="#keepalive-attributes">client
+keepalive attribute reference documentation</a> (below).</p>
+<p>Sensu client keepalives are published to the Sensu transport every 20 seconds.
+Client keepalive behavior can be configured per Sensu client, allowing each
+Sensu client to set its own alert thresholds and keepalive event handlers. By
+default, client data is considered stale if a keepalive hasn&rsquo;t be received in
+<code>120</code> seconds (WARNING). By default, keepalive events will be sent to the Sensu
+handler named <code>keepalive</code> if defined, or the <code>default</code> handler will be used.</p>
+<p>To configure the keepalive check for a Sensu client, please refer to <a href="#keepalive-attributes">the client
+<code>keepalive</code> attributes reference documentation</a>.</p>
+<h2 id="client-signature">Client signature</h2>
+<p>Sensu client definitions may specify a unique string identifier as their
+signature, which is included in each keepalive message.</p>
+<p>Once a client advertises a signature via keepalives, the server will expect that
+signature to be present in any keepalives or check results originating from the
+client. Any keepalives or check results which do not contain a matching
+signature will be dropped with an &ldquo;invalid client signature&rdquo; warning in the log.</p>
+<p>A client can begin to use a signature if one was not previously configured, but
+removing a client signature requires deleting the client.</p>
+<p>Providing a unique client signature prevents other clients from accidentally or
+maliciously submitting keepalives or check results using the same client name.</p>
+<h2 id="client-subscriptions">Client subscriptions</h2>
+<h3 id="what-is-a-sensu-subscription">What is a client subscription?</h3>
+<p>Sensu&rsquo;s use of the <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish/subscribe pattern of communication</a> allows for
+automated registration &amp; de-registration of ephemeral systems. At the core of
+this model are Sensu client <code>subscriptions</code>.</p>
+<p>Each Sensu client has a defined set of subscriptions, a list of roles and/or
+responsibilities assigned to the system (e.g. a webserver, database, etc). These
+subscriptions determine which monitoring checks are executed by the client.
+Client subscriptions allow Sensu to request check  executions on a group of
+systems at a time, instead of a traditional 1:1  mapping of configured hosts to
+monitoring checks. Sensu checks target Sensu client subscriptions, using the
+<a href="../checks#check-definition-specification">check definition attribute <code>subscribers</code></a>.</p>
+<h3 id="round-robin-client-subscriptions">Round-robin client subscriptions</h3>
+<p>Round-robin client subscriptions allow checks to be executed on a single client
+within a subscription, in a round-robin fashion. To create a round-robin client
+subscription, prepend the subscription name with <code>roundrobin:</code>, e.g.
+<code>roundrobin:elasticsearch</code>. Any check that targets the
+<code>roundrobin:elasticsearch</code> subscription will have its check requests sent to
+clients in a round-robin fashion, meaning only one member (client) in the
+subscription will execute a roundrobin check each time it is published.</p>
+<p>The following is a Sensu client definition that includes a round-robin
+subscription.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;8.8.8.8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;webserver&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;roundrobin:webserver&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p>The following is a Sensu check definition that targets a round-robin
+subscription.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;checks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;web_application_api&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;check-http.rb -u https://localhost:8080/api/v1/health&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;subscribers&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;roundrobin:webserver&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h3 id="client-subscription-configuration">Client subscription configuration</h3>
+<p>To configure Sensu client subscriptions for a client, please refer to <a href="#client-attributes">the
+client <code>subscriptions</code> attribute reference documentation</a>.</p>
+<p>In addition to the subscriptions defined in the client configuration, Sensu
+clients also subscribe automatically to a subscription matching their client
+name.  For example, a client named <code>i-424242</code> will subscribe to check requests
+for the subscription <code>client:i-424242</code>. This makes it possible to generate
+ad-hoc check requests targeting specific clients via the <a href="../../api/checks#the-request-api-endpoint"><code>/request</code> API</a>.</p>
+<h2 id="client-socket-input">Client socket input</h2>
+<h3 id="what-is-the-sensu-client-socket">What is the Sensu client socket?</h3>
+<p>Every Sensu client has a TCP, UDP and HTTP socket listening for external check result
+input. The Sensu client socket(s) listen by default on <code>localhost</code> port <code>3030</code> for TCP/UDP and
+3031 for HTTP and expect JSON formatted check results, allowing external sources (e.g.
+your web application, backup scripts, etc.) to push check results without needing to know
+anything about Sensu&rsquo;s internal implementation. An excellent client socket use case example
+is a web application pushing check results to indicate database connectivity issues.</p>
+<p>To configure the Sensu client socket for a client, please refer to <a href="#socket-attributes">the client
+socket attributes</a>.</p>
+<h3 id="http-socket">HTTP Socket</h3>
+<p>The HTTP socket, just like the TCP and UDP sockets, accepts check results, but it
+requires a well-formed HTTP request and exposes other functionality that is not
+possible with the raw TCP/UDP sockets. In exchange for a bit more complexity, the
+HTTP socket interface has the advantage of being more expressive than a raw TCP/UDP
+socket, both in the requests that it accepts and how it responds, and so exposes
+more functionality.  The following endpoints are available for the HTTP socket:</p>
+<p><code>GET /info</code></p>
+<p>This endpoint returns 200 OK with some basic Sensu information like the version
+and transport metrics.</p>
+<p><code>POST /results</code>
+This endpoint expects an application/json body with a check result</p>
+<p><code>GET /settings</code></p>
+<p>This endpoint responds with 200 OK and the sensu configuration. Due to the possible
+sensitive nature of the client settings (e.g passwords might be in the config) this
+endpoint is protected using HTTP basic authentication and by default the information
+returned is redacted (e.g common config keys like &lsquo;password&rsquo; have their values replaced
+by &lsquo;REDACTED&rsquo;). See the &lsquo;redact&rsquo; configuration option if you need control over what is
+redacted. This endpoint accepts the optional query string ?redacted=false to disable
+redaction.</p>
+<p>Refer to <a href="#http-socket-attributes">the http client socket attributes</a> for details on configuring the HTTP basic
+authentication details that this endpoint requires.</p>
+<p><code>GET /brew</code></p>
+<p>This endpoint gets you some fresh coffee. Try it!</p>
+<p>Any requests for unknown endpoints will get a 404 with some help information in the body.</p>
+<p>At the moment only unsecure HTTP (no HTTPS) is supported.</p>
+<p>To configure the Sensu HTTP client socket, please refer to <a href="#http-socket-attributes">the http client
+socket attributes</a>.</p>
+<h3 id="example-client-socket-usage">Example client socket usage</h3>
+<p>The following is an example demonstrating external check result input via the
+Sensu client TCP socket. The example uses Bash&rsquo;s built-in <code>/dev/tcp</code> file to
+communicate with the Sensu client socket.</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{&#34;name&#34;: &#34;app_01&#34;, &#34;output&#34;: &#34;could not connect to mysql&#34;, &#34;status&#34;: 1}&#39;</span> &gt; /dev/tcp/localhost/3030</span></span></code></pre></div>
+</div>
+
+
+<p><a href="http://nc110.sourceforge.net/">Netcat</a> can also be used, instead of the TCP file:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{&#34;name&#34;: &#34;app_01&#34;, &#34;output&#34;: &#34;could not connect to mysql&#34;, &#34;status&#34;: 1}&#39;</span> <span class="p">|</span> nc localhost <span class="m">3030</span></span></span></code></pre></div>
+</div>
+
+
+<p>You can do the same using the HTTP socket:</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{&#34;name&#34;: &#34;app_01&#34;, &#34;output&#34;: &#34;could not connect to mysql&#34;, &#34;status&#34;: 1}&#39;</span> localhost:3031/results</span></span></code></pre></div>
+</div>
+
+
+<h4 id="creating-a-dead-mans-switch">Creating a &ldquo;dead man&rsquo;s switch&rdquo;</h4>
+<p>The Sensu client socket(s) in combination with check TTLs can be used to create
+what&rsquo;s commonly referred to as &ldquo;dead man&rsquo;s switches&rdquo;. Outside of the software
+industry, a dead man&rsquo;s switch is a switch that is automatically triggered if a
+human operator becomes incapacitated (source: <a href="http://en.wikipedia.org/wiki/Dead_man%27s_switch">Wikipedia</a>). Sensu is more
+interested in detecting silent failures than incapacitated human operators. By
+using Check TTLs, Sensu is able to set an expectation that a Sensu client will
+continue to publish results for a check at a regular interval. If a Sensu client
+fails to publish a check result and the check TTL expires, Sensu will create an
+event to indicate the silent failure. For more information on check TTLs, please
+refer to <a href="../checks#check-definition-specification">the check attributes reference documentation</a>.</p>
+<p>A great use case for the Sensu client socket is to create a dead man&rsquo;s switch
+for backup scripts, to ensure they continue to run successfully at regular
+intervals. If an external source sends a Sensu check result with a check TTL to
+the Sensu client socket, Sensu will expect another check result from the same
+external source before the TTL expires.</p>
+<p>The following is an example of external check result input via the Sensu client
+TCP socket, using a check TTL to create a dead man&rsquo;s switch for MySQL backups.
+The example uses a check TTL of <code>25200</code> seconds (or 7 hours). A MySQL backup
+script using the following code would be expected to continue to send a check
+result at least once every 7 hours or Sensu will create an <a href="../events">event</a> to
+indicate the silent failure.</p>
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{&#34;name&#34;: &#34;backup_mysql&#34;, &#34;ttl&#34;: 25200, &#34;output&#34;: &#34;backed up mysql successfully | size_mb=568&#34;, &#34;status&#34;: 0}&#39;</span> <span class="p">|</span> nc localhost <span class="m">3030</span></span></span></code></pre></div>
+</div>
+
+
+<div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{&#34;name&#34;: &#34;backup_mysql&#34;, &#34;ttl&#34;: 25200, &#34;output&#34;: &#34;failed to backup mysql&#34;, &#34;status&#34;: 1}&#39;</span> <span class="p">|</span> nc localhost <span class="m">3030</span></span></span></code></pre></div>
+</div>
+
+
+<p>It is also worth noting that you can set the attribute <code>ttl_status</code>, which will change the exit code from its default (&ldquo;1&rdquo;) to a different exit code. You can see an example of this in the check attributes reference documentation linked above.</p>
+<h2 id="standalone-check-execution-scheduler">Standalone check execution scheduler</h2>
+<p>In addition to subscribing to <a href="#client-subscriptions">client subscriptions</a> and executing check
+requests published by the <a href="../server/#check-execution-scheduling">Sensu server</a>, the Sensu client is able to
+maintain its own/separate schedule for <a href="../checks/#standalone-checks">standalone checks</a>.</p>
+<p>Because the Sensu client shares the same <a href="../server/#check-scheduling-algorithm--synchronization">check scheduling algorithm</a> as the
+Sensu server, it is not only possible to have consistency between <a href="../checks/#subscription-checks">subscription
+checks</a> and standalone checks — it&rsquo;s also possible to maintain <abbr
+title="typically accurate within 500ms">consistency</abbr> between standalone
+checks <em>across an entire infrastructure</em> (assuming that system clocks are
+synchronized via <a href="http://www.ntp.org/">NTP</a>).</p>
+<h2 id="managing-clients">Managing clients</h2>
+<h3 id="delete-a-client">Delete a client</h3>
+<p>While shutting down a client stops all check results and keepalives, it doesn&rsquo;t affect the history of the client or remove existing keepalive results.
+To delete a client&rsquo;s history from Sensu, use the <a href="../../api/clients/#clientsclient-delete">Clients API DELETE endpoint</a> or the <code>x</code> icon in the dashboard client view.</p>
+<h3 id="rename-a-client">Rename a client</h3>
+<p>To rename a client, modify the <a href="#client-attributes"><code>name</code> attribute</a> in the client configuration, then restart the client and use the <a href="../../api/clients/#clientsclient-delete">Clients API DELETE endpoint</a> or the <code>x</code> icon in the dashboard client view to remove the history and keepalive results tied to the former client name.
+See the appropriate <a href="../../platforms">platform page</a> for instructions on restarting the Sensu client.</p>
+<h2 id="client-configuration">Client configuration</h2>
+<h3 id="example-client-definition">Example client definition</h3>
+<p>The following is an example Sensu client definition, a JSON configuration file
+located at <code>/etc/sensu/conf.d/client.json</code>. This client definition provides
+Sensu with information about the system on which it resides. This is a
+production system, running a web server and a MySQL database. The client &rsquo;name&rsquo;
+attribute is required in the definition, and must be unique.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;8.8.8.8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;webserver&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;mysql&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;socket&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;bind&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3030</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h3 id="client-definition-specification">Client definition specification</h3>
+<p>The client definition uses the <code>{ &quot;client&quot;: {} }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h4 id="client-attributes"><code>client</code> attributes</h4>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>A unique name for the client. The name cannot contain special characters or spaces.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>default</td>
+<td>System hostname as determined by Ruby <code>Socket.gethostname</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>validation</td>
+<td><code>/^[\w\.-]+$/</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;i-424242&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>address</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>An address to help identify and reach the client. This is only informational, usually an IP address or hostname.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>default</td>
+<td>Non-loopback IPv4 address as determined by Ruby <code>Socket.ip_address_list</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;address&#34;</span>: <span class="s2">&#34;8.8.8.8&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>subscriptions</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>An array of client subscriptions, a list of roles and/or responsibilities assigned to the system (e.g. webserver). These subscriptions determine which monitoring checks are executed by the client, as check requests are sent to subscriptions. The <code>subscriptions</code> array items must be strings.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;subscriptions&#34;</span>: <span class="o">[</span><span class="s2">&#34;production&#34;</span>, <span class="s2">&#34;webserver&#34;</span><span class="o">]</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>safe_mode</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>If safe mode is enabled for the client. Safe mode requires local check definitions in order to accept a check request and execute the check.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;safe_mode&#34;</span>: true</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>redact</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Client definition attributes to redact (values) when logging and sending client keepalives. When configuring this array, the default values will be overwritten, requiring them to be re-added to your array.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>default</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;password&#34;</span>, <span class="s2">&#34;passwd&#34;</span>, <span class="s2">&#34;pass&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;api_key&#34;</span>, <span class="s2">&#34;api_token&#34;</span>, <span class="s2">&#34;access_key&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;secret_key&#34;</span>, <span class="s2">&#34;private_key&#34;</span>,<span class="s2">&#34;secret&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">]</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;redact&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;password&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ec2_access_key&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ec2_secret_key&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">]</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>socket</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#socket-attributes"><code>socket</code> definition scope</a>, used to configure the <a href="#client-socket-input">Sensu client socket</a>.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;socket&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>keepalives</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>If Sensu should monitor <a href="#client-subscriptions">keepalives</a> for this client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;keepalives&#34;</span>: false</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>keepalive</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#keepalive-attributes"><code>keepalive</code> definition scope</a>, used to configure <a href="#client-keepalives">Sensu client keepalives</a> behavior (e.g. keepalive thresholds, etc).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;keepalive&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>signature</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Unique string used to authenticate check results from the client in question.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;signature&#34;</span>: <span class="s2">&#34;yVNxtPbRGwCYFYEr3V&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>registration</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#registration-attributes"><code>registration</code> definition scope</a>, used to configure <a href="#registration-and-registry">Sensu registration event</a> handlers.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;registration&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>deregister</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>If a deregistration event should be created upon Sensu client process stop.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;deregister&#34;</span>: true</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>deregistration</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#deregistration-attributes"><code>deregistration</code> definition scope</a>, used to configure automated Sensu client de-registration.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;deregistration&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ec2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#ec2-attributes"><code>ec2</code> definition scope</a>, used to configure the <a href="/sensu-enterprise/2.8/integrations/ec2">Sensu Enterprise AWS EC2 integration</a> (<a href="https://sensu.io/products/enterprise">Sensu Enterprise</a> users only).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;ec2&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>chef</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#chef-attributes"><code>chef</code> definition scope</a>, used to configure the <a href="/sensu-enterprise/2.8/integrations/chef">Sensu Enterprise Chef integration</a> (<a href="https://sensu.io/products/enterprise">Sensu Enterprise</a> users only).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;chef&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>puppet</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#puppet-attributes"><code>puppet</code> definition scope</a>, used to configure the <a href="/sensu-enterprise/2.8/integrations/puppet">Sensu Enterprise Puppet integration</a> (<a href="https://sensu.io/products/enterprise">Sensu Enterprise</a> users only).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;puppet&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>servicenow</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#servicenow-attributes"><code>servicenow</code> definition scope</a>, used to configure the <a href="/sensu-enterprise/2.8/integrations/servicenow">Sensu Enterprise ServiceNow integration</a> (<a href="https://sensu.io/products/enterprise">Sensu Enterprise</a> users only).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;servicenow&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>influxdb</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#influxdb-attributes"><code>influxdb</code> definition scope</a>, used to configure the <a href="/sensu-enterprise/latest/integrations/influxdb">Sensu Enterprise InfluxDB integration</a> (<a href="/sensu-enterprise/latest">Sensu Enterprise</a> users only).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;influxdb&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>opsgenie</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#opsgenie-attributes"><code>opsgenie</code> definition scope</a>, used to configure the <a href="/sensu-enterprise/latest/integrations/opsgenie">Sensu Enterprise OpsGenie integration</a> (<a href="/sensu-enterprise/latest">Sensu Enterprise</a> users only).</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;opsgenie&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="socket-attributes"><code>socket</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;socket&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="socket-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;socket&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;bind&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3030</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="socket-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>enabled</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>If the Sensu client socket is enabled.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;enabled&#34;</span>: false</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>bind</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The address to bind the Sensu client socket to.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;bind&#34;</span>: <span class="s2">&#34;0.0.0.0&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>port</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The port the Sensu client socket listens on.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>3030</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;port&#34;</span>: <span class="m">3032</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="http-socket-attributes"><code>http socket</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;http_socket&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="http-socket-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;http_socket&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;bind&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3031</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;http-auth-user-name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;use-somethign-secure-here&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="http-socket-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>bind</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The address to bind the Sensu client socket to.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;bind&#34;</span>: <span class="s2">&#34;0.0.0.0&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>port</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The port the HTTP Sensu client socket listens on.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>3031</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;port&#34;</span>: <span class="m">8000</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>user</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The user name to enforce HTTP authentication on endpoints that require it</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;user&#34;</span>: <span class="s2">&#34;sensu&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>password</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The password to enforce HTTP authentication on endpoints that require it</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;password&#34;</span>: <span class="s2">&#34;F76639PML6c7sk5nI46N&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>protect_all_endpoints</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>If all client HTTP endpoints are protected by HTTP authentication</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td>false</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;protect_all_endpoints&#34;</span>: true</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="keepalive-attributes"><code>keepalive</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;keepalive&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="keepalive-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;keepalive&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;handler&#34;</span><span class="p">:</span> <span class="s2">&#34;pagerduty&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;thresholds&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;warning&#34;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;critical&#34;</span><span class="p">:</span> <span class="mi">60</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="keepalive-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>handler</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Sensu event handler (name) to use for events created by keepalives.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;handler&#34;</span>: <span class="s2">&#34;pagerduty&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>handlers</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>An array of Sensu event handlers (names) to use for events created by keepalives. Each array item must be a string.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;handlers&#34;</span>: <span class="o">[</span><span class="s2">&#34;pagerduty&#34;</span>, <span class="s2">&#34;chef&#34;</span><span class="o">]</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>thresholds</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>A set of attributes that configure the client keepalive &ldquo;staleness&rdquo; thresholds, when a client is determined to be unhealthy.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;thresholds&#34;</span>: <span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="thresholds-attributes"><code>thresholds</code> attributes (for client keepalives)</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;keepalive&quot;: { &quot;thresholds&quot;: {} } } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="thresholds-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;keepalive&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;thresholds&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;warning&#34;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;critical&#34;</span><span class="p">:</span> <span class="mi">60</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="thresholds-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>warning</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The warning threshold (in seconds) where a Sensu client is determined to be unhealthy, not having sent a keepalive in so many seconds.<em>WARNING: keepalive messages are sent at an interval of 20 seconds. Setting a <code>warning</code> threshold of 20 seconds or fewer will result in false-positive events. Also note that due to the potential for NTP synchronization issues and/or network latency or packet loss interfering with regular delivery of client keepalive messages, we recommend a minimum <code>warning</code> threshold of 40 seconds.</em></td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>120</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;warning&#34;</span>: <span class="m">60</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>critical</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The critical threshold (in seconds) where a Sensu client is determined to be unhealthy, not having sent a keepalive in so many seconds.<em>WARNING: keepalive messages are sent at an interval of 20 seconds. Setting a <code>critical</code> threshold of 20 seconds or fewer will result in false-positive events. Also note that due to the potential for NTP synchronization issues and/or network latency or packet loss interfering with regular delivery of client keepalive messages, we recommend a minimum <code>critical</code> threshold of 60 seconds.</em></td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>180</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;critical&#34;</span>: <span class="m">90</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="registration-attributes"><code>registration</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;registration&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="registration-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registration&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;handler&#34;</span><span class="p">:</span> <span class="s2">&#34;servicenow&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="registration-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>handler</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The registration handler that should process the client registration event.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>registration</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;handler&#34;</span>: <span class="s2">&#34;registration_cmdb&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>NOTE: client <code>registration</code> attributes are used to generate <a href="../checks/#check-results">check result</a>
+data for the registration <a href="../events">event</a>. Client <code>registration</code> attributes are
+merged with some default check definition attributes by the <a href="../server">Sensu server</a>
+during client registration, so any <a href="../checks#check-definition-specification">valid check definition attributes</a>
+– including <a href="../checks/#custom-attributes">custom check definition attributes</a> – may be used
+as <code>registration</code> attributes. The following attributes are provided as
+recommendations for controlling client registration behavior.</em></p>
+<h4 id="deregistration-attributes"><code>deregistration</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;deregistration&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="deregistration-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;deregister&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;deregistration&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;handler&#34;</span><span class="p">:</span> <span class="s2">&#34;deregister_client&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="deregistration-attributes-specification">ATTRIBUTES</h5>
+<p><em>NOTE: client <code>deregistration</code> attributes are used to generate <a href="../checks/#check-results">check
+result</a> data for the de-registration event. Client <code>deregistration</code>
+attributes are merged with some default check definition attributes by the
+<a href="../server">Sensu server</a> during client deregistration, so any <a href="../checks#check-definition-specification">valid check definition
+attributes</a> – including <a href="../checks/#custom-attributes">custom check definition attributes</a>
+– may be used as <code>deregistration</code> attributes, with the following
+exceptions (which are used to ensure the check result is valid): check name,
+<code>output</code>, <code>status</code>, and <code>issued</code> timestamp. The following attributes are
+provided as recommendations for controlling client deregistration behavior.</em></p>
+<table>
+<thead>
+<tr>
+<th>handler</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The deregistration handler that should process the client deregistration event. By default, Sensu uses the built-in deregistration extension to remove clients from Sensu when a client process stops. To configure the host and port used by the deregistration extension, see the <a href="../configuration#top-level-configuration-scopes">configuration reference</a>.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>deregistration</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;handler&#34;</span>: <span class="s2">&#34;cmdb_deregistration&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ec2-attributes"><code>ec2</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;ec2&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<p><strong>ENTERPRISE: This configuration is provided for using the built-in <a href="/sensu-enterprise/2.8/integrations/ec2">Sensu
+Enterprise AWS EC2 integration</a>.</strong></p>
+<h5 id="ec2-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;keepalive&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;handlers&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ec2&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ec2&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;instance_id&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;account&#34;</span><span class="p">:</span> <span class="s2">&#34;sensu-testing&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;allowed_instance_states&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;running&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rebooting&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p><em>NOTE: In order for the EC2 integration to perform automatic deregistration, the <code>ec2</code> handler must be specified in the <code>keepalive</code> scope as in the example above.</em></p>
+<h5 id="ec2-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>instance_id</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The AWS EC2 instance ID of the Sensu client system (if different than the <a href="#client-attributes">client definition <code>name</code> attribute</a>), used to lookup instance status information with the AWS EC2 API.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>defaults to the value of the <a href="#client-attributes">client definition <code>name</code> attribute</a>.</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;instance_id&#34;</span>: <span class="s2">&#34;i-424242&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>allowed_instance_states</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The allowed operational states (e.g. <code>&quot;running&quot;</code>) for the instance. If a client keepalive event is created and the EC2 API indicates that the instance is <em>not</em> in an allowed state (e.g. <code>&quot;terminated&quot;</code>), Sensu client will be removed from the <a href="#registration-and-registry">client registry</a>. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/ec2">built-in Sensu Enterprise <code>ec2</code> integration <code>allowed_instance_states</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>allowed values</td>
+<td><code>pending</code>, <code>running</code>, <code>rebooting</code>, <code>stopping</code>, <code>stopped</code>, <code>shutting-down</code>, and <code>terminated</code></td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>running</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;allowed_instance_states&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;pending&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;running&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;rebooting&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">]</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>region</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The AWS EC2 region to query for the EC2 instance state(s). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/ec2">built-in Sensu Enterprise <code>ec2</code> integration <code>region</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>allowed values</td>
+<td></td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>us-east-1</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;us-west-1&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>access_key_id</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The AWS IAM user access key ID to use when querying the EC2 API. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/ec2">built-in Sensu Enterprise <code>ec2</code> integration <code>access_key_id</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;access_key_id&#34;</span>: <span class="s2">&#34;AlygD0X6Z4Xr2m3gl70J&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>secret_access_key</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The AWS IAM user secret access key to use when querying the EC2 API. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/ec2">built-in Sensu Enterprise <code>ec2</code> integration <code>secret_access_key</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;secret_access_key&#34;</span>: <span class="s2">&#34;y9Jt5OqNOqdy5NCFjhcUsHMb6YqSbReLAJsy4d6obSZIWySv&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>timeout</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The handler execution duration timeout in seconds (hard stop). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/ec2">built-in Sensu Enterprise <code>ec2</code> integration <code>timeout</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;timeout&#34;</span>: <span class="m">30</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>account</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The account name as specified in <code>/etc/sensu/conf.d/ec2.json</code> if using Sensu across AWS accounts.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;account&#34;</span>: <span class="s2">&#34;sensu-testing&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chef-attributes"><code>chef</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;chef&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<p><strong>ENTERPRISE: This configuration is provided for using the built-in <a href="/sensu-enterprise/2.8/integrations/chef">Sensu
+Enterprise Chef integration</a>.</strong></p>
+<h5 id="chef-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chef&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;node_name&#34;</span><span class="p">:</span> <span class="s2">&#34;webserver01&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="chef-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>node_name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Chef node name (if different than the <a href="#client-attributes">client definition <code>name</code> attribute</a>), used to lookup node data in the Chef API.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>defaults to the value of the <a href="#client-attributes">client definition <code>name</code> attribute</a>.</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;node_name&#34;</span>: <span class="s2">&#34;webserver01&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>endpoint</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Chef Server API endpoint (URL). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>endpoint</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;endpoint&#34;</span>: <span class="s2">&#34;https://api.chef.io/organizations/example&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>flavor</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Chef Server flavor (is it enterprise?). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>flavor</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>allowed values</td>
+<td><code>enterprise</code>: for Hosted Chef and Enterprise Chef<br><code>open_source</code>: for Chef Zero and Open Source Chef Server</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;flavor&#34;</span>: <span class="s2">&#34;enterprise&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>client</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Chef Client name to use when authenticating/querying the Chef Server API. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>client</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;client&#34;</span>: <span class="s2">&#34;sensu-server&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Chef Client key to use when authenticating/querying the Chef Server API. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>key</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>true</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;key&#34;</span>: <span class="s2">&#34;/etc/chef/i-424242.pem&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ssl_pem_file</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Chef SSL pem file use when querying the Chef Server API. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>ssl_pem_file</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;ssl_pem_file&#34;</span>: <span class="s2">&#34;/etc/chef/ssl.pem&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ssl_verify</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>If the SSL certificate will be verified when querying the Chef Server API. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>ssl_verify</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;ssl_verify&#34;</span>: false</span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>proxy_address</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The HTTP proxy address. This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>proxy_address</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;proxy_address&#34;</span>: <span class="s2">&#34;proxy.example.com&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>proxy_port</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The HTTP proxy port (if there is a proxy). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>proxy_port</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;proxy_port&#34;</span>: <span class="m">8080</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>proxy_username</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The HTTP proxy username (if there is a proxy). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>proxy_username</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;proxy_username&#34;</span>: <span class="s2">&#34;chef&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>proxy_password</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The HTTP proxy user password (if there is a proxy). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>proxy_password</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;proxy_password&#34;</span>: <span class="s2">&#34;secret&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>timeout</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The handler execution duration timeout in seconds (hard stop). This configuration can be provided to override the <a href="/sensu-enterprise/2.8/integrations/chef">built-in Sensu Enterprise <code>chef</code> integration <code>timeout</code> configuration</a> for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;timeout&#34;</span>: <span class="m">30</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="puppet-attributes"><code>puppet</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;puppet&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<p><strong>ENTERPRISE: This configuration is provided for using the built-in <a href="/sensu-enterprise/2.8/integrations/puppet">Sensu
+Enterprise Puppet integration</a>.</strong></p>
+<h5 id="puppet-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;puppet&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;node_name&#34;</span><span class="p">:</span> <span class="s2">&#34;webserver01&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="puppet-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>node_name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The Puppet node name (if different than the <a href="#client-attributes">client definition <code>name</code> attribute</a>), used to lookup node data in PuppetDB.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>defaults to the value of the <a href="#client-attributes">client definition <code>name</code> attribute</a>.</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;node_name&#34;</span>: <span class="s2">&#34;webserver01&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="servicenow-attributes"><code>servicenow</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;servicenow&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<p><strong>ENTERPRISE: this configuration is provided for using the built-in <a href="/sensu-enterprise/2.8/integrations/servicenow">Sensu
+Enterprise ServiceNow integration</a>.</strong></p>
+<h5 id="servicenow-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;servicenow&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;configuration_item&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;webserver01&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;incident&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;product_team&#34;</span><span class="p">:</span> <span class="s2">&#34;onboarding&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="servicenow-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>configuration_item</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="#servicenow-attributes">ServiceNow Configuration Item definition scope</a> used to configure the ServiceNow CMDB Configuration Item for the client.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;configuration_item&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;webserver01&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>incident</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Key values pairs used to configure ServiceNow incidents for the client. <em>NOTE: Requires Sensu Enterprise 3.5 or later.</em></td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;incident&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;product_team&#34;</span>: <span class="s2">&#34;onboarding&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="influxdb-attributes"><code>influxdb</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;influxdb&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<p><strong>ENTERPRISE: This configuration is provided for using the built-in <a href="/sensu-enterprise/latest/integrations/influxdb">Sensu
+Enterprise InfluxDB integration</a>.</strong></p>
+<h5 id="influxdb-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;influxdb&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;tags&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;dc&#34;</span><span class="p">:</span> <span class="s2">&#34;us-central-1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="influxdb-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>tags</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Custom tags (key/value pairs) to add to every InfluxDB measurement. Client tags will override any <a href="../checks#influxdb-attributes">InfluxDB check tags</a> or <a href="/sensu-enterprise/latest/integrations/influxdb">InfluxDB integration tags</a> with the same key.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Hash</td>
+</tr>
+<tr>
+<td>default</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;tags&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;dc&#34;</span>: <span class="s2">&#34;us-central-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="opsgenie-attributes"><code>opsgenie</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;opsgenie&quot;: {} } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<p><strong>ENTERPRISE: This configuration is provided for using the built-in <a href="/sensu-enterprise/latest/integrations/opsgenie">Sensu
+Enterprise OpsGenie integration</a>.</strong></p>
+<h5 id="opsgenie-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;opsgenie&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;tags&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;production&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<h5 id="opsgenie-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>tags</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>An array of OpsGenie alert tags that will be added to created alerts.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>[]</code></td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;tags&#34;</span>: <span class="o">[</span><span class="s2">&#34;production&#34;</span><span class="o">]</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="configuration_item-attributes"><code>configuration_item</code> attributes</h4>
+<p>The following attributes are configured within the <code>{ &quot;client&quot;: { &quot;servicenow&quot;: { &quot;configuration_item&quot;: {} } } }</code> <a href="../configuration#configuration-scopes">configuration scope</a>.</p>
+<h5 id="configurationitem-attributes-example">EXAMPLE</h5>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;servicenow&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;configuration_item&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;webserver01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;os_version&#34;</span><span class="p">:</span> <span class="s2">&#34;14.04&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p><em>PRO TIP: ServiceNow users may provide custom Configuration Item (CI) field values
+via the <code>configuration_item</code> configuration scope. In this example, the CI field
+<code>os_version</code> is being set to <code>14.04</code>.</em></p>
+<h5 id="configurationitem-attributes-specification">ATTRIBUTES</h5>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>The <a href="http://wiki.servicenow.com/index.php?title=Introduction_to_Assets_and_Configuration">ServiceNow Configuration Item name</a> to be used for the system.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>defaults to the value of the <a href="#client-attributes">client definition <code>name</code> attribute</a>.</td>
+</tr>
+<tr>
+<td>example</td>
+<td><div class="language" data-lang="shell">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;webserver01.example.com&#34;</span></span></span></code></pre></div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="custom-attributes">Custom attributes</h4>
+<p>Because Sensu configuration is just <a href="http://www.json.org/">JSON</a> data, it is possible to define
+configuration attributes that are not part of the Sensu client specification.
+Custom client definition attributes may be defined to provide context about the
+Sensu client and the services that run on its system. Custom client attributes
+will be included in client <a href="#client-keepalives">keepalives</a>, and <a href="../events">event data</a> and can be used
+by Sensu <a href="../filters">filters</a> (e.g. only alert on events in the &ldquo;production&rdquo;
+environment), and accessed via <a href="../checks/#check-token-substitution">check token substitution</a>.</p>
+<h5 id="example">EXAMPLE</h5>
+<p>The following is an example Sensu client definition that has custom attributes
+for the <code>environment</code> it is running in, a <code>mysql</code> attribute containing
+information about a local database, and a link to an operational <code>playbook</code>.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;10.0.2.101&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;environment&#34;</span><span class="p">:</span> <span class="s2">&#34;production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;webserver&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;mysql&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;mysql&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;10.0.2.101&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;app&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;secret&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;playbook&#34;</span><span class="p">:</span> <span class="s2">&#34;https://wiki.example.com/ops/mysql-playbook&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+
+
+<p><em>NOTE: Because client data is included in alerts created by Sensu, custom
+attributes that only exist for the purpose of providing troubleshooting
+information for operations teams can be extremely valuable.</em></p>
+
+
+      <script async type="text/javascript" src="/js/clip.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+      
+      
+
+
+
+
+    </div>
+  </article>
+
+  <section id="sidebar">
+    <aside id="contribute">
+  <div id="page-rating">
+    <h4>Is this page helpful?</h4>
+    <fieldset class="rating">
+      <input type="radio" id="heart5" name="rating" value="5">
+      <label for="heart5" title="Excellent"></label>
+      <input type="radio" id="heart4" name="rating" value="4">
+      <label for="heart4" title="Good"></label>
+      <input type="radio" id="heart3" name="rating" value="3">
+      <label for="heart3" title="OK"></label>
+      <input type="radio" id="heart2" name="rating" value="2">
+      <label for="heart2" title="Poor"></label>
+      <input type="radio" id="heart1" name="rating" value="1">
+      <label for="heart1" title="Unusable"></label>
+    </fieldset>
+  </div>
+
+  <div>
+    <h4>Contribute:</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-core/6.9/reference/clients.md" target="_blank">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit this page
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/issues/new/choose" target="_blank">
+          <i class="fa fa-bug" aria-hidden="true"></i>
+          Report a docs issue
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md" target="_blank">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Read the contributing guide
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+    <aside id="toc">
+  
+    <div>
+      <h4>On this page:</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#reference-documentation">Reference documentation</a></li>
+    <li><a href="#what-is-a-sensu-client">What is a Sensu client?</a></li>
+    <li><a href="#client-keepalives">Client keepalives</a></li>
+    <li><a href="#client-signature">Client signature</a></li>
+    <li><a href="#client-subscriptions">Client subscriptions</a></li>
+    <li><a href="#client-socket-input">Client socket input</a></li>
+    <li><a href="#standalone-check-execution-scheduler">Standalone check execution scheduler</a></li>
+    <li><a href="#managing-clients">Managing clients</a></li>
+    <li><a href="#client-configuration">Client configuration</a></li>
+  </ul>
+</nav>
+    </div>
+  
+</aside>
+
+  </section>
+</main>
+
+<section id="footer">
+  <div class="footer--content">
+
+    <div class="footer--content--center">
+
+      <div class="register">
+        <img alt="Sensu Go Lizy mascot image" title="Register your Sensu installation" src="/images/lizy-logo-a.png">
+        <h3>Register your Sensu installation &mdash; Get rewards!</h3>
+        <p>Take 2 minutes to <a href="https://sensu.io/register"><b><u>register your installation</u></b></a> and let Sensu help you along your journey.<br>
+        We'll send you a free reward when you add your first 10 checks and connect at least 10 agents!</p>
+      </div>
+    </div>
+
+    <div class="footer--content--left">
+      <h3>About Sensu</h3>
+      <p>The Sensu monitoring event pipeline empowers businesses to automate their monitoring workflows and gain deep visibility into their multi-cloud infrastructure, from Kubernetes to bare metal. Companies like Sony, Box.com, and Activision rely on Sensu to help deliver value faster, at scale.</p>
+
+      <div class="footer--navigation">
+        <div>
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="https://sensu.io/products">Products</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/products/core">Sensu Core</a></li>
+                <li><a href="https://sensu.io/products/enterprise">Sensu Enterprise</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/solutions">Solutions</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/solutions/container-monitoring">For Containers</a></li>
+                <li><a href="https://sensu.io/solutions/cloud-monitoring">For Cloud</a></li>
+                <li><a href="https://sensu.io/solutions/nagios-alternative">For Nagios</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://sensu.io/community">Community</a></li>
+            <li><a href="https://docs.sensu.io">Documentation</a></li>
+            <li><a href="https://sensu.io/products/downloads">Downloads</a></li>
+            <li><a href="https://account.sensu.io/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://sensu.io/about">About</a></li>
+            <li><a href="https://blog.sensu.io/" target="_blank">Blog</a></li>
+            <li><a href="https://sensu.io/customers">Customers</a></li>
+            <li><a href="https://sensu.io/contact">Contact</a></li>
+            <li><a href="https://sensu.io/sales">Sales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--content--right">
+      <h3>Get In Touch</h3>
+      <p>Our team is here to help. Use our <a href="https://sensu.io/contact"><b><u>contact form</b></u></a> or reach out on GitHub, Slack, or Twitter.</p>
+      <ul class="inline">
+        <li><a href="https://github.com/sensu" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-920.000000, -4175.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M944,179.302423 C944,184.73279 940.5625,189.346199 935.796875,190.980114 C935.1875,191.092246 934.984375,190.707795 934.984375,190.387419 L934.984375,187.007457 C934.984375,185.854105 934.609375,185.117241 934.171875,184.73279 C936.84375,184.428433 939.65625,183.387212 939.65625,178.661672 C939.65625,177.316095 939.1875,176.210799 938.421875,175.361803 C938.546875,175.041428 938.953125,173.791963 938.296875,172.093972 C937.296875,171.773597 935,173.359456 935,173.359456 C934.046875,173.087137 933.015625,172.942968 932,172.942968 C930.984375,172.942968 929.953125,173.087137 929,173.359456 C929,173.359456 926.703125,171.773597 925.6875,172.093972 C925.046875,173.791963 925.453125,175.041428 925.578125,175.361803 C924.8125,176.210799 924.34375,177.316095 924.34375,178.661672 C924.34375,183.371194 927.140625,184.428433 929.8125,184.73279 C929.46875,185.053166 929.15625,185.581785 929.046875,186.382724 C928.359375,186.7031 926.609375,187.247739 925.5625,185.357522 C924.90625,184.188151 923.71875,184.092039 923.71875,184.092039 C922.546875,184.07602 923.640625,184.844921 923.640625,184.844921 C924.421875,185.213353 924.96875,186.639025 924.96875,186.639025 C925.671875,188.833598 929.015625,188.096734 929.015625,188.096734 C929.015625,189.121936 929.03125,190.099081 929.03125,190.387419 C929.03125,190.707795 928.8125,191.092246 928.203125,190.980114 C923.4375,189.346199 920,184.73279 920,179.302423 C920,172.51046 925.375,167 932,167 C938.625,167 944,172.51046 944,179.302423 Z"></path>
+              </g>
+          </g>
+      </svg>
+      </svg></a></li>
+        <li><a href="https://slack.sensu.io/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-970.000000, -4174.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M983.558646,174.858722 C981.981445,175.389656 980.426,175.913367 978.850551,176.443791 C979.381566,178.019593 979.905426,179.574164 980.436149,181.149018 C982.013351,180.618084 983.568868,180.094373 985.144317,179.56395 C984.613229,177.988147 984.089442,176.433576 983.558646,174.858722 M987.341608,173.597015 C987.875471,175.177268 988.398382,176.725054 988.927352,178.290642 C989.756037,178.018937 990.556758,177.747669 991.363173,177.494204 C992.397094,177.169165 993.417872,177.616194 993.827396,178.558626 C994.288246,179.619546 993.796293,180.824125 992.708489,181.235696 C991.977422,181.512289 991.230584,181.747514 990.490901,182.001563 C990.405258,182.031112 990.320418,182.063069 990.205863,182.104583 C990.270843,182.306246 990.332611,182.502072 990.396862,182.697023 C990.599104,183.310913 990.820184,183.919332 991.000743,184.53957 C991.250662,185.398097 990.877426,186.300984 990.115766,186.758301 C989.350602,187.21766 988.359685,187.148348 987.740107,186.522857 C987.48201,186.262315 987.291814,185.904516 987.158276,185.557297 C986.881926,184.838635 986.664132,184.097501 986.41465,183.342724 C984.842632,183.872564 983.293175,184.39467 981.715316,184.926334 C981.780881,185.135657 981.839875,185.33214 981.903906,185.526945 C982.108631,186.149518 982.328324,186.767567 982.518155,187.394517 C982.876862,188.579689 982.220339,189.689565 981.01893,189.955652 C980.084524,190.162568 979.102077,189.628716 978.759651,188.702773 C978.491625,187.977983 978.253679,187.242175 978.0023,186.511256 C977.970101,186.417502 977.937538,186.32382 977.894972,186.200955 C977.176317,186.441068 976.471168,186.676877 975.765801,186.912175 C975.373216,187.043066 974.980924,187.128722 974.558915,187.042774 C973.695331,186.866793 973.028587,186.13799 972.956744,185.262317 C972.879935,184.327035 973.388828,183.514036 974.25964,183.211249 C974.963547,182.966612 975.674171,182.741237 976.381583,182.506669 C976.466496,182.478579 976.55024,182.446841 976.652603,182.410361 C976.123997,180.844627 975.601086,179.295966 975.0681,177.717318 C974.51102,177.900157 973.970732,178.081902 973.427451,178.254162 C973.037422,178.37783 972.650459,178.539437 972.249697,178.595763 C971.209351,178.742049 970.294513,178.107584 970.060948,177.128745 C969.815775,176.101533 970.325324,175.12138 971.318796,174.755556 C972.03548,174.491658 972.763335,174.258184 973.486153,174.010993 C973.579827,173.978964 973.673355,173.946496 973.79397,173.904836 C973.550914,173.175814 973.313845,172.461675 973.074512,171.74834 C972.9455,171.363911 972.86818,170.9797 972.952144,170.56864 C973.131023,169.693697 973.864792,169.035155 974.761961,168.966718 C975.677968,168.896895 976.483872,169.408859 976.785849,170.272931 C977.019633,170.941761 977.231952,171.618032 977.454565,172.290583 C977.494064,172.4098 977.537798,172.527559 977.585329,172.662317 C979.165889,172.133353 980.72586,171.61132 982.311677,171.080605 C982.104542,170.467809 981.897408,169.876609 981.705971,169.280375 C981.586962,168.909882 981.437652,168.53771 981.396401,168.156053 C981.286591,167.140296 981.9326,166.296142 982.949216,166.053402 C983.895304,165.827516 984.871253,166.334373 985.22244,167.268633 C985.503974,168.017355 985.744548,168.781398 986.00447,169.538291 C986.033236,169.622196 986.069012,169.703693 986.108439,169.804013 C986.874479,169.548505 987.622777,169.293362 988.374726,169.049601 C989.361919,168.729596 990.330567,169.104759 990.808575,169.982548 C991.399095,171.06718 990.889838,172.393822 989.71829,172.800431 C989.014237,173.044776 988.304123,173.27183 987.596931,173.507055 C987.520195,173.532518 987.444409,173.560608 987.341608,173.597015"></path>
+              </g>
+          </g>
+      </svg></a></li>
+        <li><a href="https://twitter.com/sensu" target="_blank"><svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1017.000000, -4176.000000)">
+                <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                    <path d="M1038.54405,172.982073 C1038.55358,173.198827 1038.55676,173.41558 1038.55676,173.633963 C1038.55676,180.306063 1033.60511,188 1024.54749,188 C1021.76566,188 1019.17936,187.16558 1017,185.729791 C1017.38469,185.778683 1017.77732,185.79987 1018.17473,185.79987 C1020.48126,185.79987 1022.60498,184.994785 1024.28997,183.638853 C1022.13604,183.601369 1020.31594,182.139505 1019.68963,180.134941 C1019.99006,180.195241 1020.30004,180.226206 1020.61796,180.226206 C1021.06464,180.226206 1021.49861,180.162647 1021.91509,180.048566 C1019.66101,179.584094 1017.96331,177.543677 1017.96331,175.099087 L1017.96331,175.035528 C1018.62777,175.410365 1019.3876,175.640156 1020.19513,175.664602 C1018.87257,174.758475 1018.00305,173.215124 1018.00305,171.463168 C1018.00305,170.537484 1018.24467,169.672099 1018.67068,168.924055 C1021.09803,171.979791 1024.72871,173.987614 1028.82037,174.201108 C1028.73612,173.83116 1028.6932,173.443286 1028.6932,173.048892 C1028.6932,170.26043 1030.89641,168 1033.61624,168 C1035.03259,168 1036.31223,168.614407 1037.20877,169.595502 C1038.33263,169.36897 1039.38495,168.948501 1040.33872,168.369948 C1039.96834,169.54824 1039.18943,170.537484 1038.17208,171.161669 C1039.16876,171.044329 1040.11776,170.770535 1041,170.367992 C1040.33872,171.381682 1039.50576,172.269883 1038.54405,172.982073"></path>
+                </g>
+            </g>
+        </svg>
+      </a></li>
+      </ul>
+
+      <h3>Join Our Community</h3>
+      <p>Become a member of the Sensu community and get access to the community Slack channel and our weekly newsletter containing updates about Sensu.</p>
+      <form action="https://share.hsforms.com/10Dzh-ahWTaulALvp3xFfmQ2mwx3" target="_blank">
+        <input type="email" id="EMAIL" name="email" placeholder="Your Email">
+        <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    Made with <a href="https://twitter.com/hashtag/monitoringlove" target="_blank">#monitoringlove</a> by Sensu, Inc. &copy; 2013-2023 &mdash; <a href="https://sensu.io/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+</section>
+
+
+<script>
+$( document ).ready(function() {
+  applyTipBoxes();
+});
+
+function boldFirstWord(element) {
+  newElement = element.html().replace(/(^\w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function boldFirstTwoWords(element) {
+  newElement = element.html().replace(/(^\w+ \w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function applyTipBoxes() {
+  $('em').wrap(function() {
+    if ($(this).text().includes('NOTE:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-note"></div>';
+    } else if ($(this).text().includes('WARNING:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-warning"></div>';
+    } else if ($(this).text().includes('PRO TIP:')) {
+      boldFirstTwoWords($(this));
+      return '<div class="alert-tip"></div>';
+    } else if ($(this).text().includes('IMPORTANT:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-important"></div>';
+    }
+  });
+}
+</script>
+
+<script>
+  
+    var base_url = '';
+    var repo_id  = 'sensu\/sensu-docs';
+  
+</script>
+
+<script src="/javascripts/application.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  /* Add headers to scrollspy */
+  var headers   = document.getElementsByTagName("h2");
+  var scrollspy = document.getElementById('scrollspy');
+
+  if(scrollspy) {
+    if(headers.length > 0) {
+      for(var i = 0; i < headers.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("class", "anchor");
+
+        var a  = document.createElement("a");
+        a.setAttribute("href", "#" + headers[i].id);
+        a.setAttribute("title", headers[i].innerHTML);
+        a.innerHTML = headers[i].innerHTML;
+
+        li.appendChild(a)
+        scrollspy.appendChild(li);
+      }
+    } else {
+      scrollspy.parentElement.removeChild(scrollspy)
+    }
+  }
+
+  /* Add permanent link next to the headers */
+  var headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+
+  for(var i = 0; i < headers.length; i++) {
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + headers[i].id);
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 9.2" width="18.3px"><path d="M-1.8-6.4h22v22h-22v-22z" fill="none"/><path d="M1.7 4.6C1.7 3 3 1.7 4.6 1.7h3.7V0H4.6C2.1 0 0 2.1 0 4.6s2.1 4.6 4.6 4.6h3.7V7.4H4.6C3 7.4 1.7 6.2 1.7 4.6zm3.8.9h7.3V3.7H5.5v1.8zM13.8 0h-3.7v1.7h3.7c1.6 0 2.8 1.3 2.8 2.8s-1.3 2.8-2.8 2.8h-3.7V9h3.7c2.5 0 4.6-2.1 4.6-4.6S16.3 0 13.8 0z"/></svg>';
+    headers[i].appendChild(a);
+  }
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0087/0389.js" async="async"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+      []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+      m.parentNode.insertBefore(a,m)
+    })(window, document,
+      'script', '//www.google-analytics.com/analytics.js', 'ga');
+     
+    ga('create', 'UA-39138312-17', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+     
+    var buttons = document.querySelectorAll('a');
+    Array.prototype.map.call(buttons, function(item) {
+      if (item.host != document.location.host) {
+        item.addEventListener('click', function() {
+          var action = item.getAttribute('data-action') || 'follow';
+          ga('send', 'event', 'outbound', action, item.href);
+        });
+      }
+    });
+     
+    var searchInputs = document.getElementsByClassName('search');
+    for (var i=0; i < searchInputs.length; i++) {
+      searchInputs[i].addEventListener('blur', function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga('send', 'pageview', path + '?q=' + this.value);
+        }
+      });
+    }
+
+    var dropdowns = document.getElementsByClassName('dropdown');
+    for (var i=0; i < dropdowns.length; i++) {
+      dropdowns[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.currentTarget.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function(e) {
+      for (var i=0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove('open');
+      };
+    });
+
+    
+    var languages = {
+      javascript: "JavaScript",
+      json: "JSON",
+      yml: "YML",
+    };
+    var toggles = document.getElementsByClassName('language-toggle');
+    for (var i=0; i < toggles.length; i++) {
+      var children = Array.prototype.slice.call(toggles[i].querySelectorAll('.language'));
+      var langs = children.map(function(c) { return c.dataset.lang; });
+
+      
+      langs.forEach(function(lang) {
+        var el = document.createElement('span');
+        el.setAttribute('role', 'tab');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('data-lang', lang);
+        el.innerText = languages[lang] || lang;
+        el.addEventListener('click', function(e) {
+          var elOffset = e.currentTarget.getBoundingClientRect().top;
+          setLanguage(e.currentTarget.dataset.lang);
+          e.currentTarget.scrollIntoView();
+          window.scrollBy(0, -elOffset);
+        });
+        toggles[i].querySelector('.tabs').appendChild(el);
+      });
+
+      
+      toggles[i].querySelector('.languages').children[0].classList.add('active');
+    }
+
+    
+    function setLanguage(lang) {
+      
+      localStorage.setItem('lang', lang);
+
+      
+      var tabLists = Array.prototype.slice.call(document.querySelectorAll('.language-toggle .tabs'));
+      
+      tabLists.forEach(function(tabList) {
+        var activeTab = tabList.querySelector('.active');
+        var selectedTab = tabList.querySelector('[data-lang="' + lang + '"]');
+        var allTabs = Array.prototype.slice.call(tabList.children);
+        allTabs.forEach(function(t) { return t.classList.remove('active'); });
+        if (selectedTab) {
+          selectedTab.classList.add('active');
+        } else if (activeTab) {
+          activeTab.classList.add('active');
+        } else {
+          allTabs[0].classList.add('active');
+        }
+      });
+
+      
+      var selector = '.language-toggle .language[data-lang="' + lang + '"]';
+      var langBlockChildren = document.querySelectorAll(selector);
+      var langBlocks = Array.prototype.slice.call(langBlockChildren).map(function(el) { return el.closest('.languages'); });
+      
+      langBlocks.forEach(function(el) {
+        Array.prototype.slice.call(el.children).forEach(function(c) {
+          return c.classList.remove('active');
+        })
+      });
+      
+      langBlockChildren.forEach(function(el) { return el.classList.add('active'); });
+    }
+    
+    setLanguage(localStorage.getItem('lang'));
+  </script>
+
+
+
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o1043');
+  twq('track','PageView');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+  var docsearchOptions = {
+    appId: 'S633WESKWC',
+    apiKey: '2aaea336f8b58143b17119944385071f',
+    indexName: 'sensu',
+    inputSelector: '#desktop-search',
+    algoliaOptions: {
+      facetFilters: [
+        [
+          
+            'tags:sensu-core'
+          
+        ],
+        [
+          
+            'version:1.9'
+          
+        ]
+      ]
+    },
+    debug: false
+  };
+
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+
+  docsearchOptions.inputSelector = '#mobile-search';
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+</script>
+
+</body>
+</html>

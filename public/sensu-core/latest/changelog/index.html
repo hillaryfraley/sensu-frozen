@@ -1,0 +1,3561 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CHANGELOG - Sensu Docs</title>
+    <meta name="generator" content="Hugo 0.101.0" />
+
+    
+    <meta name="description" content="Read the Sensu Core changelog for release notes. Learn what&#39;s new in our latest release and get information about new features, improvements, and fixes.">
+    
+    <link rel="canonical" href="/sensu-core/latest/changelog/">
+    
+
+    
+      <meta name="docsearch:version" content="1.9" />
+    
+
+    
+    <meta name="robots" content="noindex">
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="/sensu-core/latest/changelog/">
+    <meta property="og:site_name" content="Sensu Docs">
+    <meta property="og:title" content="CHANGELOG | Sensu Core 1.9">
+    <meta property="og:image" content="/images/sensu-logo-icon-dark@128px.png">
+    <meta name="apple-mobile-web-app-title" content="Sensu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/sensu.css">
+    <script src="/javascripts/modernizr.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+	<script src="https://use.fontawesome.com/ea9395e21e.js"></script>
+	<script src="//rum-static.pingdom.net/pa-5bacf02ccea07b00160001cc.js" async></script>
+
+  
+	<script>
+    function css(element, property) {
+      return window.getComputedStyle(element, null).getPropertyValue(property);
+    }
+
+    window.onload = function () {
+      var span = document.createElement('span');
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+
+      var faScript = document.createElement('script');
+      faScript.src = encodeURI('/js/vendor/fontawesome-all.min.js')
+
+      var jQueryScript = document.createElement('script');
+      jQueryScript.src = encodeURI('/js/vendor/jquery-3.4.1.min.js')
+      var head = document.getElementsByTagName('head')[0];
+      
+      if ((css(span, 'font-family')) !== 'FontAwesome') {
+        head.appendChild(faScript);
+      }
+      if (!window.jQuery) {
+        console.log("apending jquery local script");
+        head.appendChild(jQueryScript);
+      }
+      document.body.removeChild(span);
+    };
+  </script>
+  <script src="/js/js-cookie.js"></script>
+  <script src="/js/platformDropdowns.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804504629"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-804504629');
+    gtag('config', 'UA-39138312-2');
+  </script>
+  
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="/javascripts/application.js"></script>
+
+
+  
+  
+
+
+<header>
+  <nav aria-label="Header" id="navbar">
+    <label id="hamburger" for="toggle-drawer"></label>
+
+    <a class="logo" href="/">Sensu Docs</a>
+    
+    
+      <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Core<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      1.9
+      (latest)&nbsp;
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+        
+          
+        
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-core/1.9/changelog/">
+          
+            1.9 (latest)
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <input id="desktop-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+  </nav>
+
+  
+    
+<div id="alerts">
+  
+  
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    
+    alertElement = "<div class='alert' style='background-color: #b7312e'>";
+    
+      alertElement += "<a href='https:\/\/docs.sensu.io\/sensu-go\/latest\/operations\/maintain-sensu\/migrate\/'>Sensu Core reached end-of-life (EOL) on December 31, 2019, and we removed the EOL repository on February 1, 2021. Click here to start your migration to Sensu Go.</a>";
+    
+    alertElement += "<span class='alert--close' onClick='this.parentElement.remove()'>" +
+                      "<i class='fa fa-times' aria-hidden='true'></i>" +
+                    "</span></div>";
+
+    
+    $("#alerts").append(alertElement);
+  });
+</script>
+
+  
+
+  
+
+  
+
+  
+</div>
+
+    <div id="alerts">
+  
+  
+  
+</div>
+
+  
+
+</header>
+
+
+<main class="main">
+  <input class="hidden" type="checkbox" id="toggle-drawer" autocomplete="off">
+<label id="backdrop" for="toggle-drawer"></label>
+<aside class="drawer">
+  <div class="drawer--inner">
+    
+    <div class="product-picker">
+  
+  <div class="dropdown dropdown--products">
+    
+      
+      <a>Sensu Core<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    
+    <div class="options">
+       
+        
+          
+        
+        <a href="/sensu-go/6.9/">Sensu Go</a>
+       
+        
+          
+        
+        <a href="/sensu-core/1.9/">Sensu Core</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise/3.8/">Sensu Enterprise</a>
+       
+        
+          
+        
+        <a href="/sensu-enterprise-dashboard/2.16/">Sensu Enterprise Dashboard</a>
+       
+        
+          
+        
+        <a href="/uchiwa/1.0/">Uchiwa</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="dropdown dropdown--versions">
+    
+    
+    
+    
+    
+
+    <a>
+      1.9
+      (latest)&nbsp;
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="options">
+      
+      
+      
+        
+        
+          
+          
+            <a href="/sensu-core/1.9/changelog/">
+          
+            1.9 (latest)
+          </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    <input id="mobile-search" class="algolia-search" type="text" placeholder="Search the docs" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+    <nav>
+      
+        <ul>
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+    
+
+      
+      
+
+        
+        
+      
+    
+  
+    
+
+      
+      
+
+        
+        
+          
+
+          
+          
+          
+          <li><a class="strong" href="/sensu-core/1.9">Sensu Core</a><ul>
+
+          
+          
+
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-core/latest/changelog/">CHANGELOG</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                <li><a class="strong" href="/sensu-core/latest/faq/">FAQs</a></li>
+              
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/quick-start/">
+                    
+                      Quick Start
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/quick-start/learn-sensu-basics/">Get Started with Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/quick-start/five-minute-install/">The Five Minute Install</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/quick-start/client-installation/">Client Installation</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/overview/">
+                    
+                      Overview
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/what-is-sensu/">What is Sensu?</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/how-sensu-works/">How Sensu Works</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/architecture/">Architecture</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/overview/platforms/">Supported Platforms</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/installation/">
+                    
+                      Installation
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/overview/">Installation Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/installation-strategies/">Installation Strategies</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/installation-prerequisites/">Prerequisites</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-sensu-server-api/">Sensu Server and API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-sensu-client/">Sensu Client</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-a-dashboard/">Sensu Dashboards</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-redis/">Install Redis</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/install-rabbitmq/">Install RabbitMQ</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/summary/">Summary</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/upgrading/">Upgrading Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/testing-prereleases/">Testing Prereleases</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/configuration-management/">Configuration Management</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/installation/installing-plugins/">Installing Plugins</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/guides/">
+                    
+                      Guides
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/overview/">Getting Started</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/adding-a-client/">Adding a Client</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-checks/">Intro to Checks</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-filters/">Intro to Filters</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-mutators/">Intro to Mutators</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/intro-to-handlers/">Intro to Handlers</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/snmp-sensu-guide/">SNMP Receiver Extension</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/securing-sensu/">Securing Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/securing-rabbitmq/">Securing RabbitMQ</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/securing-redis/">Securing Redis</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/troubleshooting/">Troubleshooting</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/monitor-the-monitor/">Monitoring Sensu with Sensu</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/scaling-overview/">Scaling Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/guides/pre-compile-plugins/">Pre-Compiling Plugins</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/api/">
+                    
+                      API
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/overview/">RESTful API Overview</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/clients/">Clients API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/checks/">Checks API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/results/">Results API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/aggregates/">Aggregates API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/events/">Events API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/silenced/">Silenced API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/stashes/">Stashes API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/health-and-info/">Health &amp; Info APIs</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/settings/">Settings API</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/api/configuration/">API Configuration</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/platforms/">
+                    
+                      Platforms
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-freebsd/">FreeBSD</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-ibm-aix/">IBM AIX</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-mac-os-x/">Mac OS X</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-microsoft-windows/">Microsoft Windows</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-oracle-solaris/">Solaris</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-rhel-centos/">RHEL/CentOS</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/platforms/sensu-on-ubuntu-debian/">Ubuntu/Debian</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+
+          
+            
+            
+              
+                
+                
+
+                <li>
+                  <a class="strong accordion " href="/sensu-core/latest/reference/">
+                    
+                      Reference
+                    
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    
+                    
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/server/">Sensu Server</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/clients/">Clients</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/checks/">Checks</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/aggregates/">Aggregates</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/events/">Events</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/filters/">Filters</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/silencing/">Silencing</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/mutators/">Mutators</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/handlers/">Handlers</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/plugins/">Plugins</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/extensions/">Extensions</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/stashes/">Stashes</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/data-store/">Data Store</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/transport/">Transport</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/configuration/">Sensu Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/rabbitmq/">RabbitMQ Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/redis/">Redis Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/ssl/">SSL Configuration</a>
+                          
+                        </li>
+                    
+                  
+                      
+                        
+                        <li>
+                          
+                            <a class="" href="/sensu-core/latest/reference/tessen/">Tessen</a>
+                          
+                        </li>
+                    
+                  
+                </ul>
+                </li>
+              
+            
+            
+          
+          </ul></li>
+        
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>
+</ul>
+      
+      <hr>
+      <div class="drawer--footer">
+        <iframe src="https://ghbtns.com/github-btn.html?user=sensu&repo=sensu-docs&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20"></iframe>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/issues/new?title=Docs%20Feedback&body=%3C!--Thanks%20for%20submitting%20feedback%20to%20the%20Sensu%20docs!--%3E%0A%0ALink%20to%20page%3A%20%0A%0A%23%23%23%20Feedback">Open a docs issue</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-core/6.9/changelog.md">Edit this page</a>
+        <a target="_blank" href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md">Read the contributing guide</a>
+        
+        
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>CHANGELOG </h1>
+
+      
+        
+
+
+
+      
+      <h2 id="releases">Releases</h2>
+<ul>
+<li><a href="#core-v1-9-0">Core 1.9.0 Release Notes</a></li>
+<li><a href="#core-v1-8-0">Core 1.8.0 Release Notes</a></li>
+<li><a href="#core-v1-7-1">Core 1.7.1 Release Notes</a></li>
+<li><a href="#core-v1-7-0">Core 1.7.0 Release Notes</a></li>
+<li><a href="#core-v1-6-2">Core 1.6.2 Release Notes</a></li>
+<li><a href="#core-v1-6-1">Core 1.6.1 Release Notes</a></li>
+<li><a href="#core-v1-6-0">Core 1.6.0 Release Notes</a></li>
+<li><a href="#core-v1-5-0">Core 1.5.0 Release Notes</a></li>
+<li><a href="#core-v1-4-3">Core 1.4.3 Release Notes</a></li>
+<li><a href="#core-v1-4-2">Core 1.4.2 Release Notes</a></li>
+<li><a href="#core-v1-4-1">Core 1.4.1 Release Notes</a></li>
+<li><a href="#core-v1-4-0">Core 1.4.0 Release Notes</a></li>
+<li><a href="#core-v1-3-0">Core 1.3.0 Release Notes</a></li>
+<li><a href="#core-v1-2-1">Core 1.2.1 Release Notes</a></li>
+<li><a href="#core-v1-2-0">Core 1.2.0 Release Notes</a></li>
+<li><a href="#core-v1-1-3">Core 1.1.3 Release Notes</a></li>
+<li><a href="#core-v1-1-2">Core 1.1.2 Release Notes</a></li>
+<li><a href="#core-v1-1-1">Core 1.1.1 Release Notes</a></li>
+<li><a href="#core-v1-1-0">Core 1.1.0 Release Notes</a></li>
+<li><a href="#core-v1-0-4">Core 1.0.4 Release Notes</a></li>
+<li><a href="#core-v1-0-3">Core 1.0.3 Release Notes</a></li>
+<li><a href="#core-v1-0-2">Core 1.0.2 Release Notes</a></li>
+<li><a href="#core-v1-0-1">Core 1.0.1 Release Notes</a></li>
+<li><a href="#core-v1-0-0">Core 1.0.0 Release Notes</a></li>
+<li><a href="#core-v0-29-0">Core 0.29.0 Release Notes</a></li>
+<li><a href="#core-v0-28-5">Core 0.28.5 Release Notes</a></li>
+<li><a href="#core-v0-28-4">Core 0.28.4 Release Notes</a></li>
+<li><a href="#core-v0-28-3">Core 0.28.3 Release Notes</a></li>
+<li><a href="#core-v0-28-2">Core 0.28.2 Release Notes</a></li>
+<li><a href="#core-v0-28-1">Core 0.28.1 Release Notes</a></li>
+<li><a href="#core-v0-28-0">Core 0.28.0 Release Notes</a></li>
+<li><a href="#core-v0-27-1">Core 0.27.1 Release Notes</a></li>
+<li><a href="#core-v0-27-0">Core 0.27.0 Release Notes</a></li>
+<li><a href="#core-v0-26-5">Core 0.26.5 Release Notes</a></li>
+<li><a href="#core-v0-26-4">Core 0.26.4 Release Notes</a></li>
+<li><a href="#core-v0-26-3">Core 0.26.3 Release Notes</a></li>
+<li><a href="#core-v0-26-2">Core 0.26.2 Release Notes</a></li>
+<li><a href="#core-v0-26-1">Core 0.26.1 Release Notes</a></li>
+<li><a href="#core-v0-26-0">Core 0.26.0 Release Notes</a></li>
+<li><a href="#core-v0-25-7">Core 0.25.7 Release Notes</a></li>
+<li><a href="#core-v0-25-6">Core 0.25.6 Release Notes</a></li>
+<li><a href="#core-v0-25-5">Core 0.25.5 Release Notes</a></li>
+<li><a href="#core-v0-25-4">Core 0.25.4 Release Notes</a></li>
+<li><a href="#core-v0-25-3">Core 0.25.3 Release Notes</a></li>
+<li><a href="#core-v0-25-2">Core 0.25.1 Release Notes</a></li>
+<li><a href="#core-v0-25-0">Core 0.25.0 Release Notes</a></li>
+<li><a href="#core-v0-24-1">Core 0.24.1 Release Notes</a></li>
+<li><a href="#core-v0-24-0">Core 0.24.0 Release Notes</a></li>
+<li><a href="#core-v0-23-2">Core 0.23.2 Release Notes</a></li>
+<li><a href="#core-v0-23-1">Core 0.23.1 Release Notes</a></li>
+<li><a href="#core-v0-23-0">Core 0.23.0 Release Notes</a></li>
+</ul>
+<h2 id="core-v1-9-0">Core 1.9.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#190---2019-12-18">GitHub.com</a></p>
+<p><strong>December 18, 2019</strong> — Sensu Core version 1.9.0 has been released and is available for immediate download. Please note the following bugfixes and improvements:</p>
+<h3 id="core-v1-9-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added support for discarding oversized transport messages to protect Sensu (e.g. <code>{&quot;sensu&quot;:{&quot;server&quot;: {&quot;max_message_size&quot;: 2097152}}}</code>).</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Check subdue default times now include sub-second (nanosecond) resolution.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: API HTTP <code>204 No Content</code> responses now return a nil body.</p>
+</li>
+</ul>
+<h2 id="core-v1-8-0">Core 1.8.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#180---2019-07-09">GitHub.com</a></p>
+<p><strong>July 9, 2019</strong> — Sensu Core version 1.8.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-8-0-changes">CHANGES</h3>
+<ul>
+<li><strong>IMPROVEMENT</strong>: The Sensu server now supports advanced configuration options for check result and keepalive replication across multiple sites using the RabbitMQ shovel plugin. <a href="https://account.sensu.io/support">Contact us</a> to learn more.</li>
+</ul>
+<h2 id="core-v1-7-1">Core 1.7.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#171---2019-07-08">GitHub.com</a></p>
+<p><strong>July 8, 2019</strong> — Sensu Core version 1.7.1 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-7-1-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Sensu Core 1.7.1 no longer supports Debian 7, which has reached end of life.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Sensu now triggers a reconnect when trying to publish to RabbitMQ when in a disconnected state.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Use <code>--no-document</code> when installing gems via <code>sensu-install</code> instead of deprecated <code>--no-ri --no-rdoc</code>.</p>
+</li>
+</ul>
+<h2 id="core-v1-7-0">Core 1.7.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#170---2019-02-19">GitHub.com</a></p>
+<p><strong>February 21, 2019</strong> — Sensu Core version 1.7.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-7-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Sensu now includes a built-in client deregistration extension. See the <a href="/sensu-core/1.7/reference/clients/#deregistration-events">client reference</a> to configure the deregistration extension.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Sensu now provides opt-in global error handling. See the <a href="/sensu-core/1.7/reference/configuration#sensu-definition-specification">Sensu configuration reference</a> for more information.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The health API now returns information to help diagnose an unhealthy Sensu instance, including transport consumer and message counts. See the <a href="/sensu-core/1.7/api/health-and-info">API docs</a> for more information.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: The clients API GET endpoints now redact sensitive attributes as defined in the <a href="/sensu-core/1.7/reference/clients/#client-attributes">client configuration</a>.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Stale server registry entries now expire after 30 seconds without an update.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Token substitution now splits default values on the first instance of the pipe character, fixing a bug impacting regular expressions in token substitution default values.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug causing incorrect tokens in check requests created using the Sensu API.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Improved error logging.</p>
+</li>
+</ul>
+<h2 id="core-v1-6-2">Core 1.6.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#162---2018-12-07">GitHub.com</a></p>
+<p><strong>December 10, 2018</strong> — Sensu Core version 1.6.2 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-6-2-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu Core now includes the Sensu Translator: a command-line
+tool to help you transfer your Sensu Core 1.x configuration to Sensu Go 5.0.
+For more information, see the <a href="https://github.com/sensu/sensu-translator">Sensu Translator on GitHub</a>, and read the <a href="https://docs.sensu.io/sensu-go/latest/operations/maintain-sensu/migrate/">Sensu Go migrate guide</a>.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Sensu Core 1.6.2 improves error handling for Redis Sentinel
+connections. In the event of a Sentinel DNS lookup error, Sensu now
+retries the failing Sentinel instances until they become available, but
+proceeds with normal operation as long as one Sentinel can direct Sensu to
+the current Redis leader.</p>
+</li>
+</ul>
+<h2 id="core-v1-6-1">Core 1.6.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#161---2018-10-23">GitHub.com</a></p>
+<p><strong>October 23, 2018</strong> — Sensu Core version 1.6.1 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-6-1-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed an issue preventing Sensu clients from resuming activities
+after reconnecting to RabbitMQ.</li>
+</ul>
+<h2 id="core-v1-6-0">Core 1.6.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#160---2018-10-12">GitHub.com</a></p>
+<p><strong>October 12, 2018</strong> — Sensu Core version 1.6.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-6-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: The <a href="/sensu-core/1.6/api/checks#checkscheck-delete">Checks API</a> now provides an endpoint to delete check history and
+check results, giving you an easy way to clean up unused checks.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu Core 1.6 implements changes in RabbitMQ communication
+by using two discrete connections to the transport instead of two channels
+on a single connection, thereby doubling the number of concurrent connections
+RabbitMQ receives. This change prevents check result processing rates from
+being impacted by check execution request publishing rates and reduces the
+possibility of false keepalive alerts under certain conditions. To support
+the increased number of concurrent connections, we recommend making sure
+the open file limit is configured according to RabbitMQ&rsquo;s guidelines for
+<a href="https://www.rabbitmq.com/install-debian.html#kernel-resource-limits">Ubuntu/Debian</a> and <a href="https://www.rabbitmq.com/install-rpm.html#kernel-resource-limits">RHEL/CentOS</a>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu now redacts additional fields (such as webhook URLs)
+when displaying configuration files.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Commands in check results from proxy clients can often contain
+sensitive information following token substitution. Clients now reset
+commands to remove tokens before publishing check results, providing
+better handling for sensitive information.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug impacting macOS packages using Ruby 2.4.4.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed an issue impacting FreeBSD packages causing incompatibility with newer compilers.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug impacting the installation process for Solaris 10 packages.</p>
+</li>
+</ul>
+<h2 id="core-v1-5-0">Core 1.5.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#150---2018-09-04">GitHub.com</a></p>
+<p><strong>September 4, 2018</strong> — Sensu Core version 1.5.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-5-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPROVEMENT</strong>: The built-in check dependencies filter lets you
+reduce noise by only alerting for the root cause of a given failure.
+Sensu Core 1.5 gives you the option to specify check dependencies by subscription
+instead of by client, making this useful filter even more flexible.
+See the <a href="/sensu-core/1.5/reference/filters#check-dependencies-filter">filter reference doc</a> for more information.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Improved validation for check results created using the
+results API and the client socket. Sensu now validates check result
+attributes with the same methods used to validate check definitions.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug in the Sensu package that impacted user and group
+creation on Linux. Sensu now checks for an existing “sensu” user and group
+against multiple providers.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Sensu packages now include Ruby 2.4.4. This includes a fix
+for a bug in Ruby 2.4.1 that impacted Sensu clients on AIX.</p>
+</li>
+</ul>
+<h2 id="core-v1-4-3">Core 1.4.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#143---2018-07-23">GitHub.com</a></p>
+<p><strong>July 24, 2018</strong> — Sensu Core version 1.4.3 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-4-3-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Failures when using token substitution to provide a value
+for the check <code>source</code> attribute could cause the value of <code>source</code>
+to be returned as an empty string, causing unexpected display and user
+experience behaviors in the dashboard. The <code>source</code> attribute is now
+removed by the client when its value is empty.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: When using a handler extension, a bug in filter log
+messages made it possible for handler extension class variables to
+be leaked into Sensu&rsquo;s log files. Some users experienced very large
+logfiles as a symptom of this behavior. Handler extensions may now
+use class instance variables without having them leak into the log
+file.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Lack of validation for check result <code>ttl</code> attribute on
+the /results API endpoint made it possible to submit check results
+with invalid TTL values and subsequently cause the Sensu server to
+crash. The /results API endpoint now appropriately applies
+validation to check result <code>ttl</code> attribute values.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Check definitions generated using token substitution and
+<code>proxy_requests</code> check definition attributes were not updated when
+token values changed, causing unexpected behavior in proxy request checks.
+This has been fixed in the Sensu server by preventing the
+original check definition from being mutated.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Under systemd, post-installation package scripts did not
+properly execute <code>systemctl daemon-reload</code> when moving/updating Sensu
+unit files. Daemon reload is now called appropriately when installing
+via RPM or DEB packages.</p>
+</li>
+</ul>
+<h2 id="core-v1-4-2">Core 1.4.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#142---2018-05-10">GitHub.com</a></p>
+<p><strong>May 10, 2018</strong> — Sensu Core version 1.4.2 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-4-2-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>SECURITY FIX</strong>: Sensu&rsquo;s directory permissions on Microsoft Windows
+platforms were overly permissive, making it possible for
+unprivileged users to execute code as the Sensu service user. This
+vulnerability is fixed in Sensu Core 1.4.2-3, released May
+31, 2018. Our thanks to Matt Bush with <a href="https://themissinglink.com.au/">The Missing
+Link</a> for discovering and reporting
+this vulnerability.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed API GET /results, results were incorrectly reported
+under a single client name.</p>
+</li>
+</ul>
+<h2 id="core-v1-4-1">Core 1.4.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#141---2018-05-04">GitHub.com</a></p>
+<p><strong>May 4, 2018</strong> — Sensu Core version 1.4.1 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-4-1-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Now including em-http-request Ruby gem in runtime
+dependencies, fixing the 1.4 sensu-server.</li>
+</ul>
+<h2 id="core-v1-4-0">Core 1.4.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#140---2018-05-02">GitHub.com</a></p>
+<p><strong>May 2, 2018</strong> — Sensu Core version 1.4.0 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-4-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Sensu call-home mechanism, the Tessen client (opt-in). It
+sends anonymized data about the Sensu installation to the Tessen
+hosted service (Sensu Inc), on sensu-server startup and every 6
+hours thereafter. All data reports are logged for
+transparency/awareness and transmitted over HTTPS. The anonymized
+data currently includes the flavour of Sensu (Core or Enterprise),
+the Sensu version, and the Sensu client and server counts.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: API list endpoints (e.g. /events) now all support
+pagination.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Support for writing multiple check results to the
+client socket (in one payload).</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Now updating event last_ok when storing latest
+check results for better accuracy.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Include child process (e.g. check execution) stop
+(SIGTERM/KILL) error message in timeout output. This helps when
+debugging defunct/zombie processes, e.g. &ldquo;Execution timed out -
+Unable to TERM/KILL the process: Operation not permitted&rdquo;.</p>
+</li>
+</ul>
+<h2 id="core-v1-3-0">Core 1.3.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#130----2018-03-09">GitHub.com</a></p>
+<p><strong>April 12, 2018</strong> — Sensu Core version 1.3.0 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-3-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Redis TLS connection support. Sensu Redis connections can now
+be configured to use TLS, this includes the Sensu server and Redis
+transport connections! The Sensu Redis configuration definition
+now includes the optional &ldquo;tls&rdquo; (or &ldquo;ssl&rdquo;) attribute, a hash
+containing TLS options (&ldquo;private_key_file&rdquo;, &ldquo;cert_chain_file&rdquo;, and
+&ldquo;verify_peer&rdquo;).</p>
+</li>
+<li>
+<p><strong>NEW</strong>: The Sensu client TCP/UDP socket can now be disabled via
+configuration. The Sensu client configuration definition now
+includes the socket &ldquo;enabled&rdquo; attribute, which defaults to true,
+and it can be set to false in order to disable the socket. (#1799)</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The Sensu Ruby gems are now cryptographically signed.
+To learn more about Ruby gem signing, please refer to the RubyGems
+security guide. (#1819)</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The Sensu API POST /clients endpoint no longer
+requires client subscriptions to be specified. (#1795)</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: All Sensu event handler types now include event ID in
+log events.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Sensu TCP event handlers will no longer connect to a socket
+if the provided event data is nil or empty. (#1734)</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: The RabbitMQ transport will now reconnect after failing to
+resolve DNS, instead of independently retrying broker hostname
+resolution. This fixes retry timer backoff and allows the
+transport to connect to another eligible broker after failing to
+resolve a hostname.</p>
+</li>
+</ul>
+<h2 id="core-v1-2-1">Core 1.2.1 Release Notes</h2>
+<p><strong>February 9, 2018</strong> — Sensu Core version 1.2.1 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-2-1-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>SECURITY FIX</strong>: Sensu&rsquo;s configuration redaction function failed to
+handle key/value pairs in deeply nested data structures, resulting in
+sensitive configuration data (e.g. passwords) being logged in clear-text.
+The redaction function now handles the necessary recursion to address
+this vulnerability.</p>
+<p>This vulnerability is documented as <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000060">CVE-2018-1000060</a>.</p>
+</li>
+</ul>
+<h2 id="core-v1-2-0">Core 1.2.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#120---2017-12-05">GitHub.com</a></p>
+<p><strong>December 5, 2017</strong> — Sensu Core version 1.2.0 has been
+released and is available for immediate download. Please note
+the following improvements:</p>
+<h3 id="core-v1-2-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Scheduled maintenance, Sensu now gives users the ability to
+silence a check and/or client subscriptions at a predetermined
+time (begin epoch timestamp), with an optional expiration (in
+seconds), enabling users to silence events in advance for
+scheduled maintenance windows.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: The Sensu API now logs the &ldquo;X-Request-ID&rdquo; header, making it
+much easier to trace a request/response. If the API client does
+not provide a request ID, the API generates one for the request
+(UUID).</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The Sensu API /results/* endpoints now include check
+history in the result data.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Check token substitution is now supported in check
+&ldquo;subdue&rdquo;.</p>
+</li>
+</ul>
+<h2 id="core-v1-1-3">Core 1.1.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#113---2017-11-24">GitHub.com</a></p>
+<h3 id="core-v1-1-3-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug in the Sensu client that broke check hooks
+named after numeric statuses (e.g. &ldquo;2&rdquo;) and &ldquo;non-zero&rdquo;, they were
+never executed unless the client had a local check definition.
+(#1773)</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: systemd units now stored in /lib/systemd instead of
+/usr/lib/systemd on Debian and Ubuntu systems. (sensu-omnibus
+#240)</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Sensu processes once again honor service-specific
+defaults in /etc/default or /etc/sysconfig (sensu-omnibus #226)</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Package scripts now use <code>getent</code> for user/group
+verification (sensu-omnibus #237)</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Removing AIX package no longer fails when sensu-client
+isn&rsquo;t running. (sensu-omnibus #243)</p>
+</li>
+</ul>
+<h2 id="core-v1-1-2">Core 1.1.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#112---2017-10-27">GitHub.com</a></p>
+<h3 id="core-v1-1-2-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug in the Sensu client HTTP socket that caused
+the Sensu client to crash when the the local client definition did
+not specify <code>&quot;http_socket&quot;</code> settings and the <code>/info</code> or <code>/results</code>
+endpoints were accessed.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug in the Sensu client HTTP socket that caused
+the Sensu client to consider an HTTP content-type that included
+media-type information as invalid, discarding possibly valid
+content.</p>
+</li>
+</ul>
+<h2 id="core-v1-1-1">Core 1.1.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#111---2017-10-10">GitHub.com</a></p>
+<h3 id="core-v1-1-1-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed a bug in check TTL monitoring that caused the
+Sensu server to crash. Check TTL member deletion, following the
+deletion of the associated check result, would produce an uncaught
+error.</li>
+</ul>
+<h2 id="core-v1-1-0">Core 1.1.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#110---2017-09-27">GitHub.com</a></p>
+<p><strong>September, 27  2017</strong> — Sensu Core version 1.1.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-1-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPORTANT</strong>: Sensu packages include Ruby 2.4.1. Upgrading from
+releases of Sensu prior to 1.0.0 will require all plugin or
+extension gems to be re-installed under the new Ruby environment.</p>
+</li>
+<li>
+<p><strong>IMPORTANT</strong>: Sensu packages include <a href="https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29">sensu-plugin 2.0.0</a>, which
+disables its deprecated filter methods by default, i.e.
+occurrences. Sensu releases since 1.0.0 include built-in filters
+that provide the same functionality with several improvements. The
+built-in filters are <a href="https://github.com/sensu-extensions/sensu-extensions-occurrences">&ldquo;occurrences&rdquo;</a> and
+<a href="https://github.com/sensu-extensions/sensu-extensions-check-dependencies">&ldquo;check_dependencies&rdquo;</a>. To use the built-in filters, apply them
+to Sensu event handlers via their definition <code>&quot;filters&quot;</code>
+attribute, e.g. <code>&quot;filters&quot;: [&quot;occurrences&quot;, &quot;check_dependencies&quot;]</code>. These filters can now be used with Sensu
+event handlers that do not use the sensu-plugin library (or Ruby).</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Check hooks, commands run by the Sensu client in response to
+the result of the check command execution. The Sensu client will
+execute the appropriate configured hook command, depending on the
+check execution status (e.g. 1). Valid hook names include (in
+order of precedence): &ldquo;1&rdquo;-&ldquo;255&rdquo;, &ldquo;ok&rdquo;, &ldquo;warning&rdquo;, &ldquo;critical&rdquo;,
+&ldquo;unknown&rdquo;, and &ldquo;non-zero&rdquo;. The check hook command output, status,
+executed timestamp, and duration are captured and published in the
+check result. Check hook commands can optionally receive JSON
+serialized Sensu client and check definition data via STDIN.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Check STDIN. A boolean check definition attribute, &ldquo;stdin&rdquo;,
+when set to true instructs the Sensu client to write JSON
+serialized Sensu client and check definition data to the check
+command process STDIN. This attribute cannot be used with existing
+Sensu check plugins, nor Nagios plugins etc, as the Sensu client
+will wait indefinitely for the check process to read and close
+STDIN.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Splayed proxy check request publishing. Users can now
+splay proxy check requests (optional), evenly, over a window of
+time, determined by the check interval and a configurable splay
+coverage percentage. For example, if a check has an interval of
+60s and a configured splay coverage of 90%, its proxy check
+requests would be splayed evenly over a time window of 60s * 90%,
+54s, leaving 6s for the last proxy check execution before the the
+next round of proxy check requests for the same check. Proxy check
+request splayed publishing can be configured with two new check
+definition attributes, within the proxy_requests scope, splay
+(boolean) to enable it and splay_coverage (integer percentage,
+defaults to 90).</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Configurable check output truncation (for storage in
+Redis). Check output truncation can be manually enabled/disabled
+with the check definition attribute &ldquo;truncate_output&rdquo;,
+e.g.&ldquo;truncate_output&rdquo;: false. The output truncation length can be
+configured with the check definition attribute
+&ldquo;truncate_output_length&rdquo;, e.g. &ldquo;truncate_output_length&rdquo;: 1024.
+Check output truncation is still enabled by default for metric
+checks, with &ldquo;type&rdquo;: &ldquo;metric&rdquo;.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu client HTTP socket basic authentication can how
+be applied to all endpoints (not just /settings), via the client
+definition http_socket attribute &ldquo;protect_all_endpoints&rdquo;, e.g.
+&ldquo;protect_all_endpoints&rdquo;: true.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Improved check TTL monitoring performance.</p>
+</li>
+<li>
+<p><strong>IMRPOVEMENT</strong>: The Sensu extension run log event log level is now set
+to debug (instead of info) when the run output is empty and the
+status is 0.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Added initial timestamp to proxy client definitions. The
+Uchiwa and Sensu dashboards will no longer display &ldquo;Invalid Date&rdquo;.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Deleting check history when deleting an associated check result.</p>
+</li>
+</ul>
+<h2 id="core-v1-0-4">Core 1.0.4 Release Notes</h2>
+<p><strong>October, 17  2017</strong> — Sensu Core version 1.0.4 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-0-4-changes">CHANGES</h3>
+<ul>
+<li><strong>DEBUG</strong>: Added HTTP response body to sensu-api debug-level log
+messages. This is a temporary change, not included in
+future releases.</li>
+</ul>
+<h2 id="core-v1-0-3">Core 1.0.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#103---2017-08-25">GitHub.com</a></p>
+<p><strong>August 25, 2017</strong> — Sensu Core version 1.0.3 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-0-3-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Now using EventMachine version 1.2.5 in order to support larger EM
+timer intervals. EM timers are used by the Sensu check scheduler and many
+other Sensu components.</li>
+</ul>
+<h2 id="core-v1-0-2">Core 1.0.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#102---2017-07-27">GitHub.com</a></p>
+<p><strong>July 27, 2017</strong> — Sensu Core version 1.0.2 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-0-2-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Addressed an issue with client keepalive transport
+acknowledgments. We discovered a situation where poor Redis
+performance could negatively impact client keepalive processing,
+potentially triggering a compounding failure that the Sensu server
+is unable to recover from. Moving acknowledgments to the next tick
+of the EventMachine reactor avoids the situation entirely.</li>
+</ul>
+<h2 id="core-v1-0-1">Core 1.0.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#101---2017-07-24">GitHub.com</a></p>
+<p><strong>July 24, 2017</strong> — Sensu Core version 1.0.1 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-0-1-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Fixed Sensu configuration validation, it is now being
+applied. There was a bug that allowed invalid Sensu configuration
+definitions to be loaded, causing unexpected behaviours.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Now excluding certain file system directories from the Sensu
+RPM package spec, as they could cause conflicts with other RPM
+packages.</p>
+</li>
+</ul>
+<h2 id="core-v1-0-0">Core 1.0.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#100---2017-07-11">GitHub.com</a></p>
+<p><strong>July 11, 2017</strong> — Sensu Core version 1.0.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v1-0-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPORTANT</strong>: Sensu packages now include Ruby 2.4.1. Upgrading from
+prior versions of Sensu will require any plugin or extension gems
+to be re-installed under the new Ruby environment.</p>
+</li>
+<li>
+<p><strong>IMPORTANT</strong>: Sensu packages now include <a href="https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29">sensu-plugin 2.0.0</a>, which
+disables its deprecated filter methods by default, i.e.
+occurrences. Sensu 1.0 includes built-in filters that provide the
+same functionality with several improvements. The built-in filters
+are <a href="https://github.com/sensu-extensions/sensu-extensions-occurrences">&ldquo;occurrences&rdquo;</a> and <a href="https://github.com/sensu-extensions/sensu-extensions-check-dependencies">&ldquo;check_dependencies&rdquo;</a>. To use the
+built-in filters, apply them to Sensu event handlers via their
+definition <code>&quot;filters&quot;</code> attribute, e.g. <code>&quot;filters&quot;: [&quot;occurrences&quot;, &quot;check_dependencies&quot;]</code>. These filters can now be used with Sensu
+event handlers that do not use the sensu-plugin library (or Ruby).</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added Sensu API event endpoint alias &ldquo;incidents&rdquo;, e.g.
+/incidents, /incidents/:client/:check.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Improved Sensu client keepalive configuration
+validation, now including coverage for check low/high flap
+thresholds etc.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Improved Sensu client socket check result validation,
+now including coverage for check low/high flap thresholds etc.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The sensu-install tool now notifies users when it is
+unable to successfully install an extension, when the environment
+variable EMBEDDED_RUBY is set to false.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added the Sensu RELEASE_INFO constant, containing
+information about the Sensu release, used by the API /info
+endpoint and Server registration.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Sensu handler severities filtering now accounts for flapping
+events.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed Sensu Redis connection on error reconnect, no longer
+reusing the existing EventMachine connection handler.</p>
+</li>
+</ul>
+<h2 id="core-v0-29-0">Core 0.29.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0290---2017-03-29">GitHub.com</a></p>
+<p><strong>April 7, 2017</strong> — Sensu Core version 0.29.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-29-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPORTANT</strong>: Sensu packages now include Ruby 2.4.1. Upgrading from
+prior versions of Sensu will require any plugin or extension gems
+to be re-installed under the new Ruby environment.</p>
+</li>
+<li>
+<p><strong>IMPORTANT</strong>: Sensu packages now include <a href="https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29">sensu-plugin 2.0.0</a>, which
+disables its deprecated filter methods by default, i.e.
+occurrences. Sensu 0.29 includes built-in filters that provide the
+same functionality with several improvements. The built-in filters
+are <a href="https://github.com/sensu-extensions/sensu-extensions-occurrences">&ldquo;occurrences&rdquo;</a> and <a href="https://github.com/sensu-extensions/sensu-extensions-check-dependencies">&ldquo;check_dependencies&rdquo;</a>. To use the
+built-in filters, apply them to Sensu event handlers via their
+definition <code>&quot;filters&quot;</code> attribute, e.g. <code>&quot;filters&quot;: [&quot;occurrences&quot;, &quot;check_dependencies&quot;]</code>. These filters can now be used with Sensu
+event handlers that do not use the sensu-plugin library (or Ruby).</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu server tasks, replacing the Sensu server leader
+functionality, distributing certain server responsibilities
+amongst the running Sensu servers. A server task can only run on
+one Sensu server at a time. Sensu servers partake in an election
+process to become responsible for one or more tasks. A task can
+failover to another Sensu server.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu API response object filtering for any GET
+request. Filtering is done with one or more dot notation query
+parameters, beginning with <code>filter.</code>, to specify object attributes
+to filter by, e.g.
+<code>/events?filter.client.environment=production&amp;filter.check.contact=ops</code>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added API endpoint GET <code>/settings</code> to provided the APIs
+running configuration. Sensitive setting values are redacted by
+default, unless the query parameter <code>redacted</code> is set to <code>false</code>,
+e.g. <code>/settings?redacted=false</code>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added support for invalidating a Sensu client when
+deleting it via the Sensu API DELETE <code>/clients/:name</code> endpoint,
+disallowing further client keepalives and check results until the
+client is either successfully removed from the client registry or
+for a specified duration of time. To invalidate a Sensu client
+until it is deleted, the query parameter <code>invalidate</code> must be set
+to <code>true</code>, e.g. <code>/clients/app01.example.com?invalidate=true</code>. To
+invalidate the client for a certain amount of time (in seconds),
+the query parameter <code>invalidate_expire</code> must be set as well, e.g.
+<code>/clients/app01.example.com?invalidate=true&amp;invalidate_expire=300</code>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added a Sensu settings hexdigest, exposed via the Sensu
+API GET <code>/info</code> endpoint, providing a means to determine if a
+Sensu server&rsquo;s configuration differs from the rest.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added a proxy argument to <code>sensu-install</code>. To use a
+proxy for Sensu plugin and extension installation with
+<code>sensu-install</code>, use the <code>-x</code> or <code>--proxy</code> argument, e.g.
+<code>sensu-install -e statsd --proxy http://proxy.example.com:8080</code>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added support for issuing proxy check requests via the
+Sensu API POST <code>/request</code> endpoint.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The Sensu API now logs response times.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: The Sensu API now returns a 405 (Method Not Allowed)
+when an API endpoint does not support a HTTP request method, e.g.
+<code>PUT</code>, and sets the HTTP header &ldquo;Allow&rdquo; to indicate which HTTP
+request methods are supported by the requested endpoint.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added a built-in filter for check dependencies,
+<code>check_dependencies</code>, which implements the check dependency
+filtering logic in the Sensu Plugin library.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added default values for Sensu CLI options
+<code>config_file</code> (<code>&quot;/etc/sensu/config.json&quot;</code>) and <code>config_dirs</code>
+(<code>[&quot;/etc/sensu/conf.d&quot;]</code>). These defaults are only applied when
+the associated file and/or directory exist.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: The built-in filter <code>occurrences</code> now supports <code>refresh</code> for
+flapping events (action <code>flapping</code>).</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Force the configured Redis port to be an integer, as some
+users make the mistake of using a string.</p>
+</li>
+</ul>
+<h2 id="core-v0-28-5">Core 0.28.5 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0285---2017-03-23">GitHub.com</a></p>
+<p><strong>March 23, 2017</strong> — Sensu Core version 0.28.5 has been released and
+is available for immediate download. Please note the following
+changes:</p>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed check <code>subdue</code> and filter <code>when</code> features when a time
+window spans over <code>00:00:00</code>, crossing the day boundary.</li>
+</ul>
+<h2 id="core-v0-28-4">Core 0.28.4 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0284---2017-03-10">GitHub.com</a></p>
+<p><strong>March 10, 2017</strong> — Sensu Core version 0.28.4 has been released and
+is available for immediate download. Please note the following
+changes:</p>
+<ul>
+<li><strong>BUGFIX</strong>: In the interest of addressing a regression causing duplicate
+check execution requests, code added in 0.28.0 to account for task
+scheduling drift has been removed.</li>
+</ul>
+<h2 id="core-v0-28-3">Core 0.28.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0283---2017-03-09">GitHub.com</a></p>
+<p><strong>March 9, 2017</strong> — Sensu Core version 0.28.3 has been released and
+is available for immediate download. Please note the following
+changes:</p>
+<ul>
+<li><strong>BUGFIX</strong>: The Sensu client now includes check source when tracking in
+progress check executions. These changes are necessary to allow
+the Sensu client to execute on several concurrent proxy check
+requests.</li>
+</ul>
+<h2 id="core-v0-28-2">Core 0.28.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0282---2017-03-06">GitHub.com</a></p>
+<p><strong>March 6, 2017</strong> — Sensu Core version 0.28.2 has been released
+and is available for immediate download. Please note the following
+changes:</p>
+<ul>
+<li><strong>BUGFIX</strong>: Clients created via /clients API endpoint now have a
+per-client subscription added automatically, ensuring they can be
+silenced.</li>
+</ul>
+<h2 id="core-v0-28-1">Core 0.28.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0281---2017-03-02">GitHub.com</a></p>
+<p><strong>March 2, 2017</strong> — Sensu Core version 0.28.1 has been released
+and is available for immediate download. Please note the following
+changes:</p>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Check requests with proxy_requests attributes are no
+longer overridden by local check definitions.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Updated <a href="https://github.com/ohler55/oj">Oj</a> (used by the sensu-json library) to the
+latest release (2.18.1) for Ruby 2.4 compatibility.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Updated embedded OpenSSL from <a href="https://www.openssl.org/news/openssl-1.0.2-notes.html">1.0.2j to 1.0.2k</a>.</p>
+</li>
+</ul>
+<h2 id="core-v0-28-0">Core 0.28.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0280---2017-02-23">GitHub.com</a></p>
+<p><strong>February 23, 2017</strong> — Sensu Core version 0.28.0 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-28-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added proxy check requests to improve Sensu&rsquo;s ability
+to monitor external resources that have an associated Sensu proxy
+client. Publish a check request to the configured <code>subscribers</code>
+(e.g. <code>[&quot;round-robin:snmp_pollers&quot;]</code>) for every Sensu client in
+the registry that matches the configured client attributes in
+<code>client_attributes</code> on the configured <code>interval</code> (e.g. <code>60</code>).
+Client tokens in the check definition (e.g. <code>&quot;check-snmp-if.rb -h :::address::: -i eth0&quot;</code>) are substituted prior to publishing the
+check request. The check request check source is set to the client
+name.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Schedule check requests and standalone executions with
+the Cron syntax.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added the Sensu server registry, containing information
+about the running Sensu servers. Information about the Sensu
+servers is now accessible via the Sensu API /info endpoint.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added two optional attributes to Sensu API POST
+/request, &ldquo;reason&rdquo; and &ldquo;creator&rdquo;, for additional context. The
+check request reason and creator are added to the check request
+payload under &ldquo;api_requested&rdquo; and become part of the check result.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added event IDs to event handler log events for
+additional context, making it easier to trace an event through the
+Sensu pipeline.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: The Sensu interval timers, used for scheduling tasks, now
+account for drift. The check request and standalone execution
+scheduler timers are now more accurate.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a bug in the Sensu deep_merge() method that was
+responsible for mutating arrays of the original provided objects.</p>
+</li>
+</ul>
+<h2 id="core-v0-27-1">Core 0.27.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0271---2017-02-17">GitHub.com</a></p>
+<p><strong>February 17, 2017</strong> — Sensu Core version 0.27.1 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-27-1-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPROVEMENT</strong>: Failed pipe handler executions are now logged with the
+error log level.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu server now adds a unique per-client subscription to
+client keepalives when missing. This is to enable built-in event
+silencing for older Sensu clients (&lt; 0.26).</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Check subdue and filter when time windows now account for
+GMT offsets.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Non UTF-8 characters in check tokens are now removed.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed filter name logging when an event is filtered.</p>
+</li>
+</ul>
+<h2 id="core-v0-27-0">Core 0.27.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0270---2017-01-26">GitHub.com</a></p>
+<p><strong>January 26, 2017</strong> — Sensu Core version 0.27.0 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-27-0-important">IMPORTANT</h3>
+<p>This release includes potentially breaking, backwards-incompatible changes:</p>
+<ul>
+<li>
+<p><strong>NEW</strong>: Sensu is now packaged specifically for each supported platform
+version and architecture; previously, single packages were built
+for each platform and architecture using the oldest supported
+platform version. Accordingly, package repository structures have
+changed to support per-platform-version packages. See the
+<a href="/sensu-core/0.29/platforms">platforms page</a> for links to updated installation instructions.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: On platforms where systemd is the default init, Sensu now
+provides systemd unit files instead of sysv init scripts.</p>
+</li>
+<li>
+<p><strong>NOTE</strong>: The transition of service management from sysv to systemd may
+initially cause an error when restarting Sensu services. To
+avoid this, please be sure to stop Sensu services before
+upgrading to Sensu 0.27 and starting them again.</p>
+</li>
+<li>
+<p><strong>REMOVED</strong>: The embedded runit service supervisor is no longer included
+in Sensu packages for Linux platforms.</p>
+</li>
+<li>
+<p><strong>REPLACED</strong>: The <a href="https://github.com/sensu/sensu-omnibus">sensu-omnibus project</a> has superseded sensu-build as
+the tool chain for building official Sensu packages. This project
+uses <a href="https://travis-ci.org">Travis CI</a> to automate package builds using a combination of
+<a href="https://github.com/test-kitchen/test-kitchen">Test Kitchen</a>, <a href="https://github.com/chef/chef">Chef</a> and <a href="https://github.com/chef/omnibus">Omnibus</a> tools.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu packages for Windows now include Ruby 2.3.0,
+upgraded from Ruby 2.0.0 in prior versions of Sensu.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Sensu packages for Windows now include winsw 2.0.1,
+upgraded from winsw 1.16. This version includes a number of changes
+which should help to address issues around orphaned processes.</p>
+</li>
+<li>
+<p><strong>CHANGED</strong>: The CONFIG_DIR environment variable has been renamed to
+CONFD_DIR. This environment varible is used to specify the
+directory path where Sensu processes will load any JSON
+config files for deep merging. If you are using
+/etc/default/sensu to specify a custom value for
+<code>CONFIG_DIR</code>, please update it to the new <code>CONFD_DIR</code>
+variable name.</p>
+</li>
+</ul>
+<h3 id="core-v0-27-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Added a Sensu client HTTP socket for check result input and
+informational queries. The client HTTP socket provides several
+endpoints, <code>/info</code>, <code>/results</code>, and <code>/settings</code>. Basic
+authentication is supported, which is required for certain
+endpoints, i.e. <code>/settings</code>. The client HTTP socket is
+configurable via the Sensu client definition, <code>&quot;http_socket&quot;: {}</code>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added API endpoint <code>/silenced/ids/:id</code> for fetching a silence
+entry by ID.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added check attribute <code>ttl_status</code>, allowing checks to set a
+different TTL event check status (default is <code>1</code> warning).</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added client deregistration attribute <code>status</code>, allowing clients
+to set a different event check status for their deregistration
+events (default is <code>1</code> warning).</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added Rubygems cleanup support to <code>sensu-install</code>, via the
+command line argument <code>-c</code> or <code>--clean</code> when installing one or
+more plugins and/or extensions. If a version is provided for the
+plugin(s) or extension(s), all other installed versions of them
+will be removed, e.g. <code>sensu-install -e snmp-trap:0.0.23 -c</code>. If a
+version is not provided, all installed versions except the latest
+will be removed.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Hostnames are now resolved prior to making connection
+attempts, this applies to the Sensu Transport (i.e. RabbitMQ) and
+Redis connections. This allows Sensu to handle resolution failures
+and enables failover via DNS and services like Amazon AWS
+ElastiCache.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added the filter name to event filtered log events.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Check TTL events now have the check interval overridden
+to the TTL monitoring interval, this change allows event
+occurrence filtering to work as expected.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Silenced resolution events with silencing
+<code>&quot;expire_on_resolve&quot;: true</code> are now handled.</p>
+</li>
+</ul>
+<h2 id="core-v0-26-5">Core 0.26.5 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0265---2016-10-12">GitHub.com</a></p>
+<p><strong>October 12, 2016</strong> — Sensu Core version 0.26.5 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-26-5-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed Sensu client configuration validation when the
+automatic per-client subscription is the client&rsquo;s only
+subscription.</li>
+</ul>
+<h2 id="core-v0-26-4">Core 0.26.4 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0264---2016-10-05">GitHub.com</a></p>
+<p><strong>October 5, 2016</strong> — Sensu Core version 0.26.4 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-26-4-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed in progress check extension execution tracking, the
+Sensu client now guards against multiple concurrent executions of
+the same check extension.</li>
+</ul>
+<h2 id="core-v0-26-3">Core 0.26.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0263---2016-09-21">GitHub.com</a></p>
+<p><strong>September 23, 2016</strong> — Sensu Core version 0.26.3 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-26-3-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed a condition where /silenced API would fail to retrieve
+entries for subscriptions containing a mix of colons and hyphens,
+e.g. <code>client:foo-bar-baz</code>.</li>
+</ul>
+<h2 id="core-v0-26-2">Core 0.26.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0262---2016-09-20">GitHub.com</a></p>
+<p><strong>September 21, 2016</strong> — Sensu Core version 0.26.2 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-26-2-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a condition where events could not be successfully
+deleted when they originate from a client configured with a
+signature</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a condition where check results with an invalid
+signature would never complete processing. This often resulted in
+Sensu Server failing to shut down cleanly.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a condition where /silenced API would fail to retrieve
+entries for subscriptions containing colons, e.g. <code>client:foo</code>.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Made a change to ensure that new proxy clients are created
+with a per-client subscription just like regular clients.</p>
+</li>
+</ul>
+<h2 id="core-v0-26-1">Core 0.26.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0261---2016-09-07">GitHub.com</a></p>
+<p><strong>September 7, 2016</strong> — Sensu Core version 0.26.1 has been released
+and is available for immediate download. Please note the following
+improvements:</p>
+<h3 id="core-v0-26-1-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed a condition where Sensu Server would fail to start
+without a <code>client</code> configuration definition.</li>
+</ul>
+<h2 id="core-v0-26-0">Core 0.26.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0260---2016-09-06">GitHub.com</a></p>
+<p><strong>August 24, 2016</strong> — Sensu Core version 0.26.0 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-26-0-important">IMPORTANT</h3>
+<p>This release includes potentially breaking, backwards-incompatible changes:</p>
+<ul>
+<li>
+<p>Event silencing is now built into Sensu Core, and a new <code>/silenced</code> API
+is now available. A new <a href="/sensu-core/0.29/reference/handlers#handler-attributes"><code>&quot;handle_silenced&quot;: true</code> attribute</a> is
+available to opt-out of this new built-in silencing functionality on a
+per-handler basis.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Every Sensu client now creates and subscribes to a unique client
+subscription (e.g. <code>client:i-424242</code>). Unique client subscriptions are
+required for silencing one or more checks on a single client (host)
+<strong>Fixes: <a href="https://github.com/sensu/sensu/issues/1327">#1327</a></strong>.</p>
+</li>
+<li>
+<p>Sensu Core version 0.26 requires Uchiwa version 0.18 or newer in order
+to make use of the new <code>/silenced</code> API feature. Prior versions of Uchiwa
+silence events using the &ldquo;silence stashes&rdquo; pattern, which will be honored by
+existing handlers until the now-deprecated event filtering is removed
+from a future version of sensu-plugin.</p>
+<p><em>NOTE: The new <code>/silenced</code> API and native event silencing features are
+intended to replace the &ldquo;silence stash&rdquo; pattern implemented in the
+<code>sensu-plugin</code> library and widely used by existing handlers. This
+&ldquo;silence stashes&rdquo; pattern is considered deprecated. Sensu 0.26 includes
+version 1.4.2 of the <code>sensu-plugin</code> library which continues to
+apply this pattern by default, but will log deprecation warnings as
+well. Set the check attribute <code>enable_deprecated_filtering: false</code> to
+disable the deprecated filtering behavior. Please refer to the
+<a href="https://blog.sensu.io/deprecating-event-filtering-in-sensu-plugin-b60c7c500be3">Deprecating Event Filtering in sensu-plugin</a> blog post for more
+information.</em></p>
+</li>
+<li>
+<p>The handler definition <code>subdue</code> attribute is no longer supported. Time-based
+filtering is now supported by the new <a href="/sensu-core/0.29/reference/filters#when-attributes">filter <code>when</code> attribute</a>. Please
+update your handler definitions accordingly.</p>
+</li>
+<li>
+<p>Check <code>subdue</code> definitions no longer support the <code>&quot;at&quot;: &quot;handler&quot;</code>
+configuration setting.</p>
+</li>
+</ul>
+<h3 id="core-v0-26-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: Event silencing is now built into Sensu Core! The Sensu API now
+provides a set of <a href="/sensu-core/0.29/api/silenced"><code>/silenced</code> endpoints</a>, for silencing one or more
+checks and/or subscriptions (including the NEW client-specific subscriptions,
+above). Silencing applies to all event handlers by default, however a new
+<code>handle_silenced</code> handler definition attribute can be used to disable this
+functionality. Metric check events (OK) bypass event silencing.</p>
+<p><em>NOTE: this improvement is very closely related to the impending removal
+of event filtering in the <code>sensu-plugin</code> gem. See the recent <a href="https://blog.sensu.io/deprecating-event-filtering-in-sensu-plugin-b60c7c500be3">Deprecating
+Event Filtering in sensu-plugin</a> blog post for more information.</em></p>
+</li>
+<li>
+<p><strong>NEW</strong>: Introducing <strong>Subdue 2.0</strong>! Sensu <code>subdue</code> rules have a brand new
+configuration syntax, adding support for a broader number of applications, and
+<code>subdue</code> definitions are now supported by standalone checks.</p>
+<p>By way of comparison, the legacy <code>subdue</code> definition specification was
+limited to a single time window rule, with an array of exceptions. This was
+not only confusing, it made it very difficult to apply a simple &ldquo;don&rsquo;t execute
+this check outside of 9-5, M-F&rdquo; rule.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;checks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;example_check&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;check_something.rb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subdue&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:00 PM&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;days&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;monday&#34;</span><span class="p">,</span> <span class="s2">&#34;tuesday&#34;</span><span class="p">,</span> <span class="s2">&#34;wednesday&#34;</span><span class="p">,</span> <span class="s2">&#34;thursday&#34;</span><span class="p">,</span> <span class="s2">&#34;friday&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;exceptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;9:00:00 AM&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;5:00:00 PM&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  </span></span></code></pre></div>
+</div>
+
+
+<p>The new syntax is more verbose, but by doing away with the need for
+<code>exceptions</code> and adding support for defining an array of subdue time windows,
+it is much easier to configure.</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;checks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;example_check&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;check_something.rb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;...&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subdue&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;days&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;monday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;9:00:00 AM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;5:00:00 PM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;tuesday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;9:00:00 AM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;5:00:00 PM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;wednesday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;9:00:00 AM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;5:00:00 PM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;thursday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;9:00:00 AM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;5:00:00 PM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;friday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;9:00:00 AM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;5:00:00 PM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;saturday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sunday&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;begin&#34;</span><span class="p">:</span> <span class="s2">&#34;12:00:00 AM PST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;11:59:59 PM PST&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  </span></span></code></pre></div>
+</div>
+
+
+<p><em>NOTE: Subdue rules now apply to check publishing, <strong>ONLY</strong> (i.e. <code>subdue</code>
+definitions no longer support the <code>&quot;at&quot;: &quot;handler&quot;</code> definition attribute,
+among other changes). Prior to this release, <code>subdue</code> rules could be provided
+via <a href="/sensu-core/0.29/reference/checks#subdue-attributes">check definition <code>subdue</code> attribute</a> (i.e. <code>&quot;at&quot;: &quot;publisher&quot;</code>) or the
+<a href="/sensu-core/0.29/reference/handlers#subdue-attributes">handler definition <code>subdue</code> attribute</a> (i.e. <code>&quot;at&quot;: &quot;handler&quot;</code>).
+Time-based filtering for handlers is now provided by Sensu filters (see
+below). Please refer to the new <a href="/sensu-core/0.29/reference/checks#subdue-attributes"><code>subdue</code> reference documentation</a> for more
+information.</em> <strong>See: <a href="https://github.com/sensu/sensu/pull/1415">#1415</a></strong>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Event filters now support time-based rules, via a new <code>&quot;when&quot;: {}</code>
+filter definition attribute. The filter <code>when</code> specification uses the same
+syntax as the new Subdue 2.0 specification, simplifying time-based event
+filtering. Please refer to the <a href="/sensu-core/0.29/reference/filters#when-attributes">filer <code>when</code> reference documentation</a> for
+more information. <strong>See <a href="https://github.com/sensu/sensu/pull/1415">#1415</a></strong>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Sensu Extensions can now be loaded from Rubygems and enabled/disabled
+via configuration! The <code>sensu-install</code> has also added support for installing
+Sensu Extensions (e.g. <code>sensu-install -e system-profile</code>). Extensions gems
+must be enabled via configuration, please refer to the <a href="/sensu-core/0.29/reference/extensions">Sensu extension
+reference documentation</a> for more information. <strong>See: <a href="https://github.com/sensu/sensu/pull/1394">#1394</a></strong>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: A check can now be a member of more than one <a href="/sensu-core/0.29/reference/aggregates">named aggregate</a>,
+via a new check definition <code>&quot;aggregates&quot;: []</code> attribute. <strong>See: <a href="https://github.com/sensu/sensu/pull/1379">#1379</a>;
+fixes <a href="https://github.com/sensu/sensu/issues/1342">#1342</a></strong>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added support for setting Redis Sentinel configuration via a new
+<code>REDIS_SENTINEL_URLS</code> environment variable. Please refer to the <a href="/sensu-core/0.29/reference/configuration#sensu-environment-variables">Sensu
+environment variables reference documentation</a> for more information. **See
+<a href="https://github.com/sensu/sensu/pull/1411">#1411</a>; fixes <a href="https://github.com/sensu/sensu/issues/1361">#1361</a>.</p>
+</li>
+<li>
+<p><strong>NEW</strong>: Added support for automatically discovering and setting client <code>name</code>
+and <code>address</code> attributes (two of the few required attributes for a valid
+Sensu client definition). <strong>See: <a href="https://github.com/sensu/sensu/pull/1379">#1379</a>; fixes <a href="https://github.com/sensu/sensu/issues/1362">#1362</a></strong>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Added support for a new <code>occurrences_watermark</code> attribute,
+which is used by the built-in <a href="https://github.com/sensu-extensions/sensu-extensions-occurrences/">sensu-occurrences-extension</a> filter to
+prevent sending resolve notifications for events that were not handled due to
+occurrence filtering. <strong>See: <a href="https://github.com/sensu/sensu/pull/1419">#1419</a> and <a href="https://github.com/sensu/sensu/pull/1427">#1427</a></strong>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Only attempt to schedule standalone checks that have an
+interval. <strong>See: <a href="https://github.com/sensu/sensu/pull/1384">#1384</a>; fixes <a href="https://github.com/sensu/sensu/issues/1286">#1286</a></strong>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Locally configured standalone checks (e.g. on a Sensu server)
+are no longer accessible via the Sensu API <code>/checks</code> endpoint. <strong>See:
+<a href="https://github.com/sensu/sensu/pull/1417">#1417</a>; fixes <a href="https://github.com/sensu/sensu/issues/1416">#1416</a></strong>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Check TTL events are no longer created if the associated
+Sensu client has a current keepalive event. <strong>See <a href="https://github.com/sensu/sensu/pull/1428">#1428</a>; fixes <a href="https://github.com/sensu/sensu/issues/861">#861</a>
+and <a href="https://github.com/sensu/sensu/issues/1282">#1282</a></strong>.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT</strong>: Increased the maximum number of EventMachine timers from 100k
+to 200k, to accommodate very large Sensu installations that execute over 100k
+checks. <strong>See <a href="https://github.com/sensu/sensu/pull/1370">#1370</a>; fixes <a href="https://github.com/sensu/sensu/issues/1368">#1368</a></strong>.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a Sensu API <code>/results</code> endpoint race condition that
+caused incomplete response content. <strong>See <a href="https://github.com/sensu/sensu/pull/1372">#1372</a>; fixes [#1356][-i1356]</strong>.</p>
+</li>
+</ul>
+<h2 id="core-v0-25-7">Core 0.25.7 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0257---2016-08-09">GitHub.com</a></p>
+<p><strong>August 9, 2016</strong> — Sensu Core version 0.25.7 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-7-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed the Sensu API 204 status response string, changing &ldquo;No
+Response&rdquo; to the correct string &ldquo;No Content&rdquo;. <strong>Fixes: <a href="https://github.com/sensu/sensu/issues/1405">#1405</a>.</strong></li>
+</ul>
+<h2 id="core-v0-25-6">Core 0.25.6 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0256---2016-07-28">GitHub.com</a></p>
+<p><strong>July 28, 2016</strong> — Sensu Core version 0.25.6 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-6-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Check results for unmatched tokens now include an executed
+timestamp.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: API aggregates max_age now guards against check results with a nil
+executed timestamp.</p>
+</li>
+</ul>
+<h2 id="core-v0-25-5">Core 0.25.5 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0255---2016-07-12">GitHub.com</a></p>
+<p><strong>July 12, 2016</strong> — Sensu Core version 0.25.5 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-5-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: Reverted a Sensu API race condition fix, it was a red herring.
+Desired behavior has been restored. <strong>See: <a href="https://github.com/sensu/sensu/pull/1358">#1358</a>.</strong></p>
+</li>
+<li>
+<p><strong>BUGFIX:</strong>: Custom check definition attributes are now included in check
+request payloads, fixing check attribute token substitution for pubsub checks.
+<strong>Fixes: <a href="https://github.com/sensu/sensu/issues/1360">#1360</a>.</strong></p>
+</li>
+<li>
+<p><strong>BUGFIX:</strong> Transport connectivity issues are now handled while querying the
+Transport for pipe stats for API /info and /health. <strong>See: <a href="https://github.com/sensu/sensu/pull/1367">#1367</a>.</strong></p>
+</li>
+</ul>
+<h2 id="core-v0-25-4">Core 0.25.4 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0254---2016-06-20">GitHub.com</a></p>
+<p><strong>June 20, 2016</strong> — Sensu Core version 0.25.4 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-4-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed a race condition in the Sensu API where the <code>@redis</code> and
+<code>@transport</code> objects were not initialized before serving API requests.</li>
+</ul>
+<h2 id="core-v0-25-3">Core 0.25.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0253---2016-06-17">GitHub.com</a></p>
+<p><strong>June 17, 2016</strong> — Sensu Core version 0.25.3 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-3-changes">CHANGES</h3>
+<ul>
+<li><strong>BUGFIX</strong>: Fixed a condition where API process was unable to set CORS HTTP
+headers when the API had not been configured (i.e. no <code>&quot;api&quot;: {}</code> definition
+in configuration).</li>
+</ul>
+<h2 id="core-v0-25-2">Core 0.25.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0253---2016-06-17">GitHub.com</a></p>
+<p><strong>June 16, 2016</strong> — Sensu Core version 0.25.2 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-2-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>BUGFIX</strong>: The Sensu API now responds to HEAD requests for API GET
+routes.</p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: The Sensu API now responds to unsupported HTTP request methods
+with a 404 (Not Found), i.e. PUT.</p>
+</li>
+</ul>
+<h2 id="core-v0-25-1">Core 0.25.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0251---2016-06-14">GitHub.com</a></p>
+<p><strong>June 14, 2016</strong> — Sensu Core version 0.25.1 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-1-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>IMPROVEMENT</strong>: the Sensu Core package now includes version 1.2 <em>and</em> 1.3 of
+the Sensu Plugin gem. <strong>Fixes <a href="https://github.com/sensu/sensu/issues/1339">#1339</a>.</strong></p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: The Sensu API now sets the HTTP response header &ldquo;Connection&rdquo; to
+&ldquo;close&rdquo;. Uchiwa was experiencing intermittent EOF errors. <strong>Fixes
+<a href="https://github.com/sensu/sensu/issues/1340">#1340</a>.</strong></p>
+</li>
+</ul>
+<h2 id="core-v0-25-0">Core 0.25.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0250---2016-06-13">GitHub.com</a></p>
+<p><strong>June 13, 2016</strong> — Sensu Core version 0.25.0 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-25-0-important">IMPORTANT</h3>
+<p>This release includes potentially breaking, backwards-incompatible changes:</p>
+<ul>
+<li>The legacy/deprecated Sensu API singular resources (e.g. <code>/check/:check_name</code>
+instead of <code>/checks/:check_name</code>), have been removed. Singular resources were
+never documented and have not been used by most community tooling (e.g.
+Uchiwa) since the very early Sensu releases (circa 2011-2012).</li>
+</ul>
+<h3 id="core-v0-25-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW</strong>: <a href="/sensu-core/0.29/reference/clients#deregistration-attributes">Built-in client de-registration</a>. Sensu client de-registration on
+graceful <code>sensu-client</code> process stop is now supported by the Sensu client
+itself (no longer depending on the package init script). The package init
+script-based de-registration functionality still remains, but is considered to
+be deprecated at this time and will be removed in a future release.</p>
+<p>Please note the following example client definition which enables built-in
+client de-registration (via the new client <code>deregister</code> definition attribute),
+and sets the deregistration event handler to <code>deregister_client</code> (via the new
+client <code>deregistration</code> definition attribute):</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;client&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;i-424242&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;8.8.8.8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;subscriptions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;webserver&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;mysql&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;deregister&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;deregistration&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;handler&#34;</span><span class="p">:</span> <span class="s2">&#34;deregister_client&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;socket&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;bind&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">3030</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  </span></span></code></pre></div>
+</div>
+
+
+</li>
+</ul>
+<p>Please refer to the <a href="/sensu-core/0.29/reference/clients#deregistration-attributes">Sensu client reference documentation</a> for additional
+information on configuring the built-in Sensu client de-registration.
+<strong>Fixes <a href="https://github.com/sensu/sensu/pull/1191">#1191</a>, <a href="https://github.com/sensu/sensu/pull/1305">#1305</a>.</strong></p>
+<ul>
+<li>
+<p><strong>NEW</strong>: The Sensu API has been rewritten to use <a href="https://github.com/alor/em-http-server">EM HTTP Server</a>, removing
+Rack and Thin as API runtime dependencies. The API no longer uses Rack async,
+making for cleaner HTTP request logic and much improved HTTP request and
+response logging. <strong>Fixes <a href="https://github.com/sensu/sensu/issues/1317">#1317</a>.</strong></p>
+</li>
+<li>
+<p><strong>BUGFIX</strong>: Fixed a critical bug in Sensu client <code>execute_check_command()</code>
+where a check result would contain a check command with client tokens
+substituted, potentially exposing sensitive/redacted client attribute values.</p>
+</li>
+</ul>
+<h2 id="core-v0-24-1">Core 0.24.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0241---2016-06-07">GitHub.com</a></p>
+<p><strong>June 7, 2016</strong> — Sensu Core version 0.24.1 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li>
+<p><strong>BUGFIX:</strong> Fixed a critical bug in Sensu server <code>resume()</code> which caused the
+server to crash when querying the state of the Sensu Transport connection
+before it had been initialized. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/1321">#1321</a>.</strong></p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Updated references to unmatched tokens, i.e. check result
+output message, to better represent the new scope of token substitution.
+<strong>Resolves <a href="https://github.com/sensu/sensu/issues/1322">#1322</a>.</strong></p>
+</li>
+</ul>
+<h2 id="core-v0-24-0">Core 0.24.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0240---2016-06-06">GitHub.com</a></p>
+<p><strong>June 6, 2016</strong> — Sensu Core version 0.24.0 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<h3 id="core-v0-24-0-important">IMPORTANT</h3>
+<p>This release includes potentially breaking, backwards-incompatible changes:</p>
+<ul>
+<li>
+<p>Sensu <a href="/sensu-core/0.29/reference/aggregates">check aggregates</a> have been completely redesigned. Users who are
+using check aggregates may need to review these changes before upgrading.
+<a href="https://uchiwa.io/">Uchiwa</a> users should install version 0.15 or higher before upgrading to
+Sensu Core version 0.24.0. See below for additional information.</p>
+</li>
+<li>
+<p>Sensu <a href="/sensu-core/0.29/reference/events#event-data-specification">event <code>id</code>s</a> are no longer unique to each occurrence of an event.
+Event <code>id</code>s are now persistent for the duration of an event (per client/check
+pair), until the event is resolved. See below for additional information.</p>
+</li>
+<li>
+<p>The Sensu <a href="/sensu-core/0.29/api/health-and-info#health-get">/health (GET) API endpoint</a> has been updated such that failed
+health checks now respond with an <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.13"><code>412 (Precondition Failed)</code> HTTP response
+code</a> instead of a <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4"><code>503 (Service Unavailable)</code> response code</a>.
+Third-party services and/or custom scripts may need to be updated accordingly.</p>
+</li>
+<li>
+<p>The Sensu services and corresponding service management scripts have been
+updated to use the new <code>--validate_config</code> command line option which uses
+strong configuration validation (i.e. do not start if configuration is in an
+invalid state). See below for additional information.</p>
+</li>
+</ul>
+<h3 id="core-v0-24-0-changes">CHANGES</h3>
+<ul>
+<li>
+<p><strong>NEW:</strong> Named aggregates. Check <a href="https://github.com/sensu/sensu/issues/1218">aggregates 2.0</a> are here! At long last,
+Sensu <a href="https://github.com/sensu/sensu/issues/1218">check aggregates</a> have been updated to support standalone checks, as
+well as a number of new use cases. Please refer to the <a href="https://uchiwa.io/">check aggregates
+reference documentation</a> for additional information. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/803">#803</a>,
+<a href="https://github.com/sensu/sensu/issues/915">#915</a>, <a href="https://github.com/sensu/sensu/issues/1041">#1041</a>, <a href="https://github.com/sensu/sensu/issues/1070">#1070</a>, <a href="https://github.com/sensu/sensu/issues/1187">#1187</a>, and <a href="https://github.com/sensu/sensu/issues/1218">#1218</a>.</strong></p>
+</li>
+<li>
+<p><strong>NEW:</strong> Persistent <a href="/sensu-core/0.29/reference/events#event-data-specification">event IDs</a>. Event occurrences for a client/check pair
+will now have the same event ID until the event is resolved (instead of a
+unique event ID for each occurrence of an event). Please refer to the <a href="/sensu-core/0.29/reference/events#event-data-specification">Event
+specification reference documentation</a> for additional information.
+<strong>Resolves <a href="https://github.com/sensu/sensu/issues/1196">#1196</a>.</strong></p>
+</li>
+<li>
+<p><strong>NEW:</strong> Strong configuration validation. Added a new <code>--validate_config</code> CLI
+option/argument to cause Sensu to validate configuration settings and exit
+with the appropriate exit code (e.g. <code>2</code> for invalid). This feature is now
+used when restarting a Sensu service to first validate the new configuration
+before stopping the running service (i.e. to prevent restarts if the
+configuration is invalid). Please refer to the <a href="/sensu-core/0.29/reference/configuration#sensu-command-line-interfaces-and-arguments">Sensu service command line
+interface reference documentation</a> for additional information. <strong>Resolves
+<a href="https://github.com/sensu/sensu/issues/1244">#1244</a>, <a href="https://github.com/sensu/sensu/issues/1254">#1254</a>.</strong></p>
+</li>
+<li>
+<p><strong>NEW:</strong> Proxy check origins. Events for <a href="/sensu-core/0.29/reference/clients#proxy-clients">proxy clients</a> will now have a
+check <code>origin</code> attribute, set to the client name of the result producer.
+Please refer to the <a href="/sensu-core/0.29/reference/events#check-attributes">Event data specification reference documentation</a> for
+additional information. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/1075">#1075</a>.</strong></p>
+</li>
+<li>
+<p><strong>NEW:</strong> Improved Sensu check token substitution. Sensu <a href="/sensu-core/0.29/reference/checks#check-token-substitution">check token
+substitution</a> is now supported in every check definition attribute value
+(no longer just the check <code>command</code> attribute). Please refer to the <a href="/sensu-core/0.29/reference/checks#check-token-substitution">check
+token substitution reference documentation</a> for additional information.
+<strong>Resolves <a href="https://github.com/sensu/sensu/issues/1281">#1281</a>.</strong></p>
+</li>
+<li>
+<p><strong>NEW:</strong> Sensu <code>/clients (POST)</code> API endpoint can now create clients in the
+client registry that are expected to produce keepalives, and validates clients
+with the Sensu Settings client definition validator. A new <a href="/sensu-core/0.29/reference/clients#client-definition-specification">check <code>keepalives</code>
+attribute</a> called has also been added, which allows client keepalives to
+be disabled on a per-client basis. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/1203">#1203</a>.</strong></p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Configurable Sensu Spawn concurrent child process limit
+(checks, mutators, &amp; pipe handlers). The default limit is still 12 and the
+EventMachine threadpool size is automatically adjusted to accommodate a larger
+limit. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/1002">#1002</a>.</strong></p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Event data check type now explicitly defaults to <code>standard</code>.
+<strong>Resolves <a href="https://github.com/sensu/sensu/issues/1025">#1025</a>.</strong></p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Improved tracking of in progress check result processing,
+eliminates the potential for losing check results when restarting the Sensu
+server service. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/1165">#1165</a>.</strong></p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Updated <a href="https://github.com/macournoyer/thin/">Thin</a> (used by Sensu API) to the latest release,
+version 1.6.4. <strong>Resolves <a href="https://github.com/sensu/sensu/issues/1122">#1122</a>.</strong></p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> <a href="https://github.com/guyboertje/jrjackson">JrJackson</a> is now used to parse JSON when Sensu is
+running on JRuby.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> The Sensu API now listens immediately on service start, even
+before it has successfully connected to Redis and the Sensu Transport. It will
+now respond with a <code>500 (Internal Server Error)</code> HTTP response code and a
+descriptive error message when it has not yet initialized its connections or
+it is reconnecting to either Redis or the Sensu Transport. The <a href="/sensu-core/0.29/api/health-and-info">Health and
+Info API</a> endpoints will still respond normally while reconnecting.
+<strong>Resolves <a href="https://github.com/sensu/sensu/issues/1215">#1215</a>.</strong></p>
+</li>
+</ul>
+<h2 id="core-v0-23-3">Core 0.23.3 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0233---2016-05-26">GitHub.com</a></p>
+<p><strong>May 26, 2016</strong> — Sensu Core version 0.23.3 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li>
+<p><strong>IMPROVEMENT:</strong> Fixed child process write/read deadlocks when writing to
+STDIN or reading from STDOUT/STDERR, when the data size exceeds the pipe
+buffers.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Fixed child process spawn timeout deadlock, now using stdlib
+Timeout.</p>
+</li>
+</ul>
+<h2 id="core-v0-23-2">Core 0.23.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0232---2016-04-25">GitHub.com</a></p>
+<p><strong>April 25, 2016</strong> — Sensu Core version 0.23.2 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li><strong>IMPROVEMENT:</strong> fixed client socket check result publishing when the client
+has a signature. The client signature is now added to the check result payload,
+making it valid (see: <a href="https://github.com/sensu/sensu/issues/1182">#1182</a>).</li>
+</ul>
+<h2 id="core-v0-23-1">Core 0.23.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0231---2016-04-15">GitHub.com</a></p>
+<p><strong>April 15, 2016</strong> — Sensu Core version 0.23.1 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li><strong>NEW:</strong> a pure-Ruby EventMachine reactor is used when running on Solaris.</li>
+</ul>
+<h2 id="core-v0-23-0">Core 0.23.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0230---2016-04-04">GitHub.com</a></p>
+<p><strong>April 4, 2016</strong> — Sensu Core version 0.23.0 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li>
+<p><strong>NEW:</strong> dropped support for Rubies &lt; 2.0.0, as they have long been EOL
+and have proven to be a hindrance and security risk.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> the Sensu 0.23 packages use <a href="https://www.ruby-lang.org/en/news/2015/12/25/ruby-2-3-0-released/">Ruby 2.3</a>.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> native support for <a href="https://redis.io/topics/sentinel">Redis Sentinel</a>. Sensu services can now be
+configured to query one or more instances of Redis Sentinel for a Redis
+master. This feature eliminates the last need for load balancing middleware
+(e.g. HAProxy) in highly available Sensu configurations. To configure Sensu
+services to use Redis Sentinel, hosts and ports of one or more Sentinel
+instances must be provided.</p>
+<p>Example Redis Sentinel configuration:</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;sentinels&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;10.0.1.23&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">26479</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  </span></span></code></pre></div>
+</div>
+
+
+<p>See the <a href="/sensu-core/0.29/reference/redis#redis-high-availability-configuration">Redis configuration documentation</a> for more information.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> Added a CLI option/argument to cause the Sensu service to print
+(output to STDOUT) its compiled configuration settings and exit. The CLI
+option is <code>--print_config</code> or <code>-P</code>.</p>
+<p>See the <a href="/sensu-core/0.29/reference/configuration#sensu-command-line-interfaces-and-arguments">Sensu CLI arguments</a> documentation for more information.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> Added token substitution to filter eval attributes, providing
+access to event data.</p>
+<p>Example filter eval token:</p>
+<div class="language" data-lang="json">
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;example_filter&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;occurrences&#34;</span><span class="p">:</span> <span class="s2">&#34;eval: value &gt; :::check.occurrences:::&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  </span></span></code></pre></div>
+</div>
+
+
+</li>
+<li>
+<p><strong>NEW:</strong> native installer packages are now available for IBM AIX systems
+(sensu-client only).</p>
+</li>
+<li>
+<p><strong>NEW:</strong> The pure Ruby EventMachine reactor is used when running on AIX.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> The Sensu Transport API has changed. Transports are now a
+deferrable, they must call <code>succeed()</code> once they have fully initialized. Sensu
+now waits for its transport to fully initialize before taking other actions.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> performance improvements. Dropped MultiJson in favour of
+Sensu JSON, a lighter weight JSON parser abstraction that supports platform
+specific parsers for Sensu Core and Enterprise. The Oj JSON parser is
+once again used for Sensu Core. Used <a href="https://github.com/JuanitoFatas/fast-ruby">fast-ruby</a> and benchmarks as a guide
+to further changes.</p>
+</li>
+<li>
+<p><strong>IMPROVEMENT:</strong> Using EventMachine 1.2.0, which brings several changes and
+improvements (<a href="https://github.com/eventmachine/eventmachine/blob/master/CHANGELOG.md#1201-march-15-2016">changelog</a>).</p>
+</li>
+</ul>
+<h2 id="v0-22-2">0.22.2 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0222---2016-03-16">GitHub.com</a></p>
+<p><strong>March 16, 2016</strong> — Sensu Core version 0.22.2 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li>
+<p><strong>BUGFIX:</strong> FFI library loading no longer causes a load error on AIX &amp;
+Solaris.</p>
+</li>
+<li>
+<p>Removed unused cruft from extension API <code>run()</code> and <code>safe_run()</code>. Optional
+<code>options={}</code> was never implemented in Sensu Core and event data <code>dup()</code> never
+provided the necessary protection that it claimed (only top level hash
+object).</p>
+</li>
+</ul>
+<h2 id="v0-22-1">0.22.1 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0221---2016-03-01">GitHub.com</a></p>
+<p><strong>March 01, 2016</strong> — Sensu Core version 0.22.1 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li>
+<p>Performance improvements. Using frozen constants for common values and
+comparisons. Reduced the use of block arguments for callbacks.</p>
+</li>
+<li>
+<p>Improved RabbitMQ transport channel error handling.</p>
+</li>
+<li>
+<p>Fixed client signatures inspection/comparison when upgrading from a previous
+release.</p>
+</li>
+</ul>
+<h2 id="v0-22-0">0.22.0 Release Notes</h2>
+<p>Source: <a href="https://github.com/sensu/sensu/blob/master/CHANGELOG.md#0220---2016-01-29">GitHub.com</a></p>
+<p><strong>January 29, 2016</strong> — Sensu Core version 0.22.0 has been released and is
+available for immediate download. Please note the following improvements:</p>
+<ul>
+<li>
+<p><strong>NEW:</strong> Client registration events are optionally created and processed
+(handled, etc.) when a client is first added to the client registry. To enable
+this functionality, configure a <code>&quot;registration&quot;</code> handler definition on Sensu
+server(s), or define a client specific registration handler in the client
+definition, e.g. <code>{&quot;client&quot;: &quot;registration&quot;: {&quot;handler&quot;: &quot;debug&quot;}}</code>.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> Client auto de-registration on sensu-client process stop is now
+supported by the Sensu package init script. Setting
+<code>CLIENT_DEREGISTER_ON_STOP=true</code> and <code>CLIENT_DEREGISTER_HANDLER=example</code> in
+<code>/etc/default/sensu</code> will cause the Sensu client to publish a check result to
+trigger the event handler named <code>&quot;example&quot;</code>, before its process stops.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> Added support for Sensu client signatures, used to sign client
+keepalive and check result transport messages, for the purposes of source
+(publisher) verification. The client definition attribute <code>&quot;signature&quot;</code> is used
+to set the client signature, e.g. <code>&quot;signature&quot;: &quot;6zvyb8lm7fxcs7yw&quot;</code>. A client
+signature can only be set once, the client must be deleted from the registry
+before its signature can be changed or removed. Client keepalives and check
+results that are not signed with the correct signature are logged (warn) and
+discarded. This feature is NOT a replacement for existing and proven security
+measures.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> The Sensu plugin installation tool, <code>sensu-install</code>, will no longer
+install a plugin if a or specified version has already been installed.</p>
+</li>
+<li>
+<p><strong>NEW:</strong> The Sensu client socket now supports UTF-8 encoding.</p>
+</li>
+</ul>
+<!-- 0.23 -->
+<!-- 0.24 -->
+<!-- 0.25 -->
+<!-- 0.26 -->
+<!-- 0.27 -->
+<!-- 0.28 -->
+<!-- 0.29 -->
+<!-- 1.0 -->
+<!-- 1.1 -->
+<!-- 1.2 -->
+<!-- 1.3 -->
+<!-- 1.4 -->
+<!-- 1.5 -->
+<!-- 1.6 -->
+<!-- 1.6.1 -->
+<!-- 1.6.2 -->
+<!-- 1.7.0 -->
+<!-- 1.7.1 -->
+<!-- 1.8.0 -->
+<!-- 1.9.0 -->
+<!-- GH Issues/PR's -->
+
+
+      <script async type="text/javascript" src="/js/clip.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+      
+      
+
+
+
+
+    </div>
+  </article>
+
+  <section id="sidebar">
+    <aside id="contribute">
+  <div id="page-rating">
+    <h4>Is this page helpful?</h4>
+    <fieldset class="rating">
+      <input type="radio" id="heart5" name="rating" value="5">
+      <label for="heart5" title="Excellent"></label>
+      <input type="radio" id="heart4" name="rating" value="4">
+      <label for="heart4" title="Good"></label>
+      <input type="radio" id="heart3" name="rating" value="3">
+      <label for="heart3" title="OK"></label>
+      <input type="radio" id="heart2" name="rating" value="2">
+      <label for="heart2" title="Poor"></label>
+      <input type="radio" id="heart1" name="rating" value="1">
+      <label for="heart1" title="Unusable"></label>
+    </fieldset>
+  </div>
+
+  <div>
+    <h4>Contribute:</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/edit/main/content/sensu-core/6.9/changelog.md" target="_blank">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit this page
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/issues/new/choose" target="_blank">
+          <i class="fa fa-bug" aria-hidden="true"></i>
+          Report a docs issue
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sensu/sensu-docs/blob/main/CONTRIBUTING.md" target="_blank">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Read the contributing guide
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+    <aside id="toc">
+  
+    <div>
+      <h4>On this page:</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#releases">Releases</a></li>
+    <li><a href="#core-v1-9-0">Core 1.9.0 Release Notes</a></li>
+    <li><a href="#core-v1-8-0">Core 1.8.0 Release Notes</a></li>
+    <li><a href="#core-v1-7-1">Core 1.7.1 Release Notes</a></li>
+    <li><a href="#core-v1-7-0">Core 1.7.0 Release Notes</a></li>
+    <li><a href="#core-v1-6-2">Core 1.6.2 Release Notes</a></li>
+    <li><a href="#core-v1-6-1">Core 1.6.1 Release Notes</a></li>
+    <li><a href="#core-v1-6-0">Core 1.6.0 Release Notes</a></li>
+    <li><a href="#core-v1-5-0">Core 1.5.0 Release Notes</a></li>
+    <li><a href="#core-v1-4-3">Core 1.4.3 Release Notes</a></li>
+    <li><a href="#core-v1-4-2">Core 1.4.2 Release Notes</a></li>
+    <li><a href="#core-v1-4-1">Core 1.4.1 Release Notes</a></li>
+    <li><a href="#core-v1-4-0">Core 1.4.0 Release Notes</a></li>
+    <li><a href="#core-v1-3-0">Core 1.3.0 Release Notes</a></li>
+    <li><a href="#core-v1-2-1">Core 1.2.1 Release Notes</a></li>
+    <li><a href="#core-v1-2-0">Core 1.2.0 Release Notes</a></li>
+    <li><a href="#core-v1-1-3">Core 1.1.3 Release Notes</a></li>
+    <li><a href="#core-v1-1-2">Core 1.1.2 Release Notes</a></li>
+    <li><a href="#core-v1-1-1">Core 1.1.1 Release Notes</a></li>
+    <li><a href="#core-v1-1-0">Core 1.1.0 Release Notes</a></li>
+    <li><a href="#core-v1-0-4">Core 1.0.4 Release Notes</a></li>
+    <li><a href="#core-v1-0-3">Core 1.0.3 Release Notes</a></li>
+    <li><a href="#core-v1-0-2">Core 1.0.2 Release Notes</a></li>
+    <li><a href="#core-v1-0-1">Core 1.0.1 Release Notes</a></li>
+    <li><a href="#core-v1-0-0">Core 1.0.0 Release Notes</a></li>
+    <li><a href="#core-v0-29-0">Core 0.29.0 Release Notes</a></li>
+    <li><a href="#core-v0-28-5">Core 0.28.5 Release Notes</a></li>
+    <li><a href="#core-v0-28-4">Core 0.28.4 Release Notes</a></li>
+    <li><a href="#core-v0-28-3">Core 0.28.3 Release Notes</a></li>
+    <li><a href="#core-v0-28-2">Core 0.28.2 Release Notes</a></li>
+    <li><a href="#core-v0-28-1">Core 0.28.1 Release Notes</a></li>
+    <li><a href="#core-v0-28-0">Core 0.28.0 Release Notes</a></li>
+    <li><a href="#core-v0-27-1">Core 0.27.1 Release Notes</a></li>
+    <li><a href="#core-v0-27-0">Core 0.27.0 Release Notes</a></li>
+    <li><a href="#core-v0-26-5">Core 0.26.5 Release Notes</a></li>
+    <li><a href="#core-v0-26-4">Core 0.26.4 Release Notes</a></li>
+    <li><a href="#core-v0-26-3">Core 0.26.3 Release Notes</a></li>
+    <li><a href="#core-v0-26-2">Core 0.26.2 Release Notes</a></li>
+    <li><a href="#core-v0-26-1">Core 0.26.1 Release Notes</a></li>
+    <li><a href="#core-v0-26-0">Core 0.26.0 Release Notes</a></li>
+    <li><a href="#core-v0-25-7">Core 0.25.7 Release Notes</a></li>
+    <li><a href="#core-v0-25-6">Core 0.25.6 Release Notes</a></li>
+    <li><a href="#core-v0-25-5">Core 0.25.5 Release Notes</a></li>
+    <li><a href="#core-v0-25-4">Core 0.25.4 Release Notes</a></li>
+    <li><a href="#core-v0-25-3">Core 0.25.3 Release Notes</a></li>
+    <li><a href="#core-v0-25-2">Core 0.25.2 Release Notes</a></li>
+    <li><a href="#core-v0-25-1">Core 0.25.1 Release Notes</a></li>
+    <li><a href="#core-v0-25-0">Core 0.25.0 Release Notes</a></li>
+    <li><a href="#core-v0-24-1">Core 0.24.1 Release Notes</a></li>
+    <li><a href="#core-v0-24-0">Core 0.24.0 Release Notes</a></li>
+    <li><a href="#core-v0-23-3">Core 0.23.3 Release Notes</a></li>
+    <li><a href="#core-v0-23-2">Core 0.23.2 Release Notes</a></li>
+    <li><a href="#core-v0-23-1">Core 0.23.1 Release Notes</a></li>
+    <li><a href="#core-v0-23-0">Core 0.23.0 Release Notes</a></li>
+    <li><a href="#v0-22-2">0.22.2 Release Notes</a></li>
+    <li><a href="#v0-22-1">0.22.1 Release Notes</a></li>
+    <li><a href="#v0-22-0">0.22.0 Release Notes</a></li>
+  </ul>
+</nav>
+    </div>
+  
+</aside>
+
+  </section>
+</main>
+
+<section id="footer">
+  <div class="footer--content">
+
+    <div class="footer--content--center">
+
+      <div class="register">
+        <img alt="Sensu Go Lizy mascot image" title="Register your Sensu installation" src="/images/lizy-logo-a.png">
+        <h3>Register your Sensu installation &mdash; Get rewards!</h3>
+        <p>Take 2 minutes to <a href="https://sensu.io/register"><b><u>register your installation</u></b></a> and let Sensu help you along your journey.<br>
+        We'll send you a free reward when you add your first 10 checks and connect at least 10 agents!</p>
+      </div>
+    </div>
+
+    <div class="footer--content--left">
+      <h3>About Sensu</h3>
+      <p>The Sensu monitoring event pipeline empowers businesses to automate their monitoring workflows and gain deep visibility into their multi-cloud infrastructure, from Kubernetes to bare metal. Companies like Sony, Box.com, and Activision rely on Sensu to help deliver value faster, at scale.</p>
+
+      <div class="footer--navigation">
+        <div>
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="https://sensu.io/products">Products</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/products/core">Sensu Core</a></li>
+                <li><a href="https://sensu.io/products/enterprise">Sensu Enterprise</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/solutions">Solutions</a></li>
+            <li>
+              <ul>
+                <li><a href="https://sensu.io/solutions/container-monitoring">For Containers</a></li>
+                <li><a href="https://sensu.io/solutions/cloud-monitoring">For Cloud</a></li>
+                <li><a href="https://sensu.io/solutions/nagios-alternative">For Nagios</a></li>
+              </ul>
+            </li>
+            <li><a href="https://sensu.io/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://sensu.io/community">Community</a></li>
+            <li><a href="https://docs.sensu.io">Documentation</a></li>
+            <li><a href="https://sensu.io/products/downloads">Downloads</a></li>
+            <li><a href="https://account.sensu.io/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://sensu.io/about">About</a></li>
+            <li><a href="https://blog.sensu.io/" target="_blank">Blog</a></li>
+            <li><a href="https://sensu.io/customers">Customers</a></li>
+            <li><a href="https://sensu.io/contact">Contact</a></li>
+            <li><a href="https://sensu.io/sales">Sales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--content--right">
+      <h3>Get In Touch</h3>
+      <p>Our team is here to help. Use our <a href="https://sensu.io/contact"><b><u>contact form</b></u></a> or reach out on GitHub, Slack, or Twitter.</p>
+      <ul class="inline">
+        <li><a href="https://github.com/sensu" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-920.000000, -4175.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M944,179.302423 C944,184.73279 940.5625,189.346199 935.796875,190.980114 C935.1875,191.092246 934.984375,190.707795 934.984375,190.387419 L934.984375,187.007457 C934.984375,185.854105 934.609375,185.117241 934.171875,184.73279 C936.84375,184.428433 939.65625,183.387212 939.65625,178.661672 C939.65625,177.316095 939.1875,176.210799 938.421875,175.361803 C938.546875,175.041428 938.953125,173.791963 938.296875,172.093972 C937.296875,171.773597 935,173.359456 935,173.359456 C934.046875,173.087137 933.015625,172.942968 932,172.942968 C930.984375,172.942968 929.953125,173.087137 929,173.359456 C929,173.359456 926.703125,171.773597 925.6875,172.093972 C925.046875,173.791963 925.453125,175.041428 925.578125,175.361803 C924.8125,176.210799 924.34375,177.316095 924.34375,178.661672 C924.34375,183.371194 927.140625,184.428433 929.8125,184.73279 C929.46875,185.053166 929.15625,185.581785 929.046875,186.382724 C928.359375,186.7031 926.609375,187.247739 925.5625,185.357522 C924.90625,184.188151 923.71875,184.092039 923.71875,184.092039 C922.546875,184.07602 923.640625,184.844921 923.640625,184.844921 C924.421875,185.213353 924.96875,186.639025 924.96875,186.639025 C925.671875,188.833598 929.015625,188.096734 929.015625,188.096734 C929.015625,189.121936 929.03125,190.099081 929.03125,190.387419 C929.03125,190.707795 928.8125,191.092246 928.203125,190.980114 C923.4375,189.346199 920,184.73279 920,179.302423 C920,172.51046 925.375,167 932,167 C938.625,167 944,172.51046 944,179.302423 Z"></path>
+              </g>
+          </g>
+      </svg>
+      </svg></a></li>
+        <li><a href="https://slack.sensu.io/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-970.000000, -4174.000000)">
+              <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                  <path d="M983.558646,174.858722 C981.981445,175.389656 980.426,175.913367 978.850551,176.443791 C979.381566,178.019593 979.905426,179.574164 980.436149,181.149018 C982.013351,180.618084 983.568868,180.094373 985.144317,179.56395 C984.613229,177.988147 984.089442,176.433576 983.558646,174.858722 M987.341608,173.597015 C987.875471,175.177268 988.398382,176.725054 988.927352,178.290642 C989.756037,178.018937 990.556758,177.747669 991.363173,177.494204 C992.397094,177.169165 993.417872,177.616194 993.827396,178.558626 C994.288246,179.619546 993.796293,180.824125 992.708489,181.235696 C991.977422,181.512289 991.230584,181.747514 990.490901,182.001563 C990.405258,182.031112 990.320418,182.063069 990.205863,182.104583 C990.270843,182.306246 990.332611,182.502072 990.396862,182.697023 C990.599104,183.310913 990.820184,183.919332 991.000743,184.53957 C991.250662,185.398097 990.877426,186.300984 990.115766,186.758301 C989.350602,187.21766 988.359685,187.148348 987.740107,186.522857 C987.48201,186.262315 987.291814,185.904516 987.158276,185.557297 C986.881926,184.838635 986.664132,184.097501 986.41465,183.342724 C984.842632,183.872564 983.293175,184.39467 981.715316,184.926334 C981.780881,185.135657 981.839875,185.33214 981.903906,185.526945 C982.108631,186.149518 982.328324,186.767567 982.518155,187.394517 C982.876862,188.579689 982.220339,189.689565 981.01893,189.955652 C980.084524,190.162568 979.102077,189.628716 978.759651,188.702773 C978.491625,187.977983 978.253679,187.242175 978.0023,186.511256 C977.970101,186.417502 977.937538,186.32382 977.894972,186.200955 C977.176317,186.441068 976.471168,186.676877 975.765801,186.912175 C975.373216,187.043066 974.980924,187.128722 974.558915,187.042774 C973.695331,186.866793 973.028587,186.13799 972.956744,185.262317 C972.879935,184.327035 973.388828,183.514036 974.25964,183.211249 C974.963547,182.966612 975.674171,182.741237 976.381583,182.506669 C976.466496,182.478579 976.55024,182.446841 976.652603,182.410361 C976.123997,180.844627 975.601086,179.295966 975.0681,177.717318 C974.51102,177.900157 973.970732,178.081902 973.427451,178.254162 C973.037422,178.37783 972.650459,178.539437 972.249697,178.595763 C971.209351,178.742049 970.294513,178.107584 970.060948,177.128745 C969.815775,176.101533 970.325324,175.12138 971.318796,174.755556 C972.03548,174.491658 972.763335,174.258184 973.486153,174.010993 C973.579827,173.978964 973.673355,173.946496 973.79397,173.904836 C973.550914,173.175814 973.313845,172.461675 973.074512,171.74834 C972.9455,171.363911 972.86818,170.9797 972.952144,170.56864 C973.131023,169.693697 973.864792,169.035155 974.761961,168.966718 C975.677968,168.896895 976.483872,169.408859 976.785849,170.272931 C977.019633,170.941761 977.231952,171.618032 977.454565,172.290583 C977.494064,172.4098 977.537798,172.527559 977.585329,172.662317 C979.165889,172.133353 980.72586,171.61132 982.311677,171.080605 C982.104542,170.467809 981.897408,169.876609 981.705971,169.280375 C981.586962,168.909882 981.437652,168.53771 981.396401,168.156053 C981.286591,167.140296 981.9326,166.296142 982.949216,166.053402 C983.895304,165.827516 984.871253,166.334373 985.22244,167.268633 C985.503974,168.017355 985.744548,168.781398 986.00447,169.538291 C986.033236,169.622196 986.069012,169.703693 986.108439,169.804013 C986.874479,169.548505 987.622777,169.293362 988.374726,169.049601 C989.361919,168.729596 990.330567,169.104759 990.808575,169.982548 C991.399095,171.06718 990.889838,172.393822 989.71829,172.800431 C989.014237,173.044776 988.304123,173.27183 987.596931,173.507055 C987.520195,173.532518 987.444409,173.560608 987.341608,173.597015"></path>
+              </g>
+          </g>
+      </svg></a></li>
+        <li><a href="https://twitter.com/sensu" target="_blank"><svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1017.000000, -4176.000000)">
+                <g transform="translate(0.000000, 4008.000000)" fill="#2C3458">
+                    <path d="M1038.54405,172.982073 C1038.55358,173.198827 1038.55676,173.41558 1038.55676,173.633963 C1038.55676,180.306063 1033.60511,188 1024.54749,188 C1021.76566,188 1019.17936,187.16558 1017,185.729791 C1017.38469,185.778683 1017.77732,185.79987 1018.17473,185.79987 C1020.48126,185.79987 1022.60498,184.994785 1024.28997,183.638853 C1022.13604,183.601369 1020.31594,182.139505 1019.68963,180.134941 C1019.99006,180.195241 1020.30004,180.226206 1020.61796,180.226206 C1021.06464,180.226206 1021.49861,180.162647 1021.91509,180.048566 C1019.66101,179.584094 1017.96331,177.543677 1017.96331,175.099087 L1017.96331,175.035528 C1018.62777,175.410365 1019.3876,175.640156 1020.19513,175.664602 C1018.87257,174.758475 1018.00305,173.215124 1018.00305,171.463168 C1018.00305,170.537484 1018.24467,169.672099 1018.67068,168.924055 C1021.09803,171.979791 1024.72871,173.987614 1028.82037,174.201108 C1028.73612,173.83116 1028.6932,173.443286 1028.6932,173.048892 C1028.6932,170.26043 1030.89641,168 1033.61624,168 C1035.03259,168 1036.31223,168.614407 1037.20877,169.595502 C1038.33263,169.36897 1039.38495,168.948501 1040.33872,168.369948 C1039.96834,169.54824 1039.18943,170.537484 1038.17208,171.161669 C1039.16876,171.044329 1040.11776,170.770535 1041,170.367992 C1040.33872,171.381682 1039.50576,172.269883 1038.54405,172.982073"></path>
+                </g>
+            </g>
+        </svg>
+      </a></li>
+      </ul>
+
+      <h3>Join Our Community</h3>
+      <p>Become a member of the Sensu community and get access to the community Slack channel and our weekly newsletter containing updates about Sensu.</p>
+      <form action="https://share.hsforms.com/10Dzh-ahWTaulALvp3xFfmQ2mwx3" target="_blank">
+        <input type="email" id="EMAIL" name="email" placeholder="Your Email">
+        <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    Made with <a href="https://twitter.com/hashtag/monitoringlove" target="_blank">#monitoringlove</a> by Sensu, Inc. &copy; 2013-2023 &mdash; <a href="https://sensu.io/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+</section>
+
+
+<script>
+$( document ).ready(function() {
+  applyTipBoxes();
+});
+
+function boldFirstWord(element) {
+  newElement = element.html().replace(/(^\w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function boldFirstTwoWords(element) {
+  newElement = element.html().replace(/(^\w+ \w+)/, '<strong>$1</strong>');
+  element.html(newElement);
+}
+
+function applyTipBoxes() {
+  $('em').wrap(function() {
+    if ($(this).text().includes('NOTE:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-note"></div>';
+    } else if ($(this).text().includes('WARNING:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-warning"></div>';
+    } else if ($(this).text().includes('PRO TIP:')) {
+      boldFirstTwoWords($(this));
+      return '<div class="alert-tip"></div>';
+    } else if ($(this).text().includes('IMPORTANT:')) {
+      boldFirstWord($(this));
+      return '<div class="alert-important"></div>';
+    }
+  });
+}
+</script>
+
+<script>
+  
+    var base_url = '';
+    var repo_id  = 'sensu\/sensu-docs';
+  
+</script>
+
+<script src="/javascripts/application.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  /* Add headers to scrollspy */
+  var headers   = document.getElementsByTagName("h2");
+  var scrollspy = document.getElementById('scrollspy');
+
+  if(scrollspy) {
+    if(headers.length > 0) {
+      for(var i = 0; i < headers.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("class", "anchor");
+
+        var a  = document.createElement("a");
+        a.setAttribute("href", "#" + headers[i].id);
+        a.setAttribute("title", headers[i].innerHTML);
+        a.innerHTML = headers[i].innerHTML;
+
+        li.appendChild(a)
+        scrollspy.appendChild(li);
+      }
+    } else {
+      scrollspy.parentElement.removeChild(scrollspy)
+    }
+  }
+
+  /* Add permanent link next to the headers */
+  var headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+
+  for(var i = 0; i < headers.length; i++) {
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + headers[i].id);
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 9.2" width="18.3px"><path d="M-1.8-6.4h22v22h-22v-22z" fill="none"/><path d="M1.7 4.6C1.7 3 3 1.7 4.6 1.7h3.7V0H4.6C2.1 0 0 2.1 0 4.6s2.1 4.6 4.6 4.6h3.7V7.4H4.6C3 7.4 1.7 6.2 1.7 4.6zm3.8.9h7.3V3.7H5.5v1.8zM13.8 0h-3.7v1.7h3.7c1.6 0 2.8 1.3 2.8 2.8s-1.3 2.8-2.8 2.8h-3.7V9h3.7c2.5 0 4.6-2.1 4.6-4.6S16.3 0 13.8 0z"/></svg>';
+    headers[i].appendChild(a);
+  }
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0087/0389.js" async="async"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+      []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+      m.parentNode.insertBefore(a,m)
+    })(window, document,
+      'script', '//www.google-analytics.com/analytics.js', 'ga');
+     
+    ga('create', 'UA-39138312-17', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+     
+    var buttons = document.querySelectorAll('a');
+    Array.prototype.map.call(buttons, function(item) {
+      if (item.host != document.location.host) {
+        item.addEventListener('click', function() {
+          var action = item.getAttribute('data-action') || 'follow';
+          ga('send', 'event', 'outbound', action, item.href);
+        });
+      }
+    });
+     
+    var searchInputs = document.getElementsByClassName('search');
+    for (var i=0; i < searchInputs.length; i++) {
+      searchInputs[i].addEventListener('blur', function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga('send', 'pageview', path + '?q=' + this.value);
+        }
+      });
+    }
+
+    var dropdowns = document.getElementsByClassName('dropdown');
+    for (var i=0; i < dropdowns.length; i++) {
+      dropdowns[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.currentTarget.classList.toggle('open');
+      });
+    }
+    document.addEventListener('click', function(e) {
+      for (var i=0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove('open');
+      };
+    });
+
+    
+    var languages = {
+      javascript: "JavaScript",
+      json: "JSON",
+      yml: "YML",
+    };
+    var toggles = document.getElementsByClassName('language-toggle');
+    for (var i=0; i < toggles.length; i++) {
+      var children = Array.prototype.slice.call(toggles[i].querySelectorAll('.language'));
+      var langs = children.map(function(c) { return c.dataset.lang; });
+
+      
+      langs.forEach(function(lang) {
+        var el = document.createElement('span');
+        el.setAttribute('role', 'tab');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('data-lang', lang);
+        el.innerText = languages[lang] || lang;
+        el.addEventListener('click', function(e) {
+          var elOffset = e.currentTarget.getBoundingClientRect().top;
+          setLanguage(e.currentTarget.dataset.lang);
+          e.currentTarget.scrollIntoView();
+          window.scrollBy(0, -elOffset);
+        });
+        toggles[i].querySelector('.tabs').appendChild(el);
+      });
+
+      
+      toggles[i].querySelector('.languages').children[0].classList.add('active');
+    }
+
+    
+    function setLanguage(lang) {
+      
+      localStorage.setItem('lang', lang);
+
+      
+      var tabLists = Array.prototype.slice.call(document.querySelectorAll('.language-toggle .tabs'));
+      
+      tabLists.forEach(function(tabList) {
+        var activeTab = tabList.querySelector('.active');
+        var selectedTab = tabList.querySelector('[data-lang="' + lang + '"]');
+        var allTabs = Array.prototype.slice.call(tabList.children);
+        allTabs.forEach(function(t) { return t.classList.remove('active'); });
+        if (selectedTab) {
+          selectedTab.classList.add('active');
+        } else if (activeTab) {
+          activeTab.classList.add('active');
+        } else {
+          allTabs[0].classList.add('active');
+        }
+      });
+
+      
+      var selector = '.language-toggle .language[data-lang="' + lang + '"]';
+      var langBlockChildren = document.querySelectorAll(selector);
+      var langBlocks = Array.prototype.slice.call(langBlockChildren).map(function(el) { return el.closest('.languages'); });
+      
+      langBlocks.forEach(function(el) {
+        Array.prototype.slice.call(el.children).forEach(function(c) {
+          return c.classList.remove('active');
+        })
+      });
+      
+      langBlockChildren.forEach(function(el) { return el.classList.add('active'); });
+    }
+    
+    setLanguage(localStorage.getItem('lang'));
+  </script>
+
+
+
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o1043');
+  twq('track','PageView');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+  var docsearchOptions = {
+    appId: 'S633WESKWC',
+    apiKey: '2aaea336f8b58143b17119944385071f',
+    indexName: 'sensu',
+    inputSelector: '#desktop-search',
+    algoliaOptions: {
+      facetFilters: [
+        [
+          
+            'tags:sensu-core'
+          
+        ],
+        [
+          
+            'version:1.9'
+          
+        ]
+      ]
+    },
+    debug: false
+  };
+
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+
+  docsearchOptions.inputSelector = '#mobile-search';
+  if (document.querySelector(docsearchOptions.inputSelector)) {
+    docsearch(docsearchOptions);
+  }
+</script>
+
+</body>
+</html>

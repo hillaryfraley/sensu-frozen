@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensu Enterprise on Sensu Docs</title>
+    <link>/sensu-enterprise/latest/</link>
+    <description>Recent content in Sensu Enterprise on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise/latest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CHANGELOG</title>
+      <link>/sensu-enterprise/latest/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/changelog/</guid>
+      <description>NOTE: Sensu Enterprise is built on Sensu Core. Sensu Core changes are documented in the Sensu Core changelog.
+Releases Enterprise 3.8.0 Release Notes Enterprise 3.7.0 Release Notes Enterprise 3.6.2 Release Notes Enterprise 3.6.1 Release Notes Enterprise 3.6.0 Release Notes Enterprise 3.5.0 Release Notes Enterprise 3.4.0 Release Notes Enterprise 3.3.3 Release Notes Enterprise 3.3.2 Release Notes Enterprise 3.3.1 Release Notes Enterprise 3.3.0 Release Notes Enterprise 3.2.2 Release Notes Enterprise 3.2.1 Release Notes Enterprise 3.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading Sensu Enterprise</title>
+      <link>/sensu-enterprise/latest/upgrading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/upgrading/</guid>
+      <description>In most cases, you can upgrade Sensu Enterprise by installing the latest package. Certain versions of Sensu Enterprise may include changes that are not backwards compatible and require additional steps be taken when upgrading.
+Upgrading the Sensu Enterprise package Upgrading from Sensu Enterprise &amp;lt; 3.0 Changes in OpsGenie integration Changes in Java package dependency Upgrading the Sensu Enterprise package The following instructions assume that you have already installed Sensu Enterprise using the steps detailed in the Sensu Installation Guide.</description>
+    </item>
+    
+    <item>
+      <title>Enterprise Configuration</title>
+      <link>/sensu-enterprise/latest/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/configuration/</guid>
+      <description>Sensu Enterprise service scripts make use of certain environment variable values to configure the Java runtime environment. These settings take effect prior to Sensu Enterprise loading configuration files from disk as described in Sensu Configuration reference documentation.
+Values for the environment variables described in this document should be set by editing /etc/default/sensu-enterprise. After changing values in this file, the sensu-enterprise service must be restarted before the new values can take effect.</description>
+    </item>
+    
+    <item>
+      <title>Contact Routing</title>
+      <link>/sensu-enterprise/latest/contact-routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/contact-routing/</guid>
+      <description>Reference documentation What is contact routing? How does contact routing work? Contact Routing configuration Example Contact Routing definition Contact Routing definition specification CONTACT attributes Severities What is contact routing? Every incident or outage has an ideal first responder, a team or individual with the knowledge to triage and address the issue. Sensu Enterprise contact routing makes it possible to assign checks to specific teams and/or individuals, reducing mean time to response and recovery (MTTR).</description>
+    </item>
+    
+    <item>
+      <title>Enterprise API</title>
+      <link>/sensu-enterprise/latest/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/api/</guid>
+      <description>Reference documentation What is the Sensu Enterprise API? Enterprise API Configuration Example(s) API specification api attributes ssl attributes Create an SSL keystore Configure the Enterprise API for SSL The /metrics API endpoints /metrics/check_requests (GET) /metrics/clients (GET) /metrics/events (GET) /metrics/keepalives (GET) /metrics/results (GET) What is the Sensu Enterprise API? Every instance of Sensu Enterprise provides the Sensu Enterprise API, built upon the Sensu Core API.
+The Sensu Enterprise API has the functionality of the Core API with the addition of several endpoints to provide access to data for generating reports, visualizing internal metrics, and more.</description>
+    </item>
+    
+    <item>
+      <title>Built-in Filters</title>
+      <link>/sensu-enterprise/latest/built-in-filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/built-in-filters/</guid>
+      <description>ENTERPRISE: Built-in filters are available for Sensu Enterprise users only.
+Reference documentation What are built-in filters? Using built-in filters Using multiple built-in filters What are built-in filters? Sensu Enterprise has several built-in event filters, used by many of the third-party integrations, and made available to standard Sensu event handlers. These enterprise filters can be used to combat alert fatigue.
+Built-in filters Please refer to the reference documentation for each of the following built-in filters for more information on how to use them:</description>
+    </item>
+    
+    <item>
+      <title>Built-in Mutators</title>
+      <link>/sensu-enterprise/latest/built-in-mutators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/built-in-mutators/</guid>
+      <description>ENTERPRISE: Built-in mutators are available for Sensu Enterprise users only.
+Sensu Core ships with a set of built-in mutators for transforming event data into JSON, Ruby Hash, or extracting check output. Sensu Enterprise comes with additional mutators, enabling third-party integrations, and providing event handler authors with a set of supported tools with well defined specifications.
+Enterprise mutators The output_format mutator Sensu Enterprise simplifies the process of gaining insightful metrics from complex distributed systems.</description>
+    </item>
+    
+    <item>
+      <title>Built-in Handlers</title>
+      <link>/sensu-enterprise/latest/built-in-handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/built-in-handlers/</guid>
+      <description>ENTERPRISE: Built-in handlers are available for Sensu Enterprise users only.
+Reference documentation What are built-in handlers? How to use built-in handlers? Examples List of built-in handlers What are built-in Handlers? Sensu Enterprise ships with several built-in third-party integrations, which provide Sensu event handlers. These built-in handlers can be used to handle events for any check. The Enterprise integrations use their own global configuration namespaces in combination with enterprise contact routing to provide granular controls over how events should be handled in a variety of circumstances.</description>
+    </item>
+    
+  </channel>
+</rss>

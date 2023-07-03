@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other APIs on Sensu Docs</title>
+    <link>/sensu-go/6.8/api/other/</link>
+    <description>Recent content in Other APIs on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.8/api/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>/auth</title>
+      <link>/sensu-go/6.8/api/other/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/api/other/auth/</guid>
+      <description>Generate an access token and a refresh token The /auth API endpoint provides HTTP GET access to generate an access token and a refresh token using Sensu&amp;rsquo;s basic authentication.
+The access and refresh tokens are JSON Web Tokens (JWTs) that Sensu issues to record the details of users&amp;rsquo; authenticated Sensu sessions. The backend digitally signs these tokens, and the tokens can&amp;rsquo;t be changed without invalidating the signature.
+Example The following example queries the /auth API endpoint with a given username and password to determine whether the credentials are valid and retrieve an access token and a refresh token:</description>
+    </item>
+    
+    <item>
+      <title>/health</title>
+      <link>/sensu-go/6.8/api/other/health/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/api/other/health/</guid>
+      <description>Get health data for your Sensu instance The /health API endpoint provides HTTP GET access to health data for your Sensu instance.
+Example The following example demonstrates a GET request to the /health API endpoint:
+curl -X GET \ http://127.0.0.1:8080/health The request results in a successful HTTP/1.1 200 OK response and a JSON map that contains Sensu health data:
+{ &amp;#34;Alarms&amp;#34;: null, &amp;#34;ClusterHealth&amp;#34;: [ { &amp;#34;MemberID&amp;#34;: 2882886652148554927, &amp;#34;MemberIDHex&amp;#34;: &amp;#34;8923110df66458af&amp;#34;, &amp;#34;Name&amp;#34;: &amp;#34;default&amp;#34;, &amp;#34;Err&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;Healthy&amp;#34;: true } ], &amp;#34;Header&amp;#34;: { &amp;#34;cluster_id&amp;#34;: 4255616344056076734, &amp;#34;member_id&amp;#34;: 2882886652148554927, &amp;#34;raft_term&amp;#34;: 26 }, &amp;#34;PostgresHealth&amp;#34;: [ { &amp;#34;Name&amp;#34;: &amp;#34;my-postgres&amp;#34;, &amp;#34;Active&amp;#34;: false, &amp;#34;Healthy&amp;#34;: false } ] } NOTE: If your Sensu instance is not configured to use a PostgreSQL datastore, the health payload will not include PostgresHealth.</description>
+    </item>
+    
+    <item>
+      <title>/license</title>
+      <link>/sensu-go/6.8/api/other/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/api/other/license/</guid>
+      <description>NOTE: Requests to /license API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+For more information about commercial features designed for enterprises, read Get started with commercial features.
+Get the active license configuration The /license API endpoint provides HTTP GET access to the active license configuration.</description>
+    </item>
+    
+    <item>
+      <title>/metrics</title>
+      <link>/sensu-go/6.8/api/other/metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/api/other/metrics/</guid>
+      <description>Get Sensu metrics The /metrics API endpoint provides HTTP GET access to internal Sensu metrics in Prometheus format, including embedded etcd, memory usage, garbage collection, and gRPC metrics.
+Example The following example demonstrates a GET request to the /metrics API endpoint:
+curl -X GET \ http://127.0.0.1:8080/metrics The request results in a successful HTTP/1.1 200 OK response and plaintext output that contains internal Sensu metrics:
+# HELP etcd_debugging_mvcc_compact_revision The revision of the last compaction in store.</description>
+    </item>
+    
+    <item>
+      <title>/ready</title>
+      <link>/sensu-go/6.8/api/other/ready/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/api/other/ready/</guid>
+      <description>Get API readiness data for your Sensu instance The /ready API endpoint provides HTTP GET access to information about whether your Sensu instance is ready to serve API requests.
+Example The following example demonstrates a GET request to the /ready API endpoint:
+curl -X GET \ http://127.0.0.1:8080/ready The request results in a successful HTTP/1.1 200 OK response and a text response body:
+ready If the backend configuration includes an api-serve-wait-time duration, the request will result in an HTTP/1.</description>
+    </item>
+    
+    <item>
+      <title>/version</title>
+      <link>/sensu-go/6.8/api/other/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.8/api/other/version/</guid>
+      <description>Get the Sensu backend and etcd versions The /version API endpoint provides HTTP GET access to the Sensu backend and etcd versions for the Sensu instance.
+Example The following example demonstrates a GET request to the /version API endpoint:
+curl -X GET \ http://127.0.0.1:8080/version The request results in a successful HTTP/1.1 200 OK response and a JSON map that contains Sensu version data:
+{ &amp;#34;etcd&amp;#34;: { &amp;#34;etcdserver&amp;#34;: &amp;#34;3.5.0&amp;#34;, &amp;#34;etcdcluster&amp;#34;: &amp;#34;3.5.0&amp;#34; }, &amp;#34;sensu_backend&amp;#34;: &amp;#34;6.</description>
+    </item>
+    
+  </channel>
+</rss>

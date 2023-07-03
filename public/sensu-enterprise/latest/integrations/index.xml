@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Integrations on Sensu Docs</title>
+    <link>/sensu-enterprise/latest/integrations/</link>
+    <description>Recent content in Integrations on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise/latest/integrations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Email</title>
+      <link>/sensu-enterprise/latest/integrations/email/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/email/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Custom email templates Example(s) Configuration Example(s) Integration specification email attributes smtp attributes EXAMPLE ATTRIBUTES templates attributes Overview Send email notifications for events, using SMTP.
+Custom email templates As of Sensu Enterprise version 2.3, the Sensu Enterprise email integration provides support for creating custom email templates using ERB (a templating language based on Ruby). Sensu Enterprise makes an @event variable available to the ERB template containing the complete event data payload.</description>
+    </item>
+    
+    <item>
+      <title>JIRA</title>
+      <link>/sensu-enterprise/latest/integrations/jira/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/jira/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example Integration Specification jira attributes Overview Create and resolve Jira issues for Sensu events.
+Configuration Example The following is an example global configuration for the jira enterprise event handler (integration).
+{ &amp;#34;jira&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;jira.example.com&amp;#34;, &amp;#34;user&amp;#34;: &amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;secret&amp;#34;, &amp;#34;project&amp;#34;: &amp;#34;Sensu&amp;#34;, &amp;#34;timeout&amp;#34;: 10 } } Integration Specification jira attributes The following attributes are configured within the {&amp;quot;jira&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>PagerDuty</title>
+      <link>/sensu-enterprise/latest/integrations/pagerduty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/pagerduty/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration specification pagerduty attributes Overview Create and resolve PagerDuty incidents for events. After configuring a service in PagerDuty for Events API v2, configure the handler (integration) with the provided integration key.
+Configuration Example(s) The following is an example global configuration for the pagerduty enterprise event handler (integration).
+{ &amp;#34;pagerduty&amp;#34;: { &amp;#34;routing_key&amp;#34;: &amp;#34;r3FPuDvNOTEDyQYCc7trBkymIFcy2NkE&amp;#34;, &amp;#34;timeout&amp;#34;: 10 } } Integration Specification pagerduty attributes The following attributes are configured within the {&amp;quot;pagerduty&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>Rollbar</title>
+      <link>/sensu-enterprise/latest/integrations/rollbar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/rollbar/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration specification rollbar attributes Overview Create and resolve Rollbar messages/items for Sensu events.
+Configuration Example(s) The following is an example global configuration for the rollbar enterprise event handler (integration).
+{ &amp;#34;rollbar&amp;#34;: { &amp;#34;access_token_read&amp;#34;: &amp;#34;2ae6bccccf534b9c8749a4327671e711&amp;#34;, &amp;#34;access_token_write&amp;#34;: &amp;#34;944872fdbfba40c48305fc8cd73707b5&amp;#34;, &amp;#34;access_token_patch&amp;#34;: &amp;#34;f34948101a714661a83dcd8dbe6a167a&amp;#34;, &amp;#34;timeout&amp;#34;: 30 } } Integration Specification rollbar attributes The following attributes are configured within the {&amp;quot;rollbar&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>ServiceNow</title>
+      <link>/sensu-enterprise/latest/integrations/servicenow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/servicenow/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification servicenow attributes Overview Create ServiceNow configuration items upon Sensu client registration, create/resolve ServiceNow incidents, and/or create ServiceNow events for Sensu events.
+Configuration Example(s) The following is an example global configuration for the servicenow enterprise event handler (integration).
+{ &amp;#34;servicenow&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;dev42.service-now.com&amp;#34;, &amp;#34;user&amp;#34;: &amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;secret&amp;#34;, &amp;#34;create_cmdb_ci&amp;#34;: true, &amp;#34;cmdb_ci_enabled&amp;#34;: true, &amp;#34;cmdb_ci_table&amp;#34;: &amp;#34;cmdb_ci_server&amp;#34;, &amp;#34;incident_management&amp;#34;: true, &amp;#34;incident_table&amp;#34;: &amp;#34;incident&amp;#34;, &amp;#34;timeout&amp;#34;: 10 } } When creating ServiceNow configuration items, by default, Sensu will use the client&amp;rsquo;s name for the item name.</description>
+    </item>
+    
+    <item>
+      <title>VictorOps</title>
+      <link>/sensu-enterprise/latest/integrations/victorops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/victorops/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification victorops attributes Overview Create VictorOps messages for events.
+Configuration Example(s) The following is an example global configuration for the victorops enterprise event handler (integration).
+{ &amp;#34;victorops&amp;#34;: { &amp;#34;api_key&amp;#34;: &amp;#34;a53265cd-d2ef-fa32-fc54de52659a&amp;#34;, &amp;#34;routing_key&amp;#34;: &amp;#34;everyone&amp;#34;, &amp;#34;timeout&amp;#34;: 10, &amp;#34;filters&amp;#34;: [ &amp;#34;handle_when&amp;#34;, &amp;#34;check_dependencies&amp;#34; ], &amp;#34;severities&amp;#34;: [ &amp;#34;critical&amp;#34;, &amp;#34;unknown&amp;#34; ], &amp;#34;http_proxy&amp;#34;: &amp;#34;http://192.168.250.11:3128&amp;#34; } } Minimum required attributes { &amp;#34;victorops&amp;#34;: { &amp;#34;api_key&amp;#34;: &amp;#34;a53265cd-d2ef-fa32-fc54de52659a&amp;#34; } } Integration Specification victorops attributes The following attributes are configured within the {&amp;quot;victorops&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>OpsGenie</title>
+      <link>/sensu-enterprise/latest/integrations/opsgenie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/opsgenie/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification opsgenie attributes Overview Create and close OpsGenie alerts for events.
+NOTE: As of Sensu Enterprise 3.0, the OpsGenie integration uses version 2 of the OpsGenie API. Visit the Sensu Enterprise 3.0 upgrade guide and the OpsGenie API docs for more information.
+Configuration Example(s) The following is an example global configuration for the opsgenie enterprise event handler (integration).</description>
+    </item>
+    
+    <item>
+      <title>Slack</title>
+      <link>/sensu-enterprise/latest/integrations/slack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/slack/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification slack attributes Overview Send notifications to a Slack channel for events. After configuring an incoming webhook in Slack, configure the handler (integration) with the provided webhook url.
+Configuration Example(s) The following is an example global configuration for the slack enterprise event handler (integration).
+{ &amp;#34;slack&amp;#34;: { &amp;#34;webhook_url&amp;#34;: &amp;#34;https://hooks.slack.com/services/IB6JgRmRJ/eL7Hgo6kF/CckJm8E4Yt8X3i6QRKHWBekc&amp;#34;, &amp;#34;username&amp;#34;: &amp;#34;sensu&amp;#34;, &amp;#34;channel&amp;#34;: &amp;#34;#ops&amp;#34;, &amp;#34;timeout&amp;#34;: 10 } } Integration Specification slack attributes The following attributes are configured within the {&amp;quot;slack&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>HipChat</title>
+      <link>/sensu-enterprise/latest/integrations/hipchat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/hipchat/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification hipchat attributes Overview Send notifications to a HipChat room for events. After creating a HipChat API token, configure the handler (integration) with the provided API token.
+Configuration Example(s) The following is an example global configuration for the hipchat enterprise event handler (integration).
+{ &amp;#34;hipchat&amp;#34;: { &amp;#34;api_token&amp;#34;: &amp;#34;L7kVQzXF7c5eUMYUon6INaSVRDU8mP&amp;#34;, &amp;#34;api_version&amp;#34;: &amp;#34;v2&amp;#34;, &amp;#34;username&amp;#34;: &amp;#34;sensu&amp;#34;, &amp;#34;room&amp;#34;: &amp;#34;Operations&amp;#34;, &amp;#34;timeout&amp;#34;: 10 } } Integration Specification hipchat attributes The following attributes are configured within the {&amp;quot;hipchat&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>IRC</title>
+      <link>/sensu-enterprise/latest/integrations/irc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/irc/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification irc attributes Overview Send notifications to an Internet Relay Chat (IRC) channel for events.
+Configuration Example(s) The following is an example global configuration for the irc enterprise event handler (integration).
+{ &amp;#34;irc&amp;#34;: { &amp;#34;uri&amp;#34;: &amp;#34;irc://nick:pass@example.com:6697/#ops&amp;#34;, &amp;#34;ssl&amp;#34;: true, &amp;#34;nickserv_password&amp;#34;: &amp;#34;NICKSERV_PASSWORD&amp;#34;, &amp;#34;channel_password&amp;#34;: &amp;#34;CHANNEL_PASSWORD&amp;#34;, &amp;#34;join&amp;#34;: false, &amp;#34;timeout&amp;#34;: 10 } } Integration Specification irc attributes The following attributes are configured within the {&amp;quot;irc&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>SNMP</title>
+      <link>/sensu-enterprise/latest/integrations/snmp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/snmp/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Sensu Enterprise MIBs Configuration Example(s) Integration Specification snmp attributes Overview Send SNMP traps to a SNMP manager. Sensu Enterprise provides two SNMP MIB (management information base) modules for this integration. The SNMP integration is capable of creating either SNMPv1 or SNMPv2 traps for Sensu events. By default, SNMPv2 traps are created unless the integration is configured for SNMPv1, e.g. &amp;quot;version&amp;quot;: 1.</description>
+    </item>
+    
+    <item>
+      <title>Graylog</title>
+      <link>/sensu-enterprise/latest/integrations/graylog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/graylog/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification graylog attributes Overview The integration sends event data to a Graylog Raw/Plaintext TCP input. This integration requires a Graylog JSON extractor.
+Configuration Example(s) The following is an example configuration for the graylog enterprise event handler (integration).
+{ &amp;#34;graylog&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;127.0.0.1&amp;#34;, &amp;#34;port&amp;#34;: 5555, &amp;#34;timeout&amp;#34;: 10 } } Integration specification graylog attributes host description The Graylog Raw/Plaintext TCP input host address.</description>
+    </item>
+    
+    <item>
+      <title>Flapjack</title>
+      <link>/sensu-enterprise/latest/integrations/flapjack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/flapjack/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification flapjack attributes Overview Relay Sensu results to Flapjack, a monitoring notification routing and event processing system. Flapjack uses Redis for event queuing; this integration sends event data to Flapjack through Redis, using the Flapjack event format.
+NOTE: checks DO NOT need to specify flapjack as an event handler, as every check result will be relayed to Flapjack if the integration is configured.</description>
+    </item>
+    
+    <item>
+      <title>Puppet</title>
+      <link>/sensu-enterprise/latest/integrations/puppet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/puppet/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification puppet attributes ssl attributes Overview Deregister Sensu clients from the client registry if they no longer have an associated Puppet node. The puppet enterprise handler requires access to a SSL truststore and keystore, containing a valid (and whitelisted) Puppet certificate, private key, and CA. The local Puppet agent certificate, private key, and CA can be used.</description>
+    </item>
+    
+    <item>
+      <title>Chef</title>
+      <link>/sensu-enterprise/latest/integrations/chef/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/chef/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification chef attributes Overview Deregister Sensu clients from the client registry, if they no longer have associated Chef node data. This integration can only work if Sensu clients are named using the Chef node name, for the machine on which they reside. The chef enterprise handler requires Chef Server API credentials, the local chef-client configuration can be used as a reference.</description>
+    </item>
+    
+    <item>
+      <title>EC2</title>
+      <link>/sensu-enterprise/latest/integrations/ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/ec2/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification ec2 attributes Cross-Account Access Client Configuration Integration Configuration Overview Deregister Sensu clients from the client registry, if they no longer have an associated Amazon Web Services (AWS) EC2 instance in the allowed state(s). This enterprise handler (integration) will only work if Sensu clients are named using the EC2 instance ID, for the instance on which they reside.</description>
+    </item>
+    
+    <item>
+      <title>Event Stream</title>
+      <link>/sensu-enterprise/latest/integrations/event_stream/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/event_stream/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification event_stream attributes Overview The event stream integrations sends all Sensu events to a remote TCP socket for complex event processing (or &amp;ldquo;stream processing&amp;rdquo;) and/or long-term storage.
+Configuration Example(s) The following is an example configuration for the event_stream enterprise event handler (integration).
+{ &amp;#34;event_stream&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;127.0.0.1&amp;#34;, &amp;#34;port&amp;#34;: 3000, &amp;#34;filter_metrics&amp;#34;: true, &amp;#34;filter_ok_keepalives&amp;#34;: true, &amp;#34;ring_buffer_size&amp;#34;: 1500 } } Integration specification event_stream attributes host description The remote host address.</description>
+    </item>
+    
+    <item>
+      <title>InfluxDB</title>
+      <link>/sensu-enterprise/latest/integrations/influxdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/influxdb/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification influxdb attributes Overview Send metrics to InfluxDB using the InfluxDB HTTP API.
+When handling events with check type of metric this integration will attempt to translate measurements from the specified output_format to InfluxDB measurements.
+When handling events without check type of metric specified, this integration will record annotations to a measurement named sensu_events. These annotations are time series data which describe the status of a given check at a specific point in time, using the following attributes from the event:</description>
+    </item>
+    
+    <item>
+      <title>Graphite</title>
+      <link>/sensu-enterprise/latest/integrations/graphite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/graphite/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification graphite attributes Overview Send metrics to Graphite, using the plaintext protocol over TCP. The graphite enterprise handler is also capable of sending metrics to Hosted Graphite, using the prefix attribute to prefix metric names with the Hosted Graphite API key. This handler uses the output_format mutator.
+Configuration Example(s) The following is an example global configuration for the graphite enterprise handler (integration).</description>
+    </item>
+    
+    <item>
+      <title>Wavefront</title>
+      <link>/sensu-enterprise/latest/integrations/wavefront/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/wavefront/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuring a Wavefront Proxy Configuration Example(s) Integration Specification wavefront attributes Overview Send metrics to Wavefront using the Wavefront Data Format. This handler uses the output_format mutator.
+Configuring a Wavefront Proxy To install and configure a Wavefront Proxy to receive metrics from Sensu Enterprise, please refer to the Wavefront Proxy setup documentation.
+Configuration Example(s) The following is an example global configuration for the wavefront enterprise handler (integration).</description>
+    </item>
+    
+    <item>
+      <title>OpenTSDB</title>
+      <link>/sensu-enterprise/latest/integrations/opentsdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/opentsdb/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification opentsdb attributes Overview Send metrics to OpenTSDB using the telnet protocol (over TCP). This handler uses the output_formatmutator.
+Configuration Example(s) The following is an example global configuration for the opentsdb enterprise handler (integration).
+{ &amp;#34;opentsdb&amp;#34;: { &amp;#34;host&amp;#34;: &amp;#34;opentsdb.example.com&amp;#34;, &amp;#34;port&amp;#34;: 4242, &amp;#34;tag_host&amp;#34;: true, &amp;#34;tags&amp;#34;: { &amp;#34;dc&amp;#34;: &amp;#34;us-central-1&amp;#34; } } } Integration Specification opentsdb attributes The following attributes are configured within the {&amp;quot;opentsdb&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>Librato</title>
+      <link>/sensu-enterprise/latest/integrations/librato/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/librato/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification librato attributes Overview Send metrics to Librato Metrics using the HTTP API.
+Configuration Example(s) The following is an example global configuration for the librato enterprise handler (integration).
+{ &amp;#34;librato&amp;#34;: { &amp;#34;email&amp;#34;: &amp;#34;support@example.com&amp;#34;, &amp;#34;api_key&amp;#34;: &amp;#34;90SHpjPOFqd2YJFIX9rzDq7ik6CiDmqu2AvqcXJAX3buIwcOGqIOgNilwKMjpStO&amp;#34; } } Integration Specification librato attributes The following attributes are configured within the {&amp;quot;librato&amp;quot;: {} } configuration scope.
+email description The Librato account email.</description>
+    </item>
+    
+    <item>
+      <title>DataDog</title>
+      <link>/sensu-enterprise/latest/integrations/datadog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/datadog/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Example(s) Integration Specification datadog attributes Overview Create Datadog events for Sensu events. After managing your Datadog account API key, configure the handler (integration) with your API key.
+Configuration Example(s) The following is an example global configuration for the datadog enterprise event handler (integration).
+{ &amp;#34;datadog&amp;#34;: { &amp;#34;api_key&amp;#34;: &amp;#34;9775a026f1ca7d1c6c5af9d94d9595a4&amp;#34;, &amp;#34;timeout&amp;#34;: 10 } } Integration Specification datadog attributes The following attributes are configured within the {&amp;quot;datadog&amp;quot;: {} } configuration scope.</description>
+    </item>
+    
+    <item>
+      <title>TimescaleDB</title>
+      <link>/sensu-enterprise/latest/integrations/timescaledb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/integrations/timescaledb/</guid>
+      <description>ENTERPRISE: Built-in integrations are available for Sensu Enterprise users only.
+Overview Configuration Examples Integration Specification timescaledb attributes Overview TimescaleDB is an open source time series database powered by PostgreSQL. This integration allows Sensu Enterprise to send metrics directly to TimescaleDB using the PostgreSQL protocol.
+Configuration The TimescaleDB integration requires a TimescaleDB table with following columns and types.
+column type reference time timestamptz Date/Time Types name text Character Types value double precision Numeric Types source text Character Types tags jsonb JSON Types For example, the following commands create a sensu database, a metrics table with the required table structure, and a sensu user with access privileges for the metrics table:</description>
+    </item>
+    
+  </channel>
+</rss>

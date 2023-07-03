@@ -1,0 +1,54 @@
+{{ partial "head" . }}
+
+{{ if (eq (trim .Site.Params.provider " " | lower) "github") | and (isset .Site.Params "repo_url") }}
+  {{ $repo_id := replace .Site.Params.repo_url "https://github.com/" ""}}
+  {{ .Scratch.Set "repo_id" $repo_id }}
+{{ end }}
+
+{{ partial "header" . }}
+
+<main class="main">
+  {{ partial "drawer" . }}
+
+  <article class="article">
+    <div class="wrapper">
+      <h1>{{ .Title }} {{ if .Draft }} (Draft){{ end }}</h1>
+
+        {{ .Content }}
+
+        {{ $product := replace .Section "-" "_" }}
+        {{ $product_info := (index .Site.Params.products $product) }}
+        {{ if (isset $product_info "versions") }}
+          {{ $product_versions := (where $product_info.versions "version" .Params.version) }}
+          {{ if gt (len $product_versions) 1 }}
+            <h2>Pick a Platform</h2>
+            <div class="link-grid">
+              {{ $platforms := index (index $product_versions 0) "platforms" }}
+              {{ range $platform := $platforms }}
+                <a onClick="setPlatformCookie('{{ $platform }}')" href="client-installation">{{ $platform }}</a>
+              {{ end }}
+            </div>
+          {{ end }}
+        {{ end }}
+    </div>
+  </article>
+
+  <div class="results" role="status" aria-live="polite">
+    <div class="scrollable">
+        <div class="wrapper">
+        <div class="meta"></div>
+        <div class="list"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{{ partial "footer" . }}
+{{ partial "footer_js" . }}
+<script>
+    function setPlatformCookie(platform) {
+      Cookies.set('platform', platform, { expires: 2030 });
+    }
+</script>
+</body>
+</html>

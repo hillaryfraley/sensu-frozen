@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manage Secrets on Sensu Docs</title>
+    <link>/sensu-go/6.7/operations/manage-secrets/</link>
+    <description>Recent content in Manage Secrets on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.7/operations/manage-secrets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use secrets management in Sensu</title>
+      <link>/sensu-go/6.7/operations/manage-secrets/secrets-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/manage-secrets/secrets-management/</guid>
+      <description>COMMERCIAL FEATURE: Access the Env and VaultProvider secrets provider datatypes in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu&amp;rsquo;s secrets management allows you to avoid exposing secrets like usernames, passwords, and access keys in your Sensu configuration. In this guide, you&amp;rsquo;ll learn how to use Sensu&amp;rsquo;s Env secrets provider or HashiCorp Vault as your external secrets provider and authenticate without exposing your secrets.</description>
+    </item>
+    
+    <item>
+      <title>Secrets reference</title>
+      <link>/sensu-go/6.7/operations/manage-secrets/secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/manage-secrets/secrets/</guid>
+      <description>COMMERCIAL FEATURE: Access the Secret datatype in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu&amp;rsquo;s secrets management eliminates the need to expose secrets in your Sensu configuration. When a Sensu resource definition requires a secret (for example, a username or password), Sensu allows you to obtain secrets from one or more external secrets providers, so you can both refer to external secrets and consume secrets via backend environment variables.</description>
+    </item>
+    
+    <item>
+      <title>Secrets providers reference</title>
+      <link>/sensu-go/6.7/operations/manage-secrets/secrets-providers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/manage-secrets/secrets-providers/</guid>
+      <description>COMMERCIAL FEATURE: Access the Env and VaultProvider secrets provider datatypes in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu&amp;rsquo;s secrets management eliminates the need to expose secrets like usernames, passwords, and access keys in your Sensu configuration. With Sensu&amp;rsquo;s secrets management, you can obtain secrets from one or more external secrets providers, refer to external secrets, and consume secrets via backend environment variables.</description>
+    </item>
+    
+  </channel>
+</rss>

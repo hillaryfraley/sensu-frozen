@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Core API on Sensu Docs</title>
+    <link>/sensu-go/6.7/api/core/</link>
+    <description>Recent content in Core API on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.7/api/core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>core/v2/apikeys</title>
+      <link>/sensu-go/6.7/api/core/apikeys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/apikeys/</guid>
+      <description>NOTE: Requests to core/v2/apikeys endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all API keys The /apikeys GET endpoint retrieves all API keys.
+Example The following example demonstrates a GET request to the /apikeys API endpoint:
+curl -X GET \ http://127.0.0.1:8080/api/core/v2/apikeys \ -H &amp;#34;Authorization: Key $SENSU_API_KEY&amp;#34; The request will result in a successful HTTP/1.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/assets</title>
+      <link>/sensu-go/6.7/api/core/assets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/assets/</guid>
+      <description>NOTE: Requests to core/v2/assets API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all assets The /assets API endpoint provides HTTP GET access to dynamic runtime asset data.
+Example The following example demonstrates a GET request to the /assets API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/checks</title>
+      <link>/sensu-go/6.7/api/core/checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/checks/</guid>
+      <description>NOTE: Requests to core/v2/checks API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all checks The /checks API endpoint provides HTTP GET access to check data.
+Example The following example demonstrates a GET request to the /checks API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/cluster</title>
+      <link>/sensu-go/6.7/api/core/cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/cluster/</guid>
+      <description>NOTE: Requests to core/v2/cluster API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all cluster data The /cluster/members API endpoint provides HTTP GET access to Sensu cluster data.
+Example The following example demonstrates a request to the /cluster/members API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/clusterrolebindings</title>
+      <link>/sensu-go/6.7/api/core/cluster-role-bindings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/cluster-role-bindings/</guid>
+      <description>NOTE: Requests to core/v2/clusterrolebindings API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all cluster role bindings The /clusterrolebindings API endpoint provides HTTP GET access to cluster role binding data.
+Example The following example demonstrates a GET request to the /clusterrolebindings API endpoint:</description>
+    </item>
+    
+    <item>
+      <title>core/v2/clusterroles</title>
+      <link>/sensu-go/6.7/api/core/cluster-roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/cluster-roles/</guid>
+      <description>NOTE: Requests to core/v2/clusterroles API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all cluster roles The /clusterroles API endpoint provides HTTP GET access to cluster role data.
+Example The following example demonstrates a GET request to the /clusterroles API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/entities</title>
+      <link>/sensu-go/6.7/api/core/entities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/entities/</guid>
+      <description>NOTE: Requests to core/v2/entities API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all entities The /entities API endpoint provides HTTP GET access to entity data.
+Example The following example demonstrates a GET request to the /entities API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/events</title>
+      <link>/sensu-go/6.7/api/core/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/events/</guid>
+      <description>PRO TIP: The core/v2/events API endpoints are primarily designed to provide HTTP access to event data created by agent-executed checks. To test your Sensu observability pipeline, use the agent API to create new ad hoc events or sensuctl or the web UI to execute existing checks on demand.
+NOTE: Requests to core/v2/events API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/filters</title>
+      <link>/sensu-go/6.7/api/core/filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/filters/</guid>
+      <description>NOTE: Requests to core/v2/filters API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all event filters The /filters API endpoint provides HTTP GET access to event filter data.
+Example The following example demonstrates a GET request to the /filters API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/handlers</title>
+      <link>/sensu-go/6.7/api/core/handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/handlers/</guid>
+      <description>NOTE: Requests to core/v2/handlers API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all handlers The /handlers API endpoint provides HTTP GET access to handler data.
+Example The following example demonstrates a GET request to the /handlers API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/hooks</title>
+      <link>/sensu-go/6.7/api/core/hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/hooks/</guid>
+      <description>NOTE: Requests to core/v2/hooks API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all hooks The /hooks API endpoint provides HTTP GET access to hook data.
+Example The following example demonstrates a GET request to the /hooks API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/mutators</title>
+      <link>/sensu-go/6.7/api/core/mutators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/mutators/</guid>
+      <description>NOTE: Requests to core/v2/mutators API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all mutators The /mutators API endpoint provides HTTP GET access to mutator data.
+Example The following example demonstrates a GET request to the /mutators API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/namespaces</title>
+      <link>/sensu-go/6.7/api/core/namespaces/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/namespaces/</guid>
+      <description>NOTE: Requests to core/v2/namespaces API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all namespaces The /namespaces API endpoint provides HTTP GET access to namespace data.
+Example The following example demonstrates a GET request to the /namespaces API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/pipelines</title>
+      <link>/sensu-go/6.7/api/core/pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/pipelines/</guid>
+      <description>IMPORTANT: The pipelines you can create and manage with this core/v2/pipelines API are observation event processing workflows made up of filters, mutators, and handlers.
+Pipelines are different from the resources you can create and manage with the enterprise/pipeline/v1 API, which allows you to create and manage resources that can only be used in pipelines.
+NOTE: Requests to core/v2/pipelines API endpoints require you to authenticate with a Sensu API key or access token.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/rolebindings</title>
+      <link>/sensu-go/6.7/api/core/role-bindings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/role-bindings/</guid>
+      <description>NOTE: Requests to core/v2/rolebindings API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all role bindings The /rolebindings API endpoint provides HTTP GET access to role binding data.
+Example The following example demonstrates a GET request to the /rolebindings API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/roles</title>
+      <link>/sensu-go/6.7/api/core/roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/roles/</guid>
+      <description>NOTE: Requests to core/v2/roles API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all roles The /roles API endpoint provides HTTP GET access to role data.
+Example The following example demonstrates a GET request to the /roles API endpoint:
+curl -X GET \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/silenced</title>
+      <link>/sensu-go/6.7/api/core/silenced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/silenced/</guid>
+      <description>NOTE: Requests to core/v2/silenced API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+Get all silences The /silenced API endpoint provides HTTP GET access to silencing entry data.
+Example The following example demonstrates a GET request to the /silenced API endpoint:
+curl -X GET \ -H &amp;#34;Authorization: Key $SENSU_API_KEY&amp;#34; \ http://127.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/tessen</title>
+      <link>/sensu-go/6.7/api/core/tessen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/tessen/</guid>
+      <description>NOTE: Requests to core/v2/tessen API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.
+The core/v2/tessen API endpoints provide HTTP access to manage Tessen configuration. Access to core/v2/tessen is restricted to the default admin user.
+Get the active Tessen configuration The /tessen API endpoint provides HTTP GET access to the active Tessen configuration.</description>
+    </item>
+    
+    <item>
+      <title>core/v2/users</title>
+      <link>/sensu-go/6.7/api/core/users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/api/core/users/</guid>
+      <description>NOTE: The core/v2/users API endpoints allow you to create and manage user credentials with Sensu&amp;rsquo;s built-in basic authentication. To configure user credentials with an external provider like Lightweight Directory Access Protocol (LDAP), Active Directory (AD), or OpenID Connect 1.0 protocol (OIDC), use Sensu&amp;rsquo;s enterprise/authentication/v2 API endpoints.
+Requests to core/v2/users API endpoints require you to authenticate with a Sensu API key or access token. The code examples in this document use the environment variable $SENSU_API_KEY to represent a valid API key in API requests.</description>
+    </item>
+    
+  </channel>
+</rss>

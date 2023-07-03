@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy Sensu on Sensu Docs</title>
+    <link>/sensu-go/6.7/operations/deploy-sensu/</link>
+    <description>Recent content in Deploy Sensu on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.7/operations/deploy-sensu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hardware requirements</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/hardware-requirements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/hardware-requirements/</guid>
+      <description>Sensu backend requirements Backend minimum requirements This configuration is the minimum required to run the Sensu backend (although it is insufficient for production use):
+64-bit Intel or AMD CPU 4 GB RAM 4 GB free disk space 10 mbps network link Review the backend recommended configuration for production recommendations.
+Backend recommended configuration This backend configuration is recommended as a baseline for production use to ensure a good user and operator experience:</description>
+    </item>
+    
+    <item>
+      <title>Install Sensu</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/install-sensu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/install-sensu/</guid>
+      <description>This installation guide describes how to install the Sensu backend, Sensu agent, and sensuctl command line tool.
+These instructions explain how to install Sensu for proof-of-concept purposes or testing in a development environment. We recommend using a supported package to follow this guide.
+To build Sensu Go from source (OSS), follow the Sensu Go installation instructions on GitHub.
+NOTE: If you’re trying Sensu for the first time, consider following the the Sensu Go workshop instead.</description>
+    </item>
+    
+    <item>
+      <title>Deployment architecture for Sensu</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/deployment-architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/deployment-architecture/</guid>
+      <description>This guide describes various planning considerations and recommendations for a production-ready Sensu deployment, including details related to communication security and common deployment architectures.
+etcd is a key-value store that is used by applications of varying complexity, from simple web apps to Kubernetes. The Sensu backend uses an embedded etcd instance for storing both configuration and observability event data, so you can get Sensu up and running without external dependencies.
+By building atop etcd, Sensu&amp;rsquo;s backend inherits a number of characteristics to consider when you&amp;rsquo;re planning for a Sensu deployment.</description>
+    </item>
+    
+    <item>
+      <title>Configuration management</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/configuration-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/configuration-management/</guid>
+      <description>We recommend using configuration management tools to deploy Sensu in production and at scale.
+Pin versions of Sensu-related software to ensure repeatable Sensu deployments. Ensure consistent configuration between Sensu backends. The configuration management tools listed here have well-defined Sensu modules to help you get started.
+Ansible The Ansible role to deploy and manage Sensu Go is available in the Sensu Go Ansible Collection.
+The Sensu Go Ansible Collection documentation site includes installation instructions, example playbooks, and module references.</description>
+    </item>
+    
+    <item>
+      <title>Generate certificates for your Sensu installation</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/generate-certificates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/generate-certificates/</guid>
+      <description>This guide explains how to generate the certificates you need to secure a Sensu cluster and its agents.
+When deploying Sensu for use outside of a local development environment, you should secure it using transport layer security (TLS). TLS uses encryption to provide security for communication between Sensu backends and agents as well as communication between human operators and the Sensu backend, such as web UI or sensuctl access.
+Because reconfiguring an existing Sensu deployment from cleartext to TLS can be time-consuming, we recommend that you configure TLS for your backend from the very beginning.</description>
+    </item>
+    
+    <item>
+      <title>Secure Sensu</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/secure-sensu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/secure-sensu/</guid>
+      <description>As with any piece of software, it is critical to minimize any attack surface the software exposes. Sensu is no different.
+This reference describes the components you need to secure to make Sensu production-ready, including etcd peer communication, the Sensu API and web UI, and Sensu agent-to-server communication. It also describes agent mutual transport layer security (mTLS) authentication, which is required for secrets management.
+Before you can secure Sensu, you must generate the certificates you will need.</description>
+    </item>
+    
+    <item>
+      <title>Secure PostgreSQL</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/secure-postgres/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/secure-postgres/</guid>
+      <description>This guide describes how to secure communication between Sensu and the PostgreSQL event store using certificate authentication. When deploying Sensu for use outside of a local development environment, you should secure it using transport layer security (TLS).
+To learn how to secure communications between Sensu and its agents, read Generate certificates for your Sensu installation and Secure Sensu.
+NOTE: This guide describes one option for securing communication between Sensu and PostgreSQL and is intended as a starting point.</description>
+    </item>
+    
+    <item>
+      <title>Run a Sensu cluster</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/cluster-sensu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/cluster-sensu/</guid>
+      <description>To deploy Sensu for use outside of a local development environment, first decide whether you want to run a Sensu cluster.
+A Sensu cluster is a group of at least three sensu-backend nodes, each connected to a shared database provided either by Sensu’s embedded etcd or an external etcd cluster. Creating a Sensu cluster ultimately configures an etcd cluster.
+Clustering improves Sensu&amp;rsquo;s availability, reliability, and durability. It allows you to absorb the loss of a backend node, prevent data loss, and distribute the network load of agents.</description>
+    </item>
+    
+    <item>
+      <title>Multi-cluster visibility with federation</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/use-federation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/use-federation/</guid>
+      <description>COMMERCIAL FEATURE: Access federation in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu&amp;rsquo;s enterprise/federation/v1 API endpoints allow you to register external clusters, gain single-pane-of-glass visibility into the health of your infrastructure and services across multiple distinct Sensu instances within the web UI, and mirror your changes in one cluster to follower clusters. This is useful when you want to provide a single entry point for Sensu users who need to manage monitoring across multiple distinct physical data centers, cloud regions, or providers.</description>
+    </item>
+    
+    <item>
+      <title>Scale Sensu Go with Enterprise datastore</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/scale-event-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/scale-event-storage/</guid>
+      <description>COMMERCIAL FEATURE: Access the datastore feature in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Sensu Go&amp;rsquo;s datastore feature enables scaling your monitoring to many thousands of events per second.
+For each unique entity/check pair, Sensu records the latest event object in its datastore. By default, Sensu uses the embedded etcd datastore for event storage. The embedded etcd datastore helps you get started, but as the number of entities and checks in your Sensu implementation grows, so does the rate of events being written to the datastore.</description>
+    </item>
+    
+    <item>
+      <title>Datastore reference</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/datastore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/datastore/</guid>
+      <description>Sensu stores the most recent event for each entity and check pair using either an etcd (default) or PostgreSQL database.
+You can access observability event data with the Sensu web UI Events page, sensuctl event commands, and core/v2/events API endpoints. For longer retention of observability event data, integrate Sensu with a time-series database like InfluxDB or a searchable index like ElasticSearch or Splunk.
+etcd and PostgreSQL version compatibility Sensu requires at least etcd 3.</description>
+    </item>
+    
+    <item>
+      <title>Etcd replicators reference</title>
+      <link>/sensu-go/6.7/operations/deploy-sensu/etcdreplicators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.7/operations/deploy-sensu/etcdreplicators/</guid>
+      <description>COMMERCIAL FEATURE: Access the EtcdReplicator datatype in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: EtcdReplicator is a datatype in the enterprise/federation/v1 API, which is only accessible for users who have a cluster role that permits access to replication resources.
+Etcd replicators allow you to manage role-based access control (RBAC) resources in one place and mirror the changes to follower clusters. The API sets up etcd mirrors for one-way key replication.</description>
+    </item>
+    
+  </channel>
+</rss>

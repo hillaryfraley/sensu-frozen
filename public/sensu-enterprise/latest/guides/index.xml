@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on Sensu Docs</title>
+    <link>/sensu-enterprise/latest/guides/</link>
+    <description>Recent content in Guides on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-enterprise/latest/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using the EC2 Integration with Sensu Enterprise</title>
+      <link>/sensu-enterprise/latest/guides/using-ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/guides/using-ec2/</guid>
+      <description>In this guide, we&amp;rsquo;ll cover configuring and using the Sensu Enterprise Amazon Web Services (AWS) EC2 integration.
+Prerequisites EC2 Integration Basics Integration Configuration Client Configuration IAM Roles and Sensu Cross-Account IAM Roles Wrapping Up References Prerequisites Before diving into this guide, we recommend having the following components ready:
+A working Sensu Enterprise deployment An AWS account An AWS access key and secret key If you&amp;rsquo;ve not already signed up for Sensu Enterprise, you can do so via this link.</description>
+    </item>
+    
+    <item>
+      <title>Using the Email Integration with G Suite</title>
+      <link>/sensu-enterprise/latest/guides/email-gsuite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/guides/email-gsuite/</guid>
+      <description>In this guide, we&amp;rsquo;ll walk through how to configure the Sensu Enterprise email integration to use G Suite as the SMTP gateway for sending email alerts.
+Before we configure Sensu to use the gateway, we&amp;rsquo;ll have to first set up a user and app password in G Suite to use in our email integration configuration.
+Set Up User and App Password The first step to using G Suite as our SMTP relay for Sensu is to set up a user and an app password.</description>
+    </item>
+    
+    <item>
+      <title>Using the ServiceNow Integration with Sensu Enterprise</title>
+      <link>/sensu-enterprise/latest/guides/using-snow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/guides/using-snow/</guid>
+      <description>In this guide, we&amp;rsquo;ll cover configuring and using the Sensu Enterprise ServiceNow (SNOW) integration.
+Prerequisites Before diving into this guide, we recommend having the following components ready:
+A working Sensu Enterprise deployment Working SNOW Instance (you can sign up for a test instance at developer.servicenow.com) SNOW credentials ServiceNow Integration Basics Sensu Enterprise comes with a built-in integration for handling automatic registration and deregistration Sensu clients in SNOW. The integration also allows for creating incidents and events from Sensu incidents and events.</description>
+    </item>
+    
+    <item>
+      <title>Using Contact Routing in Sensu Enterprise</title>
+      <link>/sensu-enterprise/latest/guides/using-contact-routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/guides/using-contact-routing/</guid>
+      <description>Prerequisites Overview Contact Routing Basics Contact Configuration Check Configuration Client Configuration Example Implementations Global Configuration Single Handler Multiple Handlers Contact Routing and Sensu Event Pipeline Resources Prerequisites Before diving into this guide, we recommend having the following components ready:
+A working Sensu Enterprise deployment Two or more Sensu Enterprise integrations configured If you&amp;rsquo;ve not already signed up for Sensu Enterprise, you can do so via this link.
+In this guide, we&amp;rsquo;ll be using Slack and Email handlers.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting Sensu Enterprise</title>
+      <link>/sensu-enterprise/latest/guides/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-enterprise/latest/guides/troubleshooting/</guid>
+      <description>This guide provides an introduction to troubleshooting Sensu Enterprise. For information about troubleshooting the Sensu client and RabbitMQ connection, see the Sensu Core troubleshooting guide.
+Reloading Configuration Collecting Logs Settings Log Levels Printing Configurations Resolving Private Key Errors Reloading Configuration Following any changes to the Sensu Enterprise configuration, you must reload Sensu Enterprise in order for the changes to take effect.
+Reload Sensu Enterprise on Linux distributions using systemd:
+sudo systemctl reload sensu-enterprise Reload Sensu Enterprise on Linux distributions using sysvinit:</description>
+    </item>
+    
+  </channel>
+</rss>

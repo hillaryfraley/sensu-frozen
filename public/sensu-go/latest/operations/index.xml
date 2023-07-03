@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operations on Sensu Docs</title>
+    <link>/sensu-go/latest/operations/</link>
+    <description>Recent content in Operations on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/latest/operations/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

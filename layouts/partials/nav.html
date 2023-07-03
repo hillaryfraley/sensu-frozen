@@ -1,0 +1,107 @@
+{{ $currentNode := . }}
+{{ range .Site.Menus.main.ByWeight }}
+  <!-- If we have important things we can put them in the main menu and they'll show up here -->
+{{ end }}
+
+{{ if not .IsHome }}
+
+  <!-- Format this to grab the global varaibles for the product we're on -->
+  {{ $section := replace .Section "-" "_" }}
+  {{ $product_info := (index .Site.Params.products $section) }}
+  {{ $.Scratch.Add "version" .Params.version }}
+  {{ if (eq .Params.version "latest") }}
+    {{ $.Scratch.Set "version" $product_info.latest }}
+  {{ end }}
+  {{ $version := $.Scratch.Get "version" }}
+
+  <!-- loop through all menus, but only care if they're for our current section -->
+  {{ range $k, $v := .Site.Menus }}
+    {{ if and (ne $k "main") (in $k $.Section) }}
+
+      <!-- special case for sensu enterprise dash -->
+      {{ if not (and (in $k "sensu-enterprise-dashboard") (eq $.Section "sensu-enterprise")) }}
+
+        <!-- check if we're looking at the section index, or a sub section -->
+        {{ if ne (strings.TrimSuffix $version $k) $k }}
+          {{ $niceName := $.Params.product }}
+
+          <!-- ex. Sensu Core -->
+          {{ $url := replace $.Params.product " " "-" }}
+          {{ $url := lower $url }}
+          <li><a class="strong" href="/{{ $url }}/{{ $.Params.version }}">{{ $niceName }}</a><ul>
+
+          <!-- Loop through the menus pages -->
+          {{ range $y, $x := sort $v "Weight" }}
+
+          <!-- Determine if one the children of this menu is active so we can apply the proper styling -->
+            <!-- if the menu has a child menu -->
+            {{ if .HasChildren }}
+              {{ if (in $k $version) }}
+                {{ $niceName := replace $x.Name "-" " " }}
+                {{ $niceName := title $niceName }}
+
+                <li>
+                  <a class="strong accordion {{ if or ($currentNode.IsMenuCurrent $k .) ($currentNode.HasMenuCurrent $k .) }}current active{{ end }}" href="{{ .URL | absURL }}">
+                    {{ if or (eq $niceName "Api") (eq $niceName "Rbac") }}
+                      {{ upper $niceName }}
+                    <!-- render the title normally if not API -->
+                    {{ else }}
+                      {{ $niceName }}
+                    {{ end }}
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <ul>
+                    <!-- Loop through the child menu's pages -->
+                    {{ range .Children.ByWeight }}
+                      {{ if not (eq (lower .Parent) (lower .Name)) }}
+                        <!-- Determine if this child is active -->
+                        <li>
+                          {{ if .HasChildren }}
+                            <a class="accordion {{ if or ($currentNode.IsMenuCurrent $k .) ($currentNode.HasMenuCurrent $k .) }}active current{{ end }}" href="{{ .URL | absURL }}">
+                              {{ .Name }}
+                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                              {{ range .Children.ByWeight }}
+                                {{ if not (eq (lower .Parent) (lower .Name)) }}
+                                  <!-- Determine if this child is active -->
+                                  <li>
+                                    <a class="{{ if ($currentNode.IsMenuCurrent $k .) }}current{{ end }}" href="{{ .URL | absURL }}">{{ .Name }}</a>
+                                  </li>
+                                {{ end }}
+                              {{ end }}
+                            </ul>
+                          {{ else }}
+                            <a class="{{ if (eq $.Permalink (.URL | absURL ))}}current{{ end }}" href="{{ .URL | absURL }}">{{ .Name }}</a>
+                          {{ end }}
+                        </li>
+                    {{ end }}
+                  {{ end }}
+                </ul>
+                </li>
+              {{ end }}
+            <!-- No children, this is top level menu items -->
+            {{ else }}
+              {{ if not (eq $.Params.product $x.Name) }}
+                <li><a class="strong" href="{{ .URL | absURL }}">{{ $x.Name }}</a></li>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          </ul></li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- Script for the dropdown list items -->
+<script>
+  var acc = document.querySelectorAll('.accordion > .fa');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    });
+  }
+</script>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web UI on Sensu Docs</title>
+    <link>/sensu-go/6.6/web-ui/</link>
+    <description>Recent content in Web UI on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/6.6/web-ui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>View and manage resources in the web UI</title>
+      <link>/sensu-go/6.6/web-ui/view-manage-resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/web-ui/view-manage-resources/</guid>
+      <description>COMMERCIAL FEATURE: Access the web UI in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+You can view and manage Sensu resources in the web UI, including events, entities, silences, checks, handlers, event filters, and mutators.
+Use the namespace switcher Beyond the homepage, the web UI displays events, entities, and resources for a single namespace at a time. By default, the web UI displays the default namespace.</description>
+    </item>
+    
+    <item>
+      <title>Search in the web UI</title>
+      <link>/sensu-go/6.6/web-ui/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/web-ui/search/</guid>
+      <description>COMMERCIAL FEATURE: Access the web UI, basic and advanced web UI searching, and saved searches in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+The Sensu web UI includes basic search and filtering functions you can use to build customized views of your Sensu resources. Sensu also supports advanced web UI searches based on a wider range of resource attributes and custom labels as a commercial feature.</description>
+    </item>
+    
+    <item>
+      <title>Configure the web UI</title>
+      <link>/sensu-go/6.6/web-ui/webconfig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/web-ui/webconfig/</guid>
+      <description>COMMERCIAL FEATURE: Access web UI configuration in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Web UI configuration allows you to define certain display options for the Sensu web UI, such as which web UI theme to use, the number of items to list on each page, and which URLs and linked images to expand. You can define a single custom web UI configuration to federate to all, some, or only one of your clusters.</description>
+    </item>
+    
+    <item>
+      <title>Build business service monitoring</title>
+      <link>/sensu-go/6.6/web-ui/bsm-module/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/web-ui/bsm-module/</guid>
+      <description>COMMERCIAL FEATURE: Access the web UI and business service monitoring (BSM) in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+NOTE: Business service monitoring (BSM) is in public preview and is subject to change.
+The Sensu web UI includes a module to help you build and configure business service monitoring (BSM) service entities with service components and rule templates.
+Build a business service NOTE: BSM requires PostgreSQL to achieve high event throughput.</description>
+    </item>
+    
+    <item>
+      <title>Searches reference</title>
+      <link>/sensu-go/6.6/web-ui/searches-reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/web-ui/searches-reference/</guid>
+      <description>COMMERCIAL FEATURE: Access the web UI in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+With the saved searches feature in the web UI, you can apply search parameters to your entities, events, and resources and save them to etcd in a namespaced resource named searches.
+The saved searches feature is designed to be used directly in the web UI. However, you can create, retrieve, update, and delete saved searches with enterprise/searches/v1 API endpoints.</description>
+    </item>
+    
+    <item>
+      <title>Web UI configuration reference</title>
+      <link>/sensu-go/6.6/web-ui/webconfig-reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/6.6/web-ui/webconfig-reference/</guid>
+      <description>COMMERCIAL FEATURE: Access web UI configuration in the packaged Sensu Go distribution. For more information, read Get started with commercial features.
+Web UI configuration allows you to define certain display options for the Sensu web UI, such as which web UI theme to use, the number of items to list on each page, and which URLs and linked images to expand. You can define a single custom web UI configuration to federate to all, some, or only one of your clusters.</description>
+    </item>
+    
+  </channel>
+</rss>

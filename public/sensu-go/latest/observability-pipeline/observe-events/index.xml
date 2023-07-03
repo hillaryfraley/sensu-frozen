@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Events on Sensu Docs</title>
+    <link>/sensu-go/latest/observability-pipeline/observe-events/</link>
+    <description>Recent content in Events on Sensu Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/sensu-go/latest/observability-pipeline/observe-events/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Events reference</title>
+      <link>/sensu-go/latest/observability-pipeline/observe-events/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sensu-go/latest/observability-pipeline/observe-events/events/</guid>
+      <description>An event is a generic container used by Sensu to provide context to checks and metrics. The context, called observation data or event data, contains information about the originating entity and the corresponding check or metric result. An event must contain a status or metrics. In certain cases, an event can contain both a status and metrics. These generic containers allow Sensu to handle different types of events in the observability pipeline.</description>
+    </item>
+    
+  </channel>
+</rss>
